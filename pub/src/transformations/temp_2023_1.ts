@@ -7,12 +7,12 @@ import * as _et from 'exupery-core-types'
 
 import * as unmarshall from "../unmarshall"
 
-import * as d_serialization_format from "../types/LionWeb_serialization_format" 
+import * as d_serialization_format from "../types/LionWeb_serialization_format"
 
 import * as t_sf_to_tree from "./serialization_format_to_tree"
 import * as t_tree from "./2023_1_tree_to_M3"
 
-import * as m_x from "../generated/implementation/schemas/m3/marshall"
+import * as m_x from "../generated/implementation/schemas/lioncore/marshall"
 
 import * as temp_astn_to_fp from "./temp_astn_target_to_fountain_pen_block"
 
@@ -48,8 +48,44 @@ export const $$ = (
     })
 
     const m3 = t_tree.M3(
-        tree
+        tree,
+        {
+            'write id': false,
+        }
     )
+
+    // m3.entities.map(($, e_id) => {
+    //     if ($.id.id != `-id-${e_id}`) {
+    //         _ed.log_debug_message(`ID mismatch: ${$.id.id}`, () => { })
+    //     }
+    //     _ea.cc($.type, ($) => {
+    //         switch ($[0]) {
+    //             case 'classifier': return _ea.ss($, ($) => {
+    //                 $.features.map(($, f_id) => {
+    //                     if ($.id.id != `-id-${e_id}-${f_id}`) {
+    //                         _ed.log_debug_message(`ID mismatch ${$.id.id}`, () => { })
+    //                     }
+    //                 })
+    //             })
+    //             case 'datatype': return _ea.ss($, ($) => {
+    //                 _ea.cc($, ($) => {
+    //                     switch ($[0]) {
+    //                         case 'enumeration': return _ea.ss($, ($) => {
+    //                             $.map(($, en_id) => {
+
+    //                                 if ($.id != `-id-${e_id}-${en_id}`) {
+    //                                     _ed.log_debug_message(`ID mismatch ${$.id}`, () => { })
+    //                                 }
+    //                             })
+    //                         })
+    //                         default: return _ea.au($[0])
+    //                     }
+    //                 })
+    //             })
+    //             default: return _ea.au($[0])
+    //         }
+    //     })
+    // })
 
     const value = m_x.M3(
         m3,

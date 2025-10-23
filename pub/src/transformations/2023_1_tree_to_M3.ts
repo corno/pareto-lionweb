@@ -3,7 +3,7 @@ import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
 import * as d_in from "../types/LionWeb_tree"
-import * as d_out from "../generated/interface/schemas/m3/data_types/target"
+import * as d_out from "../generated/interface/schemas/lioncore/data_types/target"
 import { expect_optional_property, expect_property, expect_type, on_property_exists } from '../expect_helpers'
 
 import { $$ as group } from "exupery-standard-library/dist/dictionary/group"
@@ -48,18 +48,25 @@ const temp_log_node = (where: string, $: d_in.Node) => {
     })
 }
 
-export const ID = ($: d_in.Node, path: string): d_out.ID => {
-    return {
-        'key': expect_key($, path),
-        'name': expect_name($, path),
-    }
+export const ID = ($: d_in.Node, id: string, write_id: boolean): d_out.ID => {
+    return !write_id
+        ? _ea.not_set()
+        : _ea.set({
+            'key': expect_key($, id),
+            'id': id,
+        })
 }
 
-export const M3 = ($: d_in.Serialization_Chunk): d_out.M3 => {
+export const M3 = (
+    $: d_in.Serialization_Chunk,
+    $p: {
+        'write id': boolean
+    }
+): d_out.M3 => {
 
 
     return {
-        'id': ID($['node tree'], "root"),
+        'id': ID($['node tree'], $['root node id'], $p['write id']),
         'version': expect_property(
             $['node tree'].properties,
             "LionCore-M3:2023.1:Language-version",
@@ -74,7 +81,7 @@ export const M3 = ($: d_in.Serialization_Chunk): d_out.M3 => {
             return {
                 'key': expect_name($, `entities/${entity_id}`),
                 'value': {
-                    'id': ID($, key),
+                    'id': ID($, key, $p['write id']),
                     'type': _ea.block((): d_out.M3.entities.D._type => {
                         expect_type($.properties, _ea.dictionary_literal({
                             "LionCore-M3:2023.1:IKeyed-key": null,
@@ -120,7 +127,7 @@ export const M3 = ($: d_in.Serialization_Chunk): d_out.M3 => {
                                             return {
                                                 'key': expect_name($, key),
                                                 'value': {
-                                                    'id': ID($, "id of entity feature" + feature_id),
+                                                    'id': ID($, key, $p['write id']),
                                                     'optional': expect_property(
                                                         $.properties,
                                                         "LionCore-M3:2023.1:Feature-optional",
@@ -216,7 +223,7 @@ export const M3 = ($: d_in.Serialization_Chunk): d_out.M3 => {
                                     }), "literal containments of enumeration " + key)
                                     return {
                                         'key': expect_name($, key),
-                                        'value': ID($, key)
+                                        'value': ID($, key, $p['write id'])
                                     }
                                 }))]]
                             }

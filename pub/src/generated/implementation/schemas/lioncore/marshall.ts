@@ -2,19 +2,22 @@ import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
 import * as _i_out from "../../../interface/core/astn_target"
-import * as _i_signatures from "../../../interface/schemas/m3/marshall"
+import * as _i_signatures from "../../../interface/schemas/lioncore/marshall"
 
 
-export const ID: _i_signatures._T_ID = ($, $p) => ['verbose group', _pa.dictionary_literal({
-    'key': _pa.cc($['key'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
-    'name': _pa.cc($['name'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
-})]
+export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.transform(
+    ($): _i_out._T_Value.SG.optional => ['set', ['verbose group', _pa.dictionary_literal({
+        'id': _pa.cc($['id'], ($) => ['text', ({
+            'delimiter': ['quote', null],
+            'value': $,
+        })]),
+        'key': _pa.cc($['key'], ($) => ['text', ({
+            'delimiter': ['quote', null],
+            'value': $,
+        })]),
+    })]],
+    () => ['not set', null]
+)]
 export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'dependencies': _pa.cc($['dependencies'], ($) => Raw_References(
         $,

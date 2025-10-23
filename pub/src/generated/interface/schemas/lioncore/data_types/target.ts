@@ -4,10 +4,10 @@ import * as _i_core from "../../../core/unconstrained"
 
 // **** TYPES
 
-export type _T_ID = {
+export type _T_ID = _pt.Optional_Value<{
+    readonly 'id': string
     readonly 'key': string
-    readonly 'name': string
-}
+}>
 
 export type _T_M3 = {
     readonly 'dependencies': _T_Raw_References
@@ -65,8 +65,15 @@ export type Raw_References = _T_Raw_References
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
 export namespace _T_ID {
-    export type key = string
-    export type name = string
+    
+    export namespace O {
+        export type id = string
+        export type key = string
+    }
+    export type O = {
+        readonly 'id': string
+        readonly 'key': string
+    }
 }
 
 export namespace _T_M3 {
@@ -431,8 +438,15 @@ export namespace _T_Raw_References {
 // *** ALIASES FOR NESTED TYPES
 
 export namespace ID {
-    export type key = string
-    export type name = string
+    
+    export namespace O {
+        export type id = string
+        export type key = string
+    }
+    export type O = {
+        readonly 'id': string
+        readonly 'key': string
+    }
 }
 
 export namespace M3 {

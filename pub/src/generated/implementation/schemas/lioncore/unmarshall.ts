@@ -3,33 +3,38 @@ import * as _pd from 'exupery-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_in from "../../../interface/core/astn_source"
-import * as _i_out from "../../../interface/schemas/m3/data_types/target"
-import * as _i_signatures from "../../../interface/schemas/m3/unmarshall"
+import * as _i_out from "../../../interface/schemas/lioncore/data_types/target"
+import * as _i_signatures from "../../../interface/schemas/lioncore/unmarshall"
 
 
-export const ID: _i_signatures._T_ID = ($, $p) => _i_generic.process_group(
+export const ID: _i_signatures._T_ID = ($, $p) => _i_generic.process_optional(
     $,
     {
-        'properties': ($) => ({
-            'key': _pa.cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "key",
-                }
-            ), ($) => _i_generic.process_text(
-                $,
-                null
-            )),
-            'name': _pa.cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "name",
-                }
-            ), ($) => _i_generic.process_text(
-                $,
-                null
-            )),
-        }),
+        'value': ($) => _i_generic.process_group(
+            $,
+            {
+                'properties': ($) => ({
+                    'id': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "id",
+                        }
+                    ), ($) => _i_generic.process_text(
+                        $,
+                        null
+                    )),
+                    'key': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "key",
+                        }
+                    ), ($) => _i_generic.process_text(
+                        $,
+                        null
+                    )),
+                }),
+            }
+        ),
     }
 )
 export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
