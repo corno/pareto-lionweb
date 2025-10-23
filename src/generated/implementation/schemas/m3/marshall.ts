@@ -5,6 +5,16 @@ import * as _i_out from "../../../interface/core/astn_target"
 import * as _i_signatures from "../../../interface/schemas/m3/marshall"
 
 
+export const ID: _i_signatures._T_ID = ($, $p) => ['verbose group', _pa.dictionary_literal({
+    'key': _pa.cc($['key'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+    'name': _pa.cc($['name'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+})]
 export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'dependencies': _pa.cc($['dependencies'], ($) => Raw_References(
         $,
@@ -13,57 +23,59 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
         }
     )),
     'entities': _pa.cc($['entities'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
-        'key': _pa.cc($['key'], ($) => ['text', ({
-            'delimiter': ['quote', null],
-            'value': $,
-        })]),
-        'name': _pa.cc($['name'], ($) => ['text', ({
-            'delimiter': ['quote', null],
-            'value': $,
-        })]),
+        'id': _pa.cc($['id'], ($) => ID(
+            $,
+            {
+                'value serializers': $p['value serializers'],
+            }
+        )),
         'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
             switch ($[0]) {
                 case 'classifier': return _pa.ss($, ($) => ({
                     'state': "classifier",
                     'value': ['verbose group', _pa.dictionary_literal({
                         'features': _pa.cc($['features'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
-                            'feature type': _pa.cc($['feature type'], ($) => ['optional', $.transform(
-                                ($): _i_out._T_Value.SG.optional => ['set', Raw_References(
-                                    $,
-                                    {
-                                        'value serializers': $p['value serializers'],
-                                    }
-                                )],
-                                () => ['not set', null]
-                            )]),
-                            'key': _pa.cc($['key'], ($) => ['text', ({
-                                'delimiter': ['quote', null],
-                                'value': $,
-                            })]),
-                            'multiple': _pa.cc($['multiple'], ($) => ['optional', $.transform(
-                                ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
-                                    'delimiter': ['quote', null],
-                                    'value': $,
-                                })]],
-                                () => ['not set', null]
-                            )]),
-                            'name': _pa.cc($['name'], ($) => ['text', ({
-                                'delimiter': ['quote', null],
-                                'value': $,
-                            })]),
+                            'id': _pa.cc($['id'], ($) => ID(
+                                $,
+                                {
+                                    'value serializers': $p['value serializers'],
+                                }
+                            )),
                             'optional': _pa.cc($['optional'], ($) => ['text', ({
                                 'delimiter': ['quote', null],
                                 'value': $,
                             })]),
-                            'property type': _pa.cc($['property type'], ($) => ['optional', $.transform(
-                                ($): _i_out._T_Value.SG.optional => ['set', Raw_References(
-                                    $,
-                                    {
-                                        'value serializers': $p['value serializers'],
-                                    }
-                                )],
-                                () => ['not set', null]
-                            )]),
+                            'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+                                switch ($[0]) {
+                                    case 'feature': return _pa.ss($, ($) => ({
+                                        'state': "feature",
+                                        'value': ['verbose group', _pa.dictionary_literal({
+                                            'multiple': _pa.cc($['multiple'], ($) => ['text', ({
+                                                'delimiter': ['quote', null],
+                                                'value': $,
+                                            })]),
+                                            'type': _pa.cc($['type'], ($) => Raw_References(
+                                                $,
+                                                {
+                                                    'value serializers': $p['value serializers'],
+                                                }
+                                            )),
+                                        })],
+                                    }))
+                                    case 'property': return _pa.ss($, ($) => ({
+                                        'state': "property",
+                                        'value': ['verbose group', _pa.dictionary_literal({
+                                            'type': _pa.cc($['type'], ($) => Raw_References(
+                                                $,
+                                                {
+                                                    'value serializers': $p['value serializers'],
+                                                }
+                                            )),
+                                        })],
+                                    }))
+                                    default: return _pa.au($[0])
+                                }
+                            })]),
                         })])]),
                         'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
                             switch ($[0]) {
@@ -114,16 +126,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                         switch ($[0]) {
                             case 'enumeration': return _pa.ss($, ($) => ({
                                 'state': "enumeration",
-                                'value': ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
-                                    'key': _pa.cc($['key'], ($) => ['text', ({
-                                        'delimiter': ['quote', null],
-                                        'value': $,
-                                    })]),
-                                    'name': _pa.cc($['name'], ($) => ['text', ({
-                                        'delimiter': ['quote', null],
-                                        'value': $,
-                                    })]),
-                                })])],
+                                'value': ['dictionary', $.map(($) => ID(
+                                    $,
+                                    {
+                                        'value serializers': $p['value serializers'],
+                                    }
+                                ))],
                             }))
                             default: return _pa.au($[0])
                         }
@@ -133,14 +141,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
             }
         })]),
     })])]),
-    'key': _pa.cc($['key'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
-    'name': _pa.cc($['name'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
+    'id': _pa.cc($['id'], ($) => ID(
+        $,
+        {
+            'value serializers': $p['value serializers'],
+        }
+    )),
     'version': _pa.cc($['version'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
