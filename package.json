@@ -1,6 +1,6 @@
 {
-  "name": "pareto-json",
-  "version": "0.1.10",
+  "name": "pareto-lionweb",
+  "version": "0.0.1",
   "description": "A TypeScript library interacting with LionWeb",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",

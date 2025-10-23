@@ -124,7 +124,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                 $,
                                                                                 {
                                                                                     'states': _pa.dictionary_literal({
-                                                                                        'feature': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG => ['feature', _i_generic.process_group(
+                                                                                        'link': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG => ['link', _i_generic.process_group(
                                                                                             $,
                                                                                             {
                                                                                                 'properties': ($) => ({

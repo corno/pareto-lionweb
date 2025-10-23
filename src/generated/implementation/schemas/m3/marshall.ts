@@ -47,8 +47,8 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                             })]),
                             'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
                                 switch ($[0]) {
-                                    case 'feature': return _pa.ss($, ($) => ({
-                                        'state': "feature",
+                                    case 'link': return _pa.ss($, ($) => ({
+                                        'state': "link",
                                         'value': ['verbose group', _pa.dictionary_literal({
                                             'multiple': _pa.cc($['multiple'], ($) => ['text', ({
                                                 'delimiter': ['quote', null],
