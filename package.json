@@ -1,0 +1,46 @@
+{
+  "name": "pareto-json",
+  "version": "0.1.10",
+  "description": "A TypeScript library for building JSON values in Pareto-style which can then be serialized",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "./dist/index.js",
+  "bin": {},
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "documentation"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "node dist/bin/validate_astn.js"
+  },
+  "keywords": [],
+  "author": "Corno",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/corno/pareto-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/corno/pareto-json/issues"
+  },
+  "homepage": "https://github.com/corno/pareto-json#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "astn": "^0.111.20",
+    "exupery-core-alg": "^0.1.12",
+    "exupery-core-bin": "^0.1.18",
+    "exupery-core-data": "^0.1.11",
+    "exupery-core-rawdata": "^0.1.4",
+    "exupery-resources": "^0.1.10",
+    "pareto-fountain-pen": "^0.1.33",
+    "pareto-standard-operations": "^0.1.12"
+  }
+}
