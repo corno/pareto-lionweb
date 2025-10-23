@@ -52,7 +52,7 @@ export const Serialization_Chunk = ($: _erd.Value): d.Serialization_Chunk => {
                     'reference': null,
                 })), ($) => ({
                     'resolveInfo': _erd.expect_text(_erd.expect_property($, 'resolveInfo')),
-                    'reference': _erd.expect_text(_erd.expect_property($, 'reference')),
+                    'reference': _erd.expect_optional_null(_erd.expect_property($, 'reference')).map(($) => _erd.expect_text($)),
                 }))),
             }))),
             'annotations': _erd.expect_array(_erd.expect_property($, 'annotations')).map(($) => _erd.expect_text($)),

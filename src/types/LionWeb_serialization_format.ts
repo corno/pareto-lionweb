@@ -15,29 +15,26 @@ export namespace Serialization_Chunk {
         'id': string
         'parent': _et.Optional_Value<string>
         'classifier': Meta_Pointer
-        'properties': Properties
-        'containments': _et.Array<{
-            'containment': Meta_Pointer
-            'children': _et.Array<string>
+        'properties': _et.Array<{
+            'property': Meta_Pointer
+            'value': string
         }>
         'references': _et.Array<{
             'reference': Meta_Pointer
-            'targets': _et.Array<{
-                'resolveInfo': string
-                'reference': string
-                //'reference': _et.Optional_Value<string> //is this really specced like this?
-            }>
+            'targets': Targets
+        }>
+        'containments': _et.Array<{
+            'containment': Meta_Pointer
+            'children': _et.Array<string>
         }>
         'annotations': _et.Array<string>
     }
 }
 
-export type Properties = _et.Array<{
-    'property': Meta_Pointer
-    'value': string
+export type Targets = _et.Array<{
+    'resolveInfo': string
+    'reference': _et.Optional_Value<string>
 }>
-
-
 
 export type Meta_Pointer = {
     'language': string

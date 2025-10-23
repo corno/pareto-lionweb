@@ -24,16 +24,22 @@ const log_meta_pointer = (mp: d.Meta_Pointer) => {
     return _ed.log_debug_message(`${mp.language}:${mp.version}:${mp.key}`, () => { })
 }
 
+
+const settings = {
+    'in': "./data/lioncore-2023-1.json",
+    'out filename': "lioncore-2023.1.lioncore-2023.1.astn",
+    'root': "-id-LionCore-M3"
+}
 // const settings = {
-//     'in': "./data/M3.json",
-//     'out filename': "m3.m3.astn",
+//     'in': "./data/lioncore-2024-1.json",
+//     'out filename': "lioncore-2024-1.lioncore-2024-1.astn",
 //     'root': "-id-LionCore-M3-2024-1"
 // }
-const settings = {
-    'in': "./data/SysML_lionweb_lionweb.json",
-    'out filename': "sysml.m3.astn",
-    'root': "sysml"
-}
+// const settings = {
+//     'in': "./data/SysML_lionweb_lionweb.json",
+//     'out filename': "sysml.m3.astn",
+//     'root': "sysml"
+// }
 
 
 export const $$: _eb.Unguaranteed_Main_Initializer = () => {

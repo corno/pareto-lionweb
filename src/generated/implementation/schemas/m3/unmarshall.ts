@@ -7,91 +7,6 @@ import * as _i_out from "../../../interface/schemas/m3/data_types/target"
 import * as _i_signatures from "../../../interface/schemas/m3/unmarshall"
 
 
-export const Features: _i_signatures._T_Features = ($, $p) => _i_generic.process_unconstrained_dictionary(
-    $,
-    {
-        'value': ($) => _i_generic.process_group(
-            $,
-            {
-                'properties': ($) => ({
-                    'feature type': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "feature type",
-                        }
-                    ), ($) => _i_generic.process_optional(
-                        $,
-                        {
-                            'value': ($) => Raw_References(
-                                $,
-                                {
-                                    'value deserializers': $p['value deserializers'],
-                                }
-                            ),
-                        }
-                    )),
-                    'key': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "key",
-                        }
-                    ), ($) => _i_generic.process_text(
-                        $,
-                        null
-                    )),
-                    'multiple': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "multiple",
-                        }
-                    ), ($) => _i_generic.process_optional(
-                        $,
-                        {
-                            'value': ($) => _i_generic.process_text(
-                                $,
-                                null
-                            ),
-                        }
-                    )),
-                    'name': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "name",
-                        }
-                    ), ($) => _i_generic.process_text(
-                        $,
-                        null
-                    )),
-                    'optional': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "optional",
-                        }
-                    ), ($) => _i_generic.process_text(
-                        $,
-                        null
-                    )),
-                    'property type': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "property type",
-                        }
-                    ), ($) => _i_generic.process_optional(
-                        $,
-                        {
-                            'value': ($) => Raw_References(
-                                $,
-                                {
-                                    'value deserializers': $p['value deserializers'],
-                                }
-                            ),
-                        }
-                    )),
-                }),
-            }
-        ),
-    }
-)
 export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
     $,
     {
@@ -146,120 +61,214 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                     $,
                                     {
                                         'states': _pa.dictionary_literal({
-                                            'concept': ($): _i_out._T_M3.entities.D._type.SG => ['concept', _i_generic.process_group(
+                                            'classifier': ($): _i_out._T_M3.entities.D._type.SG => ['classifier', _i_generic.process_group(
                                                 $,
                                                 {
                                                     'properties': ($) => ({
-                                                        'abstract': _pa.cc(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "abstract",
-                                                            }
-                                                        ), ($) => _i_generic.process_text(
-                                                            $,
-                                                            null
-                                                        )),
-                                                        'extends': _pa.cc(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "extends",
-                                                            }
-                                                        ), ($) => Raw_References(
-                                                            $,
-                                                            {
-                                                                'value deserializers': $p['value deserializers'],
-                                                            }
-                                                        )),
                                                         'features': _pa.cc(_i_generic.get_entry(
                                                             $,
                                                             {
                                                                 'key': "features",
                                                             }
-                                                        ), ($) => Features(
+                                                        ), ($) => _i_generic.process_unconstrained_dictionary(
                                                             $,
                                                             {
-                                                                'value deserializers': $p['value deserializers'],
+                                                                'value': ($) => _i_generic.process_group(
+                                                                    $,
+                                                                    {
+                                                                        'properties': ($) => ({
+                                                                            'feature type': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "feature type",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_optional(
+                                                                                $,
+                                                                                {
+                                                                                    'value': ($) => Raw_References(
+                                                                                        $,
+                                                                                        {
+                                                                                            'value deserializers': $p['value deserializers'],
+                                                                                        }
+                                                                                    ),
+                                                                                }
+                                                                            )),
+                                                                            'key': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "key",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_text(
+                                                                                $,
+                                                                                null
+                                                                            )),
+                                                                            'multiple': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "multiple",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_optional(
+                                                                                $,
+                                                                                {
+                                                                                    'value': ($) => _i_generic.process_text(
+                                                                                        $,
+                                                                                        null
+                                                                                    ),
+                                                                                }
+                                                                            )),
+                                                                            'name': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "name",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_text(
+                                                                                $,
+                                                                                null
+                                                                            )),
+                                                                            'optional': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "optional",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_text(
+                                                                                $,
+                                                                                null
+                                                                            )),
+                                                                            'property type': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "property type",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_optional(
+                                                                                $,
+                                                                                {
+                                                                                    'value': ($) => Raw_References(
+                                                                                        $,
+                                                                                        {
+                                                                                            'value deserializers': $p['value deserializers'],
+                                                                                        }
+                                                                                    ),
+                                                                                }
+                                                                            )),
+                                                                        }),
+                                                                    }
+                                                                ),
                                                             }
                                                         )),
-                                                        'implements': _pa.cc(_i_generic.get_entry(
+                                                        'type': _pa.cc(_i_generic.get_entry(
                                                             $,
                                                             {
-                                                                'key': "implements",
+                                                                'key': "type",
                                                             }
-                                                        ), ($) => Raw_References(
+                                                        ), ($) => _i_generic.process_unconstrained_state_group(
                                                             $,
                                                             {
-                                                                'value deserializers': $p['value deserializers'],
+                                                                'states': _pa.dictionary_literal({
+                                                                    'concept': ($): _i_out._T_M3.entities.D._type.SG.classifier._type.SG => ['concept', _i_generic.process_group(
+                                                                        $,
+                                                                        {
+                                                                            'properties': ($) => ({
+                                                                                'abstract': _pa.cc(_i_generic.get_entry(
+                                                                                    $,
+                                                                                    {
+                                                                                        'key': "abstract",
+                                                                                    }
+                                                                                ), ($) => _i_generic.process_text(
+                                                                                    $,
+                                                                                    null
+                                                                                )),
+                                                                                'extends': _pa.cc(_i_generic.get_entry(
+                                                                                    $,
+                                                                                    {
+                                                                                        'key': "extends",
+                                                                                    }
+                                                                                ), ($) => Raw_References(
+                                                                                    $,
+                                                                                    {
+                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                    }
+                                                                                )),
+                                                                                'implements': _pa.cc(_i_generic.get_entry(
+                                                                                    $,
+                                                                                    {
+                                                                                        'key': "implements",
+                                                                                    }
+                                                                                ), ($) => Raw_References(
+                                                                                    $,
+                                                                                    {
+                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                    }
+                                                                                )),
+                                                                                'partition': _pa.cc(_i_generic.get_entry(
+                                                                                    $,
+                                                                                    {
+                                                                                        'key': "partition",
+                                                                                    }
+                                                                                ), ($) => _i_generic.process_text(
+                                                                                    $,
+                                                                                    null
+                                                                                )),
+                                                                            }),
+                                                                        }
+                                                                    )],
+                                                                    'interface': ($): _i_out._T_M3.entities.D._type.SG.classifier._type.SG => ['interface', _i_generic.process_group(
+                                                                        $,
+                                                                        {
+                                                                            'properties': ($) => ({
+                                                                                'extends': _pa.cc(_i_generic.get_entry(
+                                                                                    $,
+                                                                                    {
+                                                                                        'key': "extends",
+                                                                                    }
+                                                                                ), ($) => Raw_References(
+                                                                                    $,
+                                                                                    {
+                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                    }
+                                                                                )),
+                                                                            }),
+                                                                        }
+                                                                    )],
+                                                                }),
                                                             }
-                                                        )),
-                                                        'partition': _pa.cc(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "partition",
-                                                            }
-                                                        ), ($) => _i_generic.process_text(
-                                                            $,
-                                                            null
                                                         )),
                                                     }),
                                                 }
                                             )],
-                                            'enumeration': ($): _i_out._T_M3.entities.D._type.SG => ['enumeration', _i_generic.process_unconstrained_dictionary(
+                                            'datatype': ($): _i_out._T_M3.entities.D._type.SG => ['datatype', _i_generic.process_unconstrained_state_group(
                                                 $,
                                                 {
-                                                    'value': ($) => _i_generic.process_group(
-                                                        $,
-                                                        {
-                                                            'properties': ($) => ({
-                                                                'key': _pa.cc(_i_generic.get_entry(
+                                                    'states': _pa.dictionary_literal({
+                                                        'enumeration': ($): _i_out._T_M3.entities.D._type.SG.datatype.SG => ['enumeration', _i_generic.process_unconstrained_dictionary(
+                                                            $,
+                                                            {
+                                                                'value': ($) => _i_generic.process_group(
                                                                     $,
                                                                     {
-                                                                        'key': "key",
+                                                                        'properties': ($) => ({
+                                                                            'key': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "key",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_text(
+                                                                                $,
+                                                                                null
+                                                                            )),
+                                                                            'name': _pa.cc(_i_generic.get_entry(
+                                                                                $,
+                                                                                {
+                                                                                    'key': "name",
+                                                                                }
+                                                                            ), ($) => _i_generic.process_text(
+                                                                                $,
+                                                                                null
+                                                                            )),
+                                                                        }),
                                                                     }
-                                                                ), ($) => _i_generic.process_text(
-                                                                    $,
-                                                                    null
-                                                                )),
-                                                                'name': _pa.cc(_i_generic.get_entry(
-                                                                    $,
-                                                                    {
-                                                                        'key': "name",
-                                                                    }
-                                                                ), ($) => _i_generic.process_text(
-                                                                    $,
-                                                                    null
-                                                                )),
-                                                            }),
-                                                        }
-                                                    ),
-                                                }
-                                            )],
-                                            'interface': ($): _i_out._T_M3.entities.D._type.SG => ['interface', _i_generic.process_group(
-                                                $,
-                                                {
-                                                    'properties': ($) => ({
-                                                        'extends': _pa.cc(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "extends",
+                                                                ),
                                                             }
-                                                        ), ($) => Raw_References(
-                                                            $,
-                                                            {
-                                                                'value deserializers': $p['value deserializers'],
-                                                            }
-                                                        )),
-                                                        'features': _pa.cc(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "features",
-                                                            }
-                                                        ), ($) => Features(
-                                                            $,
-                                                            {
-                                                                'value deserializers': $p['value deserializers'],
-                                                            }
-                                                        )),
+                                                        )],
                                                     }),
                                                 }
                                             )],
@@ -313,9 +322,14 @@ export const Raw_References: _i_signatures._T_Raw_References = ($, $p) => _i_gen
                         {
                             'key': "reference",
                         }
-                    ), ($) => _i_generic.process_text(
+                    ), ($) => _i_generic.process_optional(
                         $,
-                        null
+                        {
+                            'value': ($) => _i_generic.process_text(
+                                $,
+                                null
+                            ),
+                        }
                     )),
                     'resolveInfo': _pa.cc(_i_generic.get_entry(
                         $,

@@ -47,7 +47,7 @@ export const M3 = (tree: d_in.Serialization_Chunk): d_out.M3 => {
             return {
                 'key': expect_key($),
                 'name': expect_name($),
-                'type': _ea.block((): d_out.M3.entities.D['type'] => {
+                'type': _ea.block((): d_out.M3.entities.D._type => {
                     expect_type($.properties, _ea.dictionary_literal({
                         "LionCore-M3:2023.1:IKeyed-key": null,
                         "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
@@ -65,39 +65,89 @@ export const M3 = (tree: d_in.Serialization_Chunk): d_out.M3 => {
                         "LionCore-M3:2023.1:Interface-extends": null,
                     }))
                     switch ($.classifier) {
-                        case "LionCore-M3:2023.1:Concept": {
-                            return ['concept', {
-                                'abstract': expect_property(
-                                    $.properties,
-                                    "LionCore-M3:2023.1:Concept-abstract"
-                                ),
-                                'features': Features($),
-                                'partition': expect_property(
-                                    $.properties,
-                                    "LionCore-M3:2023.1:Concept-partition"
-                                ),
-                                'extends': expect_property(
-                                    $.references,
-                                    "LionCore-M3:2023.1:Concept-extends"
-                                ),
-                                'implements': expect_property(
-                                    $.references,
-                                    "LionCore-M3:2023.1:Concept-implements"
-                                ),
-                            }]
-                        }
-                        case "LionCore-M3:2023.1:Interface": {
-                            return ['interface', {
-                                'features': Features($),
-                                'extends': expect_property(
-                                    $.references,
-                                    "LionCore-M3:2023.1:Interface-extends"
-                                ),
-                            }]
-                        }
+                        case "LionCore-M3:2023.1:Concept":
+                        case "LionCore-M3:2023.1:Interface":
+                            {
+                                return ['classifier', {
+                                    'features': expect_property(
+                                        $.containments,
+                                        "LionCore-M3:2023.1:Classifier-features"
+                                    ).map(($) => {
+
+                                        expect_type($.properties, _ea.dictionary_literal({
+                                            "LionCore-M3:2023.1:IKeyed-key": null,
+                                            "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
+                                            "LionCore-M3:2023.1:Feature-optional": null,
+                                            "LionCore-M3:2023.1:Link-multiple": null,
+                                        }))
+                                        expect_type($.references, _ea.dictionary_literal({
+                                            "LionCore-M3:2023.1:Link-type": null,
+                                            "LionCore-M3:2023.1:Property-type": null,
+                                        }))
+                                        expect_type($.containments, _ea.dictionary_literal({
+                                        }))
+
+                                        //FIXME
+                                        return {
+                                            'key': expect_key($),
+                                            'name': expect_name($),
+                                            'optional': expect_property(
+                                                $.properties,
+                                                "LionCore-M3:2023.1:Feature-optional"
+                                            ),
+                                            'multiple': expect_optional_property(
+                                                $.properties,
+                                                "LionCore-M3:2023.1:Link-multiple"
+                                            ),
+                                            'property type': expect_optional_property(
+                                                $.references,
+                                                "LionCore-M3:2023.1:Property-type"
+                                            ),
+                                            'feature type': expect_optional_property(
+                                                $.references,
+                                                "LionCore-M3:2023.1:Link-type"
+                                            ),
+
+                                        }
+                                    }),
+                                    'type': _ea.block((): d_out.M3.entities.D._type.SG.classifier._type => {
+                                        switch ($.classifier) {
+                                            case "LionCore-M3:2023.1:Concept": {
+                                                return ['concept', {
+                                                    'abstract': expect_property(
+                                                        $.properties,
+                                                        "LionCore-M3:2023.1:Concept-abstract"
+                                                    ),
+                                                    'partition': expect_property(
+                                                        $.properties,
+                                                        "LionCore-M3:2023.1:Concept-partition"
+                                                    ),
+                                                    'extends': expect_property(
+                                                        $.references,
+                                                        "LionCore-M3:2023.1:Concept-extends"
+                                                    ),
+                                                    'implements': expect_property(
+                                                        $.references,
+                                                        "LionCore-M3:2023.1:Concept-implements"
+                                                    ),
+                                                }]
+                                            }
+                                            case "LionCore-M3:2023.1:Interface": {
+                                                return ['interface', {
+                                                    'extends': expect_property(
+                                                        $.references,
+                                                        "LionCore-M3:2023.1:Interface-extends"
+                                                    ),
+                                                }]
+                                            }
+                                            default: _ea.panic(`unknown classifier type: ${$.classifier}`)
+                                        }
+                                    })
+                                }]
+                            }
                         case "LionCore-M3:2023.1:Enumeration": {
                             // temp_log_node(`Enumeration ${key}`, $)
-                            return ['enumeration', expect_property(
+                            return ['datatype', ['enumeration', expect_property(
                                 $.containments,
                                 "LionCore-M3:2023.1:Enumeration-literals"
                             ).map(($) => {
@@ -113,7 +163,7 @@ export const M3 = (tree: d_in.Serialization_Chunk): d_out.M3 => {
                                     'key': expect_key($),
                                     'name': expect_name($),
                                 }
-                            })]
+                            })]]
                         }
                         default: _ea.panic(`unknown entity classifier: ${$.classifier}`)
                     }
@@ -130,48 +180,4 @@ export const M3 = (tree: d_in.Serialization_Chunk): d_out.M3 => {
             }
         }),
     }
-}
-
-export const Features = ($: d_in.Node): d_out.Features => {
-    return expect_property(
-        $.containments,
-        "LionCore-M3:2023.1:Classifier-features"
-    ).map(($) => {
-
-        expect_type($.properties, _ea.dictionary_literal({
-            "LionCore-M3:2023.1:IKeyed-key": null,
-            "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
-            "LionCore-M3:2023.1:Feature-optional": null,
-            "LionCore-M3:2023.1:Link-multiple": null,
-        }))
-        expect_type($.references, _ea.dictionary_literal({
-            "LionCore-M3:2023.1:Link-type": null,
-            "LionCore-M3:2023.1:Property-type": null,
-        }))
-        expect_type($.containments, _ea.dictionary_literal({
-        }))
-
-        //FIXME
-        return {
-            'key': expect_key($),
-            'name': expect_name($),
-            'optional': expect_property(
-                $.properties,
-                "LionCore-M3:2023.1:Feature-optional"
-            ),
-            'multiple': expect_optional_property(
-                $.properties,
-                "LionCore-M3:2023.1:Link-multiple"
-            ),
-            'property type': expect_optional_property(
-                $.references,
-                "LionCore-M3:2023.1:Property-type"
-            ),
-            'feature type': expect_optional_property(
-                $.references,
-                "LionCore-M3:2023.1:Link-type"
-            ),
-
-        }
-    })
 }
