@@ -1,7 +1,7 @@
 {
   "name": "pareto-json",
   "version": "0.1.10",
-  "description": "A TypeScript library for building JSON values in Pareto-style which can then be serialized",
+  "description": "A TypeScript library interacting with LionWeb",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "module": "./dist/index.js",
@@ -24,12 +24,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/corno/pareto-json.git"
+    "url": "https://github.com/corno/pareto-lionweb.git"
   },
   "bugs": {
-    "url": "https://github.com/corno/pareto-json/issues"
+    "url": "https://github.com/corno/pareto-lionweb/issues"
   },
-  "homepage": "https://github.com/corno/pareto-json#readme",
+  "homepage": "https://github.com/corno/pareto-lionweb#readme",
   "engines": {
     "node": ">=14.0.0"
   },
