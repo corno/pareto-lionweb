@@ -121,6 +121,7 @@ export const M3 = (
                                                 "LionCore-M3:2023.1:Property-type": null,
                                             }), "feature references of entity " + feature_id)
                                             expect_type($.containments, _ea.dictionary_literal({
+                                                //empty
                                             }), "feature containments of entity " + feature_id)
 
                                             //FIXME
