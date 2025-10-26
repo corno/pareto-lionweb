@@ -34,13 +34,13 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn": "^0.111.21",
+    "astn": "^0.111.22",
     "exupery-core-alg": "^0.1.12",
     "exupery-core-bin": "^0.1.18",
     "exupery-core-data": "^0.1.11",
     "exupery-core-rawdata": "^0.1.7",
-    "exupery-resources": "^0.1.12",
-    "pareto-fountain-pen": "^0.1.34",
+    "exupery-resources": "^0.1.13",
+    "pareto-fountain-pen": "^0.1.35",
     "pareto-standard-operations": "^0.1.14"
   }
 }
