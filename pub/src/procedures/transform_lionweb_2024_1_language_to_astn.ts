@@ -7,7 +7,7 @@ import * as _et from 'exupery-core-types'
 
 import * as read_file from "exupery-resources/dist/queries/read_file"
 
-import { $$ as temp_func } from "../transformations/temp_2024_1"
+import { $$ as temp_func } from "../temp/temp_2024_1"
 import * as fp_write from "pareto-fountain-pen/dist/procedures/write_to_file"
 
 

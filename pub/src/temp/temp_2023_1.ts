@@ -5,19 +5,19 @@ import * as _erd from 'exupery-core-rawdata'
 import * as _ed from 'exupery-core-dev'
 import * as _et from 'exupery-core-types'
 
-import * as unmarshall from "../unmarshall"
+import * as unmarshall from "./unmarshall"
 
-import * as d_serialization_format from "../types/LionWeb_serialization_format"
+import * as d_serialization_format from "./types/LionWeb_serialization_format"
 
-import * as t_sf_to_tree from "./serialization_format_to_tree"
-import * as t_tree from "./2023_1_tree_to_M3"
+import * as t_sf_to_tree from "../transformations/serialization_format/serialization_format_to_tree"
+import * as t_tree from "../transformations/2023_1_tree/2023_1_tree_to_M3"
 
 import * as m_x from "../generated/implementation/schemas/lioncore/marshall"
 
 import * as temp_astn_to_fp from "./temp_astn_target_to_fountain_pen_block"
 
-import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/impure/list/expect_exactly_one_element"
-import { $$ as filter } from "pareto-standard-operations/dist/pure/list/filter"
+import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/operations/impure/list/expect_exactly_one_element"
+import { $$ as filter } from "pareto-standard-operations/dist/operations/pure/list/filter"
 
 export const $$ = (
     file_content: string
