@@ -1,5 +1,5 @@
 import * as _et from 'exupery-core-types'
-import { Serialization_Chunk } from '../unmarshall'
+import { Serialization_Chunk } from "../unmarshall"
 
 export type Serialization_Chunk = {
     'serializationFormatVersion': string
