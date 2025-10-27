@@ -7,14 +7,21 @@ import * as _et from 'exupery-core-types'
 
 import * as read_file from "exupery-resources/dist/queries/unguaranteed/read_file"
 
-import { $$ as temp_func } from "../temp/temp_2024_1"
+import { $$ as temp_func } from "../../temp/temp_2023_1"
 import * as fp_write from "pareto-fountain-pen/dist/procedures/unguaranteed/write_to_file"
 
 
+
+// const settings = {
+//     'in': "./data/lioncore-2023-1.json",
+//     'out filename': "lioncore-2023.1.lioncore-2023.1.astn",
+// }
 const settings = {
-    'in': "./data/lioncore-2024-1.json",
-    'out filename': "lioncore-2024-1.lioncore-2024-1.astn",
+    'in': "./data/SysML_lionweb_lionweb.json",
+    'out filename': "sysml.m3.astn",
 }
+
+
 
 export const $$: _eb.Unguaranteed_Main_Initializer = () => {
     return {

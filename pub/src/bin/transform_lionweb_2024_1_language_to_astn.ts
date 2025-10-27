@@ -2,6 +2,6 @@
 
 import * as _eb from 'exupery-core-bin'
 
-import { $$ } from "../procedures/transform_lionweb_2024_1_language_to_astn"
+import { $$ } from "../procedures/unguaranteed/transform_lionweb_2024_1_language_to_astn"
 
 _eb.run_unguaranteed_main_procedure($$)
