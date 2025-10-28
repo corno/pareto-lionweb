@@ -16,8 +16,8 @@ import * as m_x from "../implementation/generated/pareto/schemas/lioncore/marsha
 
 import * as temp_astn_to_fp from "./temp_astn_target_to_fountain_pen_block"
 
-import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/operations/impure/list/expect_exactly_one_element"
-import { $$ as filter } from "pareto-standard-operations/dist/operations/pure/list/filter"
+import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+import { $$ as filter } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
 
 export const $$ = (
     file_content: string,
