@@ -12,7 +12,7 @@ import * as d_serialization_format from "./types/LionWeb_serialization_format"
 import * as t_sf_to_tree from "../transformations/serialization_format/serialization_format_to_tree"
 import * as t_tree from "../transformations/2023_1_tree/2023_1_tree_to_M3"
 
-import * as m_x from "../generated/implementation/schemas/lioncore/marshall"
+import * as m_x from "../implementation/generated/pareto/schemas/lioncore/marshall"
 
 import * as temp_astn_to_fp from "./temp_astn_target_to_fountain_pen_block"
 
