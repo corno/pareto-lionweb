@@ -9,8 +9,8 @@ import * as unmarshall from "./unmarshall"
 
 import * as d_serialization_format from "./types/LionWeb_serialization_format"
 
-import * as t_sf_to_tree from "../implementation/transformations/serialization_format/serialization_format_to_tree"
-import * as t_tree from "../implementation/transformations/2023_1_tree/2023_1_tree_to_M3"
+import * as t_sf_to_tree from "../implementation/algorithms/transformations/serialization_format/serialization_format_to_tree"
+import * as t_tree from "../implementation/algorithms/transformations/2023_1_tree/2023_1_tree_to_M3"
 
 import * as m_x from "../implementation/generated/pareto/schemas/lioncore/marshall"
 

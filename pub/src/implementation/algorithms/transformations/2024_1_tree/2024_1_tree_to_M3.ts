@@ -2,13 +2,13 @@ import * as _ed from 'exupery-core-dev'
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d_in from "../../../temp/types/LionWeb_tree"
-import * as d_out from "../../../interface/generated/pareto/schemas/lioncore/data_types/target"
-import { expect_optional_property, expect_property, expect_type, on_property_exists } from '../../../temp/expect_helpers'
+import * as d_in from "../../../../temp/types/LionWeb_tree"
+import * as d_out from "../../../../interface/generated/pareto/schemas/lioncore/data_types/target"
+import { expect_optional_property, expect_property, expect_type, on_property_exists } from "../../../../temp/expect_helpers"
 
 import { $$ as group } from "exupery-standard-library/dist/implementation/operations/impure/dictionary/group"
 import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-import { Signature } from "../../../interface/algorithms/transformations/2024_1_tree/2024_1_tree_to_M3"
+import { Signature } from "../../../../interface/algorithms/transformations/2024_1_tree/2024_1_tree_to_M3"
 
 
 

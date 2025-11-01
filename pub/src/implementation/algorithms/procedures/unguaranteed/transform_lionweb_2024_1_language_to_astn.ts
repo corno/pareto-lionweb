@@ -7,9 +7,9 @@ import * as _et from 'exupery-core-types'
 
 import * as read_file from "exupery-resources/dist/implementation/queries/unguaranteed/read_file"
 
-import { $$ as temp_func } from "../../../temp/temp_2024_1"
+import { $$ as temp_func } from "../../../../temp/temp_2024_1"
 import * as fp_write from "pareto-fountain-pen/dist/implementation/procedures/unguaranteed/write_to_file"
-import { Signature } from "../../../interface/algorithms/procedures/unguaranteed/transform_lionweb_2024_1_language_to_astn"
+import { Signature } from "../../../../interface/algorithms/procedures/unguaranteed/transform_lionweb_2024_1_language_to_astn"
 
 
 

@@ -1,11 +1,11 @@
 import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 
-import * as d_in from "../../../temp/types/LionWeb_serialization_format"
-import * as d_out from "../../../temp/types/LionWeb_tree"
+import * as d_in from "../../../../temp/types/LionWeb_serialization_format"
+import * as d_out from "../../../../temp/types/LionWeb_tree"
 
 import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/operations/impure/list/to_dictionary_if_no_clashes"
-import { Signature } from "../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
+import { Signature } from "../../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
 
 
 
