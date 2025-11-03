@@ -20,6 +20,10 @@ export type _T_M3 = {
                     readonly 'optional': string
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['link', {
+                            readonly 'link type': _i_core._T_State_Group<null, 
+                                | readonly ['containment', null]
+                                | readonly ['reference', null]
+                            >
                             readonly 'multiple': string
                             readonly 'type': _T_Raw_References
                         }]
@@ -110,6 +114,21 @@ export namespace _T_M3 {
                                     export namespace SG {
                                         
                                         export namespace link {
+                                            
+                                            export namespace link_type {
+                                                
+                                                export namespace SG {
+                                                    export type containment = null
+                                                    export type reference = null
+                                                }
+                                                export type SG = 
+                                                    | readonly ['containment', null]
+                                                    | readonly ['reference', null]
+                                            }
+                                            export type link_type = _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             export type multiple = string
                                             
                                             export namespace _type {
@@ -117,6 +136,10 @@ export namespace _T_M3 {
                                             export type _type = _T_Raw_References
                                         }
                                         export type link = {
+                                            readonly 'link type': _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             readonly 'multiple': string
                                             readonly 'type': _T_Raw_References
                                         }
@@ -133,6 +156,10 @@ export namespace _T_M3 {
                                     }
                                     export type SG = 
                                         | readonly ['link', {
+                                            readonly 'link type': _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             readonly 'multiple': string
                                             readonly 'type': _T_Raw_References
                                         }]
@@ -142,6 +169,10 @@ export namespace _T_M3 {
                                 }
                                 export type _type = _i_core._T_State_Group<null, 
                                     | readonly ['link', {
+                                        readonly 'link type': _i_core._T_State_Group<null, 
+                                            | readonly ['containment', null]
+                                            | readonly ['reference', null]
+                                        >
                                         readonly 'multiple': string
                                         readonly 'type': _T_Raw_References
                                     }]
@@ -155,6 +186,10 @@ export namespace _T_M3 {
                                 readonly 'optional': string
                                 readonly 'type': _i_core._T_State_Group<null, 
                                     | readonly ['link', {
+                                        readonly 'link type': _i_core._T_State_Group<null, 
+                                            | readonly ['containment', null]
+                                            | readonly ['reference', null]
+                                        >
                                         readonly 'multiple': string
                                         readonly 'type': _T_Raw_References
                                     }]
@@ -169,6 +204,10 @@ export namespace _T_M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -240,6 +279,10 @@ export namespace _T_M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -287,6 +330,10 @@ export namespace _T_M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -318,6 +365,10 @@ export namespace _T_M3 {
                         readonly 'optional': string
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['link', {
+                                readonly 'link type': _i_core._T_State_Group<null, 
+                                    | readonly ['containment', null]
+                                    | readonly ['reference', null]
+                                >
                                 readonly 'multiple': string
                                 readonly 'type': _T_Raw_References
                             }]
@@ -352,6 +403,10 @@ export namespace _T_M3 {
                         readonly 'optional': string
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['link', {
+                                readonly 'link type': _i_core._T_State_Group<null, 
+                                    | readonly ['containment', null]
+                                    | readonly ['reference', null]
+                                >
                                 readonly 'multiple': string
                                 readonly 'type': _T_Raw_References
                             }]
@@ -387,6 +442,10 @@ export namespace _T_M3 {
                     readonly 'optional': string
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['link', {
+                            readonly 'link type': _i_core._T_State_Group<null, 
+                                | readonly ['containment', null]
+                                | readonly ['reference', null]
+                            >
                             readonly 'multiple': string
                             readonly 'type': _T_Raw_References
                         }]
@@ -483,6 +542,21 @@ export namespace M3 {
                                     export namespace SG {
                                         
                                         export namespace link {
+                                            
+                                            export namespace link_type {
+                                                
+                                                export namespace SG {
+                                                    export type containment = null
+                                                    export type reference = null
+                                                }
+                                                export type SG = 
+                                                    | readonly ['containment', null]
+                                                    | readonly ['reference', null]
+                                            }
+                                            export type link_type = _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             export type multiple = string
                                             
                                             export namespace _type {
@@ -490,6 +564,10 @@ export namespace M3 {
                                             export type _type = _T_Raw_References
                                         }
                                         export type link = {
+                                            readonly 'link type': _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             readonly 'multiple': string
                                             readonly 'type': _T_Raw_References
                                         }
@@ -506,6 +584,10 @@ export namespace M3 {
                                     }
                                     export type SG = 
                                         | readonly ['link', {
+                                            readonly 'link type': _i_core._T_State_Group<null, 
+                                                | readonly ['containment', null]
+                                                | readonly ['reference', null]
+                                            >
                                             readonly 'multiple': string
                                             readonly 'type': _T_Raw_References
                                         }]
@@ -515,6 +597,10 @@ export namespace M3 {
                                 }
                                 export type _type = _i_core._T_State_Group<null, 
                                     | readonly ['link', {
+                                        readonly 'link type': _i_core._T_State_Group<null, 
+                                            | readonly ['containment', null]
+                                            | readonly ['reference', null]
+                                        >
                                         readonly 'multiple': string
                                         readonly 'type': _T_Raw_References
                                     }]
@@ -528,6 +614,10 @@ export namespace M3 {
                                 readonly 'optional': string
                                 readonly 'type': _i_core._T_State_Group<null, 
                                     | readonly ['link', {
+                                        readonly 'link type': _i_core._T_State_Group<null, 
+                                            | readonly ['containment', null]
+                                            | readonly ['reference', null]
+                                        >
                                         readonly 'multiple': string
                                         readonly 'type': _T_Raw_References
                                     }]
@@ -542,6 +632,10 @@ export namespace M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -613,6 +707,10 @@ export namespace M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -660,6 +758,10 @@ export namespace M3 {
                             readonly 'optional': string
                             readonly 'type': _i_core._T_State_Group<null, 
                                 | readonly ['link', {
+                                    readonly 'link type': _i_core._T_State_Group<null, 
+                                        | readonly ['containment', null]
+                                        | readonly ['reference', null]
+                                    >
                                     readonly 'multiple': string
                                     readonly 'type': _T_Raw_References
                                 }]
@@ -691,6 +793,10 @@ export namespace M3 {
                         readonly 'optional': string
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['link', {
+                                readonly 'link type': _i_core._T_State_Group<null, 
+                                    | readonly ['containment', null]
+                                    | readonly ['reference', null]
+                                >
                                 readonly 'multiple': string
                                 readonly 'type': _T_Raw_References
                             }]
@@ -725,6 +831,10 @@ export namespace M3 {
                         readonly 'optional': string
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['link', {
+                                readonly 'link type': _i_core._T_State_Group<null, 
+                                    | readonly ['containment', null]
+                                    | readonly ['reference', null]
+                                >
                                 readonly 'multiple': string
                                 readonly 'type': _T_Raw_References
                             }]
@@ -760,6 +870,10 @@ export namespace M3 {
                     readonly 'optional': string
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['link', {
+                            readonly 'link type': _i_core._T_State_Group<null, 
+                                | readonly ['containment', null]
+                                | readonly ['reference', null]
+                            >
                             readonly 'multiple': string
                             readonly 'type': _T_Raw_References
                         }]

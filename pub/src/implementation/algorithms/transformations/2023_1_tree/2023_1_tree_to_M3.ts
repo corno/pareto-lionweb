@@ -151,6 +151,15 @@ export const M3 = (
                                                                     "LionCore-M3:2023.1:Link-type",
                                                                     "type property of link: " + feature_id,
                                                                 ),
+                                                                'link type': _ea.cc($.classifier, ($) => {
+                                                                    switch ($) {
+                                                                        case "LionCore-M3:2024.1:Reference":
+                                                                            return ['reference', null]
+                                                                        case "LionCore-M3:2024.1:Containment":
+                                                                            return ['containment', null]
+                                                                        default: return _ea.panic(`unknown feature classifier type: ${$}`)
+                                                                    }
+                                                                })
                                                             }] as d_out.M3.entities.D._type.SG.classifier.features.D._type
                                                         },
                                                         () => {

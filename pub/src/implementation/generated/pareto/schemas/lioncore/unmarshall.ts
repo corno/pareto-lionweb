@@ -133,6 +133,26 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                             $,
                                                                                             {
                                                                                                 'properties': ($) => ({
+                                                                                                    'link type': _pa.cc(_i_generic.get_entry(
+                                                                                                        $,
+                                                                                                        {
+                                                                                                            'key': "link type",
+                                                                                                        }
+                                                                                                    ), ($) => _i_generic.process_unconstrained_state_group(
+                                                                                                        $,
+                                                                                                        {
+                                                                                                            'states': _pa.dictionary_literal({
+                                                                                                                'containment': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG.link.link_type.SG => ['containment', _i_generic.process_nothing(
+                                                                                                                    $,
+                                                                                                                    null
+                                                                                                                )],
+                                                                                                                'reference': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG.link.link_type.SG => ['reference', _i_generic.process_nothing(
+                                                                                                                    $,
+                                                                                                                    null
+                                                                                                                )],
+                                                                                                            }),
+                                                                                                        }
+                                                                                                    )),
                                                                                                     'multiple': _pa.cc(_i_generic.get_entry(
                                                                                                         $,
                                                                                                         {

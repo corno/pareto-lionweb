@@ -14,14 +14,14 @@ import { Signature } from "../../../../interface/algorithms/procedures/unguarant
 
 
 
-// const settings = {
-//     'in': "./data/lioncore-2023-1.json",
-//     'out filename': "lioncore-2023.1.lioncore-2023.1.astn",
-// }
 const settings = {
-    'in': "./data/SysML_lionweb_lionweb.json",
-    'out filename': "sysml.m3.astn",
+    'in': "./data/lioncore-2023-1.json",
+    'out filename': "lioncore-2023.1.lioncore-2023.1.astn",
 }
+// const settings = {
+//     'in': "./data/SysML_lionweb_lionweb.json",
+//     'out filename': "sysml.m3.astn",
+// }
 
 
 
