@@ -1,8 +1,15 @@
 import * as _erd from 'exupery-core-rawdata'
 import * as _ea from 'exupery-core-alg'
-import * as d from './types/LionWeb_serialization_format'
+
+import * as d from "../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 
 export const Serialization_Chunk = ($: _erd.Value): d.Serialization_Chunk => {
+    /**
+     * this transformation should eventually not be handwritten, but be done by json-to-astn;
+     * a mapping has to be written. with that mapping, json-to-astn will need to do 2 things:
+     * 1) generate the Serialization_Chunk schema, which is now handwritten (one time effort)
+     * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
+     */
     return _ea.cc(_erd.expect_verbose_type($, _ea.dictionary_literal({
         'serializationFormatVersion': null,
         'languages': null,

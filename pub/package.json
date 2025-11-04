@@ -34,7 +34,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn": "^0.111.29",
     "exupery-core-alg": "^0.1.12",
     "exupery-core-bin": "^0.1.18",
     "exupery-core-rawdata": "^0.1.7",

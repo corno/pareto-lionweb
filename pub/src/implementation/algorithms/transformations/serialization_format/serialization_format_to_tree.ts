@@ -1,8 +1,8 @@
 import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 
-import * as d_in from "../../../../temp/types/LionWeb_serialization_format"
-import * as d_out from "../../../../temp/types/LionWeb_tree"
+import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
+import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
 import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/operations/impure/list/to_dictionary_if_no_clashes"
 import { Signature } from "../../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
@@ -44,8 +44,8 @@ export const Serialization_Chunk = (
 
 const Node = (
     $p: {
-        'nodes': _et.Dictionary<d_in.Serialization_Chunk.Node>,
-        'current node': d_in.Serialization_Chunk.Node,
+        'nodes': _et.Dictionary<d_in.Serialization_Chunk.nodes.L>,
+        'current node': d_in.Serialization_Chunk.nodes.L,
     }
 ): d_out.Node => {
     return {

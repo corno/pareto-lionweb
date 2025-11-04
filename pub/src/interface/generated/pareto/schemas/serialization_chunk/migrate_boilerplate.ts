@@ -1,0 +1,117 @@
+import * as _pt from 'exupery-core-types'
+
+import * as _i_in from "./data_types/source"
+import * as _i_out from "./data_types/target"
+
+// **** TYPES
+
+export type _T_Meta_Pointer = (
+    $$_: _i_in._T_Meta_Pointer,
+    $$_p: null,
+) => _i_out._T_Meta_Pointer
+
+export type _T_Serialization_Chunk = (
+    $$_: _i_in._T_Serialization_Chunk,
+    $$_p: null,
+) => _i_out._T_Serialization_Chunk
+
+export type _T_Targets = (
+    $$_: _i_in._T_Targets,
+    $$_p: null,
+) => _i_out._T_Targets
+
+// **** FRIENDLY NAMES FOR THE GLOBAL TYPES
+
+export type Meta_Pointer = _T_Meta_Pointer
+
+export type Serialization_Chunk = _T_Serialization_Chunk
+
+export type Targets = _T_Targets
+
+// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
+
+export namespace _T_Meta_Pointer {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Meta_Pointer
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Meta_Pointer
+}
+
+export namespace _T_Serialization_Chunk {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Serialization_Chunk
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Serialization_Chunk
+}
+
+export namespace _T_Targets {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Targets
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Targets
+}
+
+// *** ALIASES FOR NESTED TYPES
+
+export namespace Meta_Pointer {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Meta_Pointer
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Meta_Pointer
+}
+
+export namespace Serialization_Chunk {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Serialization_Chunk
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Serialization_Chunk
+}
+
+export namespace Targets {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Targets
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Targets
+}
