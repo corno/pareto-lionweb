@@ -10,7 +10,7 @@ export type _T_ID = _pt.Optional_Value<{
 }>
 
 export type _T_M3 = {
-    readonly 'dependencies': _T_Raw_References
+    readonly 'dependencies': _i_core._T_List<null, _T_Raw_Reference>
     readonly 'entities': _i_core._T_Dictionary<null, {
         readonly 'id': _T_ID
         readonly 'type': _i_core._T_State_Group<null, 
@@ -25,22 +25,22 @@ export type _T_M3 = {
                                 | readonly ['reference', null]
                             >
                             readonly 'multiple': string
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                         | readonly ['property', {
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                     >
                 }>
                 readonly 'type': _i_core._T_State_Group<null, 
                     | readonly ['concept', {
                         readonly 'abstract': string
-                        readonly 'extends': _T_Raw_References
-                        readonly 'implements': _T_Raw_References
+                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         readonly 'partition': string
                     }]
                     | readonly ['interface', {
-                        readonly 'extends': _T_Raw_References
+                        readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                 >
             }]
@@ -53,10 +53,10 @@ export type _T_M3 = {
     readonly 'version': string
 }
 
-export type _T_Raw_References = _i_core._T_List<null, {
+export type _T_Raw_Reference = {
     readonly 'reference': _pt.Optional_Value<string>
     readonly 'resolveInfo': string
-}>
+}
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -64,7 +64,7 @@ export type ID = _T_ID
 
 export type M3 = _T_M3
 
-export type Raw_References = _T_Raw_References
+export type Raw_Reference = _T_Raw_Reference
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -83,8 +83,12 @@ export namespace _T_ID {
 export namespace _T_M3 {
     
     export namespace dependencies {
+        
+        export namespace L {
+        }
+        export type L = _T_Raw_Reference
     }
-    export type dependencies = _T_Raw_References
+    export type dependencies = _i_core._T_List<null, _T_Raw_Reference>
     
     export namespace entities {
         
@@ -133,7 +137,7 @@ export namespace _T_M3 {
                                             
                                             export namespace _type {
                                             }
-                                            export type _type = _T_Raw_References
+                                            export type _type = _T_Raw_Reference
                                         }
                                         export type link = {
                                             readonly 'link type': _i_core._T_State_Group<null, 
@@ -141,17 +145,17 @@ export namespace _T_M3 {
                                                 | readonly ['reference', null]
                                             >
                                             readonly 'multiple': string
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }
                                         
                                         export namespace property {
                                             
                                             export namespace _type {
                                             }
-                                            export type _type = _T_Raw_References
+                                            export type _type = _T_Raw_Reference
                                         }
                                         export type property = {
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }
                                     }
                                     export type SG = 
@@ -161,10 +165,10 @@ export namespace _T_M3 {
                                                 | readonly ['reference', null]
                                             >
                                             readonly 'multiple': string
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }]
                                         | readonly ['property', {
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }]
                                 }
                                 export type _type = _i_core._T_State_Group<null, 
@@ -174,10 +178,10 @@ export namespace _T_M3 {
                                             | readonly ['reference', null]
                                         >
                                         readonly 'multiple': string
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                     | readonly ['property', {
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                 >
                             }
@@ -191,10 +195,10 @@ export namespace _T_M3 {
                                             | readonly ['reference', null]
                                         >
                                         readonly 'multiple': string
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                     | readonly ['property', {
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                 >
                             }
@@ -209,10 +213,10 @@ export namespace _T_M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
@@ -225,51 +229,63 @@ export namespace _T_M3 {
                                     export type abstract = string
                                     
                                     export namespace _extends {
+                                        
+                                        export namespace O {
+                                        }
+                                        export type O = _T_Raw_Reference
                                     }
-                                    export type _extends = _T_Raw_References
+                                    export type _extends = _pt.Optional_Value<_T_Raw_Reference>
                                     
                                     export namespace _implements {
+                                        
+                                        export namespace L {
+                                        }
+                                        export type L = _T_Raw_Reference
                                     }
-                                    export type _implements = _T_Raw_References
+                                    export type _implements = _i_core._T_List<null, _T_Raw_Reference>
                                     export type partition = string
                                 }
                                 export type concept = {
                                     readonly 'abstract': string
-                                    readonly 'extends': _T_Raw_References
-                                    readonly 'implements': _T_Raw_References
+                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                     readonly 'partition': string
                                 }
                                 
                                 export namespace _interface {
                                     
                                     export namespace _extends {
+                                        
+                                        export namespace L {
+                                        }
+                                        export type L = _T_Raw_Reference
                                     }
-                                    export type _extends = _T_Raw_References
+                                    export type _extends = _i_core._T_List<null, _T_Raw_Reference>
                                 }
                                 export type _interface = {
-                                    readonly 'extends': _T_Raw_References
+                                    readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                                 }
                             }
                             export type SG = 
                                 | readonly ['concept', {
                                     readonly 'abstract': string
-                                    readonly 'extends': _T_Raw_References
-                                    readonly 'implements': _T_Raw_References
+                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                     readonly 'partition': string
                                 }]
                                 | readonly ['interface', {
-                                    readonly 'extends': _T_Raw_References
+                                    readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                                 }]
                         }
                         export type _type = _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }
@@ -284,22 +300,22 @@ export namespace _T_M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }
@@ -335,22 +351,22 @@ export namespace _T_M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }]
@@ -370,22 +386,22 @@ export namespace _T_M3 {
                                     | readonly ['reference', null]
                                 >
                                 readonly 'multiple': string
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                             | readonly ['property', {
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                         >
                     }>
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['concept', {
                             readonly 'abstract': string
-                            readonly 'extends': _T_Raw_References
-                            readonly 'implements': _T_Raw_References
+                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             readonly 'partition': string
                         }]
                         | readonly ['interface', {
-                            readonly 'extends': _T_Raw_References
+                            readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                     >
                 }]
@@ -408,22 +424,22 @@ export namespace _T_M3 {
                                     | readonly ['reference', null]
                                 >
                                 readonly 'multiple': string
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                             | readonly ['property', {
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                         >
                     }>
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['concept', {
                             readonly 'abstract': string
-                            readonly 'extends': _T_Raw_References
-                            readonly 'implements': _T_Raw_References
+                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             readonly 'partition': string
                         }]
                         | readonly ['interface', {
-                            readonly 'extends': _T_Raw_References
+                            readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                     >
                 }]
@@ -447,22 +463,22 @@ export namespace _T_M3 {
                                 | readonly ['reference', null]
                             >
                             readonly 'multiple': string
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                         | readonly ['property', {
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                     >
                 }>
                 readonly 'type': _i_core._T_State_Group<null, 
                     | readonly ['concept', {
                         readonly 'abstract': string
-                        readonly 'extends': _T_Raw_References
-                        readonly 'implements': _T_Raw_References
+                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         readonly 'partition': string
                     }]
                     | readonly ['interface', {
-                        readonly 'extends': _T_Raw_References
+                        readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                 >
             }]
@@ -478,20 +494,13 @@ export namespace _T_M3 {
     export type version = string
 }
 
-export namespace _T_Raw_References {
+export namespace _T_Raw_Reference {
     
-    export namespace L {
-        
-        export namespace reference {
-            export type O = string
-        }
-        export type reference = _pt.Optional_Value<string>
-        export type resolveInfo = string
+    export namespace reference {
+        export type O = string
     }
-    export type L = {
-        readonly 'reference': _pt.Optional_Value<string>
-        readonly 'resolveInfo': string
-    }
+    export type reference = _pt.Optional_Value<string>
+    export type resolveInfo = string
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -511,8 +520,12 @@ export namespace ID {
 export namespace M3 {
     
     export namespace dependencies {
+        
+        export namespace L {
+        }
+        export type L = _T_Raw_Reference
     }
-    export type dependencies = _T_Raw_References
+    export type dependencies = _i_core._T_List<null, _T_Raw_Reference>
     
     export namespace entities {
         
@@ -561,7 +574,7 @@ export namespace M3 {
                                             
                                             export namespace _type {
                                             }
-                                            export type _type = _T_Raw_References
+                                            export type _type = _T_Raw_Reference
                                         }
                                         export type link = {
                                             readonly 'link type': _i_core._T_State_Group<null, 
@@ -569,17 +582,17 @@ export namespace M3 {
                                                 | readonly ['reference', null]
                                             >
                                             readonly 'multiple': string
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }
                                         
                                         export namespace property {
                                             
                                             export namespace _type {
                                             }
-                                            export type _type = _T_Raw_References
+                                            export type _type = _T_Raw_Reference
                                         }
                                         export type property = {
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }
                                     }
                                     export type SG = 
@@ -589,10 +602,10 @@ export namespace M3 {
                                                 | readonly ['reference', null]
                                             >
                                             readonly 'multiple': string
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }]
                                         | readonly ['property', {
-                                            readonly 'type': _T_Raw_References
+                                            readonly 'type': _T_Raw_Reference
                                         }]
                                 }
                                 export type _type = _i_core._T_State_Group<null, 
@@ -602,10 +615,10 @@ export namespace M3 {
                                             | readonly ['reference', null]
                                         >
                                         readonly 'multiple': string
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                     | readonly ['property', {
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                 >
                             }
@@ -619,10 +632,10 @@ export namespace M3 {
                                             | readonly ['reference', null]
                                         >
                                         readonly 'multiple': string
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                     | readonly ['property', {
-                                        readonly 'type': _T_Raw_References
+                                        readonly 'type': _T_Raw_Reference
                                     }]
                                 >
                             }
@@ -637,10 +650,10 @@ export namespace M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
@@ -653,51 +666,63 @@ export namespace M3 {
                                     export type abstract = string
                                     
                                     export namespace _extends {
+                                        
+                                        export namespace O {
+                                        }
+                                        export type O = _T_Raw_Reference
                                     }
-                                    export type _extends = _T_Raw_References
+                                    export type _extends = _pt.Optional_Value<_T_Raw_Reference>
                                     
                                     export namespace _implements {
+                                        
+                                        export namespace L {
+                                        }
+                                        export type L = _T_Raw_Reference
                                     }
-                                    export type _implements = _T_Raw_References
+                                    export type _implements = _i_core._T_List<null, _T_Raw_Reference>
                                     export type partition = string
                                 }
                                 export type concept = {
                                     readonly 'abstract': string
-                                    readonly 'extends': _T_Raw_References
-                                    readonly 'implements': _T_Raw_References
+                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                     readonly 'partition': string
                                 }
                                 
                                 export namespace _interface {
                                     
                                     export namespace _extends {
+                                        
+                                        export namespace L {
+                                        }
+                                        export type L = _T_Raw_Reference
                                     }
-                                    export type _extends = _T_Raw_References
+                                    export type _extends = _i_core._T_List<null, _T_Raw_Reference>
                                 }
                                 export type _interface = {
-                                    readonly 'extends': _T_Raw_References
+                                    readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                                 }
                             }
                             export type SG = 
                                 | readonly ['concept', {
                                     readonly 'abstract': string
-                                    readonly 'extends': _T_Raw_References
-                                    readonly 'implements': _T_Raw_References
+                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                     readonly 'partition': string
                                 }]
                                 | readonly ['interface', {
-                                    readonly 'extends': _T_Raw_References
+                                    readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                                 }]
                         }
                         export type _type = _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }
@@ -712,22 +737,22 @@ export namespace M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }
@@ -763,22 +788,22 @@ export namespace M3 {
                                         | readonly ['reference', null]
                                     >
                                     readonly 'multiple': string
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                                 | readonly ['property', {
-                                    readonly 'type': _T_Raw_References
+                                    readonly 'type': _T_Raw_Reference
                                 }]
                             >
                         }>
                         readonly 'type': _i_core._T_State_Group<null, 
                             | readonly ['concept', {
                                 readonly 'abstract': string
-                                readonly 'extends': _T_Raw_References
-                                readonly 'implements': _T_Raw_References
+                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 readonly 'partition': string
                             }]
                             | readonly ['interface', {
-                                readonly 'extends': _T_Raw_References
+                                readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                         >
                     }]
@@ -798,22 +823,22 @@ export namespace M3 {
                                     | readonly ['reference', null]
                                 >
                                 readonly 'multiple': string
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                             | readonly ['property', {
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                         >
                     }>
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['concept', {
                             readonly 'abstract': string
-                            readonly 'extends': _T_Raw_References
-                            readonly 'implements': _T_Raw_References
+                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             readonly 'partition': string
                         }]
                         | readonly ['interface', {
-                            readonly 'extends': _T_Raw_References
+                            readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                     >
                 }]
@@ -836,22 +861,22 @@ export namespace M3 {
                                     | readonly ['reference', null]
                                 >
                                 readonly 'multiple': string
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                             | readonly ['property', {
-                                readonly 'type': _T_Raw_References
+                                readonly 'type': _T_Raw_Reference
                             }]
                         >
                     }>
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['concept', {
                             readonly 'abstract': string
-                            readonly 'extends': _T_Raw_References
-                            readonly 'implements': _T_Raw_References
+                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             readonly 'partition': string
                         }]
                         | readonly ['interface', {
-                            readonly 'extends': _T_Raw_References
+                            readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                     >
                 }]
@@ -875,22 +900,22 @@ export namespace M3 {
                                 | readonly ['reference', null]
                             >
                             readonly 'multiple': string
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                         | readonly ['property', {
-                            readonly 'type': _T_Raw_References
+                            readonly 'type': _T_Raw_Reference
                         }]
                     >
                 }>
                 readonly 'type': _i_core._T_State_Group<null, 
                     | readonly ['concept', {
                         readonly 'abstract': string
-                        readonly 'extends': _T_Raw_References
-                        readonly 'implements': _T_Raw_References
+                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         readonly 'partition': string
                     }]
                     | readonly ['interface', {
-                        readonly 'extends': _T_Raw_References
+                        readonly 'extends': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                 >
             }]
@@ -906,18 +931,11 @@ export namespace M3 {
     export type version = string
 }
 
-export namespace Raw_References {
+export namespace Raw_Reference {
     
-    export namespace L {
-        
-        export namespace reference {
-            export type O = string
-        }
-        export type reference = _pt.Optional_Value<string>
-        export type resolveInfo = string
+    export namespace reference {
+        export type O = string
     }
-    export type L = {
-        readonly 'reference': _pt.Optional_Value<string>
-        readonly 'resolveInfo': string
-    }
+    export type reference = _pt.Optional_Value<string>
+    export type resolveInfo = string
 }

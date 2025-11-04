@@ -46,10 +46,15 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                 {
                     'key': "dependencies",
                 }
-            ), ($) => Raw_References(
+            ), ($) => _i_generic.process_unconstrained_list(
                 $,
                 {
-                    'value deserializers': $p['value deserializers'],
+                    'value': ($) => Raw_Reference(
+                        $,
+                        {
+                            'value deserializers': $p['value deserializers'],
+                        }
+                    ),
                 }
             )),
             'entities': _pa.cc(_i_generic.get_entry(
@@ -167,7 +172,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                         {
                                                                                                             'key': "type",
                                                                                                         }
-                                                                                                    ), ($) => Raw_References(
+                                                                                                    ), ($) => Raw_Reference(
                                                                                                         $,
                                                                                                         {
                                                                                                             'value deserializers': $p['value deserializers'],
@@ -185,7 +190,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                         {
                                                                                                             'key': "type",
                                                                                                         }
-                                                                                                    ), ($) => Raw_References(
+                                                                                                    ), ($) => Raw_Reference(
                                                                                                         $,
                                                                                                         {
                                                                                                             'value deserializers': $p['value deserializers'],
@@ -229,10 +234,15 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     {
                                                                                         'key': "extends",
                                                                                     }
-                                                                                ), ($) => Raw_References(
+                                                                                ), ($) => _i_generic.process_optional(
                                                                                     $,
                                                                                     {
-                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                        'value': ($) => Raw_Reference(
+                                                                                            $,
+                                                                                            {
+                                                                                                'value deserializers': $p['value deserializers'],
+                                                                                            }
+                                                                                        ),
                                                                                     }
                                                                                 )),
                                                                                 'implements': _pa.cc(_i_generic.get_entry(
@@ -240,10 +250,15 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     {
                                                                                         'key': "implements",
                                                                                     }
-                                                                                ), ($) => Raw_References(
+                                                                                ), ($) => _i_generic.process_unconstrained_list(
                                                                                     $,
                                                                                     {
-                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                        'value': ($) => Raw_Reference(
+                                                                                            $,
+                                                                                            {
+                                                                                                'value deserializers': $p['value deserializers'],
+                                                                                            }
+                                                                                        ),
                                                                                     }
                                                                                 )),
                                                                                 'partition': _pa.cc(_i_generic.get_entry(
@@ -267,10 +282,15 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     {
                                                                                         'key': "extends",
                                                                                     }
-                                                                                ), ($) => Raw_References(
+                                                                                ), ($) => _i_generic.process_unconstrained_list(
                                                                                     $,
                                                                                     {
-                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                        'value': ($) => Raw_Reference(
+                                                                                            $,
+                                                                                            {
+                                                                                                'value deserializers': $p['value deserializers'],
+                                                                                            }
+                                                                                        ),
                                                                                     }
                                                                                 )),
                                                                             }),
@@ -331,38 +351,33 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
         }),
     }
 )
-export const Raw_References: _i_signatures._T_Raw_References = ($, $p) => _i_generic.process_unconstrained_list(
+export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _i_generic.process_group(
     $,
     {
-        'value': ($) => _i_generic.process_group(
-            $,
-            {
-                'properties': ($) => ({
-                    'reference': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "reference",
-                        }
-                    ), ($) => _i_generic.process_optional(
-                        $,
-                        {
-                            'value': ($) => _i_generic.process_text(
-                                $,
-                                null
-                            ),
-                        }
-                    )),
-                    'resolveInfo': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "resolveInfo",
-                        }
-                    ), ($) => _i_generic.process_text(
+        'properties': ($) => ({
+            'reference': _pa.cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "reference",
+                }
+            ), ($) => _i_generic.process_optional(
+                $,
+                {
+                    'value': ($) => _i_generic.process_text(
                         $,
                         null
-                    )),
-                }),
-            }
-        ),
+                    ),
+                }
+            )),
+            'resolveInfo': _pa.cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "resolveInfo",
+                }
+            ), ($) => _i_generic.process_text(
+                $,
+                null
+            )),
+        }),
     }
 )

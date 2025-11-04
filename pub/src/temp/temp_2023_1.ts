@@ -87,6 +87,39 @@ export const $$ = (
     //     })
     // })
 
+    // m3.entities.map(($, key) => {
+    //     _ea.cc($.type, ($) => {
+    //         switch ($[0]) {
+    //             case 'classifier': return _ea.ss($, ($) => {
+    //                 return _ea.cc($.type, ($) => {
+    //                     switch ($[0]) {
+    //                         case 'concept': return _ea.ss($, ($) => {
+    //                             _ed.log_debug_message(`${key}`, () => { })
+
+    //                             $.extends.map(($) => {
+    //                                 _ed.log_debug_message(`${key} -> ${$.resolveInfo}`, () => { })
+    //                             })
+    //                             // $.implements.map(($) => {
+    //                             //     _ed.log_debug_message(`${key} -> ${$.resolveInfo}`, () => { })
+
+    //                             // })
+    //                         })
+    //                         case 'interface': return _ea.ss($, ($) => {
+    //                             // $.extends.map(($) => {
+    //                             //     _ed.log_debug_message(`${key} -> ${$.resolveInfo}`, () => { })
+    //                             // })
+
+    //                         })
+    //                         default: return _ea.au($[0])
+    //                     }
+    //                 })
+    //             })
+    //             case 'datatype': return _ea.ss($, ($) => { })
+    //             default: return _ea.au($[0])
+    //         }
+    //     })
+    // })
+
     const value = m_x.M3(
         m3,
         {

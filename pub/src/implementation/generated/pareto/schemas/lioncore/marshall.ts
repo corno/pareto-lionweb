@@ -19,12 +19,12 @@ export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.transform(
     () => ['not set', null]
 )]
 export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictionary_literal({
-    'dependencies': _pa.cc($['dependencies'], ($) => Raw_References(
+    'dependencies': _pa.cc($['dependencies'], ($) => ['list', $.map(($) => Raw_Reference(
         $,
         {
             'value serializers': $p['value serializers'],
         }
-    )),
+    ))]),
     'entities': _pa.cc($['entities'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
         'id': _pa.cc($['id'], ($) => ID(
             $,
@@ -70,7 +70,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             })]),
-                                            'type': _pa.cc($['type'], ($) => Raw_References(
+                                            'type': _pa.cc($['type'], ($) => Raw_Reference(
                                                 $,
                                                 {
                                                     'value serializers': $p['value serializers'],
@@ -81,7 +81,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                     case 'property': return _pa.ss($, ($) => ({
                                         'state': "property",
                                         'value': ['verbose group', _pa.dictionary_literal({
-                                            'type': _pa.cc($['type'], ($) => Raw_References(
+                                            'type': _pa.cc($['type'], ($) => Raw_Reference(
                                                 $,
                                                 {
                                                     'value serializers': $p['value serializers'],
@@ -102,18 +102,21 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                             'delimiter': ['quote', null],
                                             'value': $,
                                         })]),
-                                        'extends': _pa.cc($['extends'], ($) => Raw_References(
+                                        'extends': _pa.cc($['extends'], ($) => ['optional', $.transform(
+                                            ($): _i_out._T_Value.SG.optional => ['set', Raw_Reference(
+                                                $,
+                                                {
+                                                    'value serializers': $p['value serializers'],
+                                                }
+                                            )],
+                                            () => ['not set', null]
+                                        )]),
+                                        'implements': _pa.cc($['implements'], ($) => ['list', $.map(($) => Raw_Reference(
                                             $,
                                             {
                                                 'value serializers': $p['value serializers'],
                                             }
-                                        )),
-                                        'implements': _pa.cc($['implements'], ($) => Raw_References(
-                                            $,
-                                            {
-                                                'value serializers': $p['value serializers'],
-                                            }
-                                        )),
+                                        ))]),
                                         'partition': _pa.cc($['partition'], ($) => ['text', ({
                                             'delimiter': ['quote', null],
                                             'value': $,
@@ -123,12 +126,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                 case 'interface': return _pa.ss($, ($) => ({
                                     'state': "interface",
                                     'value': ['verbose group', _pa.dictionary_literal({
-                                        'extends': _pa.cc($['extends'], ($) => Raw_References(
+                                        'extends': _pa.cc($['extends'], ($) => ['list', $.map(($) => Raw_Reference(
                                             $,
                                             {
                                                 'value serializers': $p['value serializers'],
                                             }
-                                        )),
+                                        ))]),
                                     })],
                                 }))
                                 default: return _pa.au($[0])
@@ -168,7 +171,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
         'value': $,
     })]),
 })]
-export const Raw_References: _i_signatures._T_Raw_References = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'reference': _pa.cc($['reference'], ($) => ['optional', $.transform(
         ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
             'delimiter': ['quote', null],
@@ -180,4 +183,4 @@ export const Raw_References: _i_signatures._T_Raw_References = ($, $p) => ['list
         'delimiter': ['quote', null],
         'value': $,
     })]),
-})])]
+})]

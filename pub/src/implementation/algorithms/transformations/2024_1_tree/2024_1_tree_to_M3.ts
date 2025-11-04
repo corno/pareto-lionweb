@@ -146,10 +146,13 @@ export const M3 = (
                                                                     "LionCore-M3:2024.1:Link-multiple",
                                                                     "multiple property of link: " + feature_id,
                                                                 ),
-                                                                'type': expect_property(
+                                                                'type': expect_single_element( expect_property(
                                                                     $.references,
                                                                     "LionCore-M3:2024.1:Link-type",
                                                                     "type property of link: " + feature_id,
+                                                                )).transform(
+                                                                    ($) => $,
+                                                                    () => _ea.panic(`expected exactly one element for link type of feature: ${feature_id}`) 
                                                                 ),
                                                                 'link type': _ea.cc($.classifier, ($) => {
                                                                     switch ($) {
@@ -165,10 +168,13 @@ export const M3 = (
                                                         },
                                                         () => {
                                                             return ['property', {
-                                                                'type': expect_property(
+                                                                'type': expect_single_element( expect_property(
                                                                     $.references,
                                                                     "LionCore-M3:2024.1:Property-type",
                                                                     "type property of property: " + feature_id,
+                                                                )).transform(
+                                                                    ($) => $,
+                                                                    () => _ea.panic(`expected exactly one element for property type of feature: ${feature_id}`)
                                                                 ),
                                                             }] as d_out.M3.entities.D._type.SG.classifier.features.D._type
                                                         }
@@ -191,11 +197,11 @@ export const M3 = (
                                                             "LionCore-M3:2024.1:Concept-partition",
                                                             "concept " + key
                                                         ),
-                                                        'extends': expect_property(
+                                                        'extends': expect_single_element( expect_property(
                                                             $.references,
                                                             "LionCore-M3:2024.1:Concept-extends",
                                                             "concept " + key
-                                                        ),
+                                                        )),
                                                         'implements': expect_property(
                                                             $.references,
                                                             "LionCore-M3:2024.1:Concept-implements",

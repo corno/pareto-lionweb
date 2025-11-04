@@ -20,8 +20,8 @@ export type _T_M3 = (
     },
 ) => _i_out._T_Value
 
-export type _T_Raw_References = (
-    $$_: _i_in._T_Raw_References,
+export type _T_Raw_Reference = (
+    $$_: _i_in._T_Raw_Reference,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
@@ -33,7 +33,7 @@ export type ID = _T_ID
 
 export type M3 = _T_M3
 
-export type Raw_References = _T_Raw_References
+export type Raw_Reference = _T_Raw_Reference
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -73,11 +73,11 @@ export namespace _T_M3 {
     export type RESULT = _i_out._T_Value
 }
 
-export namespace _T_Raw_References {
+export namespace _T_Raw_Reference {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Raw_References
+    export type CONTEXT = _i_in._T_Raw_Reference
     
     export namespace PARAMS {
         
@@ -129,11 +129,11 @@ export namespace M3 {
     export type RESULT = _i_out._T_Value
 }
 
-export namespace Raw_References {
+export namespace Raw_Reference {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Raw_References
+    export type CONTEXT = _i_in._T_Raw_Reference
     
     export namespace PARAMS {
         

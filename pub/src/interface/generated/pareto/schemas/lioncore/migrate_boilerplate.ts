@@ -15,10 +15,10 @@ export type _T_M3 = (
     $$_p: null,
 ) => _i_out._T_M3
 
-export type _T_Raw_References = (
-    $$_: _i_in._T_Raw_References,
+export type _T_Raw_Reference = (
+    $$_: _i_in._T_Raw_Reference,
     $$_p: null,
-) => _i_out._T_Raw_References
+) => _i_out._T_Raw_Reference
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -26,7 +26,7 @@ export type ID = _T_ID
 
 export type M3 = _T_M3
 
-export type Raw_References = _T_Raw_References
+export type Raw_Reference = _T_Raw_Reference
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -58,18 +58,18 @@ export namespace _T_M3 {
     export type RESULT = _i_out._T_M3
 }
 
-export namespace _T_Raw_References {
+export namespace _T_Raw_Reference {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Raw_References
+    export type CONTEXT = _i_in._T_Raw_Reference
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Raw_References
+    export type RESULT = _i_out._T_Raw_Reference
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -102,16 +102,16 @@ export namespace M3 {
     export type RESULT = _i_out._T_M3
 }
 
-export namespace Raw_References {
+export namespace Raw_Reference {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Raw_References
+    export type CONTEXT = _i_in._T_Raw_Reference
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Raw_References
+    export type RESULT = _i_out._T_Raw_Reference
 }
