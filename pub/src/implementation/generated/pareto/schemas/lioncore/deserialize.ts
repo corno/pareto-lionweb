@@ -9,9 +9,6 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as parse from "../../generic/parse/parse"
 import * as um from "./unmarshall"
 
-export const ID: _i_signatures._T_ID = ($, $p) => um.ID(parse.parse($, { 'tab size': 4 }).transform(
-    ($) => $.content,
-    () => _pa.panic("SDFSD")
-), $p)
+export const ID: _i_signatures._T_ID = ($, $p) => _pd.implement_me()
 export const M3: _i_signatures._T_M3 = ($, $p) => _pd.implement_me()
 export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _pd.implement_me()

@@ -1,7 +1,6 @@
 import * as _ea from 'exupery-core-alg'
 import * as _eb from 'exupery-core-bin'
 import * as _easync from 'exupery-core-async'
-import * as _erd from 'exupery-core-rawdata'
 import * as _ed from 'exupery-core-dev'
 import * as _et from 'exupery-core-types'
 
@@ -14,8 +13,6 @@ import { $$ as temp_func } from "../../purifiers/temp_2023_1"
 import { Signature } from "../../../../interface/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
 
 
-
-
 // const settings = {
 //     'in': "./data/lioncore-2023-1.json",
 //     'out filename': "lioncore-2023.1.lioncore-2023.1.astn",
@@ -26,7 +23,6 @@ const settings = {
 }
 
 
-
 export const $$: _eb.Unguaranteed_Main_Initializer = () => {
     return {
         __start: (on_success, on_error) => {
@@ -35,21 +31,30 @@ export const $$: _eb.Unguaranteed_Main_Initializer = () => {
                 'escape spaces in path': true
             }).__start(
                 (file_content) => {
-                    p_write_file.$$(
-                        {
-                            'path': {
-                                'path': `./out/${settings['out filename']}`,
-                                'escape spaces in path': true,
-                            },
-                            'data': temp_func(file_content)
-                        }
-                    ).__start(
-                        on_success,
+                    temp_func(file_content).process(
                         ($) => {
-                            on_error({ 'exit code': 1 })
+                            p_write_file.$$(
+                                {
+                                    'path': {
+                                        'path': `./out/${settings['out filename']}`,
+                                        'escape spaces in path': true,
+                                    },
+                                    'data': $
+                                }
+                            ).__start(
+                                on_success,
+                                ($) => {
+                                    on_error({ 'exit code': 1 })
 
+                                }
+                            )
+                        },
+                        ($) => {
+                            _ed.log_debug_message($[0], () => {})
+                            on_error({ 'exit code': 1 })
                         }
                     )
+
                 },
                 () => {
                     on_error({ 'exit code': 1 })

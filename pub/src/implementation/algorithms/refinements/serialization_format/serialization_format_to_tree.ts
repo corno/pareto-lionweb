@@ -8,36 +8,61 @@ import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implem
 import { Signature } from "../../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
 
 
+import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+import { $$ as filter } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
 
 export const make_metapointer_key = (mp: d_in.Meta_Pointer): string => {
     return `${mp.language}:${mp.version}:${mp.key}`
 }
 
+export type Deserialization_Error =
+    | ['could not determine root node', null]
+    | ['clashing node IDs', null]
+    | ['clashing child node IDs', null]
+    | ['clashing property keys', null]
+    | ['child node not found', string]
+    | ['clashing containment keys', null]
+    | ['clashing reference keys', null]
+
 export const Serialization_Chunk = (
     $p: {
         'chunk': d_in.Serialization_Chunk,
-        'root node id': string
-    }
+    },
+    abort: _ea.Abort<Deserialization_Error>
 ): d_out.Serialization_Chunk => {
+    const root_node_id = expect_exactly_one_element(
+        filter<d_in.Serialization_Chunk.nodes.L>(
+            $p.chunk.nodes.map(($ => $.parent.transform(
+                () => _ea.not_set(),
+                () => _ea.set($)
+            )))
+        )
+    ).transform(
+        ($) => {
+            return $
+        },
+        () => abort(['could not determine root node', null]),
+    ).id
     const nodes = list_to_dictionary($p.chunk.nodes.map(($) => ({
         'key': $.id,
         'value': $,
     }))).transform(
         ($) => $,
-        () => _ea.panic("clashing node IDs"),
+        () => abort(['clashing node IDs', null]),
     )
     return {
         'serializationFormatVersion': $p.chunk.serializationFormatVersion,
         'languages': $p.chunk.languages,
-        'root node id': $p['root node id'],
+        'root node id': root_node_id,
         'node tree': Node(
             {
                 'nodes': nodes,
-                'current node': nodes.__get_entry($p['root node id']).transform(
+                'current node': nodes.__get_entry(root_node_id).transform(
                     ($) => $,
-                    () => _ea.panic("root node not found"),
+                    () => abort(['could not determine root node', null]),
                 ),
-            }
+            },
+            abort,
         )
     }
 }
@@ -46,7 +71,8 @@ const Node = (
     $p: {
         'nodes': _et.Dictionary<d_in.Serialization_Chunk.nodes.L>,
         'current node': d_in.Serialization_Chunk.nodes.L,
-    }
+    },
+    abort: _ea.Abort<Deserialization_Error>
 ): d_out.Node => {
     return {
         'classifier': make_metapointer_key($p['current node'].classifier),
@@ -55,7 +81,7 @@ const Node = (
             'value': $.value,
         }))).transform(
             ($) => $,
-            () => _ea.panic("clashing property keys"),
+            () => abort(['clashing property keys', null]),
         ),
         'containments': list_to_dictionary($p['current node'].containments.map(($) => ({
             'key': make_metapointer_key($.containment),
@@ -67,25 +93,26 @@ const Node = (
                             'nodes': $p.nodes,
                             'current node': $p.nodes.__get_entry($).transform(
                                 ($) => $,
-                                () => _ea.panic(`child node not found: ${$}`),
+                                () => abort(['child node not found', $]),
                             ),
-                        }
+                        },
+                        abort,
                     ),
                 }
             })).transform(
                 ($) => $,
-                () => _ea.panic("clashing child node IDs"),
+                () => abort(['clashing child node IDs', null]),
             ),
         }))).transform(
             ($) => $,
-            () => _ea.panic("clashing containment keys"),
+            () => abort(['clashing containment keys', null]),
         ),
         'references': list_to_dictionary($p['current node'].references.map(($) => ({
             'key': make_metapointer_key($.reference),
             'value': $.targets,
         }))).transform(
             ($) => $,
-            () => _ea.panic("clashing reference keys"),
+            () => abort(['clashing reference keys', null]),
         ),
         'annotations': $p['current node'].annotations,
     }
