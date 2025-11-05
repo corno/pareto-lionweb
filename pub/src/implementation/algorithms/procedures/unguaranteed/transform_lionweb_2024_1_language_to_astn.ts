@@ -5,8 +5,8 @@ import * as _ed from 'exupery-core-dev'
 import * as _et from 'exupery-core-types'
 
 
-import * as q_read_file from "exupery-resources/dist/implementation/queries/unguaranteed/read_file"
-import * as p_write_file from "exupery-resources/dist/implementation/procedures/unguaranteed/write_file"
+import * as q_read_file from "exupery-resources/dist/implementation/algorithms/queries/unguaranteed/read_file"
+import * as p_write_file from "exupery-resources/dist/implementation/algorithms/procedures/unguaranteed/write_file"
 
 import { $$ as temp_func } from "../../purifiers/temp_2024_1"
 
