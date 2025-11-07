@@ -18,7 +18,7 @@ const settings = {
     'out filename': "lioncore-2024-1.lioncore-2024-1.astn",
 }
 
-export const $$: _eb.Unguaranteed_Main_Initializer = () => {
+export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.Error> = () => {
     return {
         __start: (on_success, on_error) => {
             q_read_file.$$({
