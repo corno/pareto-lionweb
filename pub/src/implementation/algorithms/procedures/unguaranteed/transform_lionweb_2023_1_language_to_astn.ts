@@ -23,7 +23,7 @@ const settings = {
 }
 
 
-export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.Error, null> = () => {
+export const $$: _easync.Unguaranteed_Procedure<_eb.Parameters, _eb.Error, null> = () => {
     return {
         __start: (on_success, on_error) => {
             q_read_file.$$(
