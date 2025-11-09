@@ -18,13 +18,16 @@ const settings = {
     'out filename': "lioncore-2024-1.lioncore-2024-1.astn",
 }
 
-export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.Error> = () => {
+export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.Error, null> = () => {
     return {
         __start: (on_success, on_error) => {
-            q_read_file.$$({
-                'path': settings['in'],
-                'escape spaces in path': true
-            }).__start(
+            q_read_file.$$(
+                {
+                    'path': settings['in'],
+                    'escape spaces in path': true
+                },
+                null,
+            ).__start(
                 (file_content) => {
                     temp_func(file_content).process(
                         ($) => {
@@ -35,7 +38,8 @@ export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.
                                         'escape spaces in path': true,
                                     },
                                     'data': $
-                                }
+                                },
+                                null,
                             ).__start(
                                 on_success,
                                 ($) => {
@@ -45,7 +49,7 @@ export const $$: _easync.Unguaranteed_Procedure_Initializer<_eb.Parameters, _eb.
                             )
                         },
                         ($) => {
-                            _ed.log_debug_message($[0], () => {})
+                            _ed.log_debug_message($[0], () => { })
                             on_error({ 'exit code': 1 })
                         }
                     )
