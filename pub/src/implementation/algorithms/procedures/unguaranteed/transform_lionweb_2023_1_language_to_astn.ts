@@ -24,8 +24,8 @@ const settings = {
 
 
 export const $$: _easync.Unguaranteed_Procedure<_eb.Parameters, _eb.Error, null> = () => {
-    return {
-        __start: (on_success, on_error) => {
+    return _easync.__create_unguaranteed_procedure({
+        'execute': (on_success, on_error) => {
             q_read_file.$$(
                 {
                     'path': settings['in'],
@@ -65,5 +65,5 @@ export const $$: _easync.Unguaranteed_Procedure<_eb.Parameters, _eb.Error, null>
                 }
             )
         }
-    }
+    })
 }
