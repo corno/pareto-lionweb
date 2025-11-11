@@ -1,7 +1,7 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as o_group } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/dictionary/group"
+import { $$ as o_group } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/group"
 import { $$ as o_expect_single_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
 
 export type Unmarshall_Error =
