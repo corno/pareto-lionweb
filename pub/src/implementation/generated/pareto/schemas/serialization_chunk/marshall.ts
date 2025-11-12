@@ -1,16 +1,16 @@
 import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
-import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/serialization_chunk/marshall"
+import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
 export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose group', _pa.dictionary_literal({
-    'key': _pa.cc($['key'], ($) => ['text', ({
+    'language': _pa.cc($['language'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'language': _pa.cc($['language'], ($) => ['text', ({
+    'key': _pa.cc($['key'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
@@ -19,7 +19,24 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose 
         'value': $,
     })]),
 })]
+export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+    'reference': _pa.cc($['reference'], ($) => ['optional', $.transform(
+        ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
+            'delimiter': ['quote', null],
+            'value': $,
+        })]],
+        () => ['not set', null]
+    )]),
+})])]
 export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary_literal({
+    'serializationFormatVersion': _pa.cc($['serializationFormatVersion'], ($) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
     'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
         'key': _pa.cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
@@ -31,28 +48,6 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
         })]),
     })])]),
     'nodes': _pa.cc($['nodes'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
-        'annotations': _pa.cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
-            'delimiter': ['quote', null],
-            'value': $,
-        })])]),
-        'classifier': _pa.cc($['classifier'], ($) => Meta_Pointer(
-            $,
-            {
-                'value serializers': $p['value serializers'],
-            }
-        )),
-        'containments': _pa.cc($['containments'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
-            'children': _pa.cc($['children'], ($) => ['list', $.map(($) => ['text', ({
-                'delimiter': ['quote', null],
-                'value': $,
-            })])]),
-            'containment': _pa.cc($['containment'], ($) => Meta_Pointer(
-                $,
-                {
-                    'value serializers': $p['value serializers'],
-                }
-            )),
-        })])]),
         'id': _pa.cc($['id'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -64,6 +59,12 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
             })]],
             () => ['not set', null]
         )]),
+        'classifier': _pa.cc($['classifier'], ($) => Meta_Pointer(
+            $,
+            {
+                'value serializers': $p['value serializers'],
+            }
+        )),
         'properties': _pa.cc($['properties'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
             'property': _pa.cc($['property'], ($) => Meta_Pointer(
                 $,
@@ -90,22 +91,21 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 }
             )),
         })])]),
-    })])]),
-    'serializationFormatVersion': _pa.cc($['serializationFormatVersion'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
-})]
-export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
-    'reference': _pa.cc($['reference'], ($) => ['optional', $.transform(
-        ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
+        'containments': _pa.cc($['containments'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+            'containment': _pa.cc($['containment'], ($) => Meta_Pointer(
+                $,
+                {
+                    'value serializers': $p['value serializers'],
+                }
+            )),
+            'children': _pa.cc($['children'], ($) => ['list', $.map(($) => ['text', ({
+                'delimiter': ['quote', null],
+                'value': $,
+            })])]),
+        })])]),
+        'annotations': _pa.cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
-        })]],
-        () => ['not set', null]
-    )]),
-    'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
-        'delimiter': ['quote', null],
-        'value': $,
-    })]),
-})])]
+        })])]),
+    })])]),
+})]

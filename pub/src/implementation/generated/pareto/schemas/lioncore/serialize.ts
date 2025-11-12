@@ -1,9 +1,9 @@
 import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
-import * as _i_marshall from "./marshall"
-import * as _i_serialize from "../../generic/serialize"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/lioncore/serialize"
+import * as _i_serialize from "../../generic/serialize"
+import * as _i_marshall from "./marshall"
 
 
 export const ID: _i_signatures._T_ID = ($, $p) => _i_serialize.Document(
@@ -14,16 +14,16 @@ export const ID: _i_signatures._T_ID = ($, $p) => _i_serialize.Document(
         }
     )
 )
-export const M3: _i_signatures._T_M3 = ($, $p) => _i_serialize.Document(
-    _i_marshall.M3(
+export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _i_serialize.Document(
+    _i_marshall.Raw_Reference(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )
 )
-export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _i_serialize.Document(
-    _i_marshall.Raw_Reference(
+export const M3: _i_signatures._T_M3 = ($, $p) => _i_serialize.Document(
+    _i_marshall.M3(
         $,
         {
             'value serializers': $p['value serializers'],

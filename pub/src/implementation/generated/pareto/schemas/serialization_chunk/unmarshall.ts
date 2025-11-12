@@ -2,28 +2,28 @@ import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
+import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/serialization_chunk/unmarshall"
 import * as _i_in from "../../../../../interface/generated/pareto/core/astn_source"
 import * as _i_out from "../../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/target"
-import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/serialization_chunk/unmarshall"
 
 
 export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
-            'key': _pa.cc(_i_generic.get_entry(
+            'language': _pa.cc(_i_generic.get_entry(
                 $,
                 {
-                    'key': "key",
+                    'key': "language",
                 }
             ), ($) => _i_generic.process_text(
                 $,
                 null
             )),
-            'language': _pa.cc(_i_generic.get_entry(
+            'key': _pa.cc(_i_generic.get_entry(
                 $,
                 {
-                    'key': "language",
+                    'key': "key",
                 }
             ), ($) => _i_generic.process_text(
                 $,
@@ -41,10 +41,54 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => _i_generic
         }),
     }
 )
+export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_unconstrained_list(
+    $,
+    {
+        'value': ($) => _i_generic.process_group(
+            $,
+            {
+                'properties': ($) => ({
+                    'resolveInfo': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "resolveInfo",
+                        }
+                    ), ($) => _i_generic.process_text(
+                        $,
+                        null
+                    )),
+                    'reference': _pa.cc(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "reference",
+                        }
+                    ), ($) => _i_generic.process_optional(
+                        $,
+                        {
+                            'value': ($) => _i_generic.process_text(
+                                $,
+                                null
+                            ),
+                        }
+                    )),
+                }),
+            }
+        ),
+    }
+)
 export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
+            'serializationFormatVersion': _pa.cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "serializationFormatVersion",
+                }
+            ), ($) => _i_generic.process_text(
+                $,
+                null
+            )),
             'languages': _pa.cc(_i_generic.get_entry(
                 $,
                 {
@@ -92,73 +136,6 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                         $,
                         {
                             'properties': ($) => ({
-                                'annotations': _pa.cc(_i_generic.get_entry(
-                                    $,
-                                    {
-                                        'key': "annotations",
-                                    }
-                                ), ($) => _i_generic.process_unconstrained_list(
-                                    $,
-                                    {
-                                        'value': ($) => _i_generic.process_text(
-                                            $,
-                                            null
-                                        ),
-                                    }
-                                )),
-                                'classifier': _pa.cc(_i_generic.get_entry(
-                                    $,
-                                    {
-                                        'key': "classifier",
-                                    }
-                                ), ($) => Meta_Pointer(
-                                    $,
-                                    {
-                                        'value deserializers': $p['value deserializers'],
-                                    }
-                                )),
-                                'containments': _pa.cc(_i_generic.get_entry(
-                                    $,
-                                    {
-                                        'key': "containments",
-                                    }
-                                ), ($) => _i_generic.process_unconstrained_list(
-                                    $,
-                                    {
-                                        'value': ($) => _i_generic.process_group(
-                                            $,
-                                            {
-                                                'properties': ($) => ({
-                                                    'children': _pa.cc(_i_generic.get_entry(
-                                                        $,
-                                                        {
-                                                            'key': "children",
-                                                        }
-                                                    ), ($) => _i_generic.process_unconstrained_list(
-                                                        $,
-                                                        {
-                                                            'value': ($) => _i_generic.process_text(
-                                                                $,
-                                                                null
-                                                            ),
-                                                        }
-                                                    )),
-                                                    'containment': _pa.cc(_i_generic.get_entry(
-                                                        $,
-                                                        {
-                                                            'key': "containment",
-                                                        }
-                                                    ), ($) => Meta_Pointer(
-                                                        $,
-                                                        {
-                                                            'value deserializers': $p['value deserializers'],
-                                                        }
-                                                    )),
-                                                }),
-                                            }
-                                        ),
-                                    }
-                                )),
                                 'id': _pa.cc(_i_generic.get_entry(
                                     $,
                                     {
@@ -180,6 +157,17 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                             $,
                                             null
                                         ),
+                                    }
+                                )),
+                                'classifier': _pa.cc(_i_generic.get_entry(
+                                    $,
+                                    {
+                                        'key': "classifier",
+                                    }
+                                ), ($) => Meta_Pointer(
+                                    $,
+                                    {
+                                        'value deserializers': $p['value deserializers'],
                                     }
                                 )),
                                 'properties': _pa.cc(_i_generic.get_entry(
@@ -258,55 +246,67 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         ),
                                     }
                                 )),
+                                'containments': _pa.cc(_i_generic.get_entry(
+                                    $,
+                                    {
+                                        'key': "containments",
+                                    }
+                                ), ($) => _i_generic.process_unconstrained_list(
+                                    $,
+                                    {
+                                        'value': ($) => _i_generic.process_group(
+                                            $,
+                                            {
+                                                'properties': ($) => ({
+                                                    'containment': _pa.cc(_i_generic.get_entry(
+                                                        $,
+                                                        {
+                                                            'key': "containment",
+                                                        }
+                                                    ), ($) => Meta_Pointer(
+                                                        $,
+                                                        {
+                                                            'value deserializers': $p['value deserializers'],
+                                                        }
+                                                    )),
+                                                    'children': _pa.cc(_i_generic.get_entry(
+                                                        $,
+                                                        {
+                                                            'key': "children",
+                                                        }
+                                                    ), ($) => _i_generic.process_unconstrained_list(
+                                                        $,
+                                                        {
+                                                            'value': ($) => _i_generic.process_text(
+                                                                $,
+                                                                null
+                                                            ),
+                                                        }
+                                                    )),
+                                                }),
+                                            }
+                                        ),
+                                    }
+                                )),
+                                'annotations': _pa.cc(_i_generic.get_entry(
+                                    $,
+                                    {
+                                        'key': "annotations",
+                                    }
+                                ), ($) => _i_generic.process_unconstrained_list(
+                                    $,
+                                    {
+                                        'value': ($) => _i_generic.process_text(
+                                            $,
+                                            null
+                                        ),
+                                    }
+                                )),
                             }),
                         }
                     ),
                 }
             )),
-            'serializationFormatVersion': _pa.cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "serializationFormatVersion",
-                }
-            ), ($) => _i_generic.process_text(
-                $,
-                null
-            )),
         }),
-    }
-)
-export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_unconstrained_list(
-    $,
-    {
-        'value': ($) => _i_generic.process_group(
-            $,
-            {
-                'properties': ($) => ({
-                    'reference': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "reference",
-                        }
-                    ), ($) => _i_generic.process_optional(
-                        $,
-                        {
-                            'value': ($) => _i_generic.process_text(
-                                $,
-                                null
-                            ),
-                        }
-                    )),
-                    'resolveInfo': _pa.cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "resolveInfo",
-                        }
-                    ), ($) => _i_generic.process_text(
-                        $,
-                        null
-                    )),
-                }),
-            }
-        ),
     }
 )
