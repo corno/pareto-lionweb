@@ -23,7 +23,7 @@ const settings = {
 
 export type Resources = {
     'queries': {
-        'read file': _et.Query<d_read_file.Parameters, d_read_file.Result, d_read_file.Error>
+        'read file': _et.Data_Preparer<d_read_file.Parameters, d_read_file.Result, d_read_file.Error>
     },
     'procedures': {
         'write file': _et.Command<d_write_file.Parameters, d_write_file.Error>

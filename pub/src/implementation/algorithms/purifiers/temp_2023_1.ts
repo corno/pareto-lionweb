@@ -42,7 +42,7 @@ export type Some_Error =
 export const $$ = (
     file_content: string,
 
-): _et.Refinement_Result<string, Some_Error> => {
+): _et.Data_Preparation_Result<string, Some_Error> => {
 
 
     return _ea.create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error, Some_Error>(
