@@ -23,27 +23,26 @@ const settings = {
 
 export type Resources = {
     'queries': {
-        'read file': _et.Unguaranteed_Query<d_read_file.Parameters, d_read_file.Result, d_read_file.Error, null>
+        'read file': _et.Query<d_read_file.Parameters, d_read_file.Result, d_read_file.Error>
     },
     'procedures': {
-        'write file': _et.Unguaranteed_Procedure<d_write_file.Parameters, d_write_file.Error, null>
+        'write file': _et.Command<d_write_file.Parameters, d_write_file.Error>
     }
 }
 
-export const $$: _et.Unguaranteed_Procedure<_eb.Parameters, _eb.Error, Resources> = ($p, $r) => {
-    return _easync.__create_unguaranteed_procedure({
+export const $$: _et.Command_Procedure<_eb.Parameters, _eb.Error, Resources> = ($r) => {
+    return ($p) => _easync.__create_procedure_promise({
         'execute': (on_success, on_error) => {
             $r.queries['read file'](
                 {
                     'path': settings['in'],
                     'escape spaces in path': true
                 },
-                null,
             ).__start(
                 (file_content) => {
                     temp_func(file_content).process(
                         ($) => {
-                            $r.procedures['write file'](
+                            $r.commands['write file'](
                                 {
                                     'path': {
                                         'path': `./out/${settings['out filename']}`,
@@ -51,7 +50,6 @@ export const $$: _et.Unguaranteed_Procedure<_eb.Parameters, _eb.Error, Resources
                                     },
                                     'data': $
                                 },
-                                null,
                             ).__start(
                                 on_success,
                                 ($) => {
