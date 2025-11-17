@@ -16,12 +16,15 @@ import * as serialize from "../../generated/pareto/generic/serialize"
 import { create_context, Unmarshall_Error } from "../refinements/context"
 import { temp_json_unmarshall_should_be_done_extenally } from "../../../temp/unmarshall_json/unmarshall"
 
+import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/algorithms/integer/decimal/serializer"
+import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/algorithms/boolean/true_false/serializer"
+
 const temp_serialize_should_be_generated = (
     m3: d_m3.M3,
     $p: {
         'value serializers': {
             'boolean': (value: boolean) => string,
-            'default number': () => string,
+            'default number': ($: number) => string,
             'custom numbers': null,
         }
     }
@@ -55,27 +58,30 @@ export const $$ = (
                 abort,
             )
         }
-    ).with_result(($) => {
-        return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error, Some_Error>(
-            ($) => ['unmarshalling error', $],
-            abort => {
-                return r_tree.M3(
-                    {
-                        $: $,
-                        'write id': false
-                    },
-                    create_context(abort),
-                )
-            }
-        )
-    }).map_result(
+    ).process(
+        ($) => {
+            return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error, Some_Error>(
+                ($) => ['unmarshalling error', $],
+                abort => {
+                    return r_tree.M3(
+                        {
+                            $: $,
+                            'write id': false
+                        },
+                        create_context(abort),
+                    )
+                }
+            )
+        },
+        ($) => $,
+    ).transform(
         ($) => {
             return temp_serialize_should_be_generated(
                 $,
                 {
                     'value serializers': {
-                        'boolean': ($) => $ ? "true" : "false",
-                        'default number': () => "FIXME",
+                        'boolean': ($) => serialize_boolean($),
+                        'default number': ($) => serialize_decimal($),
                         'custom numbers': null
                     }
                 }

@@ -9,7 +9,7 @@ import * as d_resources from "../implementation/algorithms/procedures/unguarante
 _eb.run_main_procedure(
     ($r) => {
         return procedure({
-            'procedures': {
+            'commands': {
                 'write file': $r.commands['write file'],
             },
             'queries': {

@@ -6,11 +6,16 @@ import * as _et from 'exupery-core-types'
 
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_write_file from "exupery-resources/dist/interface/generated/pareto/schemas/write_file/data_types/source"
+import * as d_main from "exupery-resources/dist/interface/temp_main"
 
-import { $$ as temp_func } from "../../purifiers/temp_2023_1"
+import { $$ as r_2023_1 } from "../../purifiers/temp_2023_1"
 
 import { Signature } from "../../../../interface/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
 
+
+import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/read_file/fountain_pen"
+import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/write_file/lines"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/string"
 
 // const settings = {
 //     'in': "./data/lioncore-2023-1.json",
@@ -25,50 +30,45 @@ export type Resources = {
     'queries': {
         'read file': _et.Data_Preparer<d_read_file.Parameters, d_read_file.Result, d_read_file.Error>
     },
-    'procedures': {
+    'commands': {
         'write file': _et.Command<d_write_file.Parameters, d_write_file.Error>
     }
 }
 
-export const $$: _et.Command_Procedure<_eb.Parameters, _eb.Error, Resources> = ($r) => {
-    return ($p) => _easync.__create_procedure_promise({
-        'execute': (on_success, on_error) => {
-            $r.queries['read file'](
-                {
-                    'path': settings['in'],
-                    'escape spaces in path': true
-                },
-            ).__start(
-                (file_content) => {
-                    temp_func(file_content).process(
-                        ($) => {
-                            $r.commands['write file'](
-                                {
-                                    'path': {
-                                        'path': `./out/${settings['out filename']}`,
-                                        'escape spaces in path': true,
-                                    },
-                                    'data': $
-                                },
-                            ).__start(
-                                on_success,
-                                ($) => {
-                                    on_error({ 'exit code': 1 })
+export const $$: _et.Command_Procedure<d_main.Parameters, d_main.Error, Resources> = _easync.create_command_procedure(
+    ($r, $p) => $r.commands['write file'].execute.prepare(
+        ($) => {
+            _ed.log_debug_message(`failed to write converted dataset to ${settings['out filename']}`, () => { })
+            return ({ 'exit code': 1 })
+        },
+        $r.queries['read file'](
+            {
+                'path': settings['in'],
+                'escape spaces in path': true
+            },
+        ).transform_error_temp(($): d_main.Error => {
+            _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
+            return { 'exit code': 1 }
+        }).process(
 
-                                }
-                            )
-                        },
-                        ($) => {
-                            _ed.log_debug_message($[0], () => { })
-                            on_error({ 'exit code': 1 })
-                        }
-                    )
 
+            ($) => r_2023_1($), // <-- this is it; the acutal logic
+
+
+
+            ($): d_main.Error => {
+                _ed.log_debug_message(`error during processing`, () => { })
+                return { 'exit code': 1 }
+            }
+        ).transform(($): d_write_file.Parameters => {
+            return {
+                'path': {
+                    'path': settings['out filename'],
+                    'escape spaces in path': true,
                 },
-                () => {
-                    on_error({ 'exit code': 1 })
-                }
-            )
-        }
-    })
-}
+                'data': $
+            }
+        })
+    )
+)
+
