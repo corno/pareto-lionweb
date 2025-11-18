@@ -1,4 +1,4 @@
-import * as _pt from 'exupery-core-types'
+import * as _et from 'exupery-core-types'
 
 import * as _i_core from "../../../core/unconstrained"
 
@@ -6,7 +6,7 @@ import * as _i_core from "../../../core/unconstrained"
 
 export type _T_Targets = _i_core._T_List<null, {
     readonly 'resolveInfo': string
-    readonly 'reference': _pt.Optional_Value<string>
+    readonly 'reference': _et.Optional_Value<string>
 }>
 
 export type _T_Node = {
@@ -45,11 +45,11 @@ export namespace _T_Targets {
         export namespace reference {
             export type O = string
         }
-        export type reference = _pt.Optional_Value<string>
+        export type reference = _et.Optional_Value<string>
     }
     export type L = {
         readonly 'resolveInfo': string
-        readonly 'reference': _pt.Optional_Value<string>
+        readonly 'reference': _et.Optional_Value<string>
     }
 }
 
@@ -122,11 +122,11 @@ export namespace Targets {
         export namespace reference {
             export type O = string
         }
-        export type reference = _pt.Optional_Value<string>
+        export type reference = _et.Optional_Value<string>
     }
     export type L = {
         readonly 'resolveInfo': string
-        readonly 'reference': _pt.Optional_Value<string>
+        readonly 'reference': _et.Optional_Value<string>
     }
 }
 

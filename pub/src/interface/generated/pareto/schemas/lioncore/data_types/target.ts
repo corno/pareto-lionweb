@@ -1,17 +1,17 @@
-import * as _pt from 'exupery-core-types'
+import * as _et from 'exupery-core-types'
 
 import * as _i_core from "../../../core/unconstrained"
 
 // **** TYPES
 
-export type _T_ID = _pt.Optional_Value<{
+export type _T_ID = _et.Optional_Value<{
     readonly 'key': string
     readonly 'id': string
 }>
 
 export type _T_Raw_Reference = {
     readonly 'resolveInfo': string
-    readonly 'reference': _pt.Optional_Value<string>
+    readonly 'reference': _et.Optional_Value<string>
 }
 
 export type _T_M3 = {
@@ -26,7 +26,7 @@ export type _T_M3 = {
                     | readonly ['concept', {
                         readonly 'abstract': string
                         readonly 'partition': string
-                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                         readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                     | readonly ['interface', {
@@ -86,7 +86,7 @@ export namespace _T_Raw_Reference {
     export namespace reference {
         export type O = string
     }
-    export type reference = _pt.Optional_Value<string>
+    export type reference = _et.Optional_Value<string>
 }
 
 export namespace _T_M3 {
@@ -132,7 +132,7 @@ export namespace _T_M3 {
                                         }
                                         export type O = _T_Raw_Reference
                                     }
-                                    export type _extends = _pt.Optional_Value<_T_Raw_Reference>
+                                    export type _extends = _et.Optional_Value<_T_Raw_Reference>
                                     
                                     export namespace _implements {
                                         
@@ -145,7 +145,7 @@ export namespace _T_M3 {
                                 export type concept = {
                                     readonly 'abstract': string
                                     readonly 'partition': string
-                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                     readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 }
                                 
@@ -167,7 +167,7 @@ export namespace _T_M3 {
                                 | readonly ['concept', {
                                     readonly 'abstract': string
                                     readonly 'partition': string
-                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                     readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 }]
                                 | readonly ['interface', {
@@ -178,7 +178,7 @@ export namespace _T_M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -308,7 +308,7 @@ export namespace _T_M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -359,7 +359,7 @@ export namespace _T_M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -394,7 +394,7 @@ export namespace _T_M3 {
                         | readonly ['concept', {
                             readonly 'abstract': string
                             readonly 'partition': string
-                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                             readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                         | readonly ['interface', {
@@ -432,7 +432,7 @@ export namespace _T_M3 {
                         | readonly ['concept', {
                             readonly 'abstract': string
                             readonly 'partition': string
-                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                             readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                         | readonly ['interface', {
@@ -471,7 +471,7 @@ export namespace _T_M3 {
                     | readonly ['concept', {
                         readonly 'abstract': string
                         readonly 'partition': string
-                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                         readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                     | readonly ['interface', {
@@ -523,7 +523,7 @@ export namespace Raw_Reference {
     export namespace reference {
         export type O = string
     }
-    export type reference = _pt.Optional_Value<string>
+    export type reference = _et.Optional_Value<string>
 }
 
 export namespace M3 {
@@ -569,7 +569,7 @@ export namespace M3 {
                                         }
                                         export type O = _T_Raw_Reference
                                     }
-                                    export type _extends = _pt.Optional_Value<_T_Raw_Reference>
+                                    export type _extends = _et.Optional_Value<_T_Raw_Reference>
                                     
                                     export namespace _implements {
                                         
@@ -582,7 +582,7 @@ export namespace M3 {
                                 export type concept = {
                                     readonly 'abstract': string
                                     readonly 'partition': string
-                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                     readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 }
                                 
@@ -604,7 +604,7 @@ export namespace M3 {
                                 | readonly ['concept', {
                                     readonly 'abstract': string
                                     readonly 'partition': string
-                                    readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                    readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                     readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                                 }]
                                 | readonly ['interface', {
@@ -615,7 +615,7 @@ export namespace M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -745,7 +745,7 @@ export namespace M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -796,7 +796,7 @@ export namespace M3 {
                             | readonly ['concept', {
                                 readonly 'abstract': string
                                 readonly 'partition': string
-                                readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                                readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                                 readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                             }]
                             | readonly ['interface', {
@@ -831,7 +831,7 @@ export namespace M3 {
                         | readonly ['concept', {
                             readonly 'abstract': string
                             readonly 'partition': string
-                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                             readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                         | readonly ['interface', {
@@ -869,7 +869,7 @@ export namespace M3 {
                         | readonly ['concept', {
                             readonly 'abstract': string
                             readonly 'partition': string
-                            readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                            readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                             readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                         }]
                         | readonly ['interface', {
@@ -908,7 +908,7 @@ export namespace M3 {
                     | readonly ['concept', {
                         readonly 'abstract': string
                         readonly 'partition': string
-                        readonly 'extends': _pt.Optional_Value<_T_Raw_Reference>
+                        readonly 'extends': _et.Optional_Value<_T_Raw_Reference>
                         readonly 'implements': _i_core._T_List<null, _T_Raw_Reference>
                     }]
                     | readonly ['interface', {

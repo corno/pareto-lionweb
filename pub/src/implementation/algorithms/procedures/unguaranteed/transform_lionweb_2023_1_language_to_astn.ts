@@ -14,8 +14,8 @@ import { Signature } from "../../../../interface/algorithms/procedures/unguarant
 
 
 import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/read_file/fountain_pen"
-import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/write_file/lines"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/string"
+// import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/write_file/lines"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/text"
 
 // const settings = {
 //     'in': "./data/lioncore-2023-1.json",
@@ -26,22 +26,18 @@ const settings = {
     'out filename': "sysml.m3.astn",
 }
 
-export type Resources = {
-    'queries': {
-        'read file': _et.Data_Preparer<d_read_file.Parameters, d_read_file.Result, d_read_file.Error>
-    },
-    'commands': {
-        'write file': _et.Command<d_write_file.Parameters, d_write_file.Error>
-    }
+export type Query_Resources = {
+    'read file': _et.Stager<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
 
-export const $$: _et.Command_Procedure<d_main.Parameters, d_main.Error, Resources> = _easync.create_command_procedure(
-    ($r, $p) => $r.commands['write file'].execute.prepare(
-        ($) => {
-            _ed.log_debug_message(`failed to write converted dataset to ${settings['out filename']}`, () => { })
-            return ({ 'exit code': 1 })
-        },
-        $r.queries['read file'](
+export type Command_Resources = {
+    'write file': _et.Command<d_write_file.Error, d_write_file.Parameters>
+}
+
+export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_Resources, Query_Resources> = _easync.create_command_procedure(
+    ($p, $cr, $qr) => _easync.p.prepare_data(
+
+        $qr['read file'](
             {
                 'path': settings['in'],
                 'escape spaces in path': true
@@ -49,7 +45,7 @@ export const $$: _et.Command_Procedure<d_main.Parameters, d_main.Error, Resource
         ).transform_error_temp(($): d_main.Error => {
             _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
             return { 'exit code': 1 }
-        }).process(
+        }).stage(
 
 
             ($) => r_2023_1($), // <-- this is it; the acutal logic
@@ -68,7 +64,14 @@ export const $$: _et.Command_Procedure<d_main.Parameters, d_main.Error, Resource
                 },
                 'data': $
             }
-        })
+        }),
+        ($v) => $cr['write file'].execute(
+            $v,
+            ($) => {
+                _ed.log_debug_message(`failed to write converted dataset to ${settings['out filename']}`, () => { })
+                return ({ 'exit code': 1 })
+            },
+
+        )
     )
 )
-

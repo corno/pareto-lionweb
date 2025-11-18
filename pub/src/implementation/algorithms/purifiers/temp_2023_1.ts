@@ -45,7 +45,7 @@ export type Some_Error =
 export const $$ = (
     file_content: string,
 
-): _et.Data_Preparation_Result<string, Some_Error> => {
+): _et.Staging_Result<string, Some_Error> => {
 
 
     return _ea.create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error, Some_Error>(
@@ -58,7 +58,7 @@ export const $$ = (
                 abort,
             )
         }
-    ).process(
+    ).stage(
         ($) => {
             return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error, Some_Error>(
                 ($) => ['unmarshalling error', $],

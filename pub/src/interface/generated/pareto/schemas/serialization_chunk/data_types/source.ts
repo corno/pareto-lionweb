@@ -1,4 +1,4 @@
-import * as _pt from 'exupery-core-types'
+import * as _et from 'exupery-core-types'
 
 import * as _i_core from "../../../core/resolved"
 
@@ -12,7 +12,7 @@ export type _T_Meta_Pointer = {
 
 export type _T_Targets = _i_core._T_List<null, {
     readonly 'resolveInfo': string
-    readonly 'reference': _pt.Optional_Value<string>
+    readonly 'reference': _et.Optional_Value<string>
 }>
 
 export type _T_Serialization_Chunk = {
@@ -23,7 +23,7 @@ export type _T_Serialization_Chunk = {
     }>
     readonly 'nodes': _i_core._T_List<null, {
         readonly 'id': string
-        readonly 'parent': _pt.Optional_Value<string>
+        readonly 'parent': _et.Optional_Value<string>
         readonly 'classifier': _T_Meta_Pointer
         readonly 'properties': _i_core._T_List<null, {
             readonly 'property': _T_Meta_Pointer
@@ -65,11 +65,11 @@ export namespace _T_Targets {
         export namespace reference {
             export type O = string
         }
-        export type reference = _pt.Optional_Value<string>
+        export type reference = _et.Optional_Value<string>
     }
     export type L = {
         readonly 'resolveInfo': string
-        readonly 'reference': _pt.Optional_Value<string>
+        readonly 'reference': _et.Optional_Value<string>
     }
 }
 
@@ -100,7 +100,7 @@ export namespace _T_Serialization_Chunk {
             export namespace parent {
                 export type O = string
             }
-            export type parent = _pt.Optional_Value<string>
+            export type parent = _et.Optional_Value<string>
             
             export namespace classifier {
             }
@@ -177,7 +177,7 @@ export namespace _T_Serialization_Chunk {
         }
         export type L = {
             readonly 'id': string
-            readonly 'parent': _pt.Optional_Value<string>
+            readonly 'parent': _et.Optional_Value<string>
             readonly 'classifier': _T_Meta_Pointer
             readonly 'properties': _i_core._T_List<null, {
                 readonly 'property': _T_Meta_Pointer
@@ -196,7 +196,7 @@ export namespace _T_Serialization_Chunk {
     }
     export type nodes = _i_core._T_List<null, {
         readonly 'id': string
-        readonly 'parent': _pt.Optional_Value<string>
+        readonly 'parent': _et.Optional_Value<string>
         readonly 'classifier': _T_Meta_Pointer
         readonly 'properties': _i_core._T_List<null, {
             readonly 'property': _T_Meta_Pointer
@@ -230,11 +230,11 @@ export namespace Targets {
         export namespace reference {
             export type O = string
         }
-        export type reference = _pt.Optional_Value<string>
+        export type reference = _et.Optional_Value<string>
     }
     export type L = {
         readonly 'resolveInfo': string
-        readonly 'reference': _pt.Optional_Value<string>
+        readonly 'reference': _et.Optional_Value<string>
     }
 }
 
@@ -265,7 +265,7 @@ export namespace Serialization_Chunk {
             export namespace parent {
                 export type O = string
             }
-            export type parent = _pt.Optional_Value<string>
+            export type parent = _et.Optional_Value<string>
             
             export namespace classifier {
             }
@@ -342,7 +342,7 @@ export namespace Serialization_Chunk {
         }
         export type L = {
             readonly 'id': string
-            readonly 'parent': _pt.Optional_Value<string>
+            readonly 'parent': _et.Optional_Value<string>
             readonly 'classifier': _T_Meta_Pointer
             readonly 'properties': _i_core._T_List<null, {
                 readonly 'property': _T_Meta_Pointer
@@ -361,7 +361,7 @@ export namespace Serialization_Chunk {
     }
     export type nodes = _i_core._T_List<null, {
         readonly 'id': string
-        readonly 'parent': _pt.Optional_Value<string>
+        readonly 'parent': _et.Optional_Value<string>
         readonly 'classifier': _T_Meta_Pointer
         readonly 'properties': _i_core._T_List<null, {
             readonly 'property': _T_Meta_Pointer
