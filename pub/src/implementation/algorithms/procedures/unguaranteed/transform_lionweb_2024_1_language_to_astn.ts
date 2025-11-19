@@ -34,43 +34,47 @@ export type Command_Resources = {
 }
 
 export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_Resources, Query_Resources> = _easync.create_command_procedure(
-    ($p, $cr, $qr) => _easync.p.prepare_data(
+    ($p, $cr, $qr) => [
+        _easync.p.stage(
 
-        $qr['read file'](
-            {
-                'path': settings['in'],
-                'escape spaces in path': true
-            },
-        ).transform_error_temp(($): d_main.Error => {
-            _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
-            return { 'exit code': 1 }
-        }).stage(
-
-
-            ($) => r_2024_1($), // <-- this is it; the acutal logic
-
-
-
-            ($): d_main.Error => {
-                _ed.log_debug_message(`error during processing`, () => { })
-                return { 'exit code': 1 }
-            }
-        ).transform(($): d_write_file.Parameters => {
-            return {
-                'path': {
-                    'path': settings['out filename'],
-                    'escape spaces in path': true,
+            $qr['read file'](
+                {
+                    'path': settings['in'],
+                    'escape spaces in path': true
                 },
-                'data': $
-            }
-        }),
-        ($v) => $cr['write file'].execute(
-            $v,
-            ($) => {
-                _ed.log_debug_message(`failed to write converted dataset to ${settings['out filename']}`, () => { })
-                return ({ 'exit code': 1 })
-            },
+            ).transform_error_temp(($): d_main.Error => {
+                _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
+                return { 'exit code': 1 }
+            }).stage(
 
+
+                ($) => r_2024_1($), // <-- this is it; the acutal logic
+
+
+
+                ($): d_main.Error => {
+                    _ed.log_debug_message(`error during processing`, () => { })
+                    return { 'exit code': 1 }
+                }
+            ).transform(($): d_write_file.Parameters => {
+                return {
+                    'path': {
+                        'path': settings['out filename'],
+                        'escape spaces in path': true,
+                    },
+                    'data': $
+                }
+            }),
+            ($v) => [
+                $cr['write file'].execute(
+                    $v,
+                    ($) => {
+                        _ed.log_debug_message(`failed to write converted dataset to ${settings['out filename']}`, () => { })
+                        return ({ 'exit code': 1 })
+                    },
+
+                )
+            ]
         )
-    )
+    ]
 )
