@@ -27,7 +27,7 @@ const settings = {
 }
 
 export type Query_Resources = {
-    'read file': _et.Stager<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
+    'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
 }
 
 export type Command_Resources = {
@@ -43,10 +43,11 @@ export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_
                     'path': settings['in'],
                     'escape spaces in path': true
                 },
-            ).transform_error_temp(($): d_main.Error => {
-                _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
-                return { 'exit code': 1 }
-            }).stage(
+                ($): d_main.Error => {
+                    _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
+                    return { 'exit code': 1 }
+                }
+            ).stage(
 
 
                 ($) => r_2023_1($), // <-- this is it; the acutal logic
