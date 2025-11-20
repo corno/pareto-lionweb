@@ -36,7 +36,7 @@ export type Command_Resources = {
 
 export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_Resources, Query_Resources> = _easync.create_command_procedure(
     ($p, $cr, $qr) => [
-        _easync.p.stage(
+        _easync.p.stage_without_error_transformation(
 
             $qr['read file'](
                 {
