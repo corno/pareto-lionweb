@@ -1,8 +1,0 @@
-Repository: pareto-lionweb
-Path: /home/corno/workspace/pareto-canon/packages/pareto-lionweb
-Last Commit: 2025-11-07 (26de494)
-Message: updated to latest core
-Branch: main
-Remote: git@github.com:corno/pareto-lionweb
--------------------------------------------------
-
