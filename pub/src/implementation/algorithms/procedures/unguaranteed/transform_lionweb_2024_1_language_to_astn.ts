@@ -35,7 +35,7 @@ export type Command_Resources = {
 
 export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_Resources, Query_Resources> = _easync.create_command_procedure(
     ($p, $cr, $qr) => [
-        _easync.p.stage_without_error_transformation(
+        _easync.p.query_without_error_transformation(
 
             $qr['read file'](
                 {
@@ -45,7 +45,7 @@ export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_
                     _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
                     return { 'exit code': 1 }
                 }
-            ).stage(
+            ).refine(
 
 
                 ($) => r_2024_1($), // <-- this is it; the acutal logic
@@ -56,7 +56,7 @@ export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_
                     _ed.log_debug_message(`error during processing`, () => { })
                     return { 'exit code': 1 }
                 }
-            ).transform(($): d_write_file.Parameters => {
+            ).transform_result(($): d_write_file.Parameters => {
                 return {
                     'path': {
                         'path': settings['out filename'],
