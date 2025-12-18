@@ -47,9 +47,7 @@ export const $$ = (
 
 ): _et.Refinement_Result<string, Some_Error> => {
 
-
-    return _ea.create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error, Some_Error>(
-        ($) => ['deserialization error', $],
+    return _ea.create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error>(
         abort => {
             return r_sf_to_tree.Serialization_Chunk(
                 {
@@ -58,10 +56,11 @@ export const $$ = (
                 abort,
             )
         }
+    ).deprecated_transform_error(
+        ($): Some_Error => ['deserialization error', $]
     ).refine(
         ($) => {
-            return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error, Some_Error>(
-                ($) => ['unmarshalling error', $],
+            return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error>(
                 abort => {
                     return r_tree.M3(
                         {
@@ -73,7 +72,7 @@ export const $$ = (
                 }
             )
         },
-        ($) => $,
+        ($): Some_Error => ['unmarshalling error', $],
     ).transform_result(
         ($) => {
             return temp_serialize_should_be_generated(
