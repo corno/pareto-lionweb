@@ -58,7 +58,8 @@ export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_
                         settings['in']['file']
                     ),
                     'escape spaces in path': true
-                }, ($): d_main.Error => {
+                },
+                ($): d_main.Error => {
                     _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    ` })}`, () => { })
                     return { 'exit code': 1 }
                 }
