@@ -1,6 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 import * as _et from 'exupery-core-types'
 
+import * as _raw from 'exupery-core-rawdata'
+
 import * as d from "../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 
 import * as h from "./helpers"
@@ -8,7 +10,7 @@ import * as h from "./helpers"
 
 
 export const Serialization_Chunk = (
-    $: h.Value,
+    $: _raw.Value,
     helpers: h.Helpers
 ): d.Serialization_Chunk => {
     /**
@@ -75,7 +77,7 @@ export const Serialization_Chunk = (
 }
 
 export const Meta_Pointer = (
-    $: h.Value,
+    $: _raw.Value,
     helpers: h.Helpers
 ): d.Meta_Pointer => {
     return _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({

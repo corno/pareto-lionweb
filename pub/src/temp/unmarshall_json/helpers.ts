@@ -1,7 +1,5 @@
 import * as _et from 'exupery-core-types'
 
-export { Value } from 'exupery-core-rawdata'
-
 import { Value } from 'exupery-core-rawdata'
 
 export type Helpers = {
