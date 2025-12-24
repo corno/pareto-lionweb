@@ -11,9 +11,6 @@ import { $$ as expect_single_element } from "pareto-standard-operations/dist/imp
 
 import * as h from "../context"
 
-import { Signature } from "../../../../interface/algorithms/transformations/2024_1_tree/2024_1_tree_to_M3"
-
-
 
 export const ID = (
     $: d_in.Node,

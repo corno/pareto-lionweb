@@ -5,7 +5,6 @@ import * as d_in from "../../../../interface/generated/pareto/schemas/serializat
 import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
 import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/operations/impure/list/to_dictionary_if_no_clashes"
-import { Signature } from "../../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
 
 
 import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
