@@ -26,7 +26,7 @@ const settings = {
 
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_write_file from "exupery-resources/dist/interface/generated/pareto/schemas/write_file/data_types/source"
-import * as d_main from "exupery-resources/dist/interface/temp_main"
+import * as d_main from "exupery-resources/dist/interface/to_be_generated/temp_main"
 import * as d_path from "exupery-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
 
 export type Query_Resources = {
@@ -42,18 +42,18 @@ import { Signature } from "../../../../interface/algorithms/procedures/unguarant
 
 import { $$ as r_2024_1 } from "../../purifiers/temp_2024_1"
 
-import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/read_file/fountain_pen"
-// import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/write_file/lines"
+import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/read_file/fountain_pen"
+// import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/write_file/lines"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/text"
-import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/path/path"
-import * as r_path_from_text from "exupery-resources/dist/implementation/refiners/context_path/text"
-export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_Resources, Query_Resources> = _easync.create_command_procedure(
+import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/schemas/path/path"
+import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/context_path"
+export const $$: _et.Command_Procedure<_et.Command<d_main.Error, d_main.Parameters>, Command_Resources, Query_Resources> = _easync.create_command_procedure(
     ($p, $cr, $qr) => [
         _easync.p.query_without_error_transformation(
 
             $qr['read file'](
                 t_path_to_path.create_node_path(
-                    r_path_from_text.Context_Path(settings['in']['dir']),
+                    ds_path.Context_Path(settings['in']['dir']),
                     settings['in']['file']
                 ),
                 ($): d_main.Error => {
@@ -74,7 +74,7 @@ export const $$: _et.Command_Procedure<d_main.Error, d_main.Parameters, Command_
             ).transform_result(($): d_write_file.Parameters => {
                 return {
                     'path': t_path_to_path.create_node_path(
-                        r_path_from_text.Context_Path(settings['out']['dir']),
+                        ds_path.Context_Path(settings['out']['dir']),
                         settings['out']['file']
                     ),
                     'data': $
