@@ -4,12 +4,12 @@ import * as _ea from 'exupery-core-alg'
 import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
-import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/to_dictionary_if_no_clashes"
+import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/operations/impure/list/to_dictionary_if_no_clashes"
 import { Signature } from "../../../../interface/algorithms/transformations/serialization_format/serialization_format_to_tree"
 
 
-import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
-import { $$ as filter } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/filter"
+import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+import { $$ as filter } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
 
 export const make_metapointer_key = (mp: d_in.Meta_Pointer): string => {
     return `${mp.language}:${mp.version}:${mp.key}`

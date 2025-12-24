@@ -7,7 +7,7 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/lioncore/
 
 import { $$ as on_property_exists } from "../../../../temp/purification/on_property_exists"
 
-import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/expect_exactly_one_element"
+import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
 import * as h from "../context"
 

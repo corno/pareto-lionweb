@@ -14,8 +14,8 @@ import * as m_x from "../../generated/pareto/schemas/lioncore/marshall"
 
 import * as serialize from "../../generated/pareto/generic/serialize"
 
-import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/algorithms/integer/decimal/serializer"
-import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/algorithms/boolean/true_false/serializer"
+import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
+import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/serializers/primitives/boolean/true_false"
 
 import { create_context, Unmarshall_Error } from "../refinements/context"
 import { temp_json_unmarshall_should_be_done_extenally } from "../../../temp/unmarshall_json/unmarshall"
@@ -60,7 +60,7 @@ export const $$ = (
         }
     ).deprecated_transform_error(
         ($): Some_Error => ['deserialization error', $],
-    ).refine(
+    ).deprecated_refine_old(
         ($) => {
             return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error>(
                 abort => {
