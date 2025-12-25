@@ -1,6 +1,6 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
-import { Refinement_Error } from './Error'
+import { Refinement_Error } from "../../../../interface/to_be_generated/refinement_error"
 
 export const $$ = <T>(
     source: _et.Dictionary<T>,

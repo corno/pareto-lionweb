@@ -5,7 +5,7 @@ import * as _ea from 'exupery-core-alg'
 import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/lioncore/data_types/target"
 
-import { $$ as on_property_exists } from "../../../../temp/purification/on_property_exists"
+import { $$ as on_property_exists } from "../../../operations/impure/dictionary/on_property_exists"
 
 import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 

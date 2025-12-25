@@ -3,7 +3,7 @@ import * as _et from 'exupery-core-types'
 
 import * as _raw from 'exupery-core-rawdata'
 
-import * as d from "../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
+import * as d from "../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 
 import * as h from "./helpers"
 

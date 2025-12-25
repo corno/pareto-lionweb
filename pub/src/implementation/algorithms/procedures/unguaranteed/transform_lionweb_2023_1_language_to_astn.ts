@@ -30,11 +30,11 @@ import * as d_main from "exupery-resources/dist/interface/to_be_generated/temp_m
 import * as d_path from "exupery-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
 
 export type Query_Resources = {
-    'read file': _et.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
+    'read file': resources_exupery.queries.read_file
 }
 
 export type Command_Resources = {
-    'write file': _et.Command<d_write_file.Error, d_write_file.Parameters>
+    'write file': resources_exupery.commands.write_file
 }
 
 import * as resources_exupery from "exupery-resources/dist/interface/resources"
@@ -42,7 +42,7 @@ import * as resources_exupery from "exupery-resources/dist/interface/resources"
 
 //dependencies
 
-import { $$ as r_2023_1 } from "../../purifiers/temp_2023_1"
+import { $$ as r_2023_1 } from "../../deserializers/primitives/text/temp_2023_1"
 
 import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/read_file/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/write_file/lines"

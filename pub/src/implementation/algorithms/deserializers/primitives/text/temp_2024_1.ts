@@ -4,21 +4,21 @@ import * as _easync from 'exupery-core-async'
 import * as _ed from 'exupery-core-dev'
 import * as _et from 'exupery-core-types'
 
-import * as d_m3 from "../../../interface/generated/pareto/schemas/lioncore/data_types/source"
-import * as d_st from "../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
+import * as d_m3 from "../../../../../interface/generated/pareto/schemas/lioncore/data_types/source"
+import * as d_st from "../../../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
 
-import * as r_sf_to_tree from "../refinements/serialization_format/serialization_format_to_tree"
-import * as r_tree from "../refinements/2024_1_tree/2024_1_tree_to_M3"
+import * as r_sf_to_tree from "../../../refinements/serialization_format/serialization_format_to_tree"
+import * as r_tree from "../../../refinements/2024_1_tree/2024_1_tree_to_M3"
 
-import * as m_x from "../../generated/pareto/schemas/lioncore/marshall"
+import * as m_x from "../../../../generated/pareto/schemas/lioncore/marshall"
 
-import * as serialize from "../../generated/pareto/generic/serialize"
+import * as serialize from "../../../../generated/pareto/generic/serialize"
 
 import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/serializers/primitives/boolean/true_false"
 
-import { create_context, Unmarshall_Error } from "../refinements/context"
-import { temp_json_unmarshall_should_be_done_extenally } from "../../../temp/unmarshall_json/unmarshall"
+import { create_context, Unmarshall_Error } from "../../../refinements/context"
+import { temp_json_unmarshall_should_be_done_extenally } from "../../../../temp/unmarshall_json/unmarshall"
 
 const temp_serialize_should_be_generated = (
     m3: d_m3.M3,
