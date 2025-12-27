@@ -2,8 +2,6 @@ import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 import * as _ed from 'exupery-core-dev'
 
-import { $$ as o_expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-
 export type Unmarshall_Error =
     | ['missing property', { 'property': string, 'path': string }]
     | ['unexpected property', { 'property': string, 'path': string }]

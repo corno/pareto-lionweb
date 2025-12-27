@@ -4,8 +4,20 @@ import * as _ea from 'exupery-core-alg'
 import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
-import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implementation/operations/impure/list/to_dictionary_if_no_clashes"
-
+const list_to_dictionary = <T>($: _et.List<_et.Key_Value_Pair<T>>): _et.Optional_Value<_et.Dictionary<T>> => {
+    const seenKeys: { [key: string]: null } = {}
+    let foundClash: boolean = false
+    const result = _ea.deprecated_build_dictionary<T>(($i) => {
+        $.__for_each(($) => {
+            if (seenKeys[$.key] !== undefined) {
+                foundClash = true
+            }
+            seenKeys[$.key] = null
+            $i['add entry']($.key, $.value)
+        })
+    })
+    return foundClash ? _ea.not_set() : _ea.set(result)
+}
 
 import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
