@@ -8,7 +8,6 @@ import { $$ as list_to_dictionary } from "pareto-standard-operations/dist/implem
 
 
 import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
-import { $$ as filter } from "pareto-standard-operations/dist/implementation/operations/pure/list/filter"
 
 export const make_metapointer_key = (mp: d_in.Meta_Pointer): string => {
     return `${mp.language}:${mp.version}:${mp.key}`
@@ -30,12 +29,10 @@ export const Serialization_Chunk = (
     abort: _ea.Abort<Deserialization_Error>
 ): d_out.Serialization_Chunk => {
     const root_node_id = expect_exactly_one_element(
-        filter<d_in.Serialization_Chunk.nodes.L>(
-            $p.chunk.nodes.map(($ => $.parent.transform(
-                () => _ea.not_set(),
-                () => _ea.set($)
-            )))
-        )
+        $p.chunk.nodes.filter<d_in.Serialization_Chunk.nodes.L>(($ => $.parent.is_set()
+            ? _ea.not_set()
+            : _ea.set($)
+        ))
     ).transform(
         ($) => {
             return $

@@ -1,7 +1,7 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
+import * as _ed from 'exupery-core-dev'
 
-import { $$ as o_group } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/group"
 import { $$ as o_expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
 export type Unmarshall_Error =
@@ -100,10 +100,11 @@ const rekey = <T>(
     $: _et.Dictionary<Key_Value_Pair<T>>,
     abort: _ea.Abort<Unmarshall_Error>,
 ): _et.Dictionary<T> => {
-    return o_group($).map(($, key) => {
-        return o_expect_single_element($).transform(
-            ($) => $,
-            () => abort(['expected single element', key])
-        )
-    })
+    return _ed.implement_me(`rekey`)
+    // return o_group($).map(($, key) => {
+    //     return o_expect_single_element($).transform(
+    //         ($) => $,
+    //         () => abort(['expected single element', key])
+    //     )
+    // })
 }
