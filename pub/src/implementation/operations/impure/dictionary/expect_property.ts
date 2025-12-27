@@ -9,7 +9,7 @@ export const $$ = <T>(
     path: string,
     abort: _ea.Abort<Refinement_Error>
 ): T => {
-    return props.__get_entry(prop_name).transform(
+    return props.get_entry(prop_name).transform(
         ($) => $,
         () => {
             return abort(['missing property', { 'property': prop_name, 'path': path }])

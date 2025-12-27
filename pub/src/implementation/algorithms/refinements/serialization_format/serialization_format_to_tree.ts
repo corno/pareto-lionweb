@@ -56,7 +56,7 @@ export const Serialization_Chunk = (
         'node tree': Node(
             {
                 'nodes': nodes,
-                'current node': nodes.__get_entry(root_node_id).transform(
+                'current node': nodes.get_entry(root_node_id).transform(
                     ($) => $,
                     () => abort(['could not determine root node', null]),
                 ),
@@ -90,7 +90,7 @@ const Node = (
                     'value': Node(
                         {
                             'nodes': $p.nodes,
-                            'current node': $p.nodes.__get_entry($).transform(
+                            'current node': $p.nodes.get_entry($).transform(
                                 ($) => $,
                                 () => abort(['child node not found', $]),
                             ),
