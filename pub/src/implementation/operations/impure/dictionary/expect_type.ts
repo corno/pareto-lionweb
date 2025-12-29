@@ -1,13 +1,13 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pi from 'pareto-core-interface'
+
 import { Refinement_Error } from "../../../../interface/to_be_generated/refinement_error"
 
 export const $$ = <T>(
-    source: _et.Dictionary<T>,
-    expected_properties: _et.Dictionary<null>,
+    source: _pi.Dictionary<T>,
+    expected_properties: _pi.Dictionary<null>,
     path: string,
-    abort: _ea.Abort<Refinement_Error>
-): _et.Dictionary<T> => {
+    abort: _pi.Abort<Refinement_Error>
+): _pi.Dictionary<T> => {
     const expected: { [key: string]: null } = {}
     expected_properties.map(($, key) => {
         expected[key] = null

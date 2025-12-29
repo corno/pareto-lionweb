@@ -1,13 +1,13 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pi from 'pareto-core-interface'
+import * as _pr from 'pareto-core-refiner'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
-const list_to_dictionary = <T>($: _et.List<_et.Key_Value_Pair<T>>): _et.Optional_Value<_et.Dictionary<T>> => {
+const list_to_dictionary = <T>($: _pi.List<_pi.Key_Value_Pair<T>>): _pi.Optional_Value<_pi.Dictionary<T>> => {
     const seenKeys: { [key: string]: null } = {}
     let foundClash: boolean = false
-    const result = _ea.deprecated_build_dictionary<T>(($i) => {
+    const result = _pr.deprecated_build_dictionary<T>(($i) => {
         $.__for_each(($) => {
             if (seenKeys[$.key] !== undefined) {
                 foundClash = true
@@ -16,7 +16,7 @@ const list_to_dictionary = <T>($: _et.List<_et.Key_Value_Pair<T>>): _et.Optional
             $i['add entry']($.key, $.value)
         })
     })
-    return foundClash ? _ea.not_set() : _ea.set(result)
+    return foundClash ? _pr.not_set() : _pr.set(result)
 }
 
 import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
@@ -38,12 +38,12 @@ export const Serialization_Chunk = (
     $p: {
         'chunk': d_in.Serialization_Chunk,
     },
-    abort: _ea.Abort<Deserialization_Error>
+    abort: _pi.Abort<Deserialization_Error>
 ): d_out.Serialization_Chunk => {
     const root_node_id = expect_exactly_one_element(
         $p.chunk.nodes.filter<d_in.Serialization_Chunk.nodes.L>(($ => $.parent.is_set()
-            ? _ea.not_set()
-            : _ea.set($)
+            ? _pr.not_set()
+            : _pr.set($)
         ))
     ).transform(
         ($) => {
@@ -77,10 +77,10 @@ export const Serialization_Chunk = (
 
 const Node = (
     $p: {
-        'nodes': _et.Dictionary<d_in.Serialization_Chunk.nodes.L>,
+        'nodes': _pi.Dictionary<d_in.Serialization_Chunk.nodes.L>,
         'current node': d_in.Serialization_Chunk.nodes.L,
     },
-    abort: _ea.Abort<Deserialization_Error>
+    abort: _pi.Abort<Deserialization_Error>
 ): d_out.Node => {
     return {
         'classifier': make_metapointer_key($p['current node'].classifier),

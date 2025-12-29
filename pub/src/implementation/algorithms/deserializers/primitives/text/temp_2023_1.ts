@@ -1,8 +1,7 @@
-import * as _ea from 'exupery-core-alg'
-import * as _eb from 'exupery-core-bin'
-import * as _easync from 'exupery-core-async'
-import * as _ed from 'exupery-core-dev'
-import * as _et from 'exupery-core-types'
+import * as _pds from 'pareto-core-deserializer'
+import * as _pi from 'pareto-core-interface'
+import * as _pinternals from 'pareto-core-internals'
+
 
 import * as d_m3 from "../../../../../interface/generated/pareto/schemas/lioncore/data_types/source"
 import * as d_st from "../../../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
@@ -45,9 +44,9 @@ export type Some_Error =
 export const $$ = (
     file_content: string,
 
-): _et.Refinement_Result<string, Some_Error> => {
+): _pi.Deprecated_Refinement_Result<string, Some_Error> => {
 
-    return _ea.create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error>(
+    return _pinternals.deprecated_create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error>(
         abort => {
             return r_sf_to_tree.Serialization_Chunk(
                 {
@@ -60,7 +59,7 @@ export const $$ = (
         ($): Some_Error => ['deserialization error', $]
     ).deprecated_refine_old(
         ($) => {
-            return _ea.create_refinement_context<d_m3.M3, Unmarshall_Error>(
+            return _pinternals.deprecated_create_refinement_context<d_m3.M3, Unmarshall_Error>(
                 abort => {
                     return r_tree.M3(
                         {

@@ -1,6 +1,5 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pi from 'pareto-core-interface'
 
-export const $$ = <T>(props: _et.Dictionary<T>, prop_name: string): _et.Optional_Value<T> => {
+export const $$ = <T>(props: _pi.Dictionary<T>, prop_name: string): _pi.Optional_Value<T> => {
     return props.get_entry(prop_name)
 }

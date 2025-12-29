@@ -1,8 +1,6 @@
-import * as _ea from 'exupery-core-alg'
-import * as _eb from 'exupery-core-bin'
-import * as _easync from 'exupery-core-async'
-import * as _ed from 'exupery-core-dev'
-import * as _et from 'exupery-core-types'
+import * as _pc from 'pareto-core-command'
+import * as _pdev from 'pareto-core-dev'
+import * as _pi from 'pareto-core-interface'
 
 //data
 
@@ -49,9 +47,9 @@ import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementat
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/serializers/schemas/block"
 import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/schemas/path/path"
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/context_path"
-export const $$: _et.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _easync.create_command_procedure(
+export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _pc.create_command_procedure(
     ($p, $cr, $qr) => [
-        _easync.p.query_without_error_transformation(
+        _pc.query_without_error_transformation(
 
             $qr['read file'](
                 t_path_to_path.create_node_path(
@@ -59,7 +57,7 @@ export const $$: _et.Command_Procedure<resources_exupery.commands.main, Command_
                     settings['in']['file']
                 ),
                 ($): d_main.Error => {
-                    _ed.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
+                    _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
                     return { 'exit code': 1 }
                 }
             ).deprecated_refine_old(
@@ -70,7 +68,7 @@ export const $$: _et.Command_Procedure<resources_exupery.commands.main, Command_
 
 
                 ($): d_main.Error => {
-                    _ed.log_debug_message(`error during processing`, () => { })
+                    _pdev.log_debug_message(`error during processing`, () => { })
                     return { 'exit code': 1 }
                 }
             ).transform_result(($): d_write_file.Parameters => {
@@ -86,7 +84,7 @@ export const $$: _et.Command_Procedure<resources_exupery.commands.main, Command_
                 $cr['write file'].execute(
                     $v,
                     ($) => {
-                        _ed.log_debug_message(`failed to write converted dataset to ${settings['out']['file']}`, () => { })
+                        _pdev.log_debug_message(`failed to write converted dataset to ${settings['out']['file']}`, () => { })
                         return ({ 'exit code': 1 })
                     },
 

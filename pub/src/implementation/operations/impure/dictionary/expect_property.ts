@@ -1,13 +1,12 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pi from 'pareto-core-interface'
 
 import { Refinement_Error } from "../../../../interface/to_be_generated/refinement_error"
 
 export const $$ = <T>(
-    props: _et.Dictionary<T>,
+    props: _pi.Dictionary<T>,
     prop_name: string,
     path: string,
-    abort: _ea.Abort<Refinement_Error>
+    abort: _pi.Abort<Refinement_Error>
 ): T => {
     return props.get_entry(prop_name).transform(
         ($) => $,

@@ -1,12 +1,12 @@
 #!/usr/bin/env -S node --enable-source-maps
 
-import * as _eb from 'exupery-core-bin'
+import * as _pn from 'pareto-host-nodejs'
 
 import { $$ as procedure } from "../implementation/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
 
 import * as d_resources from "../implementation/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
 
-_eb.run_main_procedure(
+_pn.run_main_procedure(
     ($r) => {
         return procedure(
             {

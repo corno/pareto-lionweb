@@ -1,5 +1,5 @@
-import * as _ea from 'exupery-core-alg'
-import * as _et from 'exupery-core-types'
+import * as _pt from 'pareto-core-transformer'
+import * as _pi from 'pareto-core-interface'
 
 import * as _raw from 'exupery-core-rawdata'
 
@@ -19,20 +19,20 @@ export const Serialization_Chunk = (
      * 1) generate the Serialization_Chunk schema, which is now handwritten (one time effort)
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
-    return _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+    return _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
         'serializationFormatVersion': null,
         'languages': null,
         'nodes': null,
     })), ($) => ({
         'serializationFormatVersion': helpers.expect_text(helpers.expect_property($, 'serializationFormatVersion')),
-        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
             'key': null,
             'version': null,
         })), ($) => ({
             'key': helpers.expect_text(helpers.expect_property($, 'key')),
             'version': helpers.expect_text(helpers.expect_property($, 'version')),
         }))),
-        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
             'id': null,
             'classifier': null,
             'properties': null,
@@ -44,26 +44,26 @@ export const Serialization_Chunk = (
             'id': helpers.expect_text(helpers.expect_property($, 'id')),
             'classifier': Meta_Pointer(helpers.expect_property($, 'classifier'), helpers),
             'parent': helpers.expect_optional_null(helpers.expect_property($, 'parent')).map(($) => helpers.expect_text($)),
-            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
                 'property': null,
                 'value': null,
             })), ($) => ({
                 'property': Meta_Pointer(helpers.expect_property($, 'property'), helpers),
                 'value': helpers.expect_text(helpers.expect_property($, 'value')),
             }))),
-            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
                 'containment': null,
                 'children': null,
             })), ($) => ({
                 'containment': Meta_Pointer(helpers.expect_property($, 'containment'), helpers),
                 'children': helpers.expect_array(helpers.expect_property($, 'children')).map(($) => helpers.expect_text($)),
             }))),
-            'references': helpers.expect_array(helpers.expect_property($, 'references')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+            'references': helpers.expect_array(helpers.expect_property($, 'references')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
                 'reference': null,
                 'targets': null,
             })), ($) => ({
                 'reference': Meta_Pointer(helpers.expect_property($, 'reference'), helpers),
-                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).map(($) => _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).map(($) => _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
                     'resolveInfo': null,
                     'reference': null,
                 })), ($) => ({
@@ -80,7 +80,7 @@ export const Meta_Pointer = (
     $: _raw.Value,
     helpers: h.Helpers
 ): d.Meta_Pointer => {
-    return _ea.cc(helpers.expect_verbose_type($, _ea.dictionary_literal({
+    return _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({
         'language': null,
         'key': null,
         'version': null,

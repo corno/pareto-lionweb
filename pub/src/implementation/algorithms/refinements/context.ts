@@ -1,6 +1,6 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
-import * as _ed from 'exupery-core-dev'
+import * as _pi from 'pareto-core-interface'
+import * as _pt from 'pareto-core-transformer'
+import * as _ed from 'pareto-core-dev'
 
 export type Unmarshall_Error =
     | ['missing property', { 'property': string, 'path': string }]
@@ -24,35 +24,35 @@ export type Key_Value_Pair<T> = {
 
 export type Refinement_Context = {
     rekey: <T>(
-        $: _et.Dictionary<Key_Value_Pair<T>>,
-    ) => _et.Dictionary<T>
+        $: _pi.Dictionary<Key_Value_Pair<T>>,
+    ) => _pi.Dictionary<T>
     expect_type: <T>(
-        source: _et.Dictionary<T>,
-        expected_properties: _et.Dictionary<null>,
+        source: _pi.Dictionary<T>,
+        expected_properties: _pi.Dictionary<null>,
         path: string,
-    ) => _et.Dictionary<T>
+    ) => _pi.Dictionary<T>
     expect_property: <T>(
-        props: _et.Dictionary<T>,
+        props: _pi.Dictionary<T>,
         prop_name: string,
         path: string,
     ) => T
-    abort: _ea.Abort<Unmarshall_Specific_Error>
+    abort: _pi.Abort<Unmarshall_Specific_Error>
 }
 
 export const create_context = (
-    abort: _ea.Abort<Unmarshall_Error>
+    abort: _pi.Abort<Unmarshall_Error>
 ): Refinement_Context => {
     return {
         rekey: <T>(
-            $: _et.Dictionary<Key_Value_Pair<T>>,
+            $: _pi.Dictionary<Key_Value_Pair<T>>,
         ) => rekey($, abort),
         expect_type: <T>(
-            source: _et.Dictionary<T>,
-            expected_properties: _et.Dictionary<null>,
+            source: _pi.Dictionary<T>,
+            expected_properties: _pi.Dictionary<null>,
             path: string,
         ) => expect_type(source, expected_properties, path, abort),
         expect_property: <T>(
-            props: _et.Dictionary<T>,
+            props: _pi.Dictionary<T>,
             prop_name: string,
             path: string,
         ) => expect_property(props, prop_name, path, abort),
@@ -63,10 +63,10 @@ export const create_context = (
 }
 
 const expect_property = <T>(
-    props: _et.Dictionary<T>,
+    props: _pi.Dictionary<T>,
     prop_name: string,
     path: string,
-    abort: _ea.Abort<Unmarshall_Error>
+    abort: _pi.Abort<Unmarshall_Error>
 ): T => {
     return props.get_entry(prop_name).transform(
         ($) => $,
@@ -77,11 +77,11 @@ const expect_property = <T>(
 }
 
 const expect_type = <T>(
-    source: _et.Dictionary<T>,
-    expected_properties: _et.Dictionary<null>,
+    source: _pi.Dictionary<T>,
+    expected_properties: _pi.Dictionary<null>,
     path: string,
-    abort: _ea.Abort<Unmarshall_Error>
-): _et.Dictionary<T> => {
+    abort: _pi.Abort<Unmarshall_Error>
+): _pi.Dictionary<T> => {
     const expected: { [key: string]: null } = {}
     expected_properties.map(($, key) => {
         expected[key] = null
@@ -95,9 +95,9 @@ const expect_type = <T>(
 }
 
 const rekey = <T>(
-    $: _et.Dictionary<Key_Value_Pair<T>>,
-    abort: _ea.Abort<Unmarshall_Error>,
-): _et.Dictionary<T> => {
+    $: _pi.Dictionary<Key_Value_Pair<T>>,
+    abort: _pi.Abort<Unmarshall_Error>,
+): _pi.Dictionary<T> => {
     return _ed.implement_me(`rekey`)
     // return o_group($).map(($, key) => {
     //     return o_expect_single_element($).transform(
