@@ -4,7 +4,7 @@ import * as _pr from 'pareto-core-refiner'
 import * as d_in from "../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
-const list_to_dictionary = <T>($: _pi.List<_pi.Key_Value_Pair<T>>): _pi.Optional_Value<_pi.Dictionary<T>> => {
+const list_to_dictionary = <T>($: _pi.List<_pi.Deprecated_Key_Value_Pair<T>>): _pi.Optional_Value<_pi.Dictionary<T>> => {
     const seenKeys: { [key: string]: null } = {}
     let foundClash: boolean = false
     const result = _pr.deprecated_build_dictionary<T>(($i) => {
