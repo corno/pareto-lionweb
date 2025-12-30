@@ -41,40 +41,24 @@ export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]
     | ['unmarshalling error', Unmarshall_Error]
 
-export const $$ = (
-    file_content: string,
-
-): _pi.Deprecated_Refinement_Result<string, Some_Error> => {
-
-    return _pinternals.deprecated_create_refinement_context<d_st.Serialization_Chunk, r_sf_to_tree.Deserialization_Error>(
-        abort => {
-            return r_sf_to_tree.Serialization_Chunk(
+export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
+    return _pinternals.cc(
+        r_sf_to_tree.Serialization_Chunk(
+            {
+                'chunk': temp_json_unmarshall_should_be_done_extenally($),
+            },
+            ($) => abort(['deserialization error', $])
+        ),
+        ($) => _pinternals.cc(
+            r_tree.M3(
                 {
-                    'chunk': temp_json_unmarshall_should_be_done_extenally(file_content),
+                    $: $,
+                    'write id': false
                 },
-                abort,
-            )
-        }
-    ).deprecated_transform_error(
-        ($): Some_Error => ['deserialization error', $]
-    ).deprecated_refine_old(
-        ($) => {
-            return _pinternals.deprecated_create_refinement_context<d_m3.M3, Unmarshall_Error>(
-                abort => {
-                    return r_tree.M3(
-                        {
-                            $: $,
-                            'write id': false
-                        },
-                        create_context(abort),
-                    )
-                }
-            )
-        },
-        ($): Some_Error => ['unmarshalling error', $],
-    ).transform_result(
-        ($) => {
-            return temp_serialize_should_be_generated(
+                create_context(($) => abort(['unmarshalling error', $]),
+                )
+            ),
+            ($) => temp_serialize_should_be_generated(
                 $,
                 {
                     'value serializers': {
@@ -84,7 +68,7 @@ export const $$ = (
                     }
                 }
             )
-        }
+        )
     )
 
 }

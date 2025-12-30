@@ -62,17 +62,19 @@ export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_
                     _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
                     return { 'exit code': 1 }
                 }
-            ).deprecated_refine_old(
+            ).refine_without_error_transformation(
 
 
-                ($) => r_2023_1($), // <-- this is it; the acutal logic
+                ($, abort) => r_2023_1(
+                    $,
+                    ($) => {
+                        _pdev.log_debug_message(`error during processing`, () => { })
+                        return abort({ 'exit code': 1 })
+                    }
+                ), // <-- this is it; the acutal logic
 
 
 
-                ($): d_main.Error => {
-                    _pdev.log_debug_message(`error during processing`, () => { })
-                    return { 'exit code': 1 }
-                }
             ).transform_result(($): d_write_file.Parameters => {
                 return {
                     'path': t_path_to_path.create_node_path(
