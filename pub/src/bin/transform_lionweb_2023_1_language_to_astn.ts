@@ -2,9 +2,9 @@
 
 import * as _pn from 'pareto-host-nodejs'
 
-import { $$ as procedure } from "../implementation/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
+import { $$ as procedure } from "../implementation/commands/transform_lionweb_2023_1_language_to_astn"
 
-import * as d_resources from "../implementation/algorithms/procedures/unguaranteed/transform_lionweb_2023_1_language_to_astn"
+import * as d_resources from "../implementation/commands/transform_lionweb_2023_1_language_to_astn"
 
 _pn.run_main_procedure(
     ($r) => {
