@@ -1,8 +1,8 @@
 import * as _pi from 'pareto-core-interface'
 import * as _pr from 'pareto-core-refiner'
 
-import * as d_in from "../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
-import * as d_out from "../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/serialization_tree/data_types/target"
 
 
 import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
