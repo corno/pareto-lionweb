@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
-import * as _ed from 'pareto-core-dev'
+import * as _pdev from 'pareto-core-dev'
 
 export type Unmarshall_Error =
     | ['missing property', { 'property': string, 'path': string }]
@@ -98,7 +98,7 @@ const rekey = <T>(
     $: _pi.Dictionary<Key_Value_Pair<T>>,
     abort: _pi.Abort<Unmarshall_Error>,
 ): _pi.Dictionary<T> => {
-    return _ed.implement_me(`rekey`)
+    return _pdev.implement_me(`rekey`)
     // return o_group($).map(($, key) => {
     //     return o_expect_single_element($).transform(
     //         ($) => $,
