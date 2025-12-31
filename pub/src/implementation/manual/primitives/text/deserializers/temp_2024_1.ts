@@ -11,8 +11,8 @@ import * as m_x from "../../../../generated/pareto/schemas/lioncore/marshall"
 
 import * as serialize from "../../../../generated/pareto/generic/serialize"
 
-import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
-import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/serializers/primitives/boolean/true_false"
+import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
+import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 import { create_context, Unmarshall_Error } from "../../../../temp_context"
 import { temp_json_unmarshall_should_be_done_extenally } from "../../../../temp/unmarshall_json/unmarshall"

@@ -44,7 +44,7 @@ import { $$ as r_2024_1 } from "../primitives/text/deserializers/temp_2024_1"
 
 import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/read_file/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/write_file/lines"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/serializers/schemas/block"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
 import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/schemas/path/path"
 import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/context_path"
 export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _pc.create_command_procedure(
