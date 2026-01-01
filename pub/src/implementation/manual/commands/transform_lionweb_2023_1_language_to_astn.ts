@@ -22,10 +22,10 @@ const settings = {
 
 //interface
 
-import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_write_file from "exupery-resources/dist/interface/generated/pareto/schemas/write_file/data_types/source"
-import * as d_main from "exupery-resources/dist/interface/to_be_generated/temp_main"
-import * as d_path from "exupery-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
+import * as d_read_file from "pareto-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
+import * as d_write_file from "pareto-resources/dist/interface/generated/pareto/schemas/write_file/data_types/source"
+import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
+import * as d_path from "pareto-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
 
 export type Query_Resources = {
     'read file': resources_exupery.queries.read_file
@@ -35,18 +35,18 @@ export type Command_Resources = {
     'write file': resources_exupery.commands.write_file
 }
 
-import * as resources_exupery from "exupery-resources/dist/interface/resources"
+import * as resources_exupery from "pareto-resources/dist/interface/resources"
 
 
 //dependencies
 
 import { $$ as r_2023_1 } from "../primitives/text/deserializers/temp_2023_1"
 
-import * as t_read_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/read_file/fountain_pen"
-// import * as t_write_file_to_fountain_pen from "exupery-resources/dist/implementation/transformers/schemas/write_file/lines"
+import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
+// import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
-import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/schemas/path/path"
-import * as ds_path from "exupery-resources/dist/implementation/deserializers/schemas/context_path"
+import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
+import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/context_path/deserializers"
 
 
 export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _pc.create_command_procedure(
