@@ -29,7 +29,7 @@
   "dependencies": {
     "exupery-core-rawdata": "^0.2.1",
     "pareto-host-nodejs": "^0.1.2",
-    "pareto-resources": "^0.1.2",
+    "pareto-resources": "^0.1.3",
     "pareto-standard-operations": "^0.3.33"
   }
 }
