@@ -40,7 +40,7 @@ import * as resources_exupery from "pareto-resources/dist/interface/resources"
 
 //dependencies
 
-import { $$ as r_2023_1 } from "../primitives/text/deserializers/temp_2023_1"
+import { $$ as r_2023_1 } from "../text_to_text/temp_2023_1"
 
 import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"

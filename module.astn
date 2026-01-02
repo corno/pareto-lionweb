@@ -1,0 +1,516 @@
+(
+    'operations': {
+    }
+    'schema tree': | 'set' {
+        `lioncore`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `ID`: (
+                    'node': | 'optional' | 'group' {
+                        `key`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `id`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Raw Reference`: (
+                    'node': | 'group' {
+                        `resolveInfo`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `reference`: (
+                            'description': ~
+                            'node': | 'optional' | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `M3`: (
+                    'node': | 'group' {
+                        `id`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `ID`
+                        )
+                        `version`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `dependencies`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'component' | 'internal' `Raw Reference`
+                            )
+                        )
+                        `entities`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'group' {
+                                    `id`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal' `ID`
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'state group' {
+                                            `classifier`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `type`: (
+                                                        'description': ~
+                                                        'node': | 'state group' {
+                                                            `concept`: (
+                                                                'description': ~
+                                                                'node': | 'group' {
+                                                                    `abstract`: (
+                                                                        'description': ~
+                                                                        'node': | 'text' | 'local' (
+                                                                            'type': | 'single line' ~
+                                                                        )
+                                                                    )
+                                                                    `partition`: (
+                                                                        'description': ~
+                                                                        'node': | 'text' | 'local' (
+                                                                            'type': | 'single line' ~
+                                                                        )
+                                                                    )
+                                                                    `extends`: (
+                                                                        'description': ~
+                                                                        'node': | 'optional' | 'component' | 'internal' `Raw Reference`
+                                                                    )
+                                                                    `implements`: (
+                                                                        'description': ~
+                                                                        'node': | 'list' (
+                                                                            'node': | 'component' | 'internal' `Raw Reference`
+                                                                        )
+                                                                    )
+                                                                }
+                                                            )
+                                                            `interface`: (
+                                                                'description': ~
+                                                                'node': | 'group' {
+                                                                    `extends`: (
+                                                                        'description': ~
+                                                                        'node': | 'list' (
+                                                                            'node': | 'component' | 'internal' `Raw Reference`
+                                                                        )
+                                                                    )
+                                                                }
+                                                            )
+                                                        }
+                                                    )
+                                                    `features`: (
+                                                        'description': ~
+                                                        'node': | 'dictionary' (
+                                                            'node': | 'group' {
+                                                                `id`: (
+                                                                    'description': ~
+                                                                    'node': | 'component' | 'internal' `ID`
+                                                                )
+                                                                `optional`: (
+                                                                    'description': ~
+                                                                    'node': | 'text' | 'local' (
+                                                                        'type': | 'single line' ~
+                                                                    )
+                                                                )
+                                                                `type`: (
+                                                                    'description': ~
+                                                                    'node': | 'state group' {
+                                                                        `property`: (
+                                                                            'description': ~
+                                                                            'node': | 'group' {
+                                                                                `type`: (
+                                                                                    'description': ~
+                                                                                    'node': | 'component' | 'internal' `Raw Reference`
+                                                                                )
+                                                                            }
+                                                                        )
+                                                                        `link`: (
+                                                                            'description': ~
+                                                                            'node': | 'group' {
+                                                                                `multiple`: (
+                                                                                    'description': ~
+                                                                                    'node': | 'text' | 'local' (
+                                                                                        'type': | 'single line' ~
+                                                                                    )
+                                                                                )
+                                                                                `type`: (
+                                                                                    'description': ~
+                                                                                    'node': | 'component' | 'internal' `Raw Reference`
+                                                                                )
+                                                                                `link type`: (
+                                                                                    'description': ~
+                                                                                    'node': | 'state group' {
+                                                                                        `containment`: (
+                                                                                            'description': ~
+                                                                                            'node': | 'nothing' ~
+                                                                                        )
+                                                                                        `reference`: (
+                                                                                            'description': ~
+                                                                                            'node': | 'nothing' ~
+                                                                                        )
+                                                                                    }
+                                                                                )
+                                                                            }
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                            'ordered': `false`
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                            `datatype`: (
+                                                'description': ~
+                                                'node': | 'state group' {
+                                                    `enumeration`: (
+                                                        'description': ~
+                                                        'node': | 'dictionary' (
+                                                            'node': | 'component' | 'internal' `ID`
+                                                            'ordered': `false`
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                                'ordered': `false`
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+        `serialization chunk`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `Meta Pointer`: (
+                    'node': | 'group' {
+                        `language`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `key`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `version`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Targets`: (
+                    'node': | 'list' (
+                        'node': | 'group' {
+                            `resolveInfo`: (
+                                'description': ~
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                            `reference`: (
+                                'description': ~
+                                'node': | 'optional' | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        }
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Serialization Chunk`: (
+                    'node': | 'group' {
+                        `serializationFormatVersion`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `languages`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `key`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `version`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                        `nodes`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `id`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `parent`: (
+                                        'description': ~
+                                        'node': | 'optional' | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `classifier`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal' `Meta Pointer`
+                                    )
+                                    `properties`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'group' {
+                                                `property`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal' `Meta Pointer`
+                                                )
+                                                `value`: (
+                                                    'description': ~
+                                                    'node': | 'text' | 'local' (
+                                                        'type': | 'single line' ~
+                                                    )
+                                                )
+                                            }
+                                        )
+                                    )
+                                    `references`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'group' {
+                                                `reference`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal' `Meta Pointer`
+                                                )
+                                                `targets`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal' `Targets`
+                                                )
+                                            }
+                                        )
+                                    )
+                                    `containments`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'group' {
+                                                `containment`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal' `Meta Pointer`
+                                                )
+                                                `children`: (
+                                                    'description': ~
+                                                    'node': | 'list' (
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                )
+                                            }
+                                        )
+                                    )
+                                    `annotations`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+        `serialization tree`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `Targets`: (
+                    'node': | 'list' (
+                        'node': | 'group' {
+                            `resolveInfo`: (
+                                'description': ~
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                            `reference`: (
+                                'description': ~
+                                'node': | 'optional' | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        }
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Node`: (
+                    'node': | 'group' {
+                        `classifier`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `properties`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                                'ordered': `false`
+                            )
+                        )
+                        `containments`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'dictionary' (
+                                    'node': | 'component' | 'internal cyclic' `Node`
+                                    'ordered': `false`
+                                )
+                                'ordered': `false`
+                            )
+                        )
+                        `references`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'component' | 'internal' `Targets`
+                                'ordered': `false`
+                            )
+                        )
+                        `annotations`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Serialization Chunk`: (
+                    'node': | 'group' {
+                        `serializationFormatVersion`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `languages`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `key`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `version`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                        `root node id`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `node tree`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Node`
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+    }
+)

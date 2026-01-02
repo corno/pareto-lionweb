@@ -1,7 +1,7 @@
 import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
-import * as _raw from 'exupery-core-rawdata'
+import * as _praw from 'exupery-core-rawdata'
 
 import * as d from "../../../interface/generated/pareto/schemas/serialization_chunk/data_types/source"
 
@@ -10,7 +10,7 @@ import * as h from "./helpers"
 
 
 export const Serialization_Chunk = (
-    $: _raw.Value,
+    $: _praw.Value,
     helpers: h.Helpers
 ): d.Serialization_Chunk => {
     /**
@@ -77,7 +77,7 @@ export const Serialization_Chunk = (
 }
 
 export const Meta_Pointer = (
-    $: _raw.Value,
+    $: _praw.Value,
     helpers: h.Helpers
 ): d.Meta_Pointer => {
     return _pt.cc(helpers.expect_verbose_type($, _pt.dictionary_literal({

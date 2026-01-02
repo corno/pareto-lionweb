@@ -1,21 +1,21 @@
-import * as _pds from 'pareto-core-deserializer'
+import * as _p from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
 import * as _pinternals from 'pareto-core-internals'
 
+import * as d_m3 from "../../../interface/generated/pareto/schemas/lioncore/data_types/source"
 
-import * as d_m3 from "../../../../../interface/generated/pareto/schemas/lioncore/data_types/source"
+import * as r_sf_to_tree from "../schemas/serialization_tree/refiners/serialization_chunk"
+import * as r_tree from "../schemas/lioncore/refiners/2024_1_tree"
 
-import * as r_sf_to_tree from "../../../schemas/serialization_tree/refiners/serialization_chunk"
-import * as r_tree from "../../../schemas/lioncore/refiners/2023_1_tree"
+import * as m_x from "../../generated/pareto/schemas/lioncore/marshall"
 
-import * as m_x from "../../../../generated/pareto/schemas/lioncore/marshall"
-
-import * as serialize from "../../../../generated/pareto/generic/serialize"
-import { create_context, Unmarshall_Error } from "../../../../temp_context"
-import { temp_json_unmarshall_should_be_done_extenally } from "../../../../temp/unmarshall_json/unmarshall"
+import * as serialize from "../../generated/pareto/generic/serialize"
 
 import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
 import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/manual/primitives/boolean/serializers/true_false"
+
+import { create_context, Unmarshall_Error } from "../../temp_context"
+import { temp_json_unmarshall_should_be_done_extenally } from "../../temp/unmarshall_json/unmarshall"
 
 const temp_serialize_should_be_generated = (
     m3: d_m3.M3,
@@ -40,7 +40,7 @@ export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]
     | ['unmarshalling error', Unmarshall_Error]
 
-export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
+export const $$: _pi.Text_Deserializer<Some_Error> = ($, abort) => {
     return _pinternals.cc(
         r_sf_to_tree.Serialization_Chunk(
             {
