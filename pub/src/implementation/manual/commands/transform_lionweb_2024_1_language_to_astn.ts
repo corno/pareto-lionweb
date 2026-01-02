@@ -47,7 +47,7 @@ import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementati
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/context_path/deserializers"
-export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.create_command_procedure(
+export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query_without_error_transformation(
 

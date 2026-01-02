@@ -49,7 +49,7 @@ import * as t_path_to_path from "pareto-resources/dist/implementation/manual/sch
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/context_path/deserializers"
 
 
-export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.create_command_procedure(
+export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query_without_error_transformation(
 
