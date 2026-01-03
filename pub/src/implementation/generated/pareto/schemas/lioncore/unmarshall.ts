@@ -138,7 +138,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                 ), ($) => _i_generic.process_unconstrained_state_group(
                                     $,
                                     {
-                                        'states': _pa.dictionary_literal({
+                                        'states': _pa.dictionary.literal({
                                             'classifier': ($): _i_out._T_M3.entities.D._type.SG => ['classifier', _i_generic.process_group(
                                                 $,
                                                 {
@@ -151,7 +151,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                         ), ($) => _i_generic.process_unconstrained_state_group(
                                                             $,
                                                             {
-                                                                'states': _pa.dictionary_literal({
+                                                                'states': _pa.dictionary.literal({
                                                                     'concept': ($): _i_out._T_M3.entities.D._type.SG.classifier._type.SG => ['concept', _i_generic.process_group(
                                                                         $,
                                                                         {
@@ -275,7 +275,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                             ), ($) => _i_generic.process_unconstrained_state_group(
                                                                                 $,
                                                                                 {
-                                                                                    'states': _pa.dictionary_literal({
+                                                                                    'states': _pa.dictionary.literal({
                                                                                         'property': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG => ['property', _i_generic.process_group(
                                                                                             $,
                                                                                             {
@@ -326,7 +326,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                     ), ($) => _i_generic.process_unconstrained_state_group(
                                                                                                         $,
                                                                                                         {
-                                                                                                            'states': _pa.dictionary_literal({
+                                                                                                            'states': _pa.dictionary.literal({
                                                                                                                 'containment': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG.link.link_type.SG => ['containment', _i_generic.process_nothing(
                                                                                                                     $,
                                                                                                                     null
@@ -355,7 +355,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                             'datatype': ($): _i_out._T_M3.entities.D._type.SG => ['datatype', _i_generic.process_unconstrained_state_group(
                                                 $,
                                                 {
-                                                    'states': _pa.dictionary_literal({
+                                                    'states': _pa.dictionary.literal({
                                                         'enumeration': ($): _i_out._T_M3.entities.D._type.SG.datatype.SG => ['enumeration', _i_generic.process_unconstrained_dictionary(
                                                             $,
                                                             {

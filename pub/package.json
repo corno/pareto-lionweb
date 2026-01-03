@@ -27,9 +27,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "exupery-core-rawdata": "^0.2.1",
-    "pareto-host-nodejs": "^0.1.3",
-    "pareto-resources": "^0.1.4",
-    "pareto-standard-operations": "^0.3.33"
+    "pareto-host-nodejs": "^0.1.4",
+    "pareto-resources": "^0.1.6",
+    "pareto-standard-operations": "^0.3.35"
   }
 }

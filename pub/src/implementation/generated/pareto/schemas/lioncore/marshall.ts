@@ -6,7 +6,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 
 
 export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.transform(
-    ($): _i_out._T_Value.SG.optional => ['set', ['verbose group', _pa.dictionary_literal({
+    ($): _i_out._T_Value.SG.optional => ['set', ['verbose group', _pa.dictionary.literal({
         'key': _pa.cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -18,7 +18,7 @@ export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.transform(
     })]],
     () => ['not set', null]
 )]
-export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -31,7 +31,7 @@ export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => ['verbos
         () => ['not set', null]
     )]),
 })]
-export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'id': _pa.cc($['id'], ($) => ID(
         $,
         {
@@ -48,7 +48,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
             'value serializers': $p['value serializers'],
         }
     ))]),
-    'entities': _pa.cc($['entities'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'entities': _pa.cc($['entities'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'id': _pa.cc($['id'], ($) => ID(
             $,
             {
@@ -59,12 +59,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
             switch ($[0]) {
                 case 'classifier': return _pa.ss($, ($) => ({
                     'state': "classifier",
-                    'value': ['verbose group', _pa.dictionary_literal({
+                    'value': ['verbose group', _pa.dictionary.literal({
                         'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
                             switch ($[0]) {
                                 case 'concept': return _pa.ss($, ($) => ({
                                     'state': "concept",
-                                    'value': ['verbose group', _pa.dictionary_literal({
+                                    'value': ['verbose group', _pa.dictionary.literal({
                                         'abstract': _pa.cc($['abstract'], ($) => ['text', ({
                                             'delimiter': ['quote', null],
                                             'value': $,
@@ -92,7 +92,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                 }))
                                 case 'interface': return _pa.ss($, ($) => ({
                                     'state': "interface",
-                                    'value': ['verbose group', _pa.dictionary_literal({
+                                    'value': ['verbose group', _pa.dictionary.literal({
                                         'extends': _pa.cc($['extends'], ($) => ['list', $.map(($) => Raw_Reference(
                                             $,
                                             {
@@ -104,7 +104,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                 default: return _pa.au($[0])
                             }
                         })]),
-                        'features': _pa.cc($['features'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                        'features': _pa.cc($['features'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
                             'id': _pa.cc($['id'], ($) => ID(
                                 $,
                                 {
@@ -119,7 +119,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                 switch ($[0]) {
                                     case 'property': return _pa.ss($, ($) => ({
                                         'state': "property",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'type': _pa.cc($['type'], ($) => Raw_Reference(
                                                 $,
                                                 {
@@ -130,7 +130,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _pa.dictiona
                                     }))
                                     case 'link': return _pa.ss($, ($) => ({
                                         'state': "link",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'multiple': _pa.cc($['multiple'], ($) => ['text', ({
                                                 'delimiter': ['quote', null],
                                                 'value': $,

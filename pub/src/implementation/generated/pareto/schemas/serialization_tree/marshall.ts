@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
     'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -18,7 +18,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) =
         () => ['not set', null]
     )]),
 })])]
-export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'classifier': _pa.cc($['classifier'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -44,12 +44,12 @@ export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _pa.dict
         'value': $,
     })])]),
 })]
-export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'serializationFormatVersion': _pa.cc($['serializationFormatVersion'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'key': _pa.cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,

@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'language': _pa.cc($['language'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -19,7 +19,7 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose 
         'value': $,
     })]),
 })]
-export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
     'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -32,12 +32,12 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) =
         () => ['not set', null]
     )]),
 })])]
-export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'serializationFormatVersion': _pa.cc($['serializationFormatVersion'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'key': _pa.cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -47,7 +47,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
             'value': $,
         })]),
     })])]),
-    'nodes': _pa.cc($['nodes'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'nodes': _pa.cc($['nodes'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'id': _pa.cc($['id'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -65,7 +65,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 'value serializers': $p['value serializers'],
             }
         )),
-        'properties': _pa.cc($['properties'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+        'properties': _pa.cc($['properties'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
             'property': _pa.cc($['property'], ($) => Meta_Pointer(
                 $,
                 {
@@ -77,7 +77,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 'value': $,
             })]),
         })])]),
-        'references': _pa.cc($['references'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+        'references': _pa.cc($['references'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
             'reference': _pa.cc($['reference'], ($) => Meta_Pointer(
                 $,
                 {
@@ -91,7 +91,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 }
             )),
         })])]),
-        'containments': _pa.cc($['containments'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+        'containments': _pa.cc($['containments'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
             'containment': _pa.cc($['containment'], ($) => Meta_Pointer(
                 $,
                 {

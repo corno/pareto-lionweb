@@ -28,15 +28,15 @@ export const Serialization_Chunk = (
 ): d_out.Serialization_Chunk => {
     const root_node = expect_exactly_one_element(
         $p.chunk.nodes.filter<d_in.Serialization_Chunk.nodes.L>(($ => $.parent.is_set()
-            ? _p.not_set()
-            : _p.set($)
+            ? _p.optional.not_set()
+            : _p.optional.set($)
         ))
     ).transform(
         ($) => $,
         () => abort(['could not determine root node', null]),
     )
 
-    const nodes = _p.list_to_dictionary(
+    const nodes = _p.dictionary.from_list(
         $p.chunk.nodes,
         ($) => $.id,
         () => abort(['clashing node IDs', null]),
@@ -64,30 +64,30 @@ const Node = (
 ): d_out.Node => {
     return {
         'classifier': make_metapointer_key($p['current node'].classifier),
-        'properties': _p.list_to_dictionary(
+        'properties': _p.dictionary.from_list(
             $p['current node'].properties,
             ($) => make_metapointer_key($.property),
             () => abort(['clashing property keys', null]),
         ).map(($) => $.value),
-        'containments': _p.list_to_dictionary(
+        'containments': _p.dictionary.from_list(
             $p['current node'].containments,
             ($) => make_metapointer_key($.containment),
             () => abort(['clashing containment keys', null]),
-        ).map(($) => _p.list_to_dictionary(
+        ).map(($) => _p.dictionary.from_list(
             $.children,
             ($) => $,
             () => abort(['clashing child node IDs', null]),
         ).map(($) => Node(
             {
                 'nodes': $p.nodes,
-                'current node': $p.nodes.get_entry($).transform(
-                    ($) => $,
+                'current node': $p.nodes.get_entry(
+                    $,
                     () => abort(['child node not found', $]),
                 ),
             },
             abort,
         ))),
-        'references': _p.list_to_dictionary(
+        'references': _p.dictionary.from_list(
             $p['current node'].references,
             ($) => make_metapointer_key($.reference),
             () => abort(['clashing reference keys', null]),

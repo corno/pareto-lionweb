@@ -3,8 +3,6 @@ import * as _p from 'pareto-core-refiner'
 import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
 import * as d_out from "../../../../../interface/generated/pareto/schemas/lioncore/data_types/target"
 
-import { $$ as on_property_exists } from "../../../../operations/impure/dictionary/on_property_exists"
-
 import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
 import * as h from "../../../../temp_context"
@@ -16,8 +14,8 @@ export const ID = (
     context: h.Refinement_Context,
 ): d_out.ID => {
     return !write_id
-        ? _p.not_set()
-        : _p.set({
+        ? _p.optional.not_set()
+        : _p.optional.set({
             'key': context.expect_property(
                 $.properties,
                 "LionCore-M3:2023.1:IKeyed-key",
@@ -61,7 +59,7 @@ export const M3 = (
                         'type': _p.block((): d_out.M3.entities.D._type => {
                             context.expect_type(
                                 $.properties,
-                                _p.dictionary_literal({
+                                _p.dictionary.literal({
                                     "LionCore-M3:2023.1:IKeyed-key": null,
                                     "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
                                     "LionCore-M3:2023.1:Concept-abstract": null,
@@ -71,7 +69,7 @@ export const M3 = (
                             )
                             context.expect_type(
                                 $.containments,
-                                _p.dictionary_literal({
+                                _p.dictionary.literal({
                                     "LionCore-M3:2023.1:Classifier-features": null,
                                     "LionCore-M3:2023.1:Enumeration-literals": null,
                                 }),
@@ -80,7 +78,7 @@ export const M3 = (
 
                             context.expect_type(
                                 $.references,
-                                _p.dictionary_literal({
+                                _p.dictionary.literal({
                                     "LionCore-M3:2023.1:Concept-extends": null,
                                     "LionCore-M3:2023.1:Concept-implements": null,
                                     "LionCore-M3:2023.1:Interface-extends": null,
@@ -100,7 +98,7 @@ export const M3 = (
                                                 ).map(($, key) => {
                                                     const feature_id = entity_id + ">" + key
                                                     context.expect_type($.properties,
-                                                        _p.dictionary_literal({
+                                                        _p.dictionary.literal({
                                                             "LionCore-M3:2023.1:IKeyed-key": null,
                                                             "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
                                                             "LionCore-M3:2023.1:Feature-optional": null,
@@ -109,14 +107,14 @@ export const M3 = (
                                                         "feature properties of entity " + feature_id,
                                                     )
                                                     context.expect_type(
-                                                        $.references, _p.dictionary_literal({
+                                                        $.references, _p.dictionary.literal({
                                                             "LionCore-M3:2023.1:Link-type": null,
                                                             "LionCore-M3:2023.1:Property-type": null,
                                                         }),
                                                         "feature references of entity " + feature_id,
                                                     )
                                                     context.expect_type(
-                                                        $.containments, _p.dictionary_literal({
+                                                        $.containments, _p.dictionary.literal({
                                                             //empty
                                                         }),
                                                         "feature containments of entity " + feature_id,
@@ -136,48 +134,43 @@ export const M3 = (
                                                                 "LionCore-M3:2023.1:Feature-optional",
                                                                 "optional property of feature: " + feature_id,
                                                             ),
-                                                            'type': on_property_exists(
-                                                                $.references,
+                                                            'type': $.references.get_possible_entry(
                                                                 "LionCore-M3:2023.1:Link-type",
-                                                                (_dont_use_) => {
-                                                                    return ['link', {
-                                                                        'multiple': context.expect_property(
-                                                                            $.properties,
-                                                                            "LionCore-M3:2023.1:Link-multiple",
-                                                                            "multiple property of link: " + feature_id,
-                                                                        ),
-                                                                        'type': expect_single_element(context.expect_property(
-                                                                            $.references,
-                                                                            "LionCore-M3:2023.1:Link-type",
-                                                                            "type property of link: " + feature_id,
-                                                                        )).transform(
-                                                                            ($) => $,
-                                                                            () => context.abort(['expected exactly one element for link type of feature', feature_id])
-                                                                        ),
-                                                                        'link type': _p.cc($.classifier, ($) => {
-                                                                            switch ($) {
-                                                                                case "LionCore-M3:2023.1:Reference":
-                                                                                    return ['reference', null]
-                                                                                case "LionCore-M3:2023.1:Containment":
-                                                                                    return ['containment', null]
-                                                                                default: return context.abort(['unknown feature classifier type', feature_id])
-                                                                            }
-                                                                        })
-                                                                    }] as d_out.M3.entities.D._type.SG.classifier.features.D._type
-                                                                },
-                                                                () => {
-                                                                    return ['property', {
-                                                                        'type': expect_single_element(context.expect_property(
-                                                                            $.references,
-                                                                            "LionCore-M3:2023.1:Property-type",
-                                                                            "type property of property: " + feature_id,
-                                                                        )).transform(
-                                                                            ($) => $,
-                                                                            () => context.abort(['expected exactly one element for property type of feature', feature_id])
-                                                                        ),
-                                                                    }] as d_out.M3.entities.D._type.SG.classifier.features.D._type
-                                                                }
-                                                            ),
+                                                            ).is_set()
+                                                                ? ['link', {
+                                                                    'multiple': context.expect_property(
+                                                                        $.properties,
+                                                                        "LionCore-M3:2023.1:Link-multiple",
+                                                                        "multiple property of link: " + feature_id,
+                                                                    ),
+                                                                    'type': expect_single_element(context.expect_property(
+                                                                        $.references,
+                                                                        "LionCore-M3:2023.1:Link-type",
+                                                                        "type property of link: " + feature_id,
+                                                                    )).transform(
+                                                                        ($) => $,
+                                                                        () => context.abort(['expected exactly one element for link type of feature', feature_id])
+                                                                    ),
+                                                                    'link type': _p.cc($.classifier, ($) => {
+                                                                        switch ($) {
+                                                                            case "LionCore-M3:2023.1:Reference":
+                                                                                return ['reference', null]
+                                                                            case "LionCore-M3:2023.1:Containment":
+                                                                                return ['containment', null]
+                                                                            default: return context.abort(['unknown feature classifier type', feature_id])
+                                                                        }
+                                                                    })
+                                                                }]
+                                                                : ['property', {
+                                                                    'type': expect_single_element(context.expect_property(
+                                                                        $.references,
+                                                                        "LionCore-M3:2023.1:Property-type",
+                                                                        "type property of property: " + feature_id,
+                                                                    )).transform(
+                                                                        ($) => $,
+                                                                        () => context.abort(['expected exactly one element for property type of feature', feature_id])
+                                                                    ),
+                                                                }]
 
                                                         }
                                                     }
@@ -233,7 +226,7 @@ export const M3 = (
                                         ).map(($, key) => {
                                             context.expect_type(
                                                 $.properties,
-                                                _p.dictionary_literal({
+                                                _p.dictionary.literal({
                                                     "LionCore-M3:2023.1:IKeyed-key": null,
                                                     "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
                                                 }),
@@ -241,14 +234,14 @@ export const M3 = (
                                             )
                                             context.expect_type(
                                                 $.references,
-                                                _p.dictionary_literal({
+                                                _p.dictionary.literal({
                                                     //empty
                                                 }),
                                                 "literal references of enumeration " + key,
                                             )
                                             context.expect_type(
                                                 $.containments,
-                                                _p.dictionary_literal({
+                                                _p.dictionary.literal({
                                                     //empty
                                                 }),
                                                 "literal containments of enumeration " + key,

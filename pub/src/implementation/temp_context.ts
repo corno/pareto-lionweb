@@ -68,7 +68,7 @@ const expect_property = <T>(
     path: string,
     abort: _pi.Abort<Unmarshall_Error>
 ): T => {
-    return props.get_entry(prop_name).transform(
+    return props.get_possible_entry(prop_name).transform(
         ($) => $,
         () => {
             return abort(['missing property', { 'property': prop_name, 'path': path }])
