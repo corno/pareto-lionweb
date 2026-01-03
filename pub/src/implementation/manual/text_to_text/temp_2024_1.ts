@@ -26,48 +26,42 @@ const temp_serialize_should_be_generated = (
             'custom numbers': null,
         }
     }
-) => {
-
-    return serialize.Document(
-        m_x.M3(
-            m3,
-            $p
-        ),
-    )
-}
+) => serialize.Document(
+    m_x.M3(
+        m3,
+        $p
+    ),
+)
 
 export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]
     | ['unmarshalling error', Unmarshall_Error]
 
-export const $$: _pi.Text_Deserializer<Some_Error> = ($, abort) => {
-    return _pinternals.cc(
-        r_sf_to_tree.Serialization_Chunk(
+export const $$: _pi.Text_Deserializer<Some_Error> = ($, abort) => _pinternals.cc(
+    r_sf_to_tree.Serialization_Chunk(
+        {
+            'chunk': temp_json_unmarshall_should_be_done_extenally($),
+        },
+        ($) => abort(['deserialization error', $])
+    ),
+    ($) => _pinternals.cc(
+        r_tree.M3(
             {
-                'chunk': temp_json_unmarshall_should_be_done_extenally($),
+                $: $,
+                'write id': false
             },
-            ($) => abort(['deserialization error', $])
-        ),
-        ($) => _pinternals.cc(
-            r_tree.M3(
-                {
-                    $: $,
-                    'write id': false
-                },
-                create_context(($) => abort(['unmarshalling error', $]),
-                )
-            ),
-            ($) => temp_serialize_should_be_generated(
-                $,
-                {
-                    'value serializers': {
-                        'boolean': ($) => serialize_boolean($),
-                        'default number': ($) => serialize_decimal($),
-                        'custom numbers': null
-                    }
-                }
+            create_context(($) => abort(['unmarshalling error', $]),
             )
+        ),
+        ($) => temp_serialize_should_be_generated(
+            $,
+            {
+                'value serializers': {
+                    'boolean': ($) => serialize_boolean($),
+                    'default number': ($) => serialize_decimal($),
+                    'custom numbers': null
+                }
+            }
         )
     )
-
-}
+)

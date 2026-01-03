@@ -10,72 +10,56 @@ namespace helpers {
     export const expect_verbose_type = (
         $: d_json.Value,
         expectedTypes: _pi.Dictionary<null>,
-    ): d_json.Value__object => {
-        return _p.cc($, ($) => {
-            switch ($[0]) {
-                case 'object': return _p.ss($, ($) => {
-                    const obj = $
-                    expectedTypes.map(($, key) => {
-                        obj.get_entry(
-                            key,
-                            ($) => _p.fixme_abort(`missing expected property: ${key}`),
-                        )
-                    })
-                    return $
+    ): d_json.Value__object => _p.cc($, ($) => {
+        switch ($[0]) {
+            case 'object': return _p.ss($, ($) => {
+                const obj = $
+                expectedTypes.map(($, key) => {
+                    obj.get_entry(
+                        key,
+                        ($) => _p.fixme_abort(`missing expected property: ${key}`),
+                    )
                 })
-                default: return _p.fixme_abort("expected an object")
-            }
-        })
-    }
+                return $
+            })
+            default: return _p.fixme_abort("expected an object")
+        }
+    })
 
     export const expect_property = (
         $: d_json.Value__object,
         propertyName: string,
-    ): d_json.Value => {
-        return $.get_entry(
-            propertyName,
-            ($) => _p.fixme_abort(`missing expected property: ${propertyName}`),
-        )
-    }
+    ): d_json.Value => $.get_entry(
+        propertyName,
+        ($) => _p.fixme_abort(`missing expected property: ${propertyName}`),
+    )
 
     export const expect_text = (
         $: d_json.Value,
-    ): string => {
-        return _p.cc($, ($) => {
-            switch ($[0]) {
-                case 'string': return _p.ss($, ($) => {
-                    return $
-                })
-                default: return _p.fixme_abort("expected a string")
-            }
-        })
-    }
+    ): string => _p.cc($, ($) => {
+        switch ($[0]) {
+            case 'string': return _p.ss($, ($) => $)
+            default: return _p.fixme_abort("expected a string")
+        }
+    })
 
     export const expect_array = (
         $: d_json.Value,
-    ): d_json.Value__array => {
-        return _p.cc($, ($) => {
-            switch ($[0]) {
-                case 'array': return _p.ss($, ($) => {
-                    return $
-                })
-                default: return _p.fixme_abort("expected an array")
-            }
-        })
-    }
+    ): d_json.Value__array => _p.cc($, ($) => {
+        switch ($[0]) {
+            case 'array': return _p.ss($, ($) => $)
+            default: return _p.fixme_abort("expected an array")
+        }
+    })
 
     export const expect_optional_null = (
         $: d_json.Value,
-    ): _pi.Optional_Value<d_json.Value> => {
-        return _p.cc($, ($) => {
-            switch ($[0]) {
-                case 'null': return _p.ss($, ($) => {
-                    return _p.optional.not_set()
-                })
-                default: return _p.optional.set($)
-            }
-        })
-    }
+    ): _pi.Optional_Value<d_json.Value> => _p.cc($, ($) => {
+        switch ($[0]) {
+            case 'null': return _p.ss($, ($) => _p.optional.not_set())
+            default: return _p.optional.set($)
+        }
+    })
 }
 
 export const Serialization_Chunk = (
