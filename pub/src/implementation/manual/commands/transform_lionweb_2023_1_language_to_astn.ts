@@ -51,7 +51,7 @@ import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/co
 
 export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
-        _p.query_without_error_transformation(
+        _p.query(
 
             $qr['read file'](
                 t_path_to_path.create_node_path(
@@ -62,27 +62,19 @@ export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_
                     _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
                     return { 'exit code': 1 }
                 }
-            ).refine_without_error_transformation(
-
-
-                ($, abort) => r_2023_1(
+            ),
+            ($, abort) => ({
+                'path': t_path_to_path.create_node_path(
+                    ds_path.Context_Path(settings['out']['dir']),
+                    settings['out']['file']
+                ),
+                'data': r_2023_1(
                     $,
                     ($) => {
                         _pdev.log_debug_message(`error during processing`, () => { })
                         return abort({ 'exit code': 1 })
                     }
-                ), // <-- this is it; the acutal logic
-
-
-
-            ).transform_result(($): d_write_file.Parameters => {
-                return {
-                    'path': t_path_to_path.create_node_path(
-                        ds_path.Context_Path(settings['out']['dir']),
-                        settings['out']['file']
-                    ),
-                    'data': $
-                }
+                )
             }),
             ($v) => [
                 $cr['write file'].execute(
