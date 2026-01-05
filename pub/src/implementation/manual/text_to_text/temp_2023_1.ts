@@ -26,15 +26,12 @@ const temp_serialize_should_be_generated = (
             'custom numbers': null,
         }
     }
-) => {
-
-    return serialize.Document(
-        m_x.M3(
-            m3,
-            $p
-        ),
-    )
-}
+) => serialize.Document(
+    m_x.M3(
+        m3,
+        $p
+    ),
+)
 
 export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]

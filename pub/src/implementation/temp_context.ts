@@ -41,26 +41,22 @@ export type Refinement_Context = {
 
 export const create_context = (
     abort: _pi.Abort<Unmarshall_Error>
-): Refinement_Context => {
-    return {
-        rekey: <T>(
-            $: _pi.Dictionary<Key_Value_Pair<T>>,
-        ) => rekey($, abort),
-        expect_type: <T>(
-            source: _pi.Dictionary<T>,
-            expected_properties: _pi.Dictionary<null>,
-            path: string,
-        ) => expect_type(source, expected_properties, path, abort),
-        expect_property: <T>(
-            props: _pi.Dictionary<T>,
-            prop_name: string,
-            path: string,
-        ) => expect_property(props, prop_name, path, abort),
-        abort: ($) => {
-            return abort(['specific', $])
-        }
-    }
-}
+): Refinement_Context => ({
+    rekey: <T>(
+        $: _pi.Dictionary<Key_Value_Pair<T>>,
+    ) => rekey($, abort),
+    expect_type: <T>(
+        source: _pi.Dictionary<T>,
+        expected_properties: _pi.Dictionary<null>,
+        path: string,
+    ) => expect_type(source, expected_properties, path, abort),
+    expect_property: <T>(
+        props: _pi.Dictionary<T>,
+        prop_name: string,
+        path: string,
+    ) => expect_property(props, prop_name, path, abort),
+    abort: ($) => abort(['specific', $])
+})
 
 const expect_property = <T>(
     props: _pi.Dictionary<T>,
@@ -69,9 +65,7 @@ const expect_property = <T>(
     abort: _pi.Abort<Unmarshall_Error>
 ): T => props.get_possible_entry(prop_name).transform(
     ($) => $,
-    () => {
-        return abort(['missing property', { 'property': prop_name, 'path': path }])
-    }
+    () => abort(['missing property', { 'property': prop_name, 'path': path }])
 )
 
 const expect_type = <T>(
