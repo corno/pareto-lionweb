@@ -7,7 +7,7 @@ export const $$ = <T>(
     prop_name: string,
     path: string,
     abort: _pi.Abort<Refinement_Error>
-): T => props.__get_possible_entry(prop_name).transform(
-    ($) => $,
+): T => props.__get_entry(
+    prop_name,
     () => abort(['missing property', { 'property': prop_name, 'path': path }])
 )

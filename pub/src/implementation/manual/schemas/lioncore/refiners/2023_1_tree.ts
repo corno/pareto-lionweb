@@ -167,7 +167,7 @@ export const M3 = (
                                         }
                                     }),
                                 ),
-                                'type': _p.deprecated_block((): d_out.M3.entities.D._type.SG.classifier._type => {
+                                'type': _p.state_group.block((): d_out.M3.entities.D._type.SG.classifier._type => {
                                     switch ($.classifier) {
                                         case "LionCore-M3:2023.1:Concept": return ['concept', {
                                             'abstract': context.expect_property(
