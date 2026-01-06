@@ -37,14 +37,14 @@ export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]
     | ['unmarshalling error', Unmarshall_Error]
 
-export const $$: _pi.Text_Deserializer<Some_Error> = ($, abort) => _pinternals.cc(
+export const $$: _pi.Text_Deserializer<Some_Error> = ($, abort) => _pinternals.sg(
     r_sf_to_tree.Serialization_Chunk(
         {
             'chunk': temp_json_unmarshall_should_be_done_extenally($),
         },
         ($) => abort(['deserialization error', $])
     ),
-    ($) => _pinternals.cc(
+    ($) => _pinternals.sg(
         r_tree.M3(
             {
                 $: $,

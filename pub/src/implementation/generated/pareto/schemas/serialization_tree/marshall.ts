@@ -6,11 +6,11 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 
 
 export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
-    'resolveInfo': _pa.cc($['resolveInfo'], ($) => ['text', ({
+    'resolveInfo': _pa.deprecated_cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'reference': _pa.cc($['reference'], ($) => ['optional', $.transform(
+    'reference': _pa.deprecated_cc($['reference'], ($) => ['optional', $.transform(
         ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -19,51 +19,51 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) =
     )]),
 })])]
 export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'classifier': _pa.cc($['classifier'], ($) => ['text', ({
+    'classifier': _pa.deprecated_cc($['classifier'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'properties': _pa.cc($['properties'], ($) => ['dictionary', $.map(($) => ['text', ({
+    'properties': _pa.deprecated_cc($['properties'], ($) => ['dictionary', $.map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),
-    'containments': _pa.cc($['containments'], ($) => ['dictionary', $.map(($) => ['dictionary', $.map(($) => Node(
+    'containments': _pa.deprecated_cc($['containments'], ($) => ['dictionary', $.map(($) => ['dictionary', $.map(($) => Node(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     ))])]),
-    'references': _pa.cc($['references'], ($) => ['dictionary', $.map(($) => Targets(
+    'references': _pa.deprecated_cc($['references'], ($) => ['dictionary', $.map(($) => Targets(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     ))]),
-    'annotations': _pa.cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
+    'annotations': _pa.deprecated_cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),
 })]
 export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'serializationFormatVersion': _pa.cc($['serializationFormatVersion'], ($) => ['text', ({
+    'serializationFormatVersion': _pa.deprecated_cc($['serializationFormatVersion'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'languages': _pa.cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
-        'key': _pa.cc($['key'], ($) => ['text', ({
+    'languages': _pa.deprecated_cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
+        'key': _pa.deprecated_cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
         })]),
-        'version': _pa.cc($['version'], ($) => ['text', ({
+        'version': _pa.deprecated_cc($['version'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
         })]),
     })])]),
-    'root node id': _pa.cc($['root node id'], ($) => ['text', ({
+    'root node id': _pa.deprecated_cc($['root node id'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'node tree': _pa.cc($['node tree'], ($) => Node(
+    'node tree': _pa.deprecated_cc($['node tree'], ($) => Node(
         $,
         {
             'value serializers': $p['value serializers'],

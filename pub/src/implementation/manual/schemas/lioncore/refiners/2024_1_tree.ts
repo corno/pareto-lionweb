@@ -52,7 +52,7 @@ export const M3 = (
                 ),
                 'value': {
                     'id': ID($, key, $p['write id'], context),
-                    'type': _p.block((): d_out.M3.entities.D._type => {
+                    'type': _p.deprecated_block((): d_out.M3.entities.D._type => {
                         context.expect_type(
                             $.properties,
                             _p.dictionary.literal({
@@ -130,7 +130,7 @@ export const M3 = (
                                                             "LionCore-M3:2024.1:Feature-optional",
                                                             "optional property of feature: " + feature_id,
                                                         ),
-                                                        'type': $.references.get_possible_entry(
+                                                        'type': $.references.__get_possible_entry(
                                                             "LionCore-M3:2024.1:Link-type",
                                                         ).is_set()
                                                             ? ['link', {
@@ -147,7 +147,7 @@ export const M3 = (
                                                                     ($) => $,
                                                                     () => context.abort(['expected exactly one element for link type of feature', feature_id])
                                                                 ),
-                                                                'link type': _p.cc($.classifier, ($) => {
+                                                                'link type': _p.deprecated_cc($.classifier, ($) => {
                                                                     switch ($) {
                                                                         case "LionCore-M3:2024.1:Reference":
                                                                             return ['reference', null]
@@ -172,7 +172,7 @@ export const M3 = (
                                                 }
                                             }),
                                         ),
-                                        'type': _p.block((): d_out.M3.entities.D._type.SG.classifier._type => {
+                                        'type': _p.deprecated_block((): d_out.M3.entities.D._type.SG.classifier._type => {
                                             switch ($.classifier) {
                                                 case "LionCore-M3:2024.1:Concept": {
                                                     return ['concept', {

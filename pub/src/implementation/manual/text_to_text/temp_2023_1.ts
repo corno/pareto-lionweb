@@ -38,14 +38,14 @@ export type Some_Error =
     | ['unmarshalling error', Unmarshall_Error]
 
 export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
-    return _pinternals.cc(
+    return _pinternals.sg(
         r_sf_to_tree.Serialization_Chunk(
             {
                 'chunk': temp_json_unmarshall_should_be_done_extenally($),
             },
             ($) => abort(['deserialization error', $])
         ),
-        ($) => _pinternals.cc(
+        ($) => _pinternals.sg(
             r_tree.M3(
                 {
                     $: $,
