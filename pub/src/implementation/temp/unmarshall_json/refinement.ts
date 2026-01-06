@@ -15,7 +15,7 @@ namespace helpers {
             case 'object': return _p.ss($, ($) => {
                 const obj = $
                 expectedTypes.map(($, key) => {
-                    obj.get_entry(
+                    obj.__get_entry(
                         key,
                         ($) => _p.fixme_abort(`missing expected property: ${key}`),
                     )
@@ -29,7 +29,7 @@ namespace helpers {
     export const expect_property = (
         $: d_json.Value__object,
         propertyName: string,
-    ): d_json.Value => $.get_entry(
+    ): d_json.Value => $.__get_entry(
         propertyName,
         ($) => _p.fixme_abort(`missing expected property: ${propertyName}`),
     )
@@ -71,20 +71,20 @@ export const Serialization_Chunk = (
      * 1) generate the Serialization_Chunk schema, which is now handwritten (one time effort)
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
-    return _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+    return _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
         'serializationFormatVersion': null,
         'languages': null,
         'nodes': null,
     })), ($) => ({
         'serializationFormatVersion': helpers.expect_text(helpers.expect_property($, 'serializationFormatVersion')),
-        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
             'key': null,
             'version': null,
         })), ($) => ({
             'key': helpers.expect_text(helpers.expect_property($, 'key')),
             'version': helpers.expect_text(helpers.expect_property($, 'version')),
         }))),
-        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
             'id': null,
             'classifier': null,
             'properties': null,
@@ -96,26 +96,26 @@ export const Serialization_Chunk = (
             'id': helpers.expect_text(helpers.expect_property($, 'id')),
             'classifier': Meta_Pointer(helpers.expect_property($, 'classifier')),
             'parent': helpers.expect_optional_null(helpers.expect_property($, 'parent')).map(($) => helpers.expect_text($)),
-            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'property': null,
                 'value': null,
             })), ($) => ({
                 'property': Meta_Pointer(helpers.expect_property($, 'property')),
                 'value': helpers.expect_text(helpers.expect_property($, 'value')),
             }))),
-            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'containment': null,
                 'children': null,
             })), ($) => ({
                 'containment': Meta_Pointer(helpers.expect_property($, 'containment')),
                 'children': helpers.expect_array(helpers.expect_property($, 'children')).map(($) => helpers.expect_text($)),
             }))),
-            'references': helpers.expect_array(helpers.expect_property($, 'references')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'references': helpers.expect_array(helpers.expect_property($, 'references')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'reference': null,
                 'targets': null,
             })), ($) => ({
                 'reference': Meta_Pointer(helpers.expect_property($, 'reference')),
-                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).map(($) => _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
+                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                     'resolveInfo': null,
                     'reference': null,
                 })), ($) => ({
@@ -131,13 +131,16 @@ export const Serialization_Chunk = (
 export const Meta_Pointer = (
     $: d_json.Value,
 ): d.Meta_Pointer => {
-    return _p.sg(helpers.expect_verbose_type($, _p.dictionary.literal({
-        'language': null,
-        'key': null,
-        'version': null,
-    })), ($) => ({
-        'language': helpers.expect_text(helpers.expect_property($, 'language')),
-        'key': helpers.expect_text(helpers.expect_property($, 'key')),
-        'version': helpers.expect_text(helpers.expect_property($, 'version')),
-    }))
+    return _p.deprecated_cc(
+        helpers.expect_verbose_type($, _p.dictionary.literal({
+            'language': null,
+            'key': null,
+            'version': null,
+        })),
+        ($) => ({
+            'language': helpers.expect_text(helpers.expect_property($, 'language')),
+            'key': helpers.expect_text(helpers.expect_property($, 'key')),
+            'version': helpers.expect_text(helpers.expect_property($, 'version')),
+        })
+    )
 }

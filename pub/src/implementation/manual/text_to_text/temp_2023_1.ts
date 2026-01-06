@@ -1,6 +1,5 @@
-import * as _pds from 'pareto-core-deserializer'
+import * as _p from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals'
 
 
 import * as d_m3 from "../../../interface/generated/pareto/schemas/lioncore/data_types/source"
@@ -38,14 +37,14 @@ export type Some_Error =
     | ['unmarshalling error', Unmarshall_Error]
 
 export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
-    return _pinternals.sg(
+    return _p.deprecated_cc(
         r_sf_to_tree.Serialization_Chunk(
             {
                 'chunk': temp_json_unmarshall_should_be_done_extenally($),
             },
             ($) => abort(['deserialization error', $])
         ),
-        ($) => _pinternals.sg(
+        ($) => _p.deprecated_cc(
             r_tree.M3(
                 {
                     $: $,
