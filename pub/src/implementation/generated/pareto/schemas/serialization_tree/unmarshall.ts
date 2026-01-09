@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/serialization_tree/unmarshall"
@@ -14,7 +14,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_u
             $,
             {
                 'properties': ($) => ({
-                    'resolveInfo': _pa.deprecated_cc(_i_generic.get_entry(
+                    'resolveInfo': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "resolveInfo",
@@ -23,7 +23,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_u
                         $,
                         null
                     )),
-                    'reference': _pa.deprecated_cc(_i_generic.get_entry(
+                    'reference': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "reference",
@@ -46,7 +46,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
-            'classifier': _pa.deprecated_cc(_i_generic.get_entry(
+            'classifier': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "classifier",
@@ -55,7 +55,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => _i_generic.process_group(
                 $,
                 null
             )),
-            'properties': _pa.deprecated_cc(_i_generic.get_entry(
+            'properties': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "properties",
@@ -69,7 +69,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => _i_generic.process_group(
                     ),
                 }
             )),
-            'containments': _pa.deprecated_cc(_i_generic.get_entry(
+            'containments': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "containments",
@@ -90,7 +90,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => _i_generic.process_group(
                     ),
                 }
             )),
-            'references': _pa.deprecated_cc(_i_generic.get_entry(
+            'references': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "references",
@@ -106,7 +106,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => _i_generic.process_group(
                     ),
                 }
             )),
-            'annotations': _pa.deprecated_cc(_i_generic.get_entry(
+            'annotations': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "annotations",
@@ -127,7 +127,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
     $,
     {
         'properties': ($) => ({
-            'serializationFormatVersion': _pa.deprecated_cc(_i_generic.get_entry(
+            'serializationFormatVersion': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "serializationFormatVersion",
@@ -136,7 +136,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 $,
                 null
             )),
-            'languages': _pa.deprecated_cc(_i_generic.get_entry(
+            'languages': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "languages",
@@ -148,7 +148,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                         $,
                         {
                             'properties': ($) => ({
-                                'key': _pa.deprecated_cc(_i_generic.get_entry(
+                                'key': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "key",
@@ -157,7 +157,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                     $,
                                     null
                                 )),
-                                'version': _pa.deprecated_cc(_i_generic.get_entry(
+                                'version': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "version",
@@ -171,7 +171,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                     ),
                 }
             )),
-            'root node id': _pa.deprecated_cc(_i_generic.get_entry(
+            'root node id': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "root node id",
@@ -180,7 +180,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 $,
                 null
             )),
-            'node tree': _pa.deprecated_cc(_i_generic.get_entry(
+            'node tree': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "node tree",

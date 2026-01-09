@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/lioncore/unmarshall"
@@ -14,7 +14,7 @@ export const ID: _i_signatures._T_ID = ($, $p) => _i_generic.process_optional(
             $,
             {
                 'properties': ($) => ({
-                    'key': _pa.deprecated_cc(_i_generic.get_entry(
+                    'key': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "key",
@@ -23,7 +23,7 @@ export const ID: _i_signatures._T_ID = ($, $p) => _i_generic.process_optional(
                         $,
                         null
                     )),
-                    'id': _pa.deprecated_cc(_i_generic.get_entry(
+                    'id': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "id",
@@ -41,7 +41,7 @@ export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _i_gener
     $,
     {
         'properties': ($) => ({
-            'resolveInfo': _pa.deprecated_cc(_i_generic.get_entry(
+            'resolveInfo': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "resolveInfo",
@@ -50,7 +50,7 @@ export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => _i_gener
                 $,
                 null
             )),
-            'reference': _pa.deprecated_cc(_i_generic.get_entry(
+            'reference': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "reference",
@@ -71,7 +71,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
-            'id': _pa.deprecated_cc(_i_generic.get_entry(
+            'id': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "id",
@@ -82,7 +82,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'version': _pa.deprecated_cc(_i_generic.get_entry(
+            'version': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "version",
@@ -91,7 +91,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                 $,
                 null
             )),
-            'dependencies': _pa.deprecated_cc(_i_generic.get_entry(
+            'dependencies': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "dependencies",
@@ -107,7 +107,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                     ),
                 }
             )),
-            'entities': _pa.deprecated_cc(_i_generic.get_entry(
+            'entities': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "entities",
@@ -119,7 +119,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                         $,
                         {
                             'properties': ($) => ({
-                                'id': _pa.deprecated_cc(_i_generic.get_entry(
+                                'id': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "id",
@@ -130,7 +130,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                         'value deserializers': $p['value deserializers'],
                                     }
                                 )),
-                                'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                'type': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "type",
@@ -138,12 +138,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                 ), ($) => _i_generic.process_unconstrained_state_group(
                                     $,
                                     {
-                                        'states': _pa.dictionary.literal({
+                                        'states': _p.dictionary.literal({
                                             'classifier': ($): _i_out._T_M3.entities.D._type.SG => ['classifier', _i_generic.process_group(
                                                 $,
                                                 {
                                                     'properties': ($) => ({
-                                                        'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                        'type': _p.deprecated_cc(_i_generic.get_entry(
                                                             $,
                                                             {
                                                                 'key': "type",
@@ -151,12 +151,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                         ), ($) => _i_generic.process_unconstrained_state_group(
                                                             $,
                                                             {
-                                                                'states': _pa.dictionary.literal({
+                                                                'states': _p.dictionary.literal({
                                                                     'concept': ($): _i_out._T_M3.entities.D._type.SG.classifier._type.SG => ['concept', _i_generic.process_group(
                                                                         $,
                                                                         {
                                                                             'properties': ($) => ({
-                                                                                'abstract': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                'abstract': _p.deprecated_cc(_i_generic.get_entry(
                                                                                     $,
                                                                                     {
                                                                                         'key': "abstract",
@@ -165,7 +165,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     $,
                                                                                     null
                                                                                 )),
-                                                                                'partition': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                'partition': _p.deprecated_cc(_i_generic.get_entry(
                                                                                     $,
                                                                                     {
                                                                                         'key': "partition",
@@ -174,7 +174,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     $,
                                                                                     null
                                                                                 )),
-                                                                                'extends': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                'extends': _p.deprecated_cc(_i_generic.get_entry(
                                                                                     $,
                                                                                     {
                                                                                         'key': "extends",
@@ -190,7 +190,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                         ),
                                                                                     }
                                                                                 )),
-                                                                                'implements': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                'implements': _p.deprecated_cc(_i_generic.get_entry(
                                                                                     $,
                                                                                     {
                                                                                         'key': "implements",
@@ -213,7 +213,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                         $,
                                                                         {
                                                                             'properties': ($) => ({
-                                                                                'extends': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                'extends': _p.deprecated_cc(_i_generic.get_entry(
                                                                                     $,
                                                                                     {
                                                                                         'key': "extends",
@@ -235,7 +235,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                 }),
                                                             }
                                                         )),
-                                                        'features': _pa.deprecated_cc(_i_generic.get_entry(
+                                                        'features': _p.deprecated_cc(_i_generic.get_entry(
                                                             $,
                                                             {
                                                                 'key': "features",
@@ -247,7 +247,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                     $,
                                                                     {
                                                                         'properties': ($) => ({
-                                                                            'id': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                            'id': _p.deprecated_cc(_i_generic.get_entry(
                                                                                 $,
                                                                                 {
                                                                                     'key': "id",
@@ -258,7 +258,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                     'value deserializers': $p['value deserializers'],
                                                                                 }
                                                                             )),
-                                                                            'optional': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                            'optional': _p.deprecated_cc(_i_generic.get_entry(
                                                                                 $,
                                                                                 {
                                                                                     'key': "optional",
@@ -267,7 +267,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                 $,
                                                                                 null
                                                                             )),
-                                                                            'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                            'type': _p.deprecated_cc(_i_generic.get_entry(
                                                                                 $,
                                                                                 {
                                                                                     'key': "type",
@@ -275,12 +275,12 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                             ), ($) => _i_generic.process_unconstrained_state_group(
                                                                                 $,
                                                                                 {
-                                                                                    'states': _pa.dictionary.literal({
+                                                                                    'states': _p.dictionary.literal({
                                                                                         'property': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG => ['property', _i_generic.process_group(
                                                                                             $,
                                                                                             {
                                                                                                 'properties': ($) => ({
-                                                                                                    'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                                    'type': _p.deprecated_cc(_i_generic.get_entry(
                                                                                                         $,
                                                                                                         {
                                                                                                             'key': "type",
@@ -298,7 +298,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                             $,
                                                                                             {
                                                                                                 'properties': ($) => ({
-                                                                                                    'multiple': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                                    'multiple': _p.deprecated_cc(_i_generic.get_entry(
                                                                                                         $,
                                                                                                         {
                                                                                                             'key': "multiple",
@@ -307,7 +307,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                         $,
                                                                                                         null
                                                                                                     )),
-                                                                                                    'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                                    'type': _p.deprecated_cc(_i_generic.get_entry(
                                                                                                         $,
                                                                                                         {
                                                                                                             'key': "type",
@@ -318,7 +318,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                             'value deserializers': $p['value deserializers'],
                                                                                                         }
                                                                                                     )),
-                                                                                                    'link type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                                                                    'link type': _p.deprecated_cc(_i_generic.get_entry(
                                                                                                         $,
                                                                                                         {
                                                                                                             'key': "link type",
@@ -326,7 +326,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                                                                                     ), ($) => _i_generic.process_unconstrained_state_group(
                                                                                                         $,
                                                                                                         {
-                                                                                                            'states': _pa.dictionary.literal({
+                                                                                                            'states': _p.dictionary.literal({
                                                                                                                 'containment': ($): _i_out._T_M3.entities.D._type.SG.classifier.features.D._type.SG.link.link_type.SG => ['containment', _i_generic.process_nothing(
                                                                                                                     $,
                                                                                                                     null
@@ -355,7 +355,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => _i_generic.process_group(
                                             'datatype': ($): _i_out._T_M3.entities.D._type.SG => ['datatype', _i_generic.process_unconstrained_state_group(
                                                 $,
                                                 {
-                                                    'states': _pa.dictionary.literal({
+                                                    'states': _p.dictionary.literal({
                                                         'enumeration': ($): _i_out._T_M3.entities.D._type.SG.datatype.SG => ['enumeration', _i_generic.process_unconstrained_dictionary(
                                                             $,
                                                             {

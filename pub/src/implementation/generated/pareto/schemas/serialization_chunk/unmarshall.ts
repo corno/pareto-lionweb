@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/serialization_chunk/unmarshall"
@@ -11,7 +11,7 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => _i_generic
     $,
     {
         'properties': ($) => ({
-            'language': _pa.deprecated_cc(_i_generic.get_entry(
+            'language': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "language",
@@ -20,7 +20,7 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => _i_generic
                 $,
                 null
             )),
-            'key': _pa.deprecated_cc(_i_generic.get_entry(
+            'key': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "key",
@@ -29,7 +29,7 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => _i_generic
                 $,
                 null
             )),
-            'version': _pa.deprecated_cc(_i_generic.get_entry(
+            'version': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "version",
@@ -48,7 +48,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_u
             $,
             {
                 'properties': ($) => ({
-                    'resolveInfo': _pa.deprecated_cc(_i_generic.get_entry(
+                    'resolveInfo': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "resolveInfo",
@@ -57,7 +57,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => _i_generic.process_u
                         $,
                         null
                     )),
-                    'reference': _pa.deprecated_cc(_i_generic.get_entry(
+                    'reference': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "reference",
@@ -80,7 +80,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
     $,
     {
         'properties': ($) => ({
-            'serializationFormatVersion': _pa.deprecated_cc(_i_generic.get_entry(
+            'serializationFormatVersion': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "serializationFormatVersion",
@@ -89,7 +89,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 $,
                 null
             )),
-            'languages': _pa.deprecated_cc(_i_generic.get_entry(
+            'languages': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "languages",
@@ -101,7 +101,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                         $,
                         {
                             'properties': ($) => ({
-                                'key': _pa.deprecated_cc(_i_generic.get_entry(
+                                'key': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "key",
@@ -110,7 +110,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                     $,
                                     null
                                 )),
-                                'version': _pa.deprecated_cc(_i_generic.get_entry(
+                                'version': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "version",
@@ -124,7 +124,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                     ),
                 }
             )),
-            'nodes': _pa.deprecated_cc(_i_generic.get_entry(
+            'nodes': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "nodes",
@@ -136,7 +136,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                         $,
                         {
                             'properties': ($) => ({
-                                'id': _pa.deprecated_cc(_i_generic.get_entry(
+                                'id': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "id",
@@ -145,7 +145,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                     $,
                                     null
                                 )),
-                                'parent': _pa.deprecated_cc(_i_generic.get_entry(
+                                'parent': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "parent",
@@ -159,7 +159,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         ),
                                     }
                                 )),
-                                'classifier': _pa.deprecated_cc(_i_generic.get_entry(
+                                'classifier': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "classifier",
@@ -170,7 +170,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         'value deserializers': $p['value deserializers'],
                                     }
                                 )),
-                                'properties': _pa.deprecated_cc(_i_generic.get_entry(
+                                'properties': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "properties",
@@ -182,7 +182,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                             $,
                                             {
                                                 'properties': ($) => ({
-                                                    'property': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'property': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "property",
@@ -193,7 +193,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                                             'value deserializers': $p['value deserializers'],
                                                         }
                                                     )),
-                                                    'value': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'value': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "value",
@@ -207,7 +207,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         ),
                                     }
                                 )),
-                                'references': _pa.deprecated_cc(_i_generic.get_entry(
+                                'references': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "references",
@@ -219,7 +219,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                             $,
                                             {
                                                 'properties': ($) => ({
-                                                    'reference': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'reference': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "reference",
@@ -230,7 +230,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                                             'value deserializers': $p['value deserializers'],
                                                         }
                                                     )),
-                                                    'targets': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'targets': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "targets",
@@ -246,7 +246,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         ),
                                     }
                                 )),
-                                'containments': _pa.deprecated_cc(_i_generic.get_entry(
+                                'containments': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "containments",
@@ -258,7 +258,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                             $,
                                             {
                                                 'properties': ($) => ({
-                                                    'containment': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'containment': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "containment",
@@ -269,7 +269,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                                             'value deserializers': $p['value deserializers'],
                                                         }
                                                     )),
-                                                    'children': _pa.deprecated_cc(_i_generic.get_entry(
+                                                    'children': _p.deprecated_cc(_i_generic.get_entry(
                                                         $,
                                                         {
                                                             'key': "children",
@@ -288,7 +288,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                                         ),
                                     }
                                 )),
-                                'annotations': _pa.deprecated_cc(_i_generic.get_entry(
+                                'annotations': _p.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "annotations",
