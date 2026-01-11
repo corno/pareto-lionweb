@@ -29,6 +29,6 @@
   "dependencies": {
     "pareto-host-nodejs": "^0.1.7",
     "pareto-resources": "^0.1.13",
-    "pareto-standard-operations": "^0.3.39"
+    "pareto-standard-operations": "^0.3.40"
   }
 }
