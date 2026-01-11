@@ -75,10 +75,10 @@ const expect_type = <T>(
     abort: _pi.Abort<Unmarshall_Error>
 ): _pi.Dictionary<T> => {
     const expected: { [key: string]: null } = {}
-    expected_properties.map(($, key) => {
+    expected_properties.__d_map(($, key) => {
         expected[key] = null
     })
-    source.map(($, key) => {
+    source.__d_map(($, key) => {
         if (expected[key] === undefined) {
             abort(['unexpected property', { 'property': key, 'path': path }])
         }
@@ -91,7 +91,7 @@ const rekey = <T>(
     abort: _pi.Abort<Unmarshall_Error>,
 ): _pi.Dictionary<T> => {
     return _pdev.implement_me(`rekey`)
-    // return o_group($).map(($, key) => {
+    // return o_group($).__d_map(($, key) => {
     //     return o_expect_single_element($).__decide(
     //         ($) => $,
     //         () => abort(['expected single element', key])

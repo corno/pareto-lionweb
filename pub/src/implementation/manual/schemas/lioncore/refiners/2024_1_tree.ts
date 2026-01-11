@@ -42,7 +42,7 @@ export const M3 = (
             $p.$['node tree'].containments,
             "LionCore-M3:2024.1:Language-entities",
             "entities",
-        ).map(($, key) => {
+        ).__d_map(($, key) => {
             const entity_id = key
             return {
                 'key': context.expect_property(
@@ -91,7 +91,7 @@ export const M3 = (
                                                 $.containments,
                                                 "LionCore-M3:2024.1:Classifier-features",
                                                 "features of entity " + key,
-                                            ).map(($, key) => {
+                                            ).__d_map(($, key) => {
                                                 const feature_id = entity_id + ">" + key
                                                 context.expect_type($.properties,
                                                     _p.dictionary.literal({
@@ -215,7 +215,7 @@ export const M3 = (
                                     $.containments,
                                     "LionCore-M3:2024.1:Enumeration-literals",
                                     "literals of enumeration " + key,
-                                ).map(($, key) => {
+                                ).__d_map(($, key) => {
                                     context.expect_type(
                                         $.properties,
                                         _p.dictionary.literal({

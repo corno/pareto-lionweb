@@ -48,7 +48,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
             'value serializers': $p['value serializers'],
         }
     ))]),
-    'entities': _p.deprecated_cc($['entities'], ($) => ['dictionary', $.map(($) => ['verbose group', _p.dictionary.literal({
+    'entities': _p.deprecated_cc($['entities'], ($) => ['dictionary', $.__d_map(($) => ['verbose group', _p.dictionary.literal({
         'id': _p.deprecated_cc($['id'], ($) => ID(
             $,
             {
@@ -104,7 +104,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
                                 default: return _p.au($[0])
                             }
                         })]),
-                        'features': _p.deprecated_cc($['features'], ($) => ['dictionary', $.map(($) => ['verbose group', _p.dictionary.literal({
+                        'features': _p.deprecated_cc($['features'], ($) => ['dictionary', $.__d_map(($) => ['verbose group', _p.dictionary.literal({
                             'id': _p.deprecated_cc($['id'], ($) => ID(
                                 $,
                                 {
@@ -168,7 +168,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
                         switch ($[0]) {
                             case 'enumeration': return _p.ss($, ($) => ({
                                 'state': "enumeration",
-                                'value': ['dictionary', $.map(($) => ID(
+                                'value': ['dictionary', $.__d_map(($) => ID(
                                     $,
                                     {
                                         'value serializers': $p['value serializers'],

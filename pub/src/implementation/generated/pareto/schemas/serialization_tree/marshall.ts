@@ -23,17 +23,17 @@ export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _p.dicti
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'properties': _p.deprecated_cc($['properties'], ($) => ['dictionary', $.map(($) => ['text', ({
+    'properties': _p.deprecated_cc($['properties'], ($) => ['dictionary', $.__d_map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),
-    'containments': _p.deprecated_cc($['containments'], ($) => ['dictionary', $.map(($) => ['dictionary', $.map(($) => Node(
+    'containments': _p.deprecated_cc($['containments'], ($) => ['dictionary', $.__d_map(($) => ['dictionary', $.__d_map(($) => Node(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     ))])]),
-    'references': _p.deprecated_cc($['references'], ($) => ['dictionary', $.map(($) => Targets(
+    'references': _p.deprecated_cc($['references'], ($) => ['dictionary', $.__d_map(($) => Targets(
         $,
         {
             'value serializers': $p['value serializers'],
