@@ -77,14 +77,14 @@ export const Serialization_Chunk = (
         'nodes': null,
     })), ($) => ({
         'serializationFormatVersion': helpers.expect_text(helpers.expect_property($, 'serializationFormatVersion')),
-        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+        'languages': helpers.expect_array(helpers.expect_property($, 'languages')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
             'key': null,
             'version': null,
         })), ($) => ({
             'key': helpers.expect_text(helpers.expect_property($, 'key')),
             'version': helpers.expect_text(helpers.expect_property($, 'version')),
         }))),
-        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+        'nodes': helpers.expect_array(helpers.expect_property($, 'nodes')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
             'id': null,
             'classifier': null,
             'properties': null,
@@ -96,26 +96,26 @@ export const Serialization_Chunk = (
             'id': helpers.expect_text(helpers.expect_property($, 'id')),
             'classifier': Meta_Pointer(helpers.expect_property($, 'classifier')),
             'parent': helpers.expect_optional_null(helpers.expect_property($, 'parent')).__o_map(($) => helpers.expect_text($)),
-            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'properties': helpers.expect_array(helpers.expect_property($, 'properties')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'property': null,
                 'value': null,
             })), ($) => ({
                 'property': Meta_Pointer(helpers.expect_property($, 'property')),
                 'value': helpers.expect_text(helpers.expect_property($, 'value')),
             }))),
-            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'containments': helpers.expect_array(helpers.expect_property($, 'containments')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'containment': null,
                 'children': null,
             })), ($) => ({
                 'containment': Meta_Pointer(helpers.expect_property($, 'containment')),
-                'children': helpers.expect_array(helpers.expect_property($, 'children')).map(($) => helpers.expect_text($)),
+                'children': helpers.expect_array(helpers.expect_property($, 'children')).__l_map(($) => helpers.expect_text($)),
             }))),
-            'references': helpers.expect_array(helpers.expect_property($, 'references')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+            'references': helpers.expect_array(helpers.expect_property($, 'references')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'reference': null,
                 'targets': null,
             })), ($) => ({
                 'reference': Meta_Pointer(helpers.expect_property($, 'reference')),
-                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
+                'targets': helpers.expect_array(helpers.expect_property($, 'targets')).__l_map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                     'resolveInfo': null,
                     'reference': null,
                 })), ($) => ({
@@ -123,7 +123,7 @@ export const Serialization_Chunk = (
                     'reference': helpers.expect_optional_null(helpers.expect_property($, 'reference')).__o_map(($) => helpers.expect_text($)),
                 }))),
             }))),
-            'annotations': helpers.expect_array(helpers.expect_property($, 'annotations')).map(($) => helpers.expect_text($)),
+            'annotations': helpers.expect_array(helpers.expect_property($, 'annotations')).__l_map(($) => helpers.expect_text($)),
         }))),
     }))
 }

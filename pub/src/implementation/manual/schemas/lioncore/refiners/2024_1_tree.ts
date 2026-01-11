@@ -259,7 +259,7 @@ export const M3 = (
         $p.$['node tree'].references,
         "LionCore-M3:2024.1:Language-dependsOn",
         "dependencies",
-    ).map(($) => ({
+    ).__l_map(($) => ({
         'resolveInfo': $.resolveInfo,
         'reference': $.reference
     })),

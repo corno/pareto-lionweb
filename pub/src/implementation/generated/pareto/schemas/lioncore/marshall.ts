@@ -42,7 +42,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'dependencies': _p.deprecated_cc($['dependencies'], ($) => ['list', $.map(($) => Raw_Reference(
+    'dependencies': _p.deprecated_cc($['dependencies'], ($) => ['list', $.__l_map(($) => Raw_Reference(
         $,
         {
             'value serializers': $p['value serializers'],
@@ -82,7 +82,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
                                             )],
                                             () => ['not set', null]
                                         )]),
-                                        'implements': _p.deprecated_cc($['implements'], ($) => ['list', $.map(($) => Raw_Reference(
+                                        'implements': _p.deprecated_cc($['implements'], ($) => ['list', $.__l_map(($) => Raw_Reference(
                                             $,
                                             {
                                                 'value serializers': $p['value serializers'],
@@ -93,7 +93,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
                                 case 'interface': return _p.ss($, ($) => ({
                                     'state': "interface",
                                     'value': ['verbose group', _p.dictionary.literal({
-                                        'extends': _p.deprecated_cc($['extends'], ($) => ['list', $.map(($) => Raw_Reference(
+                                        'extends': _p.deprecated_cc($['extends'], ($) => ['list', $.__l_map(($) => Raw_Reference(
                                             $,
                                             {
                                                 'value serializers': $p['value serializers'],

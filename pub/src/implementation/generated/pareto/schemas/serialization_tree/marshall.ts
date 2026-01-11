@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
     'resolveInfo': _p.deprecated_cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -39,7 +39,7 @@ export const Node: _i_signatures._T_Node = ($, $p) => ['verbose group', _p.dicti
             'value serializers': $p['value serializers'],
         }
     ))]),
-    'annotations': _p.deprecated_cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
+    'annotations': _p.deprecated_cc($['annotations'], ($) => ['list', $.__l_map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),
@@ -49,7 +49,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'languages': _p.deprecated_cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+    'languages': _p.deprecated_cc($['languages'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
         'key': _p.deprecated_cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,

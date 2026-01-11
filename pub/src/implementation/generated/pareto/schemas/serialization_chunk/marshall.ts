@@ -19,7 +19,7 @@ export const Meta_Pointer: _i_signatures._T_Meta_Pointer = ($, $p) => ['verbose 
         'value': $,
     })]),
 })]
-export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
     'resolveInfo': _p.deprecated_cc($['resolveInfo'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -37,7 +37,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'languages': _p.deprecated_cc($['languages'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+    'languages': _p.deprecated_cc($['languages'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
         'key': _p.deprecated_cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -47,7 +47,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
             'value': $,
         })]),
     })])]),
-    'nodes': _p.deprecated_cc($['nodes'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+    'nodes': _p.deprecated_cc($['nodes'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
         'id': _p.deprecated_cc($['id'], ($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -65,7 +65,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 'value serializers': $p['value serializers'],
             }
         )),
-        'properties': _p.deprecated_cc($['properties'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+        'properties': _p.deprecated_cc($['properties'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
             'property': _p.deprecated_cc($['property'], ($) => Meta_Pointer(
                 $,
                 {
@@ -77,7 +77,7 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 'value': $,
             })]),
         })])]),
-        'references': _p.deprecated_cc($['references'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+        'references': _p.deprecated_cc($['references'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
             'reference': _p.deprecated_cc($['reference'], ($) => Meta_Pointer(
                 $,
                 {
@@ -91,19 +91,19 @@ export const Serialization_Chunk: _i_signatures._T_Serialization_Chunk = ($, $p)
                 }
             )),
         })])]),
-        'containments': _p.deprecated_cc($['containments'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+        'containments': _p.deprecated_cc($['containments'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
             'containment': _p.deprecated_cc($['containment'], ($) => Meta_Pointer(
                 $,
                 {
                     'value serializers': $p['value serializers'],
                 }
             )),
-            'children': _p.deprecated_cc($['children'], ($) => ['list', $.map(($) => ['text', ({
+            'children': _p.deprecated_cc($['children'], ($) => ['list', $.__l_map(($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })])]),
         })])]),
-        'annotations': _p.deprecated_cc($['annotations'], ($) => ['list', $.map(($) => ['text', ({
+        'annotations': _p.deprecated_cc($['annotations'], ($) => ['list', $.__l_map(($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
         })])]),
