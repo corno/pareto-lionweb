@@ -63,7 +63,7 @@ const expect_property = <T>(
     prop_name: string,
     path: string,
     abort: _pi.Abort<Unmarshall_Error>
-): T => props.__get_possible_entry(prop_name).transform(
+): T => props.__get_possible_entry(prop_name).__decide(
     ($) => $,
     () => abort(['missing property', { 'property': prop_name, 'path': path }])
 )
@@ -92,7 +92,7 @@ const rekey = <T>(
 ): _pi.Dictionary<T> => {
     return _pdev.implement_me(`rekey`)
     // return o_group($).map(($, key) => {
-    //     return o_expect_single_element($).transform(
+    //     return o_expect_single_element($).__decide(
     //         ($) => $,
     //         () => abort(['expected single element', key])
     //     )

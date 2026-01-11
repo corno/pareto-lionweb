@@ -95,7 +95,7 @@ export const Serialization_Chunk = (
         })), ($) => ({
             'id': helpers.expect_text(helpers.expect_property($, 'id')),
             'classifier': Meta_Pointer(helpers.expect_property($, 'classifier')),
-            'parent': helpers.expect_optional_null(helpers.expect_property($, 'parent')).map(($) => helpers.expect_text($)),
+            'parent': helpers.expect_optional_null(helpers.expect_property($, 'parent')).__o_map(($) => helpers.expect_text($)),
             'properties': helpers.expect_array(helpers.expect_property($, 'properties')).map(($) => _p.deprecated_cc(helpers.expect_verbose_type($, _p.dictionary.literal({
                 'property': null,
                 'value': null,
@@ -120,7 +120,7 @@ export const Serialization_Chunk = (
                     'reference': null,
                 })), ($) => ({
                     'resolveInfo': helpers.expect_text(helpers.expect_property($, 'resolveInfo')),
-                    'reference': helpers.expect_optional_null(helpers.expect_property($, 'reference')).map(($) => helpers.expect_text($)),
+                    'reference': helpers.expect_optional_null(helpers.expect_property($, 'reference')).__o_map(($) => helpers.expect_text($)),
                 }))),
             }))),
             'annotations': helpers.expect_array(helpers.expect_property($, 'annotations')).map(($) => helpers.expect_text($)),

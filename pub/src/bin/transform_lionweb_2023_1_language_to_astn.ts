@@ -6,7 +6,7 @@ import { $$ as procedure } from "../implementation/manual/commands/transform_lio
 
 import * as d_resources from "../implementation/manual/commands/transform_lionweb_2023_1_language_to_astn"
 
-_pn.run_main_procedure(
+_pn.run_main_command(
     ($r) => procedure(
         {
             'write file': $r.commands['write file'],

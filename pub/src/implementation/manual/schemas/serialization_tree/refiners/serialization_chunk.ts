@@ -29,12 +29,12 @@ export const Serialization_Chunk = (
     const root_node = expect_exactly_one_element(
         _p.list.filter(
             $p.chunk.nodes,
-            ($ => $.parent.is_set()
+            ($ => $.parent.__is_set()
                 ? _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>()
                 : _p.optional.set($)
             )
         )
-    ).transform(
+    ).__decide(
         ($) => $,
         () => abort(['could not determine root node', null]),
     )

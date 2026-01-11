@@ -10,7 +10,7 @@ export const Targets: _i_signatures._T_Targets = ($, $p) => ['list', $.map(($) =
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'reference': _p.deprecated_cc($['reference'], ($) => ['optional', $.transform(
+    'reference': _p.deprecated_cc($['reference'], ($) => ['optional', $.__decide(
         ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
             'delimiter': ['quote', null],
             'value': $,

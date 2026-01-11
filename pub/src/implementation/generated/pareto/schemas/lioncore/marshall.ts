@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.transform(
+export const ID: _i_signatures._T_ID = ($, $p) => ['optional', $.__decide(
     ($): _i_out._T_Value.SG.optional => ['set', ['verbose group', _p.dictionary.literal({
         'key': _p.deprecated_cc($['key'], ($) => ['text', ({
             'delimiter': ['quote', null],
@@ -23,7 +23,7 @@ export const Raw_Reference: _i_signatures._T_Raw_Reference = ($, $p) => ['verbos
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'reference': _p.deprecated_cc($['reference'], ($) => ['optional', $.transform(
+    'reference': _p.deprecated_cc($['reference'], ($) => ['optional', $.__decide(
         ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -73,7 +73,7 @@ export const M3: _i_signatures._T_M3 = ($, $p) => ['verbose group', _p.dictionar
                                             'delimiter': ['quote', null],
                                             'value': $,
                                         })]),
-                                        'extends': _p.deprecated_cc($['extends'], ($) => ['optional', $.transform(
+                                        'extends': _p.deprecated_cc($['extends'], ($) => ['optional', $.__decide(
                                             ($): _i_out._T_Value.SG.optional => ['set', Raw_Reference(
                                                 $,
                                                 {

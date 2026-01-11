@@ -129,7 +129,7 @@ export const M3 = (
                                                 ),
                                                 'type': $.references.__get_possible_entry(
                                                     "LionCore-M3:2023.1:Link-type",
-                                                ).is_set()
+                                                ).__is_set()
                                                     ? ['link', {
                                                         'multiple': context.expect_property(
                                                             $.properties,
@@ -140,7 +140,7 @@ export const M3 = (
                                                             $.references,
                                                             "LionCore-M3:2023.1:Link-type",
                                                             "type property of link: " + feature_id,
-                                                        )).transform(
+                                                        )).__decide(
                                                             ($) => $,
                                                             () => context.abort(['expected exactly one element for link type of feature', feature_id])
                                                         ),
@@ -157,7 +157,7 @@ export const M3 = (
                                                             $.references,
                                                             "LionCore-M3:2023.1:Property-type",
                                                             "type property of property: " + feature_id,
-                                                        )).transform(
+                                                        )).__decide(
                                                             ($) => $,
                                                             () => context.abort(['expected exactly one element for property type of feature', feature_id])
                                                         ),
