@@ -1,23 +1,22 @@
 (
-    'operations': {
-    }
     'schema tree': | 'set' {
         `lioncore`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
-                'number types': {
-                }
                 'text types': {
                     `Text Value`: (
                         'type': | 'single line' ~
                     )
                 }
+                'number types': {
+                }
             )
-            'imports': {
-            }
             'types': {
                 `ID`: (
+                    'type parameters': {
+                    }
                     'node': | 'optional' | 'group' {
                         `key`: (
                             'description': ~
@@ -32,10 +31,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Raw Reference`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `resolveInfo`: (
                             'description': ~
@@ -50,10 +49,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `M3`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `id`: (
                             'description': ~
@@ -209,27 +208,27 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
         `serialization chunk`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
-                'number types': {
-                }
                 'text types': {
                     `Text Value`: (
                         'type': | 'single line' ~
                     )
                 }
+                'number types': {
+                }
             )
-            'imports': {
-            }
             'types': {
                 `Meta Pointer`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `language`: (
                             'description': ~
@@ -250,10 +249,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Targets`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'group' {
                             `resolveInfo`: (
@@ -270,10 +269,10 @@
                             )
                         }
                     )
-                    'type parameters': {
-                    }
                 )
                 `Serialization Chunk`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `serializationFormatVersion`: (
                             'description': ~
@@ -383,27 +382,27 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
         `serialization tree`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
-                'number types': {
-                }
                 'text types': {
                     `Text Value`: (
                         'type': | 'single line' ~
                     )
                 }
+                'number types': {
+                }
             )
-            'imports': {
-            }
             'types': {
                 `Targets`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'group' {
                             `resolveInfo`: (
@@ -420,10 +419,10 @@
                             )
                         }
                     )
-                    'type parameters': {
-                    }
                 )
                 `Node`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `classifier`: (
                             'description': ~
@@ -466,10 +465,10 @@
                             )
                         )
                     }
-                    'type parameters': {
-                    }
                 )
                 `Serialization Chunk`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `serializationFormatVersion`: (
                             'description': ~
@@ -507,10 +506,11 @@
                             'node': | 'component' | 'internal' `Node`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
+    }
+    'operations': {
     }
 )
