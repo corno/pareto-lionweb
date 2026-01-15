@@ -1,117 +1,60 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Meta_Pointer_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Meta_Pointer
     
-    // **** TYPES
+    export type O = i_out.Meta_Pointer
     
-    export type _T_Meta_Pointer = (
-        $$_: _i_in._T_Meta_Pointer,
-        $$_p: null,
-    ) => _i_out._T_Meta_Pointer
-    
-    export type _T_Targets = (
-        $$_: _i_in._T_Targets,
-        $$_p: null,
-    ) => _i_out._T_Targets
-    
-    export type _T_Serialization_Chunk = (
-        $$_: _i_in._T_Serialization_Chunk,
-        $$_p: null,
-    ) => _i_out._T_Serialization_Chunk
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Meta_Pointer = _T_Meta_Pointer
-    
-    export type Targets = _T_Targets
-    
-    export type Serialization_Chunk = _T_Serialization_Chunk
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Meta_Pointer {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Meta_Pointer
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Meta_Pointer
     }
     
-    export namespace _T_Targets {
+}
+
+export type Meta_Pointer_ = (
+    $$_: Meta_Pointer_.I,
+) => Meta_Pointer_.O
+
+export namespace Targets_ {
+    
+    export type I = i_in.Targets
+    
+    export type O = i_out.Targets
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Targets
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Targets
     }
     
-    export namespace _T_Serialization_Chunk {
+}
+
+export type Targets_ = (
+    $$_: Targets_.I,
+) => Targets_.O
+
+export namespace Serialization_Chunk_ {
+    
+    export type I = i_in.Serialization_Chunk
+    
+    export type O = i_out.Serialization_Chunk
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Serialization_Chunk
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Serialization_Chunk
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Meta_Pointer {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Meta_Pointer
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Meta_Pointer
-    }
-    
-    export namespace Targets {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Targets
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Targets
-    }
-    
-    export namespace Serialization_Chunk {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Serialization_Chunk
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Serialization_Chunk
-    }
+}
+
+export type Serialization_Chunk_ = (
+    $$_: Serialization_Chunk_.I,
+) => Serialization_Chunk_.O
+
+export { 
+    Meta_Pointer_ as Meta_Pointer, 
+    Targets_ as Targets, 
+    Serialization_Chunk_ as Serialization_Chunk, 
+}

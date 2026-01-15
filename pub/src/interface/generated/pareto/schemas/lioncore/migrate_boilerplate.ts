@@ -1,117 +1,60 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace ID_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.ID
     
-    // **** TYPES
+    export type O = i_out.ID
     
-    export type _T_ID = (
-        $$_: _i_in._T_ID,
-        $$_p: null,
-    ) => _i_out._T_ID
-    
-    export type _T_Raw_Reference = (
-        $$_: _i_in._T_Raw_Reference,
-        $$_p: null,
-    ) => _i_out._T_Raw_Reference
-    
-    export type _T_M3 = (
-        $$_: _i_in._T_M3,
-        $$_p: null,
-    ) => _i_out._T_M3
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type ID = _T_ID
-    
-    export type Raw_Reference = _T_Raw_Reference
-    
-    export type M3 = _T_M3
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_ID {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_ID
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_ID
     }
     
-    export namespace _T_Raw_Reference {
+}
+
+export type ID_ = (
+    $$_: ID_.I,
+) => ID_.O
+
+export namespace Raw_Reference_ {
+    
+    export type I = i_in.Raw_Reference
+    
+    export type O = i_out.Raw_Reference
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Raw_Reference
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Raw_Reference
     }
     
-    export namespace _T_M3 {
+}
+
+export type Raw_Reference_ = (
+    $$_: Raw_Reference_.I,
+) => Raw_Reference_.O
+
+export namespace M3_ {
+    
+    export type I = i_in.M3
+    
+    export type O = i_out.M3
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_M3
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_M3
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace ID {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_ID
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_ID
-    }
-    
-    export namespace Raw_Reference {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Raw_Reference
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Raw_Reference
-    }
-    
-    export namespace M3 {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_M3
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_M3
-    }
+}
+
+export type M3_ = (
+    $$_: M3_.I,
+) => M3_.O
+
+export { 
+    ID_ as ID, 
+    Raw_Reference_ as Raw_Reference, 
+    M3_ as M3, 
+}
