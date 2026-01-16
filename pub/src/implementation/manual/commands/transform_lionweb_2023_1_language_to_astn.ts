@@ -22,10 +22,10 @@ const settings = {
 
 //interface
 
-import * as d_read_file from "pareto-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_write_file from "pareto-resources/dist/interface/generated/pareto/schemas/write_file/data_types/source"
+import * as d_read_file from "pareto-resources/dist/interface/generated/pareto/schemas/read_file/data"
+import * as d_write_file from "pareto-resources/dist/interface/generated/pareto/schemas/write_file/data"
 import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
-import * as d_path from "pareto-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
+import * as d_path from "pareto-resources/dist/interface/generated/pareto/schemas/path/data"
 
 export type Query_Resources = {
     'read file': resources_exupery.queries.read_file

@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core-refiner'
 
-import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_tree/data_types/source"
-import * as d_out from "../../../../../interface/generated/pareto/schemas/lioncore/data_types/target"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/lioncore/data"
 
 import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
 
@@ -172,7 +172,7 @@ export const M3 = (
                                                 }
                                             }),
                                         ),
-                                        'type': _p.state_group.block((): d_out.M3.entities.D._type.SG.classifier._type => {
+                                        'type': _p.state_group.block((): d_out.M3.entities.D._type.classifier._type => {
                                             switch ($.classifier) {
                                                 case "LionCore-M3:2024.1:Concept": {
                                                     return ['concept', {
