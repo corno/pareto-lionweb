@@ -1,4 +1,4 @@
-import { $$ as panic} from 'pareto-core-internals/dist/misc/panic'
+import * as _pdev from 'pareto-core-dev'
 
 import * as unmarshall_json from "./refinement"
 
@@ -16,4 +16,4 @@ import * as unmarshall_json from "./refinement"
 
 // }
 
-export const temp_json_unmarshall_should_be_done_extenally = ($: string) => panic(`IMPLEMENT ME`)
+export const temp_json_unmarshall_should_be_done_extenally = ($: string) => _pdev.implement_me(`JSON unmarshall should be done externally`)
