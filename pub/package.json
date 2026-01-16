@@ -1,6 +1,6 @@
 {
   "name": "pareto-lionweb",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A TypeScript library interacting with LionWeb",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "pareto-core-dev": "^0.11.5",
+    "pareto-core-dev": "^0.12.0",
     "pareto-host-nodejs": "^0.1.11",
     "pareto-resources": "^0.1.15",
     "pareto-standard-operations": "^0.3.41"
