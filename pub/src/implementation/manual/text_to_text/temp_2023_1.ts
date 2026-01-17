@@ -14,9 +14,6 @@ import * as r_tree from "../schemas/lioncore/refiners/2023_1_tree"
 import { create_context, Unmarshall_Error } from "../../temp_context"
 import { temp_json_unmarshall_should_be_done_extenally } from "../../temp/unmarshall_json/unmarshall"
 
-import { $$ as serialize_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
-import { $$ as serialize_boolean } from "pareto-standard-operations/dist/implementation/manual/primitives/boolean/serializers/true_false"
-
 const temp_serialize_should_be_generated = (
     m3: d_m3.M3,
 
@@ -35,9 +32,7 @@ export type Some_Error =
 export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
     return _p.deprecated_cc(
         r_sf_to_tree.Serialization_Chunk(
-            {
-                'chunk': temp_json_unmarshall_should_be_done_extenally($),
-            },
+            temp_json_unmarshall_should_be_done_extenally($),
             ($) => abort(['deserialization error', $])
         ),
         ($) => _p.deprecated_cc(

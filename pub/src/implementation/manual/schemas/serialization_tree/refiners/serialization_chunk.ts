@@ -5,7 +5,11 @@ import * as d_in from "../../../../../interface/generated/pareto/schemas/seriali
 import * as d_out from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
 
 
-import { $$ as expect_exactly_one_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+
+export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_elements($) !== 1
+    ? _p.optional.not_set()
+    : $.__get_possible_element_at(0)
+
 
 export const make_metapointer_key = (mp: d_in.Meta_Pointer): string => {
     return `${mp.language}:${mp.version}:${mp.key}`
@@ -21,42 +25,44 @@ export type Deserialization_Error =
     | ['clashing reference keys', null]
 
 export const Serialization_Chunk = (
-    $p: {
-        'chunk': d_in.Serialization_Chunk,
-    },
+    $: d_in.Serialization_Chunk,
     abort: _pi.Abort<Deserialization_Error>
 ): d_out.Serialization_Chunk => {
-    const root_node = expect_exactly_one_element(
-        _p.list.filter(
-            $p.chunk.nodes,
-            ($ => $.parent.__is_set()
-                ? _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>()
-                : _p.optional.set($)
+    const chunk = $
+    const nodes_without_parent = _p.list.filter(
+        $.nodes,
+        ($) => $.parent.__is_set()
+            ? _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>()
+            : _p.optional.set($)
+        
+    )
+    if (_p.natural.amount_of_list_elements(nodes_without_parent) > 1) {
+        return abort(['could not determine root node', null])
+    }
+    return _p.deprecated_cc(
+        nodes_without_parent.__get_possible_element_at(0).__decide(
+            ($): d_in.Serialization_Chunk.nodes.L => $,
+            () => abort(['could not determine root node', null]),
+        ),
+        ($) => ({
+            'serializationFormatVersion': chunk.serializationFormatVersion,
+            'languages': chunk.languages,
+            'root node id': $.id,
+            'node tree': Node(
+                {
+                    'nodes': _p.dictionary.from_list(
+                        chunk.nodes,
+                        ($) => $.id,
+                        ($) => $,
+                        () => abort(['clashing node IDs', null]),
+                    ),
+                    'current node': $,
+                },
+                abort,
             )
-        )
-    ).__decide(
-        ($) => $,
-        () => abort(['could not determine root node', null]),
+        })
     )
 
-    const nodes = _p.dictionary.from_list(
-        $p.chunk.nodes,
-        ($) => $.id,
-        ($) => $,
-        () => abort(['clashing node IDs', null]),
-    )
-    return {
-        'serializationFormatVersion': $p.chunk.serializationFormatVersion,
-        'languages': $p.chunk.languages,
-        'root node id': root_node.id,
-        'node tree': Node(
-            {
-                'nodes': nodes,
-                'current node': root_node,
-            },
-            abort,
-        )
-    }
 }
 
 const Node = (

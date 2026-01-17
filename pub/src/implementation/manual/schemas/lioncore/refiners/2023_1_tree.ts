@@ -1,9 +1,15 @@
 import * as _p from 'pareto-core-refiner'
+import * as _pi from 'pareto-core-interface'
 
 import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
 import * as d_out from "../../../../../interface/generated/pareto/schemas/lioncore/data"
 
-import { $$ as expect_single_element } from "pareto-standard-operations/dist/implementation/operations/impure/list/expect_exactly_one_element"
+
+export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_elements($) !== 1
+    ? _p.optional.not_set()
+    : $.__get_possible_element_at(0)
+
+
 
 import * as h from "../../../../temp_context"
 
@@ -136,7 +142,7 @@ export const M3 = (
                                                             "LionCore-M3:2023.1:Link-multiple",
                                                             "multiple property of link: " + feature_id,
                                                         ),
-                                                        'type': expect_single_element(context.expect_property(
+                                                        'type': expect_exactly_one_element(context.expect_property(
                                                             $.references,
                                                             "LionCore-M3:2023.1:Link-type",
                                                             "type property of link: " + feature_id,
@@ -153,7 +159,7 @@ export const M3 = (
                                                         })
                                                     }]
                                                     : ['property', {
-                                                        'type': expect_single_element(context.expect_property(
+                                                        'type': expect_exactly_one_element(context.expect_property(
                                                             $.references,
                                                             "LionCore-M3:2023.1:Property-type",
                                                             "type property of property: " + feature_id,
@@ -180,7 +186,7 @@ export const M3 = (
                                                 "LionCore-M3:2023.1:Concept-partition",
                                                 "concept " + key,
                                             ),
-                                            'extends': expect_single_element(context.expect_property(
+                                            'extends': expect_exactly_one_element(context.expect_property(
                                                 $.references,
                                                 "LionCore-M3:2023.1:Concept-extends",
                                                 "concept " + key,
