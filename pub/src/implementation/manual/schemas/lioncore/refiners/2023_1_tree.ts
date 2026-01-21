@@ -15,36 +15,45 @@ import * as h from "../../../../temp_context"
 
 export const ID = (
     $: d_in.Node,
-    id: string,
-    write_id: boolean,
-    context: h.Refinement_Context,
-): d_out.ID => !write_id
+    $p: {
+        id: string,
+        write_id: boolean,
+        context: h.Refinement_Context,
+    }
+): d_out.ID => !$p.write_id
         ? _p.optional.not_set()
         : _p.optional.set({
-            'key': context.expect_property(
+            'key': $p.context.expect_property(
                 $.properties,
                 "LionCore-M3:2023.1:IKeyed-key",
-                id,
+                $p.id,
             ),
-            'id': id,
+            'id': $p.id,
         })
 
 export const M3 = (
+    $: d_in.Serialization_Chunk,
     $p: {
-        $: d_in.Serialization_Chunk,
         'write id': boolean
     },
     context: h.Refinement_Context,
 ): d_out.M3 => ({
-    'id': ID($p.$['node tree'], $p.$['root node id'], $p['write id'], context),
+    'id': ID(
+        $['node tree'],
+        {
+            id: $['root node id'],
+            write_id: $p['write id'],
+            context,
+        }
+    ),
     'version': context.expect_property(
-        $p.$['node tree'].properties,
+        $['node tree'].properties,
         "LionCore-M3:2023.1:Language-version",
         "version",
     ),
     'entities': context.rekey(
         context.expect_property(
-            $p.$['node tree'].containments,
+            $['node tree'].containments,
             "LionCore-M3:2023.1:Language-entities",
             "entities",
         ).__d_map(($, key) => {
@@ -56,7 +65,14 @@ export const M3 = (
                     `entities/${entity_id}`
                 ),
                 'value': {
-                    'id': ID($, key, $p['write id'], context),
+                    'id': ID(
+                        $,
+                        {
+                            id: key,
+                            write_id: $p['write id'],
+                            context,
+                        }
+                    ),
                     'type': _p.state_group.block((): d_out.M3.entities.D._type => {
                         context.expect_type(
                             $.properties,
@@ -127,7 +143,14 @@ export const M3 = (
                                                 "LionCore-builtins:2023.1:LionCore-builtins-INamed-name",
                                             ),
                                             'value': {
-                                                'id': ID($, key, $p['write id'], context),
+                                                'id': ID(
+                                                    $,
+                                                    {
+                                                        id: key,
+                                                        write_id: $p['write id'],
+                                                        context,
+                                                    }
+                                                ),
                                                 'optional': context.expect_property(
                                                     $.properties,
                                                     "LionCore-M3:2023.1:Feature-optional",
@@ -244,7 +267,14 @@ export const M3 = (
                                             "LionCore-builtins:2023.1:LionCore-builtins-INamed-name",
                                             key,
                                         ),
-                                        'value': ID($, key, $p['write id'], context),
+                                        'value': ID(
+                                            $,
+                                            {
+                                                id: key,
+                                                write_id: $p['write id'],
+                                                context,
+                                            }
+                                        ),
                                     }
                                 }),
                             )]]
@@ -257,7 +287,7 @@ export const M3 = (
         }),
     ),
     'dependencies': context.expect_property(
-        $p.$['node tree'].references,
+        $['node tree'].references,
         "LionCore-M3:2023.1:Language-dependsOn",
         "dependencies",
     ).__l_map(($) => ({

@@ -5,14 +5,8 @@ import * as d_in from "../../../../../interface/generated/pareto/schemas/seriali
 import * as d_out from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
 
 
-
-export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_elements($) !== 1
-    ? _p.optional.not_set()
-    : $.__get_possible_element_at(0)
-
-
-export const make_metapointer_key = (mp: d_in.Meta_Pointer): string => {
-    return `${mp.language}:${mp.version}:${mp.key}`
+export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
+    return `${$.language}:${$.version}:${$.key}`
 }
 
 export type Deserialization_Error =
@@ -73,16 +67,16 @@ const Node = (
     abort: _pi.Abort<Deserialization_Error>
 ): d_out.Node => {
     return {
-        'classifier': make_metapointer_key($p['current node'].classifier),
+        'classifier': Meta_Pointer($p['current node'].classifier),
         'properties': _p.dictionary.from_list(
             $p['current node'].properties,
-            ($) => make_metapointer_key($.property),
+            ($) => Meta_Pointer($.property),
             ($) => $.value,
             () => abort(['clashing property keys', null]),
         ),
         'containments': _p.dictionary.from_list(
             $p['current node'].containments,
-            ($) => make_metapointer_key($.containment),
+            ($) => Meta_Pointer($.containment),
             ($) => _p.dictionary.from_list(
                 $.children,
                 ($) => $,
@@ -102,7 +96,7 @@ const Node = (
         ),
         'references': _p.dictionary.from_list(
             $p['current node'].references,
-            ($) => make_metapointer_key($.reference),
+            ($) => Meta_Pointer($.reference),
             ($) => $.targets,
             () => abort(['clashing reference keys', null]),
         ),

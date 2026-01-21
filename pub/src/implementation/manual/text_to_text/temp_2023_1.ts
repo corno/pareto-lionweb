@@ -37,8 +37,8 @@ export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
         ),
         ($) => _p.deprecated_cc(
             r_tree.M3(
+                $,
                 {
-                    $: $,
                     'write id': false
                 },
                 create_context(($) => abort(['unmarshalling error', $]),
