@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core-command'
+import * as _p from 'pareto-core/dist/command'
 import * as _pdev from 'pareto-core-dev'
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 //data
 
