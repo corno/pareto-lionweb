@@ -28,14 +28,14 @@ import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_ma
 import * as d_path from "pareto-resources/dist/interface/generated/pareto/schemas/path/data"
 
 export type Query_Resources = {
-    'read file': resources_exupery.queries.read_file
+    'read file': resources_pareto.queries.read_file
 }
 
 export type Command_Resources = {
-    'write file': resources_exupery.commands.write_file
+    'write file': resources_pareto.commands.write_file
 }
 
-import * as resources_exupery from "pareto-resources/dist/interface/resources"
+import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
 
 //dependencies
@@ -49,7 +49,7 @@ import * as t_path_to_path from "pareto-resources/dist/implementation/manual/sch
 import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/context_path/deserializers"
 
 
-export const $$: _pi.Command_Procedure<resources_exupery.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
+export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query(
 
