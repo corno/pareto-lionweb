@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_chunk/data"
-import * as d_out from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
+import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_chunk/data"
+import * as d_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
 
 
 export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {

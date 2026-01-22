@@ -3,7 +3,7 @@ import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_json from "../../../modules/json/interface/to_be_generated/json"
 
-import * as d from "../../../interface/generated/pareto/schemas/serialization_chunk/data"
+import * as d from "../../../interface/generated/liana/schemas/serialization_chunk/data"
 
 namespace helpers {
 

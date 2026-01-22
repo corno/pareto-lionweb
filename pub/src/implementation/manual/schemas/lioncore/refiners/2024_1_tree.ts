@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_in from "../../../../../interface/generated/pareto/schemas/serialization_tree/data"
-import * as d_out from "../../../../../interface/generated/pareto/schemas/lioncore/data"
+import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
+import * as d_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
 
 
 export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_elements($) !== 1
