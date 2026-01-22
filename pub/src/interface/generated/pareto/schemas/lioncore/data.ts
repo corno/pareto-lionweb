@@ -61,11 +61,11 @@ export namespace M3_ {
             
             export type id = ID_
             
-            export namespace _type {
+            export namespace type_ {
                 
                 export namespace classifier {
                     
-                    export namespace _type {
+                    export namespace type_ {
                         
                         export namespace concept {
                             
@@ -73,52 +73,52 @@ export namespace M3_ {
                             
                             export type partition = string
                             
-                            export namespace _extends {
+                            export namespace extends_ {
                                 
                                 export type O = Raw_Reference_
                                 
                             }
                             
-                            export type _extends = _pi.Optional_Value<_extends.O>
+                            export type extends_ = _pi.Optional_Value<extends_.O>
                             
-                            export namespace _implements {
+                            export namespace implements_ {
                                 
                                 export type L = Raw_Reference_
                                 
                             }
                             
-                            export type _implements = _pi.List<_implements.L>
+                            export type implements_ = _pi.List<implements_.L>
                             
                         }
                         
                         export type concept = {
                             readonly 'abstract': concept.abstract
                             readonly 'partition': concept.partition
-                            readonly 'extends': concept._extends
-                            readonly 'implements': concept._implements
+                            readonly 'extends': concept.extends_
+                            readonly 'implements': concept.implements_
                         }
                         
-                        export namespace _interface {
+                        export namespace interface_ {
                             
-                            export namespace _extends {
+                            export namespace extends_ {
                                 
                                 export type L = Raw_Reference_
                                 
                             }
                             
-                            export type _extends = _pi.List<_extends.L>
+                            export type extends_ = _pi.List<extends_.L>
                             
                         }
                         
-                        export type _interface = {
-                            readonly 'extends': _interface._extends
+                        export type interface_ = {
+                            readonly 'extends': interface_.extends_
                         }
                         
                     }
                     
-                    export type _type = 
-                        | readonly ['concept', _type.concept]
-                        | readonly ['interface', _type._interface]
+                    export type type_ = 
+                        | readonly ['concept', type_.concept]
+                        | readonly ['interface', type_.interface_]
                     
                     export namespace features {
                         
@@ -128,23 +128,23 @@ export namespace M3_ {
                             
                             export type optional = string
                             
-                            export namespace _type {
+                            export namespace type_ {
                                 
                                 export namespace property {
                                     
-                                    export type _type = Raw_Reference_
+                                    export type type_ = Raw_Reference_
                                     
                                 }
                                 
                                 export type property = {
-                                    readonly 'type': property._type
+                                    readonly 'type': property.type_
                                 }
                                 
                                 export namespace link {
                                     
                                     export type multiple = string
                                     
-                                    export type _type = Raw_Reference_
+                                    export type type_ = Raw_Reference_
                                     
                                     export namespace link_type {
                                         
@@ -162,22 +162,22 @@ export namespace M3_ {
                                 
                                 export type link = {
                                     readonly 'multiple': link.multiple
-                                    readonly 'type': link._type
+                                    readonly 'type': link.type_
                                     readonly 'link type': link.link_type
                                 }
                                 
                             }
                             
-                            export type _type = 
-                                | readonly ['property', _type.property]
-                                | readonly ['link', _type.link]
+                            export type type_ = 
+                                | readonly ['property', type_.property]
+                                | readonly ['link', type_.link]
                             
                         }
                         
                         export type D = {
                             readonly 'id': D.id
                             readonly 'optional': D.optional
-                            readonly 'type': D._type
+                            readonly 'type': D.type_
                         }
                         
                     }
@@ -187,7 +187,7 @@ export namespace M3_ {
                 }
                 
                 export type classifier = {
-                    readonly 'type': classifier._type
+                    readonly 'type': classifier.type_
                     readonly 'features': classifier.features
                 }
                 
@@ -208,15 +208,15 @@ export namespace M3_ {
                 
             }
             
-            export type _type = 
-                | readonly ['classifier', _type.classifier]
-                | readonly ['datatype', _type.datatype]
+            export type type_ = 
+                | readonly ['classifier', type_.classifier]
+                | readonly ['datatype', type_.datatype]
             
         }
         
         export type D = {
             readonly 'id': D.id
-            readonly 'type': D._type
+            readonly 'type': D.type_
         }
         
     }
