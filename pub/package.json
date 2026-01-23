@@ -27,6 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
+    "astn-core": "^0.5.5",
     "pareto-core-dev": "^0.12.3",
     "pareto-host-nodejs": "^0.2.9",
     "pareto-resources": "^0.2.13"
