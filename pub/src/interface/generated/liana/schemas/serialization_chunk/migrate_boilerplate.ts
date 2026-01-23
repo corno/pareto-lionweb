@@ -18,7 +18,7 @@ export namespace Meta_Pointer_ {
 }
 
 export type Meta_Pointer_ = (
-    $$_: Meta_Pointer_.I,
+    context: Meta_Pointer_.I,
 ) => Meta_Pointer_.O
 
 export namespace Targets_ {
@@ -34,7 +34,7 @@ export namespace Targets_ {
 }
 
 export type Targets_ = (
-    $$_: Targets_.I,
+    context: Targets_.I,
 ) => Targets_.O
 
 export namespace Serialization_Chunk_ {
@@ -50,7 +50,7 @@ export namespace Serialization_Chunk_ {
 }
 
 export type Serialization_Chunk_ = (
-    $$_: Serialization_Chunk_.I,
+    context: Serialization_Chunk_.I,
 ) => Serialization_Chunk_.O
 
 export { 

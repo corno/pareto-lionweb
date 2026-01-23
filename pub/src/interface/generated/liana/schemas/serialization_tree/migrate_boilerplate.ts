@@ -18,7 +18,7 @@ export namespace Targets_ {
 }
 
 export type Targets_ = (
-    $$_: Targets_.I,
+    context: Targets_.I,
 ) => Targets_.O
 
 export namespace Node_ {
@@ -34,7 +34,7 @@ export namespace Node_ {
 }
 
 export type Node_ = (
-    $$_: Node_.I,
+    context: Node_.I,
 ) => Node_.O
 
 export namespace Serialization_Chunk_ {
@@ -50,7 +50,7 @@ export namespace Serialization_Chunk_ {
 }
 
 export type Serialization_Chunk_ = (
-    $$_: Serialization_Chunk_.I,
+    context: Serialization_Chunk_.I,
 ) => Serialization_Chunk_.O
 
 export { 

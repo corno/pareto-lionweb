@@ -18,7 +18,7 @@ export namespace ID_ {
 }
 
 export type ID_ = (
-    $$_: ID_.I,
+    context: ID_.I,
 ) => ID_.O
 
 export namespace Raw_Reference_ {
@@ -34,7 +34,7 @@ export namespace Raw_Reference_ {
 }
 
 export type Raw_Reference_ = (
-    $$_: Raw_Reference_.I,
+    context: Raw_Reference_.I,
 ) => Raw_Reference_.O
 
 export namespace M3_ {
@@ -50,7 +50,7 @@ export namespace M3_ {
 }
 
 export type M3_ = (
-    $$_: M3_.I,
+    context: M3_.I,
 ) => M3_.O
 
 export { 
