@@ -56,7 +56,7 @@ export const M3 = (
                 ),
                 'value': {
                     'id': ID($, key, $p['write id'], context),
-                    'type': _p.state_group.block((): d_out.M3.entities.D.type_ => {
+                    'type': _p.state.block((): d_out.M3.entities.D.type_ => {
                         context.expect_type(
                             $.properties,
                             _p.dictionary.literal({
@@ -176,7 +176,7 @@ export const M3 = (
                                                 }
                                             }),
                                         ),
-                                        'type': _p.state_group.block((): d_out.M3.entities.D.type_.classifier.type_ => {
+                                        'type': _p.state.block((): d_out.M3.entities.D.type_.classifier.type_ => {
                                             switch ($.classifier) {
                                                 case "LionCore-M3:2024.1:Concept": {
                                                     return ['concept', {

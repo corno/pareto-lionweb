@@ -10,7 +10,7 @@ namespace helpers {
     export const expect_verbose_type = (
         $: d_json.Value,
         expectedTypes: _pi.Dictionary<null>,
-    ): d_json.Value__object => _p.sg($, ($) => {
+    ): d_json.Value__object => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'object': return _p.ss($, ($) => {
                 const obj = $
@@ -36,7 +36,7 @@ namespace helpers {
 
     export const expect_text = (
         $: d_json.Value,
-    ): string => _p.sg($, ($) => {
+    ): string => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'string': return _p.ss($, ($) => $)
             default: return _p.fixme_abort("expected a string")
@@ -45,7 +45,7 @@ namespace helpers {
 
     export const expect_array = (
         $: d_json.Value,
-    ): d_json.Value__array => _p.sg($, ($) => {
+    ): d_json.Value__array => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'array': return _p.ss($, ($) => $)
             default: return _p.fixme_abort("expected an array")
@@ -54,7 +54,7 @@ namespace helpers {
 
     export const expect_optional_null = (
         $: d_json.Value,
-    ): _pi.Optional_Value<d_json.Value> => _p.sg($, ($) => {
+    ): _pi.Optional_Value<d_json.Value> => _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'null': return _p.ss($, ($) => _p.optional.not_set())
             default: return _p.optional.set($)

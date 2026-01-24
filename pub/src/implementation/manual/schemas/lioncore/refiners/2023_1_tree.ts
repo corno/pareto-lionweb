@@ -73,7 +73,7 @@ export const M3 = (
                             context,
                         }
                     ),
-                    'type': _p.state_group.block((): d_out.M3.entities.D.type_ => {
+                    'type': _p.state.block((): d_out.M3.entities.D.type_ => {
                         context.expect_type(
                             $.properties,
                             _p.dictionary.literal({
@@ -196,7 +196,7 @@ export const M3 = (
                                         }
                                     }),
                                 ),
-                                'type': _p.state_group.block((): d_out.M3.entities.D.type_.classifier.type_ => {
+                                'type': _p.state.block((): d_out.M3.entities.D.type_.classifier.type_ => {
                                     switch ($.classifier) {
                                         case "LionCore-M3:2023.1:Concept": return ['concept', {
                                             'abstract': context.expect_property(
