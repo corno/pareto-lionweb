@@ -41,13 +41,13 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
             switch ($[0]) {
                 case 'classifier':
                     return _p.ss($, ($,) => ({
-                        'option': "classifier",
+                        'option': 'classifier',
                         'value': ['group', ['verbose', _p.dictionary.literal(({
                             'type': _p.deprecated_cc($['type'], ($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
                                 switch ($[0]) {
                                     case 'concept':
                                         return _p.ss($, ($,) => ({
-                                            'option': "concept",
+                                            'option': 'concept',
                                             'value': ['group', ['verbose', _p.dictionary.literal(({
                                                 'abstract': _p.deprecated_cc($['abstract'], ($,) => ['text', ({
                                                     'delimiter': ['quote', null],
@@ -63,7 +63,7 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                                         }))
                                     case 'interface':
                                         return _p.ss($, ($,) => ({
-                                            'option': "interface",
+                                            'option': 'interface',
                                             'value': ['group', ['verbose', _p.dictionary.literal(({
                                                 'extends': _p.deprecated_cc($['extends'], ($,) => ['list', $.__l_map(($,) => Raw_Reference($))]),
                                             }))]],
@@ -82,14 +82,14 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                                     switch ($[0]) {
                                         case 'property':
                                             return _p.ss($, ($,) => ({
-                                                'option': "property",
+                                                'option': 'property',
                                                 'value': ['group', ['verbose', _p.dictionary.literal(({
                                                     'type': _p.deprecated_cc($['type'], ($,) => Raw_Reference($)),
                                                 }))]],
                                             }))
                                         case 'link':
                                             return _p.ss($, ($,) => ({
-                                                'option': "link",
+                                                'option': 'link',
                                                 'value': ['group', ['verbose', _p.dictionary.literal(({
                                                     'multiple': _p.deprecated_cc($['multiple'], ($,) => ['text', ({
                                                         'delimiter': ['quote', null],
@@ -100,12 +100,12 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                                                         switch ($[0]) {
                                                             case 'containment':
                                                                 return _p.ss($, ($,) => ({
-                                                                    'option': "containment",
+                                                                    'option': 'containment',
                                                                     'value': ['nothing', null],
                                                                 }))
                                                             case 'reference':
                                                                 return _p.ss($, ($,) => ({
-                                                                    'option': "reference",
+                                                                    'option': 'reference',
                                                                     'value': ['nothing', null],
                                                                 }))
                                                             default:
@@ -123,12 +123,12 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                     }))
                 case 'datatype':
                     return _p.ss($, ($,) => ({
-                        'option': "datatype",
+                        'option': 'datatype',
                         'value': ['state', _p.decide.state($, ($,): t_out.Value.state => {
                             switch ($[0]) {
                                 case 'enumeration':
                                     return _p.ss($, ($,) => ({
-                                        'option': "enumeration",
+                                        'option': 'enumeration',
                                         'value': ['dictionary', $.__d_map(($,key,) => ID($))],
                                     }))
                                 default:

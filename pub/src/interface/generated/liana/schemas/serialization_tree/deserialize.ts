@@ -1,6 +1,8 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
+import * as i_generic from "../../generic/deserialize"
+
 import * as i_out from "./data"
 
 export namespace Targets_ {
@@ -8,6 +10,8 @@ export namespace Targets_ {
     export type I = string
     
     export type O = i_out.Targets
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -17,6 +21,7 @@ export namespace Targets_ {
 
 export type Targets_ = (
     context: Targets_.I,
+    abort: _pi.Abort<Targets_.E>,
 ) => Targets_.O
 
 export namespace Node_ {
@@ -24,6 +29,8 @@ export namespace Node_ {
     export type I = string
     
     export type O = i_out.Node
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -33,6 +40,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
+    abort: _pi.Abort<Node_.E>,
 ) => Node_.O
 
 export namespace Serialization_Chunk_ {
@@ -40,6 +48,8 @@ export namespace Serialization_Chunk_ {
     export type I = string
     
     export type O = i_out.Serialization_Chunk
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -49,6 +59,7 @@ export namespace Serialization_Chunk_ {
 
 export type Serialization_Chunk_ = (
     context: Serialization_Chunk_.I,
+    abort: _pi.Abort<Serialization_Chunk_.E>,
 ) => Serialization_Chunk_.O
 
 export { 
