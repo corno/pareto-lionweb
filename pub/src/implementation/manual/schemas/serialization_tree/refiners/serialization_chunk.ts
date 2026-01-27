@@ -30,11 +30,11 @@ export const Serialization_Chunk = (
             : _p.optional.set($)
         
     )
-    if (_p.natural.amount_of_list_elements(nodes_without_parent) > 1) {
+    if (_p.natural.amount_of_list_items(nodes_without_parent) > 1) {
         return abort(['could not determine root node', null])
     }
     return _p.deprecated_cc(
-        nodes_without_parent.__get_possible_element_at(0).__decide(
+        nodes_without_parent.__get_possible_item_at(0).__decide(
             ($): d_in.Serialization_Chunk.nodes.L => $,
             () => abort(['could not determine root node', null]),
         ),

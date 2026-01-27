@@ -5,9 +5,9 @@ import * as d_in from "../../../../../interface/generated/liana/schemas/serializ
 import * as d_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
 
 
-export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_elements($) !== 1
+export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_items($) !== 1
     ? _p.optional.not_set()
-    : $.__get_possible_element_at(0)
+    : $.__get_possible_item_at(0)
 
 import * as h from "../../../../temp_context"
 
