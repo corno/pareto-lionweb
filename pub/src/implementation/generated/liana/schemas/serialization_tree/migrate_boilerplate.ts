@@ -10,9 +10,9 @@ export const Targets: t_signatures.Targets = ($,) => $.__l_map(($,) => ({
 }))
 export const Node: t_signatures.Node = ($,) => ({
     'classifier': _p.deprecated_cc($['classifier'], ($,) => $),
-    'properties': _p.deprecated_cc($['properties'], ($,) => $.__d_map(($,key,) => $)),
-    'containments': _p.deprecated_cc($['containments'], ($,) => $.__d_map(($,key,) => $.__d_map(($,key,) => Node($)))),
-    'references': _p.deprecated_cc($['references'], ($,) => $.__d_map(($,key,) => Targets($))),
+    'properties': _p.deprecated_cc($['properties'], ($,) => $.__d_map(($,id,) => $)),
+    'containments': _p.deprecated_cc($['containments'], ($,) => $.__d_map(($,id,) => $.__d_map(($,id,) => Node($)))),
+    'references': _p.deprecated_cc($['references'], ($,) => $.__d_map(($,id,) => Targets($))),
     'annotations': _p.deprecated_cc($['annotations'], ($,) => $.__l_map(($,) => $)),
 })
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,) => ({

@@ -35,7 +35,7 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
         'value': $,
     })]),
     'dependencies': _p.deprecated_cc($['dependencies'], ($,) => ['list', $.__l_map(($,) => Raw_Reference($))]),
-    'entities': _p.deprecated_cc($['entities'], ($,) => ['dictionary', $.__d_map(($,key,) => ['group', ['verbose', _p.dictionary.literal(({
+    'entities': _p.deprecated_cc($['entities'], ($,) => ['dictionary', $.__d_map(($,id,) => ['group', ['verbose', _p.dictionary.literal(({
         'id': _p.deprecated_cc($['id'], ($,) => ID($)),
         'type': _p.deprecated_cc($['type'], ($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
             switch ($[0]) {
@@ -72,7 +72,7 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                                         return _p.au($[0])
                                 }
                             })]),
-                            'features': _p.deprecated_cc($['features'], ($,) => ['dictionary', $.__d_map(($,key,) => ['group', ['verbose', _p.dictionary.literal(({
+                            'features': _p.deprecated_cc($['features'], ($,) => ['dictionary', $.__d_map(($,id,) => ['group', ['verbose', _p.dictionary.literal(({
                                 'id': _p.deprecated_cc($['id'], ($,) => ID($)),
                                 'optional': _p.deprecated_cc($['optional'], ($,) => ['text', ({
                                     'delimiter': ['quote', null],
@@ -129,7 +129,7 @@ export const M3: t_signatures.M3 = ($,) => ['group', ['verbose', _p.dictionary.l
                                 case 'enumeration':
                                     return _p.ss($, ($,) => ({
                                         'option': 'enumeration',
-                                        'value': ['dictionary', $.__d_map(($,key,) => ID($))],
+                                        'value': ['dictionary', $.__d_map(($,id,) => ID($))],
                                     }))
                                 default:
                                     return _p.au($[0])

@@ -16,7 +16,7 @@ export const M3: t_signatures.M3 = ($,) => ({
     'id': _p.deprecated_cc($['id'], ($,) => ID($)),
     'version': _p.deprecated_cc($['version'], ($,) => $),
     'dependencies': _p.deprecated_cc($['dependencies'], ($,) => $.__l_map(($,) => Raw_Reference($))),
-    'entities': _p.deprecated_cc($['entities'], ($,) => $.__d_map(($,key,) => ({
+    'entities': _p.deprecated_cc($['entities'], ($,) => $.__d_map(($,id,) => ({
         'id': _p.deprecated_cc($['id'], ($,) => ID($)),
         'type': _p.deprecated_cc($['type'], ($,) => _p.decide.state($, ($,): t_out.M3.entities.D.type_ => {
             switch ($[0]) {
@@ -39,7 +39,7 @@ export const M3: t_signatures.M3 = ($,) => ({
                                     return _p.au($[0])
                             }
                         })),
-                        'features': _p.deprecated_cc($['features'], ($,) => $.__d_map(($,key,) => ({
+                        'features': _p.deprecated_cc($['features'], ($,) => $.__d_map(($,id,) => ({
                             'id': _p.deprecated_cc($['id'], ($,) => ID($)),
                             'optional': _p.deprecated_cc($['optional'], ($,) => $),
                             'type': _p.deprecated_cc($['type'], ($,) => _p.decide.state($, ($,): t_out.M3.entities.D.type_.classifier.features.D.type_ => {
@@ -73,7 +73,7 @@ export const M3: t_signatures.M3 = ($,) => ({
                     return _p.ss($, ($,) => ['datatype', _p.decide.state($, ($,): t_out.M3.entities.D.type_.datatype => {
                         switch ($[0]) {
                             case 'enumeration':
-                                return _p.ss($, ($,) => ['enumeration', $.__d_map(($,key,) => ID($))])
+                                return _p.ss($, ($,) => ['enumeration', $.__d_map(($,id,) => ID($))])
                             default:
                                 return _p.au($[0])
                         }

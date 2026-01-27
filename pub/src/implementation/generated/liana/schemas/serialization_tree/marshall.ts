@@ -23,12 +23,12 @@ export const Node: t_signatures.Node = ($,) => ['group', ['verbose', _p.dictiona
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'properties': _p.deprecated_cc($['properties'], ($,) => ['dictionary', $.__d_map(($,key,) => ['text', ({
+    'properties': _p.deprecated_cc($['properties'], ($,) => ['dictionary', $.__d_map(($,id,) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),
-    'containments': _p.deprecated_cc($['containments'], ($,) => ['dictionary', $.__d_map(($,key,) => ['dictionary', $.__d_map(($,key,) => Node($))])]),
-    'references': _p.deprecated_cc($['references'], ($,) => ['dictionary', $.__d_map(($,key,) => Targets($))]),
+    'containments': _p.deprecated_cc($['containments'], ($,) => ['dictionary', $.__d_map(($,id,) => ['dictionary', $.__d_map(($,id,) => Node($))])]),
+    'references': _p.deprecated_cc($['references'], ($,) => ['dictionary', $.__d_map(($,id,) => Targets($))]),
     'annotations': _p.deprecated_cc($['annotations'], ($,) => ['list', $.__l_map(($,) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
