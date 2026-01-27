@@ -56,8 +56,8 @@ export const M3 = (
             $['node tree'].containments,
             "LionCore-M3:2023.1:Language-entities",
             "entities",
-        ).__d_map(($, key) => {
-            const entity_id = key
+        ).__d_map(($, id) => {
+            const entity_id = id
             return {
                 'key': context.expect_property(
                     $.properties,
@@ -68,7 +68,7 @@ export const M3 = (
                     'id': ID(
                         $,
                         {
-                            id: key,
+                            id: id,
                             write_id: $p['write id'],
                             context,
                         }
@@ -82,7 +82,7 @@ export const M3 = (
                                 "LionCore-M3:2023.1:Concept-abstract": null,
                                 "LionCore-M3:2023.1:Concept-partition": null,
                             }),
-                            "entity " + key + " properties",
+                            "entity " + id + " properties",
                         )
                         context.expect_type(
                             $.containments,
@@ -90,7 +90,7 @@ export const M3 = (
                                 "LionCore-M3:2023.1:Classifier-features": null,
                                 "LionCore-M3:2023.1:Enumeration-literals": null,
                             }),
-                            "entity " + key + " containments",
+                            "entity " + id + " containments",
                         )
 
                         context.expect_type(
@@ -100,7 +100,7 @@ export const M3 = (
                                 "LionCore-M3:2023.1:Concept-implements": null,
                                 "LionCore-M3:2023.1:Interface-extends": null,
                             }),
-                            "entity " + key + " references",
+                            "entity " + id + " references",
                         )
                         switch ($.classifier) {
                             case "LionCore-M3:2023.1:Concept":
@@ -109,9 +109,9 @@ export const M3 = (
                                     context.expect_property(
                                         $.containments,
                                         "LionCore-M3:2023.1:Classifier-features",
-                                        "features of entity " + key,
-                                    ).__d_map(($, key) => {
-                                        const feature_id = entity_id + ">" + key
+                                        "features of entity " + id,
+                                    ).__d_map(($, id) => {
+                                        const feature_id = entity_id + ">" + id
                                         context.expect_type($.properties,
                                             _p.dictionary.literal({
                                                 "LionCore-M3:2023.1:IKeyed-key": null,
@@ -139,14 +139,14 @@ export const M3 = (
                                         return {
                                             'key': context.expect_property(
                                                 $.properties,
-                                                key,
+                                                id,
                                                 "LionCore-builtins:2023.1:LionCore-builtins-INamed-name",
                                             ),
                                             'value': {
                                                 'id': ID(
                                                     $,
                                                     {
-                                                        id: key,
+                                                        id: id,
                                                         write_id: $p['write id'],
                                                         context,
                                                     }
@@ -202,22 +202,22 @@ export const M3 = (
                                             'abstract': context.expect_property(
                                                 $.properties,
                                                 "LionCore-M3:2023.1:Concept-abstract",
-                                                "concept " + key,
+                                                "concept " + id,
                                             ),
                                             'partition': context.expect_property(
                                                 $.properties,
                                                 "LionCore-M3:2023.1:Concept-partition",
-                                                "concept " + key,
+                                                "concept " + id,
                                             ),
                                             'extends': expect_exactly_one_element(context.expect_property(
                                                 $.references,
                                                 "LionCore-M3:2023.1:Concept-extends",
-                                                "concept " + key,
+                                                "concept " + id,
                                             )),
                                             'implements': context.expect_property(
                                                 $.references,
                                                 "LionCore-M3:2023.1:Concept-implements",
-                                                "concept " + key,
+                                                "concept " + id,
                                             ),
                                         }]
 
@@ -225,7 +225,7 @@ export const M3 = (
                                             'extends': context.expect_property(
                                                 $.references,
                                                 "LionCore-M3:2023.1:Interface-extends",
-                                                "interface " + key,
+                                                "interface " + id,
                                             ),
                                         }]
                                         default: return context.abort(['unknown classifier type', entity_id])
@@ -237,40 +237,40 @@ export const M3 = (
                                 context.expect_property(
                                     $.containments,
                                     "LionCore-M3:2023.1:Enumeration-literals",
-                                    "literals of enumeration " + key,
-                                ).__d_map(($, key) => {
+                                    "literals of enumeration " + id,
+                                ).__d_map(($, id) => {
                                     context.expect_type(
                                         $.properties,
                                         _p.dictionary.literal({
                                             "LionCore-M3:2023.1:IKeyed-key": null,
                                             "LionCore-builtins:2023.1:LionCore-builtins-INamed-name": null,
                                         }),
-                                        "literal properties of enumeration " + key,
+                                        "literal properties of enumeration " + id,
                                     )
                                     context.expect_type(
                                         $.references,
                                         _p.dictionary.literal({
                                             //empty
                                         }),
-                                        "literal references of enumeration " + key,
+                                        "literal references of enumeration " + id,
                                     )
                                     context.expect_type(
                                         $.containments,
                                         _p.dictionary.literal({
                                             //empty
                                         }),
-                                        "literal containments of enumeration " + key,
+                                        "literal containments of enumeration " + id,
                                     )
                                     return {
                                         'key': context.expect_property(
                                             $.properties,
                                             "LionCore-builtins:2023.1:LionCore-builtins-INamed-name",
-                                            key,
+                                            id,
                                         ),
                                         'value': ID(
                                             $,
                                             {
-                                                id: key,
+                                                id: id,
                                                 write_id: $p['write id'],
                                                 context,
                                             }

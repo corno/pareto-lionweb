@@ -8,13 +8,13 @@ export const $$ = <T>(
     path: string,
     abort: _pi.Abort<Refinement_Error>
 ): _pi.Dictionary<T> => {
-    const expected: { [key: string]: null } = {}
-    expected_properties.__d_map(($, key) => {
-        expected[key] = null
+    const expected: { [id: string]: null } = {}
+    expected_properties.__d_map(($, id) => {
+        expected[id] = null
     })
-    source.__d_map(($, key) => {
-        if (expected[key] === undefined) {
-            abort(['unexpected property', { 'property': key, 'path': path }])
+    source.__d_map(($, id) => {
+        if (expected[id] === undefined) {
+            abort(['unexpected property', { 'property': id, 'path': path }])
         }
     })
     return source

@@ -14,10 +14,10 @@ namespace helpers {
         switch ($[0]) {
             case 'object': return _p.ss($, ($) => {
                 const obj = $
-                expectedTypes.__d_map(($, key) => {
+                expectedTypes.__d_map(($, id) => {
                     obj.__get_entry(
-                        key,
-                        ($) => _p.fixme_abort(`missing expected property: ${key}`),
+                        id,
+                        ($) => _p.fixme_abort(`missing expected property: ${id}`),
                     )
                 })
                 return $
