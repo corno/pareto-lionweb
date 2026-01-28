@@ -15,6 +15,10 @@ export namespace Targets_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Targets_ {
 export type Targets_ = (
     context: Targets_.I,
     abort: _pi.Abort<Targets_.E>,
+    parameters: {
+        readonly 'document resource identifier': Targets_.P.document_resource_identifier
+        readonly 'indentation': Targets_.P.indentation
+    },
 ) => Targets_.O
 
 export namespace Node_ {
@@ -34,6 +42,10 @@ export namespace Node_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Node_ {
 export type Node_ = (
     context: Node_.I,
     abort: _pi.Abort<Node_.E>,
+    parameters: {
+        readonly 'document resource identifier': Node_.P.document_resource_identifier
+        readonly 'indentation': Node_.P.indentation
+    },
 ) => Node_.O
 
 export namespace Serialization_Chunk_ {
@@ -53,6 +69,10 @@ export namespace Serialization_Chunk_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace Serialization_Chunk_ {
 export type Serialization_Chunk_ = (
     context: Serialization_Chunk_.I,
     abort: _pi.Abort<Serialization_Chunk_.E>,
+    parameters: {
+        readonly 'document resource identifier': Serialization_Chunk_.P.document_resource_identifier
+        readonly 'indentation': Serialization_Chunk_.P.indentation
+    },
 ) => Serialization_Chunk_.O
 
 export { 

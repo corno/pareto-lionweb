@@ -15,6 +15,10 @@ export namespace ID_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace ID_ {
 export type ID_ = (
     context: ID_.I,
     abort: _pi.Abort<ID_.E>,
+    parameters: {
+        readonly 'document resource identifier': ID_.P.document_resource_identifier
+        readonly 'indentation': ID_.P.indentation
+    },
 ) => ID_.O
 
 export namespace Raw_Reference_ {
@@ -34,6 +42,10 @@ export namespace Raw_Reference_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Raw_Reference_ {
 export type Raw_Reference_ = (
     context: Raw_Reference_.I,
     abort: _pi.Abort<Raw_Reference_.E>,
+    parameters: {
+        readonly 'document resource identifier': Raw_Reference_.P.document_resource_identifier
+        readonly 'indentation': Raw_Reference_.P.indentation
+    },
 ) => Raw_Reference_.O
 
 export namespace M3_ {
@@ -53,6 +69,10 @@ export namespace M3_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace M3_ {
 export type M3_ = (
     context: M3_.I,
     abort: _pi.Abort<M3_.E>,
+    parameters: {
+        readonly 'document resource identifier': M3_.P.document_resource_identifier
+        readonly 'indentation': M3_.P.indentation
+    },
 ) => M3_.O
 
 export { 
