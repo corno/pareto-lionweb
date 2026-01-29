@@ -15,50 +15,50 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 
 export const ID: t_signatures.ID = ($) => ['optional', $.__decide(
     ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
-        ({
+        {
             'key': _p_cc(
                 $['key'],
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             ),
             'id': _p_cc(
                 $['id'],
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             ),
-        })
+        }
     )]]],
     () => ['not set', null]
 )]
 
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'resolveInfo': _p_cc(
             $['resolveInfo'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'reference': _p_cc(
             $['reference'],
             ($) => ['optional', $.__decide(
-                ($): t_out.Value.optional => ['set', ['text', ({
+                ($): t_out.Value.optional => ['set', ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]],
+                }]],
                 () => ['not set', null]
             )]
         ),
-    })
+    }
 )]]
 
 export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'id': _p_cc(
             $['id'],
             ($) => ID(
@@ -67,10 +67,10 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         'version': _p_cc(
             $['version'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'dependencies': _p_cc(
             $['dependencies'],
@@ -84,7 +84,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
             $['entities'],
             ($) => ['dictionary', $.__d_map(
                 ($, id) => ['group', ['verbose', _p.dictionary.literal(
-                    ({
+                    {
                         'id': _p_cc(
                             $['id'],
                             ($) => ID(
@@ -103,7 +103,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                 ($) => ({
                                                     'option': 'classifier',
                                                     'value': ['group', ['verbose', _p.dictionary.literal(
-                                                        ({
+                                                        {
                                                             'type': _p_cc(
                                                                 $['type'],
                                                                 ($) => ['state', _p.decide.state(
@@ -116,20 +116,20 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                     ($) => ({
                                                                                         'option': 'concept',
                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
-                                                                                            ({
+                                                                                            {
                                                                                                 'abstract': _p_cc(
                                                                                                     $['abstract'],
-                                                                                                    ($) => ['text', ({
+                                                                                                    ($) => ['text', {
                                                                                                         'delimiter': ['quote', null],
                                                                                                         'value': $,
-                                                                                                    })]
+                                                                                                    }]
                                                                                                 ),
                                                                                                 'partition': _p_cc(
                                                                                                     $['partition'],
-                                                                                                    ($) => ['text', ({
+                                                                                                    ($) => ['text', {
                                                                                                         'delimiter': ['quote', null],
                                                                                                         'value': $,
-                                                                                                    })]
+                                                                                                    }]
                                                                                                 ),
                                                                                                 'extends': _p_cc(
                                                                                                     $['extends'],
@@ -148,7 +148,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                         )
                                                                                                     )]
                                                                                                 ),
-                                                                                            })
+                                                                                            }
                                                                                         )]],
                                                                                     })
                                                                                 )
@@ -158,7 +158,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                     ($) => ({
                                                                                         'option': 'interface',
                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
-                                                                                            ({
+                                                                                            {
                                                                                                 'extends': _p_cc(
                                                                                                     $['extends'],
                                                                                                     ($) => ['list', $.__l_map(
@@ -167,7 +167,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                         )
                                                                                                     )]
                                                                                                 ),
-                                                                                            })
+                                                                                            }
                                                                                         )]],
                                                                                     })
                                                                                 )
@@ -183,7 +183,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                 $['features'],
                                                                 ($) => ['dictionary', $.__d_map(
                                                                     ($, id) => ['group', ['verbose', _p.dictionary.literal(
-                                                                        ({
+                                                                        {
                                                                             'id': _p_cc(
                                                                                 $['id'],
                                                                                 ($) => ID(
@@ -192,10 +192,10 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                             ),
                                                                             'optional': _p_cc(
                                                                                 $['optional'],
-                                                                                ($) => ['text', ({
+                                                                                ($) => ['text', {
                                                                                     'delimiter': ['quote', null],
                                                                                     'value': $,
-                                                                                })]
+                                                                                }]
                                                                             ),
                                                                             'type': _p_cc(
                                                                                 $['type'],
@@ -209,14 +209,14 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                     ($) => ({
                                                                                                         'option': 'property',
                                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
-                                                                                                            ({
+                                                                                                            {
                                                                                                                 'type': _p_cc(
                                                                                                                     $['type'],
                                                                                                                     ($) => Raw_Reference(
                                                                                                                         $
                                                                                                                     )
                                                                                                                 ),
-                                                                                                            })
+                                                                                                            }
                                                                                                         )]],
                                                                                                     })
                                                                                                 )
@@ -226,13 +226,13 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                     ($) => ({
                                                                                                         'option': 'link',
                                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
-                                                                                                            ({
+                                                                                                            {
                                                                                                                 'multiple': _p_cc(
                                                                                                                     $['multiple'],
-                                                                                                                    ($) => ['text', ({
+                                                                                                                    ($) => ['text', {
                                                                                                                         'delimiter': ['quote', null],
                                                                                                                         'value': $,
-                                                                                                                    })]
+                                                                                                                    }]
                                                                                                                 ),
                                                                                                                 'type': _p_cc(
                                                                                                                     $['type'],
@@ -270,7 +270,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                         }
                                                                                                                     )]
                                                                                                                 ),
-                                                                                                            })
+                                                                                                            }
                                                                                                         )]],
                                                                                                     })
                                                                                                 )
@@ -282,11 +282,11 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                     }
                                                                                 )]
                                                                             ),
-                                                                        })
+                                                                        }
                                                                     )]]
                                                                 )]
                                                             ),
-                                                        })
+                                                        }
                                                     )]],
                                                 })
                                             )
@@ -328,9 +328,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                 }
                             )]
                         ),
-                    })
+                    }
                 )]]
             )]
         ),
-    })
+    }
 )]]

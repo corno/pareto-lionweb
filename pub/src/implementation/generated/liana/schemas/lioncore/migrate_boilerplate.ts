@@ -73,7 +73,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                 case 'classifier':
                                     return _p.ss(
                                         $,
-                                        ($) => ['classifier', ({
+                                        ($) => ['classifier', {
                                             'type': _p_cc(
                                                 $['type'],
                                                 ($) => _p.decide.state(
@@ -83,7 +83,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                             case 'concept':
                                                                 return _p.ss(
                                                                     $,
-                                                                    ($) => ['concept', ({
+                                                                    ($) => ['concept', {
                                                                         'abstract': _p_cc(
                                                                             $['abstract'],
                                                                             ($) => $
@@ -108,12 +108,12 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                 )
                                                                             )
                                                                         ),
-                                                                    })]
+                                                                    }]
                                                                 )
                                                             case 'interface':
                                                                 return _p.ss(
                                                                     $,
-                                                                    ($) => ['interface', ({
+                                                                    ($) => ['interface', {
                                                                         'extends': _p_cc(
                                                                             $['extends'],
                                                                             ($) => $.__l_map(
@@ -122,7 +122,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                 )
                                                                             )
                                                                         ),
-                                                                    })]
+                                                                    }]
                                                                 )
                                                             default:
                                                                 return _p.au(
@@ -155,19 +155,19 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                         case 'property':
                                                                             return _p.ss(
                                                                                 $,
-                                                                                ($) => ['property', ({
+                                                                                ($) => ['property', {
                                                                                     'type': _p_cc(
                                                                                         $['type'],
                                                                                         ($) => Raw_Reference(
                                                                                             $
                                                                                         )
                                                                                     ),
-                                                                                })]
+                                                                                }]
                                                                             )
                                                                         case 'link':
                                                                             return _p.ss(
                                                                                 $,
-                                                                                ($) => ['link', ({
+                                                                                ($) => ['link', {
                                                                                     'multiple': _p_cc(
                                                                                         $['multiple'],
                                                                                         ($) => $
@@ -202,7 +202,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                             }
                                                                                         )
                                                                                     ),
-                                                                                })]
+                                                                                }]
                                                                             )
                                                                         default:
                                                                             return _p.au(
@@ -215,7 +215,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                     })
                                                 )
                                             ),
-                                        })]
+                                        }]
                                     )
                                 case 'datatype':
                                     return _p.ss(

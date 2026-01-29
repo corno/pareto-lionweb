@@ -15,44 +15,44 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 
 export const Targets: t_signatures.Targets = ($) => ['list', $.__l_map(
     ($) => ['group', ['verbose', _p.dictionary.literal(
-        ({
+        {
             'resolveInfo': _p_cc(
                 $['resolveInfo'],
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             ),
             'reference': _p_cc(
                 $['reference'],
                 ($) => ['optional', $.__decide(
-                    ($): t_out.Value.optional => ['set', ['text', ({
+                    ($): t_out.Value.optional => ['set', ['text', {
                         'delimiter': ['quote', null],
                         'value': $,
-                    })]],
+                    }]],
                     () => ['not set', null]
                 )]
             ),
-        })
+        }
     )]]
 )]
 
 export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'classifier': _p_cc(
             $['classifier'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'properties': _p_cc(
             $['properties'],
             ($) => ['dictionary', $.__d_map(
-                ($, id) => ['text', ({
+                ($, id) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             )]
         ),
         'containments': _p_cc(
@@ -76,53 +76,53 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         'annotations': _p_cc(
             $['annotations'],
             ($) => ['list', $.__l_map(
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             )]
         ),
-    })
+    }
 )]]
 
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'serializationFormatVersion': _p_cc(
             $['serializationFormatVersion'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'languages': _p_cc(
             $['languages'],
             ($) => ['list', $.__l_map(
                 ($) => ['group', ['verbose', _p.dictionary.literal(
-                    ({
+                    {
                         'key': _p_cc(
                             $['key'],
-                            ($) => ['text', ({
+                            ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })]
+                            }]
                         ),
                         'version': _p_cc(
                             $['version'],
-                            ($) => ['text', ({
+                            ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
-                            })]
+                            }]
                         ),
-                    })
+                    }
                 )]]
             )]
         ),
         'root node id': _p_cc(
             $['root node id'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'node tree': _p_cc(
             $['node tree'],
@@ -130,5 +130,5 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                 $
             )
         ),
-    })
+    }
 )]]
