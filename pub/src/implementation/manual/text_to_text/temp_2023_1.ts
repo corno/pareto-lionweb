@@ -1,6 +1,7 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pdev from 'pareto-core-dev'
+import { _p_cc } from 'pareto-core/dist/change_context'
 
 
 import * as d_m3 from "../../../interface/generated/liana/schemas/lioncore/data"
@@ -30,12 +31,12 @@ export type Some_Error =
     | ['unmarshalling error', Unmarshall_Error]
 
 export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
-    return _p.deprecated_cc(
+    return _p_cc(
         r_sf_to_tree.Serialization_Chunk(
             temp_json_unmarshall_should_be_done_extenally($),
             ($) => abort(['deserialization error', $])
         ),
-        ($) => _p.deprecated_cc(
+        ($) => _p_cc(
             r_tree.M3(
                 $,
                 {

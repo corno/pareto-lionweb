@@ -1,5 +1,6 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
+import { _p_cc } from 'pareto-core/dist/change_context'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -33,8 +34,8 @@ export const Serialization_Chunk = (
     if (_p.natural.amount_of_list_items(nodes_without_parent) > 1) {
         return abort(['could not determine root node', null])
     }
-    return _p.deprecated_cc(
-        nodes_without_parent.__get_possible_item_at(0).__decide(
+    return _p_cc(
+        nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
             ($): d_in.Serialization_Chunk.nodes.L => $,
             () => abort(['could not determine root node', null]),
         ),

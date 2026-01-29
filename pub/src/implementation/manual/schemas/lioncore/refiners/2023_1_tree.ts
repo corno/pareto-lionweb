@@ -1,5 +1,6 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
+import { _p_cc } from 'pareto-core/dist/change_context'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
@@ -7,7 +8,7 @@ import * as d_out from "../../../../../interface/generated/liana/schemas/lioncor
 
 export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.natural.amount_of_list_items($) !== 1
     ? _p.optional.not_set()
-    : $.__get_possible_item_at(0)
+    : $.__deprecated_get_possible_item_at(0)
 
 
 
@@ -173,7 +174,7 @@ export const M3 = (
                                                             ($) => $,
                                                             () => context.abort(['expected exactly one element for link type of feature', feature_id])
                                                         ),
-                                                        'link type': _p.deprecated_cc($.classifier, ($) => {
+                                                        'link type': _p_cc($.classifier, ($) => {
                                                             switch ($) {
                                                                 case "LionCore-M3:2023.1:Reference": return ['reference', null]
                                                                 case "LionCore-M3:2023.1:Containment": return ['containment', null]

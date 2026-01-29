@@ -1,27 +1,35 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/lioncore/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
 export const ID: t_signatures.ID = ($) => $.__o_map(
     ($) => ({
-        'key': _p.deprecated_cc(
+        'key': _p_cc(
             $['key'], 
             ($) => $
         ),
-        'id': _p.deprecated_cc(
+        'id': _p_cc(
             $['id'], 
             ($) => $
         ),
     })
 )
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
-    'resolveInfo': _p.deprecated_cc(
+    'resolveInfo': _p_cc(
         $['resolveInfo'], 
         ($) => $
     ),
-    'reference': _p.deprecated_cc(
+    'reference': _p_cc(
         $['reference'], 
         ($) => $.__o_map(
             ($) => $
@@ -29,17 +37,17 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
     ),
 })
 export const M3: t_signatures.M3 = ($) => ({
-    'id': _p.deprecated_cc(
+    'id': _p_cc(
         $['id'], 
         ($) => ID(
             $
         )
     ),
-    'version': _p.deprecated_cc(
+    'version': _p_cc(
         $['version'], 
         ($) => $
     ),
-    'dependencies': _p.deprecated_cc(
+    'dependencies': _p_cc(
         $['dependencies'], 
         ($) => $.__l_map(
             ($) => Raw_Reference(
@@ -47,17 +55,17 @@ export const M3: t_signatures.M3 = ($) => ({
             )
         )
     ),
-    'entities': _p.deprecated_cc(
+    'entities': _p_cc(
         $['entities'], 
         ($) => $.__d_map(
             ($,id) => ({
-                'id': _p.deprecated_cc(
+                'id': _p_cc(
                     $['id'], 
                     ($) => ID(
                         $
                     )
                 ),
-                'type': _p.deprecated_cc(
+                'type': _p_cc(
                     $['type'], 
                     ($) => _p.decide.state(
                         $, 
@@ -67,7 +75,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                     return _p.ss(
                                         $, 
                                         ($) => ['classifier', ({
-                                            'type': _p.deprecated_cc(
+                                            'type': _p_cc(
                                                 $['type'], 
                                                 ($) => _p.decide.state(
                                                     $, 
@@ -77,15 +85,15 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                 return _p.ss(
                                                                     $, 
                                                                     ($) => ['concept', ({
-                                                                        'abstract': _p.deprecated_cc(
+                                                                        'abstract': _p_cc(
                                                                             $['abstract'], 
                                                                             ($) => $
                                                                         ),
-                                                                        'partition': _p.deprecated_cc(
+                                                                        'partition': _p_cc(
                                                                             $['partition'], 
                                                                             ($) => $
                                                                         ),
-                                                                        'extends': _p.deprecated_cc(
+                                                                        'extends': _p_cc(
                                                                             $['extends'], 
                                                                             ($) => $.__o_map(
                                                                                 ($) => Raw_Reference(
@@ -93,7 +101,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                 )
                                                                             )
                                                                         ),
-                                                                        'implements': _p.deprecated_cc(
+                                                                        'implements': _p_cc(
                                                                             $['implements'], 
                                                                             ($) => $.__l_map(
                                                                                 ($) => Raw_Reference(
@@ -107,7 +115,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                 return _p.ss(
                                                                     $, 
                                                                     ($) => ['interface', ({
-                                                                        'extends': _p.deprecated_cc(
+                                                                        'extends': _p_cc(
                                                                             $['extends'], 
                                                                             ($) => $.__l_map(
                                                                                 ($) => Raw_Reference(
@@ -125,21 +133,21 @@ export const M3: t_signatures.M3 = ($) => ({
                                                     }
                                                 )
                                             ),
-                                            'features': _p.deprecated_cc(
+                                            'features': _p_cc(
                                                 $['features'], 
                                                 ($) => $.__d_map(
                                                     ($,id) => ({
-                                                        'id': _p.deprecated_cc(
+                                                        'id': _p_cc(
                                                             $['id'], 
                                                             ($) => ID(
                                                                 $
                                                             )
                                                         ),
-                                                        'optional': _p.deprecated_cc(
+                                                        'optional': _p_cc(
                                                             $['optional'], 
                                                             ($) => $
                                                         ),
-                                                        'type': _p.deprecated_cc(
+                                                        'type': _p_cc(
                                                             $['type'], 
                                                             ($) => _p.decide.state(
                                                                 $, 
@@ -149,7 +157,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             return _p.ss(
                                                                                 $, 
                                                                                 ($) => ['property', ({
-                                                                                    'type': _p.deprecated_cc(
+                                                                                    'type': _p_cc(
                                                                                         $['type'], 
                                                                                         ($) => Raw_Reference(
                                                                                             $
@@ -161,17 +169,17 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             return _p.ss(
                                                                                 $, 
                                                                                 ($) => ['link', ({
-                                                                                    'multiple': _p.deprecated_cc(
+                                                                                    'multiple': _p_cc(
                                                                                         $['multiple'], 
                                                                                         ($) => $
                                                                                     ),
-                                                                                    'type': _p.deprecated_cc(
+                                                                                    'type': _p_cc(
                                                                                         $['type'], 
                                                                                         ($) => Raw_Reference(
                                                                                             $
                                                                                         )
                                                                                     ),
-                                                                                    'link type': _p.deprecated_cc(
+                                                                                    'link type': _p_cc(
                                                                                         $['link type'], 
                                                                                         ($) => _p.decide.state(
                                                                                             $, 

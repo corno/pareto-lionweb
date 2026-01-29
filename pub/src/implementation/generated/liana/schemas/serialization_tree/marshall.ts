@@ -1,6 +1,14 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/serialization_tree/marshall"
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
@@ -11,14 +19,14 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 export const Targets: t_signatures.Targets = ($) => ['list', $.__l_map(
     ($) => ['group', ['verbose', _p.dictionary.literal(
         ({
-            'resolveInfo': _p.deprecated_cc(
+            'resolveInfo': _p_cc(
                 $['resolveInfo'], 
                 ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
                 })]
             ),
-            'reference': _p.deprecated_cc(
+            'reference': _p_cc(
                 $['reference'], 
                 ($) => ['optional', $.__decide(
                     ($): t_out.Value.optional => ['set', ['text', ({
@@ -33,14 +41,14 @@ export const Targets: t_signatures.Targets = ($) => ['list', $.__l_map(
 )]
 export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
-        'classifier': _p.deprecated_cc(
+        'classifier': _p_cc(
             $['classifier'], 
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })]
         ),
-        'properties': _p.deprecated_cc(
+        'properties': _p_cc(
             $['properties'], 
             ($) => ['dictionary', $.__d_map(
                 ($,id) => ['text', ({
@@ -49,7 +57,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                 })]
             )]
         ),
-        'containments': _p.deprecated_cc(
+        'containments': _p_cc(
             $['containments'], 
             ($) => ['dictionary', $.__d_map(
                 ($,id) => ['dictionary', $.__d_map(
@@ -59,7 +67,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                 )]
             )]
         ),
-        'references': _p.deprecated_cc(
+        'references': _p_cc(
             $['references'], 
             ($) => ['dictionary', $.__d_map(
                 ($,id) => Targets(
@@ -67,7 +75,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                 )
             )]
         ),
-        'annotations': _p.deprecated_cc(
+        'annotations': _p_cc(
             $['annotations'], 
             ($) => ['list', $.__l_map(
                 ($) => ['text', ({
@@ -80,26 +88,26 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
 )]]
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
-        'serializationFormatVersion': _p.deprecated_cc(
+        'serializationFormatVersion': _p_cc(
             $['serializationFormatVersion'], 
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })]
         ),
-        'languages': _p.deprecated_cc(
+        'languages': _p_cc(
             $['languages'], 
             ($) => ['list', $.__l_map(
                 ($) => ['group', ['verbose', _p.dictionary.literal(
                     ({
-                        'key': _p.deprecated_cc(
+                        'key': _p_cc(
                             $['key'], 
                             ($) => ['text', ({
                                 'delimiter': ['quote', null],
                                 'value': $,
                             })]
                         ),
-                        'version': _p.deprecated_cc(
+                        'version': _p_cc(
                             $['version'], 
                             ($) => ['text', ({
                                 'delimiter': ['quote', null],
@@ -110,14 +118,14 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                 )]]
             )]
         ),
-        'root node id': _p.deprecated_cc(
+        'root node id': _p_cc(
             $['root node id'], 
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })]
         ),
-        'node tree': _p.deprecated_cc(
+        'node tree': _p_cc(
             $['node tree'], 
             ($) => Node(
                 $
