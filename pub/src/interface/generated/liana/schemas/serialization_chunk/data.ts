@@ -1,8 +1,6 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-import * as i__location from "../../generic/location"
-
 export namespace Meta_Pointer_ {
     
     export type language = string

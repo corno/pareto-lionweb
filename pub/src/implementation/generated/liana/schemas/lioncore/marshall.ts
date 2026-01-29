@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/lioncore/marshall"
@@ -16,65 +16,68 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+
 export const ID: t_signatures.ID = ($) => ['optional', $.__decide(
     ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
         ({
             'key': _p_cc(
-                $['key'], 
+                $['key'],
                 ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
                 })]
             ),
             'id': _p_cc(
-                $['id'], 
+                $['id'],
                 ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
                 })]
             ),
         })
-    )]]], 
+    )]]],
     () => ['not set', null]
 )]
+
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'resolveInfo': _p_cc(
-            $['resolveInfo'], 
+            $['resolveInfo'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })]
         ),
         'reference': _p_cc(
-            $['reference'], 
+            $['reference'],
             ($) => ['optional', $.__decide(
                 ($): t_out.Value.optional => ['set', ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
-                })]], 
+                })]],
                 () => ['not set', null]
             )]
         ),
     })
 )]]
+
 export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'id': _p_cc(
-            $['id'], 
+            $['id'],
             ($) => ID(
                 $
             )
         ),
         'version': _p_cc(
-            $['version'], 
+            $['version'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
             })]
         ),
         'dependencies': _p_cc(
-            $['dependencies'], 
+            $['dependencies'],
             ($) => ['list', $.__l_map(
                 ($) => Raw_Reference(
                     $
@@ -82,67 +85,67 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
             )]
         ),
         'entities': _p_cc(
-            $['entities'], 
+            $['entities'],
             ($) => ['dictionary', $.__d_map(
-                ($,id) => ['group', ['verbose', _p.dictionary.literal(
+                ($, id) => ['group', ['verbose', _p.dictionary.literal(
                     ({
                         'id': _p_cc(
-                            $['id'], 
+                            $['id'],
                             ($) => ID(
                                 $
                             )
                         ),
                         'type': _p_cc(
-                            $['type'], 
+                            $['type'],
                             ($) => ['state', _p.decide.state(
-                                $, 
+                                $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'classifier':
                                             return _p.ss(
-                                                $, 
+                                                $,
                                                 ($) => ({
                                                     'option': 'classifier',
                                                     'value': ['group', ['verbose', _p.dictionary.literal(
                                                         ({
                                                             'type': _p_cc(
-                                                                $['type'], 
+                                                                $['type'],
                                                                 ($) => ['state', _p.decide.state(
-                                                                    $, 
+                                                                    $,
                                                                     ($): t_out.Value.state => {
                                                                         switch ($[0]) {
                                                                             case 'concept':
                                                                                 return _p.ss(
-                                                                                    $, 
+                                                                                    $,
                                                                                     ($) => ({
                                                                                         'option': 'concept',
                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                             ({
                                                                                                 'abstract': _p_cc(
-                                                                                                    $['abstract'], 
+                                                                                                    $['abstract'],
                                                                                                     ($) => ['text', ({
                                                                                                         'delimiter': ['quote', null],
                                                                                                         'value': $,
                                                                                                     })]
                                                                                                 ),
                                                                                                 'partition': _p_cc(
-                                                                                                    $['partition'], 
+                                                                                                    $['partition'],
                                                                                                     ($) => ['text', ({
                                                                                                         'delimiter': ['quote', null],
                                                                                                         'value': $,
                                                                                                     })]
                                                                                                 ),
                                                                                                 'extends': _p_cc(
-                                                                                                    $['extends'], 
+                                                                                                    $['extends'],
                                                                                                     ($) => ['optional', $.__decide(
                                                                                                         ($): t_out.Value.optional => ['set', Raw_Reference(
                                                                                                             $
-                                                                                                        )], 
+                                                                                                        )],
                                                                                                         () => ['not set', null]
                                                                                                     )]
                                                                                                 ),
                                                                                                 'implements': _p_cc(
-                                                                                                    $['implements'], 
+                                                                                                    $['implements'],
                                                                                                     ($) => ['list', $.__l_map(
                                                                                                         ($) => Raw_Reference(
                                                                                                             $
@@ -155,13 +158,13 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                 )
                                                                             case 'interface':
                                                                                 return _p.ss(
-                                                                                    $, 
+                                                                                    $,
                                                                                     ($) => ({
                                                                                         'option': 'interface',
                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                             ({
                                                                                                 'extends': _p_cc(
-                                                                                                    $['extends'], 
+                                                                                                    $['extends'],
                                                                                                     ($) => ['list', $.__l_map(
                                                                                                         ($) => Raw_Reference(
                                                                                                             $
@@ -181,38 +184,38 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                 )]
                                                             ),
                                                             'features': _p_cc(
-                                                                $['features'], 
+                                                                $['features'],
                                                                 ($) => ['dictionary', $.__d_map(
-                                                                    ($,id) => ['group', ['verbose', _p.dictionary.literal(
+                                                                    ($, id) => ['group', ['verbose', _p.dictionary.literal(
                                                                         ({
                                                                             'id': _p_cc(
-                                                                                $['id'], 
+                                                                                $['id'],
                                                                                 ($) => ID(
                                                                                     $
                                                                                 )
                                                                             ),
                                                                             'optional': _p_cc(
-                                                                                $['optional'], 
+                                                                                $['optional'],
                                                                                 ($) => ['text', ({
                                                                                     'delimiter': ['quote', null],
                                                                                     'value': $,
                                                                                 })]
                                                                             ),
                                                                             'type': _p_cc(
-                                                                                $['type'], 
+                                                                                $['type'],
                                                                                 ($) => ['state', _p.decide.state(
-                                                                                    $, 
+                                                                                    $,
                                                                                     ($): t_out.Value.state => {
                                                                                         switch ($[0]) {
                                                                                             case 'property':
                                                                                                 return _p.ss(
-                                                                                                    $, 
+                                                                                                    $,
                                                                                                     ($) => ({
                                                                                                         'option': 'property',
                                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                             ({
                                                                                                                 'type': _p_cc(
-                                                                                                                    $['type'], 
+                                                                                                                    $['type'],
                                                                                                                     ($) => Raw_Reference(
                                                                                                                         $
                                                                                                                     )
@@ -223,33 +226,33 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 )
                                                                                             case 'link':
                                                                                                 return _p.ss(
-                                                                                                    $, 
+                                                                                                    $,
                                                                                                     ($) => ({
                                                                                                         'option': 'link',
                                                                                                         'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                             ({
                                                                                                                 'multiple': _p_cc(
-                                                                                                                    $['multiple'], 
+                                                                                                                    $['multiple'],
                                                                                                                     ($) => ['text', ({
                                                                                                                         'delimiter': ['quote', null],
                                                                                                                         'value': $,
                                                                                                                     })]
                                                                                                                 ),
                                                                                                                 'type': _p_cc(
-                                                                                                                    $['type'], 
+                                                                                                                    $['type'],
                                                                                                                     ($) => Raw_Reference(
                                                                                                                         $
                                                                                                                     )
                                                                                                                 ),
                                                                                                                 'link type': _p_cc(
-                                                                                                                    $['link type'], 
+                                                                                                                    $['link type'],
                                                                                                                     ($) => ['state', _p.decide.state(
-                                                                                                                        $, 
+                                                                                                                        $,
                                                                                                                         ($): t_out.Value.state => {
                                                                                                                             switch ($[0]) {
                                                                                                                                 case 'containment':
                                                                                                                                     return _p.ss(
-                                                                                                                                        $, 
+                                                                                                                                        $,
                                                                                                                                         ($) => ({
                                                                                                                                             'option': 'containment',
                                                                                                                                             'value': ['nothing', null],
@@ -257,7 +260,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                                     )
                                                                                                                                 case 'reference':
                                                                                                                                     return _p.ss(
-                                                                                                                                        $, 
+                                                                                                                                        $,
                                                                                                                                         ($) => ({
                                                                                                                                             'option': 'reference',
                                                                                                                                             'value': ['nothing', null],
@@ -293,20 +296,20 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                             )
                                         case 'datatype':
                                             return _p.ss(
-                                                $, 
+                                                $,
                                                 ($) => ({
                                                     'option': 'datatype',
                                                     'value': ['state', _p.decide.state(
-                                                        $, 
+                                                        $,
                                                         ($): t_out.Value.state => {
                                                             switch ($[0]) {
                                                                 case 'enumeration':
                                                                     return _p.ss(
-                                                                        $, 
+                                                                        $,
                                                                         ($) => ({
                                                                             'option': 'enumeration',
                                                                             'value': ['dictionary', $.__d_map(
-                                                                                ($,id) => ID(
+                                                                                ($, id) => ID(
                                                                                     $
                                                                                 )
                                                                             )],

@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/refiner"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/serialization_tree/unmarshall"
@@ -15,30 +15,33 @@ import * as v_deserialize_number from "liana-core/dist/implementation/manual/pri
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 
-import * as v_generic from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
-export const Targets: t_signatures.Targets = ($,abort) => v_generic.expect_list(
-    $, 
+import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
+
+import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
+
+export const Targets: t_signatures.Targets = ($, abort) => v_unmarshalled_from_parse_tree.List(
+    $,
     ($) => abort(
         ['expected a list', null]
     )
 ).__l_map(
     ($) => _p_cc(
-        v_generic.expect_group(
-            $, 
+        v_unmarshalled_from_parse_tree.Group(
+            $,
             ($) => abort(
                 ['expected a group', null]
             )
-        ), 
+        ),
         ($) => ({
             'resolveInfo': _p_cc(
                 $.__get_entry(
-                    'resolveInfo', 
+                    'resolveInfo',
                     ($) => abort(
                         ['no such entry', "resolveInfo"]
                     )
-                ), 
-                ($) => v_generic.expect_text(
-                    $, 
+                ),
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
                     ($) => abort(
                         ['expected a text', null]
                     )
@@ -46,19 +49,19 @@ export const Targets: t_signatures.Targets = ($,abort) => v_generic.expect_list(
             ),
             'reference': _p_cc(
                 $.__get_entry(
-                    'reference', 
+                    'reference',
                     ($) => abort(
                         ['no such entry', "reference"]
                     )
-                ), 
-                ($) => v_generic.expect_optional(
-                    $, 
+                ),
+                ($) => v_unmarshalled_from_parse_tree.Optional(
+                    $,
                     ($) => abort(
                         ['expected an optional', null]
                     )
                 ).__o_map(
-                    ($) => v_generic.expect_text(
-                        $, 
+                    ($) => v_unmarshalled_from_parse_tree.Text(
+                        $,
                         ($) => abort(
                             ['expected a text', null]
                         )
@@ -68,23 +71,24 @@ export const Targets: t_signatures.Targets = ($,abort) => v_generic.expect_list(
         })
     )
 )
-export const Node: t_signatures.Node = ($,abort) => _p_cc(
-    v_generic.expect_group(
-        $, 
+
+export const Node: t_signatures.Node = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
         ($) => abort(
             ['expected a group', null]
         )
-    ), 
+    ),
     ($) => ({
         'classifier': _p_cc(
             $.__get_entry(
-                'classifier', 
+                'classifier',
                 ($) => abort(
                     ['no such entry', "classifier"]
                 )
-            ), 
-            ($) => v_generic.expect_text(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
                 ($) => abort(
                     ['expected a text', null]
                 )
@@ -92,19 +96,19 @@ export const Node: t_signatures.Node = ($,abort) => _p_cc(
         ),
         'properties': _p_cc(
             $.__get_entry(
-                'properties', 
+                'properties',
                 ($) => abort(
                     ['no such entry', "properties"]
                 )
-            ), 
-            ($) => v_generic.expect_dictionary(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Dictionary(
+                $,
                 ($) => abort(
                     ['expected a dictionary', null]
                 )
             ).__d_map(
-                ($,id) => v_generic.expect_text(
-                    $, 
+                ($, id) => v_unmarshalled_from_parse_tree.Text(
+                    $,
                     ($) => abort(
                         ['expected a text', null]
                     )
@@ -113,25 +117,25 @@ export const Node: t_signatures.Node = ($,abort) => _p_cc(
         ),
         'containments': _p_cc(
             $.__get_entry(
-                'containments', 
+                'containments',
                 ($) => abort(
                     ['no such entry', "containments"]
                 )
-            ), 
-            ($) => v_generic.expect_dictionary(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Dictionary(
+                $,
                 ($) => abort(
                     ['expected a dictionary', null]
                 )
             ).__d_map(
-                ($,id) => v_generic.expect_dictionary(
-                    $, 
+                ($, id) => v_unmarshalled_from_parse_tree.Dictionary(
+                    $,
                     ($) => abort(
                         ['expected a dictionary', null]
                     )
                 ).__d_map(
-                    ($,id) => Node(
-                        $, 
+                    ($, id) => Node(
+                        $,
                         ($) => abort(
                             $
                         )
@@ -141,19 +145,19 @@ export const Node: t_signatures.Node = ($,abort) => _p_cc(
         ),
         'references': _p_cc(
             $.__get_entry(
-                'references', 
+                'references',
                 ($) => abort(
                     ['no such entry', "references"]
                 )
-            ), 
-            ($) => v_generic.expect_dictionary(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Dictionary(
+                $,
                 ($) => abort(
                     ['expected a dictionary', null]
                 )
             ).__d_map(
-                ($,id) => Targets(
-                    $, 
+                ($, id) => Targets(
+                    $,
                     ($) => abort(
                         $
                     )
@@ -162,19 +166,19 @@ export const Node: t_signatures.Node = ($,abort) => _p_cc(
         ),
         'annotations': _p_cc(
             $.__get_entry(
-                'annotations', 
+                'annotations',
                 ($) => abort(
                     ['no such entry', "annotations"]
                 )
-            ), 
-            ($) => v_generic.expect_list(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.List(
+                $,
                 ($) => abort(
                     ['expected a list', null]
                 )
             ).__l_map(
-                ($) => v_generic.expect_text(
-                    $, 
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
                     ($) => abort(
                         ['expected a text', null]
                     )
@@ -183,23 +187,24 @@ export const Node: t_signatures.Node = ($,abort) => _p_cc(
         ),
     })
 )
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,abort) => _p_cc(
-    v_generic.expect_group(
-        $, 
+
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
         ($) => abort(
             ['expected a group', null]
         )
-    ), 
+    ),
     ($) => ({
         'serializationFormatVersion': _p_cc(
             $.__get_entry(
-                'serializationFormatVersion', 
+                'serializationFormatVersion',
                 ($) => abort(
                     ['no such entry', "serializationFormatVersion"]
                 )
-            ), 
-            ($) => v_generic.expect_text(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
                 ($) => abort(
                     ['expected a text', null]
                 )
@@ -207,34 +212,34 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,abort) =
         ),
         'languages': _p_cc(
             $.__get_entry(
-                'languages', 
+                'languages',
                 ($) => abort(
                     ['no such entry', "languages"]
                 )
-            ), 
-            ($) => v_generic.expect_list(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.List(
+                $,
                 ($) => abort(
                     ['expected a list', null]
                 )
             ).__l_map(
                 ($) => _p_cc(
-                    v_generic.expect_group(
-                        $, 
+                    v_unmarshalled_from_parse_tree.Group(
+                        $,
                         ($) => abort(
                             ['expected a group', null]
                         )
-                    ), 
+                    ),
                     ($) => ({
                         'key': _p_cc(
                             $.__get_entry(
-                                'key', 
+                                'key',
                                 ($) => abort(
                                     ['no such entry', "key"]
                                 )
-                            ), 
-                            ($) => v_generic.expect_text(
-                                $, 
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
                                 ($) => abort(
                                     ['expected a text', null]
                                 )
@@ -242,13 +247,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,abort) =
                         ),
                         'version': _p_cc(
                             $.__get_entry(
-                                'version', 
+                                'version',
                                 ($) => abort(
                                     ['no such entry', "version"]
                                 )
-                            ), 
-                            ($) => v_generic.expect_text(
-                                $, 
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
                                 ($) => abort(
                                     ['expected a text', null]
                                 )
@@ -260,13 +265,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,abort) =
         ),
         'root node id': _p_cc(
             $.__get_entry(
-                'root node id', 
+                'root node id',
                 ($) => abort(
                     ['no such entry', "root node id"]
                 )
-            ), 
-            ($) => v_generic.expect_text(
-                $, 
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
                 ($) => abort(
                     ['expected a text', null]
                 )
@@ -274,13 +279,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($,abort) =
         ),
         'node tree': _p_cc(
             $.__get_entry(
-                'node tree', 
+                'node tree',
                 ($) => abort(
                     ['no such entry', "node tree"]
                 )
-            ), 
+            ),
             ($) => Node(
-                $, 
+                $,
                 ($) => abort(
                     $
                 )

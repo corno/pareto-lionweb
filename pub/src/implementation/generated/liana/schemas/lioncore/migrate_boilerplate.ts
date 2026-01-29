@@ -1,54 +1,57 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/lioncore/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
+
 export const ID: t_signatures.ID = ($) => $.__o_map(
     ($) => ({
         'key': _p_cc(
-            $['key'], 
+            $['key'],
             ($) => $
         ),
         'id': _p_cc(
-            $['id'], 
+            $['id'],
             ($) => $
         ),
     })
 )
+
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
     'resolveInfo': _p_cc(
-        $['resolveInfo'], 
+        $['resolveInfo'],
         ($) => $
     ),
     'reference': _p_cc(
-        $['reference'], 
+        $['reference'],
         ($) => $.__o_map(
             ($) => $
         )
     ),
 })
+
 export const M3: t_signatures.M3 = ($) => ({
     'id': _p_cc(
-        $['id'], 
+        $['id'],
         ($) => ID(
             $
         )
     ),
     'version': _p_cc(
-        $['version'], 
+        $['version'],
         ($) => $
     ),
     'dependencies': _p_cc(
-        $['dependencies'], 
+        $['dependencies'],
         ($) => $.__l_map(
             ($) => Raw_Reference(
                 $
@@ -56,45 +59,45 @@ export const M3: t_signatures.M3 = ($) => ({
         )
     ),
     'entities': _p_cc(
-        $['entities'], 
+        $['entities'],
         ($) => $.__d_map(
-            ($,id) => ({
+            ($, id) => ({
                 'id': _p_cc(
-                    $['id'], 
+                    $['id'],
                     ($) => ID(
                         $
                     )
                 ),
                 'type': _p_cc(
-                    $['type'], 
+                    $['type'],
                     ($) => _p.decide.state(
-                        $, 
+                        $,
                         ($): t_out.M3.entities.D.type_ => {
                             switch ($[0]) {
                                 case 'classifier':
                                     return _p.ss(
-                                        $, 
+                                        $,
                                         ($) => ['classifier', ({
                                             'type': _p_cc(
-                                                $['type'], 
+                                                $['type'],
                                                 ($) => _p.decide.state(
-                                                    $, 
+                                                    $,
                                                     ($): t_out.M3.entities.D.type_.classifier.type_ => {
                                                         switch ($[0]) {
                                                             case 'concept':
                                                                 return _p.ss(
-                                                                    $, 
+                                                                    $,
                                                                     ($) => ['concept', ({
                                                                         'abstract': _p_cc(
-                                                                            $['abstract'], 
+                                                                            $['abstract'],
                                                                             ($) => $
                                                                         ),
                                                                         'partition': _p_cc(
-                                                                            $['partition'], 
+                                                                            $['partition'],
                                                                             ($) => $
                                                                         ),
                                                                         'extends': _p_cc(
-                                                                            $['extends'], 
+                                                                            $['extends'],
                                                                             ($) => $.__o_map(
                                                                                 ($) => Raw_Reference(
                                                                                     $
@@ -102,7 +105,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             )
                                                                         ),
                                                                         'implements': _p_cc(
-                                                                            $['implements'], 
+                                                                            $['implements'],
                                                                             ($) => $.__l_map(
                                                                                 ($) => Raw_Reference(
                                                                                     $
@@ -113,10 +116,10 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                 )
                                                             case 'interface':
                                                                 return _p.ss(
-                                                                    $, 
+                                                                    $,
                                                                     ($) => ['interface', ({
                                                                         'extends': _p_cc(
-                                                                            $['extends'], 
+                                                                            $['extends'],
                                                                             ($) => $.__l_map(
                                                                                 ($) => Raw_Reference(
                                                                                     $
@@ -134,31 +137,31 @@ export const M3: t_signatures.M3 = ($) => ({
                                                 )
                                             ),
                                             'features': _p_cc(
-                                                $['features'], 
+                                                $['features'],
                                                 ($) => $.__d_map(
-                                                    ($,id) => ({
+                                                    ($, id) => ({
                                                         'id': _p_cc(
-                                                            $['id'], 
+                                                            $['id'],
                                                             ($) => ID(
                                                                 $
                                                             )
                                                         ),
                                                         'optional': _p_cc(
-                                                            $['optional'], 
+                                                            $['optional'],
                                                             ($) => $
                                                         ),
                                                         'type': _p_cc(
-                                                            $['type'], 
+                                                            $['type'],
                                                             ($) => _p.decide.state(
-                                                                $, 
+                                                                $,
                                                                 ($): t_out.M3.entities.D.type_.classifier.features.D.type_ => {
                                                                     switch ($[0]) {
                                                                         case 'property':
                                                                             return _p.ss(
-                                                                                $, 
+                                                                                $,
                                                                                 ($) => ['property', ({
                                                                                     'type': _p_cc(
-                                                                                        $['type'], 
+                                                                                        $['type'],
                                                                                         ($) => Raw_Reference(
                                                                                             $
                                                                                         )
@@ -167,32 +170,32 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             )
                                                                         case 'link':
                                                                             return _p.ss(
-                                                                                $, 
+                                                                                $,
                                                                                 ($) => ['link', ({
                                                                                     'multiple': _p_cc(
-                                                                                        $['multiple'], 
+                                                                                        $['multiple'],
                                                                                         ($) => $
                                                                                     ),
                                                                                     'type': _p_cc(
-                                                                                        $['type'], 
+                                                                                        $['type'],
                                                                                         ($) => Raw_Reference(
                                                                                             $
                                                                                         )
                                                                                     ),
                                                                                     'link type': _p_cc(
-                                                                                        $['link type'], 
+                                                                                        $['link type'],
                                                                                         ($) => _p.decide.state(
-                                                                                            $, 
+                                                                                            $,
                                                                                             ($): t_out.M3.entities.D.type_.classifier.features.D.type_.link.link_type => {
                                                                                                 switch ($[0]) {
                                                                                                     case 'containment':
                                                                                                         return _p.ss(
-                                                                                                            $, 
+                                                                                                            $,
                                                                                                             ($) => ['containment', null]
                                                                                                         )
                                                                                                     case 'reference':
                                                                                                         return _p.ss(
-                                                                                                            $, 
+                                                                                                            $,
                                                                                                             ($) => ['reference', null]
                                                                                                         )
                                                                                                     default:
@@ -220,16 +223,16 @@ export const M3: t_signatures.M3 = ($) => ({
                                     )
                                 case 'datatype':
                                     return _p.ss(
-                                        $, 
+                                        $,
                                         ($) => ['datatype', _p.decide.state(
-                                            $, 
+                                            $,
                                             ($): t_out.M3.entities.D.type_.datatype => {
                                                 switch ($[0]) {
                                                     case 'enumeration':
                                                         return _p.ss(
-                                                            $, 
+                                                            $,
                                                             ($) => ['enumeration', $.__d_map(
-                                                                ($,id) => ID(
+                                                                ($, id) => ID(
                                                                     $
                                                                 )
                                                             )]

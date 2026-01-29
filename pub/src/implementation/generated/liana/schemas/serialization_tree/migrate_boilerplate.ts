@@ -1,93 +1,96 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/serialization_tree/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
+
 export const Targets: t_signatures.Targets = ($) => $.__l_map(
     ($) => ({
         'resolveInfo': _p_cc(
-            $['resolveInfo'], 
+            $['resolveInfo'],
             ($) => $
         ),
         'reference': _p_cc(
-            $['reference'], 
+            $['reference'],
             ($) => $.__o_map(
                 ($) => $
             )
         ),
     })
 )
+
 export const Node: t_signatures.Node = ($) => ({
     'classifier': _p_cc(
-        $['classifier'], 
+        $['classifier'],
         ($) => $
     ),
     'properties': _p_cc(
-        $['properties'], 
+        $['properties'],
         ($) => $.__d_map(
-            ($,id) => $
+            ($, id) => $
         )
     ),
     'containments': _p_cc(
-        $['containments'], 
+        $['containments'],
         ($) => $.__d_map(
-            ($,id) => $.__d_map(
-                ($,id) => Node(
+            ($, id) => $.__d_map(
+                ($, id) => Node(
                     $
                 )
             )
         )
     ),
     'references': _p_cc(
-        $['references'], 
+        $['references'],
         ($) => $.__d_map(
-            ($,id) => Targets(
+            ($, id) => Targets(
                 $
             )
         )
     ),
     'annotations': _p_cc(
-        $['annotations'], 
+        $['annotations'],
         ($) => $.__l_map(
             ($) => $
         )
     ),
 })
+
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     'serializationFormatVersion': _p_cc(
-        $['serializationFormatVersion'], 
+        $['serializationFormatVersion'],
         ($) => $
     ),
     'languages': _p_cc(
-        $['languages'], 
+        $['languages'],
         ($) => $.__l_map(
             ($) => ({
                 'key': _p_cc(
-                    $['key'], 
+                    $['key'],
                     ($) => $
                 ),
                 'version': _p_cc(
-                    $['version'], 
+                    $['version'],
                     ($) => $
                 ),
             })
         )
     ),
     'root node id': _p_cc(
-        $['root node id'], 
+        $['root node id'],
         ($) => $
     ),
     'node tree': _p_cc(
-        $['node tree'], 
+        $['node tree'],
         ($) => Node(
             $
         )
