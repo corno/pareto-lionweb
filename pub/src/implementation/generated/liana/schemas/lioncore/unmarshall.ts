@@ -17,12 +17,13 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const ID: t_signatures.ID = ($, abort) => v_unmarshalled_from_parse_tree.Optional(
-    $,
-    ($) => abort(
-        ['expected an optional', null]
-    )
-).__o_map(
+export const ID: t_signatures.ID = ($, abort) => _p.optional.map(
+    v_unmarshalled_from_parse_tree.Optional(
+        $,
+        ($) => abort(
+            ['expected an optional', null]
+        )
+    ),
     ($) => _p_cc(
         v_unmarshalled_from_parse_tree.Group(
             $,
@@ -92,12 +93,13 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_cc(
                     ['no such entry', "reference"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Optional(
-                $,
-                ($) => abort(
-                    ['expected an optional', null]
-                )
-            ).__o_map(
+            ($) => _p.optional.map(
+                v_unmarshalled_from_parse_tree.Optional(
+                    $,
+                    ($) => abort(
+                        ['expected an optional', null]
+                    )
+                ),
                 ($) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(
@@ -152,12 +154,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                     ['no such entry', "dependencies"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => Raw_Reference(
                     $,
                     ($) => abort(
@@ -173,12 +176,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                     ['no such entry', "entities"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Dictionary(
-                $,
-                ($) => abort(
-                    ['expected a dictionary', null]
-                )
-            ).__d_map(
+            ($) => _p.dictionary.map(
+                v_unmarshalled_from_parse_tree.Dictionary(
+                    $,
+                    ($) => abort(
+                        ['expected a dictionary', null]
+                    )
+                ),
                 ($, id) => _p_cc(
                     v_unmarshalled_from_parse_tree.Group(
                         $,
@@ -294,12 +298,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                                                                                                             ['no such entry', "extends"]
                                                                                                         )
                                                                                                     ),
-                                                                                                    ($) => v_unmarshalled_from_parse_tree.Optional(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            ['expected an optional', null]
-                                                                                                        )
-                                                                                                    ).__o_map(
+                                                                                                    ($) => _p.optional.map(
+                                                                                                        v_unmarshalled_from_parse_tree.Optional(
+                                                                                                            $,
+                                                                                                            ($) => abort(
+                                                                                                                ['expected an optional', null]
+                                                                                                            )
+                                                                                                        ),
                                                                                                         ($) => Raw_Reference(
                                                                                                             $,
                                                                                                             ($) => abort(
@@ -315,12 +320,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                                                                                                             ['no such entry', "implements"]
                                                                                                         )
                                                                                                     ),
-                                                                                                    ($) => v_unmarshalled_from_parse_tree.List(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            ['expected a list', null]
-                                                                                                        )
-                                                                                                    ).__l_map(
+                                                                                                    ($) => _p.list.map(
+                                                                                                        v_unmarshalled_from_parse_tree.List(
+                                                                                                            $,
+                                                                                                            ($) => abort(
+                                                                                                                ['expected a list', null]
+                                                                                                            )
+                                                                                                        ),
                                                                                                         ($) => Raw_Reference(
                                                                                                             $,
                                                                                                             ($) => abort(
@@ -350,12 +356,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                                                                                                             ['no such entry', "extends"]
                                                                                                         )
                                                                                                     ),
-                                                                                                    ($) => v_unmarshalled_from_parse_tree.List(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            ['expected a list', null]
-                                                                                                        )
-                                                                                                    ).__l_map(
+                                                                                                    ($) => _p.list.map(
+                                                                                                        v_unmarshalled_from_parse_tree.List(
+                                                                                                            $,
+                                                                                                            ($) => abort(
+                                                                                                                ['expected a list', null]
+                                                                                                            )
+                                                                                                        ),
                                                                                                         ($) => Raw_Reference(
                                                                                                             $,
                                                                                                             ($) => abort(
@@ -383,12 +390,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                                                                         ['no such entry', "features"]
                                                                     )
                                                                 ),
-                                                                ($) => v_unmarshalled_from_parse_tree.Dictionary(
-                                                                    $,
-                                                                    ($) => abort(
-                                                                        ['expected a dictionary', null]
-                                                                    )
-                                                                ).__d_map(
+                                                                ($) => _p.dictionary.map(
+                                                                    v_unmarshalled_from_parse_tree.Dictionary(
+                                                                        $,
+                                                                        ($) => abort(
+                                                                            ['expected a dictionary', null]
+                                                                        )
+                                                                    ),
                                                                     ($, id) => _p_cc(
                                                                         v_unmarshalled_from_parse_tree.Group(
                                                                             $,
@@ -593,12 +601,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                                                                     case 'enumeration':
                                                                         return _p_cc(
                                                                             $['value'],
-                                                                            ($) => ['enumeration', v_unmarshalled_from_parse_tree.Dictionary(
-                                                                                $,
-                                                                                ($) => abort(
-                                                                                    ['expected a dictionary', null]
-                                                                                )
-                                                                            ).__d_map(
+                                                                            ($) => ['enumeration', _p.dictionary.map(
+                                                                                v_unmarshalled_from_parse_tree.Dictionary(
+                                                                                    $,
+                                                                                    ($) => abort(
+                                                                                        ['expected a dictionary', null]
+                                                                                    )
+                                                                                ),
                                                                                 ($, id) => ID(
                                                                                     $,
                                                                                     ($) => abort(

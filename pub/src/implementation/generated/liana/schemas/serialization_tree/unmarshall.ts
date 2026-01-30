@@ -17,12 +17,13 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Targets: t_signatures.Targets = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Targets: t_signatures.Targets = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => _p_cc(
         v_unmarshalled_from_parse_tree.Group(
             $,
@@ -52,12 +53,13 @@ export const Targets: t_signatures.Targets = ($, abort) => v_unmarshalled_from_p
                         ['no such entry', "reference"]
                     )
                 ),
-                ($) => v_unmarshalled_from_parse_tree.Optional(
-                    $,
-                    ($) => abort(
-                        ['expected an optional', null]
-                    )
-                ).__o_map(
+                ($) => _p.optional.map(
+                    v_unmarshalled_from_parse_tree.Optional(
+                        $,
+                        ($) => abort(
+                            ['expected an optional', null]
+                        )
+                    ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
                         $,
                         ($) => abort(
@@ -99,12 +101,13 @@ export const Node: t_signatures.Node = ($, abort) => _p_cc(
                     ['no such entry', "properties"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Dictionary(
-                $,
-                ($) => abort(
-                    ['expected a dictionary', null]
-                )
-            ).__d_map(
+            ($) => _p.dictionary.map(
+                v_unmarshalled_from_parse_tree.Dictionary(
+                    $,
+                    ($) => abort(
+                        ['expected a dictionary', null]
+                    )
+                ),
                 ($, id) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(
@@ -120,18 +123,20 @@ export const Node: t_signatures.Node = ($, abort) => _p_cc(
                     ['no such entry', "containments"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Dictionary(
-                $,
-                ($) => abort(
-                    ['expected a dictionary', null]
-                )
-            ).__d_map(
-                ($, id) => v_unmarshalled_from_parse_tree.Dictionary(
+            ($) => _p.dictionary.map(
+                v_unmarshalled_from_parse_tree.Dictionary(
                     $,
                     ($) => abort(
                         ['expected a dictionary', null]
                     )
-                ).__d_map(
+                ),
+                ($, id) => _p.dictionary.map(
+                    v_unmarshalled_from_parse_tree.Dictionary(
+                        $,
+                        ($) => abort(
+                            ['expected a dictionary', null]
+                        )
+                    ),
                     ($, id) => Node(
                         $,
                         ($) => abort(
@@ -148,12 +153,13 @@ export const Node: t_signatures.Node = ($, abort) => _p_cc(
                     ['no such entry', "references"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Dictionary(
-                $,
-                ($) => abort(
-                    ['expected a dictionary', null]
-                )
-            ).__d_map(
+            ($) => _p.dictionary.map(
+                v_unmarshalled_from_parse_tree.Dictionary(
+                    $,
+                    ($) => abort(
+                        ['expected a dictionary', null]
+                    )
+                ),
                 ($, id) => Targets(
                     $,
                     ($) => abort(
@@ -169,12 +175,13 @@ export const Node: t_signatures.Node = ($, abort) => _p_cc(
                     ['no such entry', "annotations"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(
@@ -215,12 +222,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                     ['no such entry', "languages"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => _p_cc(
                     v_unmarshalled_from_parse_tree.Group(
                         $,

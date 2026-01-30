@@ -9,7 +9,8 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
 
-export const ID: t_signatures.ID = ($) => $.__o_map(
+export const ID: t_signatures.ID = ($) => _p.optional.map(
+    $,
     ($) => ({
         'key': _p_cc(
             $['key'],
@@ -29,7 +30,8 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
     ),
     'reference': _p_cc(
         $['reference'],
-        ($) => $.__o_map(
+        ($) => _p.optional.map(
+            $,
             ($) => $
         )
     ),
@@ -48,7 +50,8 @@ export const M3: t_signatures.M3 = ($) => ({
     ),
     'dependencies': _p_cc(
         $['dependencies'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => Raw_Reference(
                 $
             )
@@ -56,7 +59,8 @@ export const M3: t_signatures.M3 = ($) => ({
     ),
     'entities': _p_cc(
         $['entities'],
-        ($) => $.__d_map(
+        ($) => _p.dictionary.map(
+            $,
             ($, id) => ({
                 'id': _p_cc(
                     $['id'],
@@ -94,7 +98,8 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                         ),
                                                                         'extends': _p_cc(
                                                                             $['extends'],
-                                                                            ($) => $.__o_map(
+                                                                            ($) => _p.optional.map(
+                                                                                $,
                                                                                 ($) => Raw_Reference(
                                                                                     $
                                                                                 )
@@ -102,7 +107,8 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                         ),
                                                                         'implements': _p_cc(
                                                                             $['implements'],
-                                                                            ($) => $.__l_map(
+                                                                            ($) => _p.list.map(
+                                                                                $,
                                                                                 ($) => Raw_Reference(
                                                                                     $
                                                                                 )
@@ -116,7 +122,8 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                     ($) => ['interface', {
                                                                         'extends': _p_cc(
                                                                             $['extends'],
-                                                                            ($) => $.__l_map(
+                                                                            ($) => _p.list.map(
+                                                                                $,
                                                                                 ($) => Raw_Reference(
                                                                                     $
                                                                                 )
@@ -134,7 +141,8 @@ export const M3: t_signatures.M3 = ($) => ({
                                             ),
                                             'features': _p_cc(
                                                 $['features'],
-                                                ($) => $.__d_map(
+                                                ($) => _p.dictionary.map(
+                                                    $,
                                                     ($, id) => ({
                                                         'id': _p_cc(
                                                             $['id'],
@@ -227,7 +235,8 @@ export const M3: t_signatures.M3 = ($) => ({
                                                     case 'enumeration':
                                                         return _p.ss(
                                                             $,
-                                                            ($) => ['enumeration', $.__d_map(
+                                                            ($) => ['enumeration', _p.dictionary.map(
+                                                                $,
                                                                 ($, id) => ID(
                                                                     $
                                                                 )

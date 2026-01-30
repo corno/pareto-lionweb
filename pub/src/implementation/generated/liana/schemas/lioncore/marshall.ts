@@ -13,7 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const ID: t_signatures.ID = ($) => ['optional', $.__decide(
+export const ID: t_signatures.ID = ($) => ['optional', _p.decide.optional(
+    $,
     ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
         {
             'key': _p_cc(
@@ -46,7 +47,8 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verb
         ),
         'reference': _p_cc(
             $['reference'],
-            ($) => ['optional', $.__decide(
+            ($) => ['optional', _p.decide.optional(
+                $,
                 ($): t_out.Value.optional => ['set', ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -74,7 +76,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         'dependencies': _p_cc(
             $['dependencies'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => Raw_Reference(
                     $
                 )
@@ -82,7 +85,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         'entities': _p_cc(
             $['entities'],
-            ($) => ['dictionary', $.__d_map(
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
                 ($, id) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         'id': _p_cc(
@@ -133,7 +137,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 ),
                                                                                                 'extends': _p_cc(
                                                                                                     $['extends'],
-                                                                                                    ($) => ['optional', $.__decide(
+                                                                                                    ($) => ['optional', _p.decide.optional(
+                                                                                                        $,
                                                                                                         ($): t_out.Value.optional => ['set', Raw_Reference(
                                                                                                             $
                                                                                                         )],
@@ -142,7 +147,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 ),
                                                                                                 'implements': _p_cc(
                                                                                                     $['implements'],
-                                                                                                    ($) => ['list', $.__l_map(
+                                                                                                    ($) => ['list', _p.list.map(
+                                                                                                        $,
                                                                                                         ($) => Raw_Reference(
                                                                                                             $
                                                                                                         )
@@ -161,7 +167,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                             {
                                                                                                 'extends': _p_cc(
                                                                                                     $['extends'],
-                                                                                                    ($) => ['list', $.__l_map(
+                                                                                                    ($) => ['list', _p.list.map(
+                                                                                                        $,
                                                                                                         ($) => Raw_Reference(
                                                                                                             $
                                                                                                         )
@@ -181,7 +188,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                             ),
                                                             'features': _p_cc(
                                                                 $['features'],
-                                                                ($) => ['dictionary', $.__d_map(
+                                                                ($) => ['dictionary', _p.dictionary.map(
+                                                                    $,
                                                                     ($, id) => ['group', ['verbose', _p.dictionary.literal(
                                                                         {
                                                                             'id': _p_cc(
@@ -304,7 +312,8 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'enumeration',
-                                                                            'value': ['dictionary', $.__d_map(
+                                                                            'value': ['dictionary', _p.dictionary.map(
+                                                                                $,
                                                                                 ($, id) => ID(
                                                                                     $
                                                                                 )

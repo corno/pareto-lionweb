@@ -26,10 +26,12 @@ export const Serialization_Chunk = (
     const chunk = $
     const nodes_without_parent = _p.list.filter(
         $.nodes,
-        ($) => $.parent.__is_set()
-            ? _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>()
-            : _p.optional.set($)
-        
+        ($) => _p.decide.boolean(
+            _p.boolean.optional_is_set($.parent),
+            () => _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>(),
+            () => _p.optional.set($)
+        )
+
     )
     if (_p.natural.amount_of_list_items(nodes_without_parent) > 1) {
         return abort(['could not determine root node', null])

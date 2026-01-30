@@ -171,15 +171,18 @@ export const Serialization_Chunk = (
                         ),
                         abort,
                     ),
-                    'parent': helpers.expect_optional_null(
-                        helpers.expect_property(
+                    'parent': _p.optional.map(
+                        helpers.expect_optional_null(
+                            helpers.expect_property(
+                                $,
+                                "parent",
+                                abort,
+                            )),
+                        ($) => helpers.expect_text(
                             $,
-                            "parent",
                             abort,
-                        )).__o_map(($) => helpers.expect_text(
-                            $,
-                            abort,
-                        )),
+                        )
+                    ),
                     'properties': helpers.expect_array(
                         helpers.expect_property(
                             $,
@@ -308,14 +311,16 @@ export const Serialization_Chunk = (
                                                 ),
                                                 abort,
                                             ),
-                                            'reference': helpers.expect_optional_null(
-                                                helpers.expect_property(
-                                                    $,
-                                                    "reference",
-                                                    abort,
+                                            'reference': _p.optional.map(
+                                                helpers.expect_optional_null(
+                                                    helpers.expect_property(
+                                                        $,
+                                                        "reference",
+                                                        abort,
+                                                    ),
                                                 ),
-                                            ).__o_map(
-                                                ($) => helpers.expect_text($, abort)),
+                                                ($) => helpers.expect_text($, abort)
+                                            ),
                                         })
                                     )
                                 ),

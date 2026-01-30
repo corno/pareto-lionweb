@@ -9,7 +9,8 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
 
-export const Targets: t_signatures.Targets = ($) => $.__l_map(
+export const Targets: t_signatures.Targets = ($) => _p.list.map(
+    $,
     ($) => ({
         'resolveInfo': _p_cc(
             $['resolveInfo'],
@@ -17,7 +18,8 @@ export const Targets: t_signatures.Targets = ($) => $.__l_map(
         ),
         'reference': _p_cc(
             $['reference'],
-            ($) => $.__o_map(
+            ($) => _p.optional.map(
+                $,
                 ($) => $
             )
         ),
@@ -31,14 +33,17 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'properties': _p_cc(
         $['properties'],
-        ($) => $.__d_map(
+        ($) => _p.dictionary.map(
+            $,
             ($, id) => $
         )
     ),
     'containments': _p_cc(
         $['containments'],
-        ($) => $.__d_map(
-            ($, id) => $.__d_map(
+        ($) => _p.dictionary.map(
+            $,
+            ($, id) => _p.dictionary.map(
+                $,
                 ($, id) => Node(
                     $
                 )
@@ -47,7 +52,8 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'references': _p_cc(
         $['references'],
-        ($) => $.__d_map(
+        ($) => _p.dictionary.map(
+            $,
             ($, id) => Targets(
                 $
             )
@@ -55,7 +61,8 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'annotations': _p_cc(
         $['annotations'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => $
         )
     ),
@@ -68,7 +75,8 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
     'languages': _p_cc(
         $['languages'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => ({
                 'key': _p_cc(
                     $['key'],

@@ -13,7 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Targets: t_signatures.Targets = ($) => ['list', $.__l_map(
+export const Targets: t_signatures.Targets = ($) => ['list', _p.list.map(
+    $,
     ($) => ['group', ['verbose', _p.dictionary.literal(
         {
             'resolveInfo': _p_cc(
@@ -25,7 +26,8 @@ export const Targets: t_signatures.Targets = ($) => ['list', $.__l_map(
             ),
             'reference': _p_cc(
                 $['reference'],
-                ($) => ['optional', $.__decide(
+                ($) => ['optional', _p.decide.optional(
+                    $,
                     ($): t_out.Value.optional => ['set', ['text', {
                         'delimiter': ['quote', null],
                         'value': $,
@@ -48,7 +50,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         'properties': _p_cc(
             $['properties'],
-            ($) => ['dictionary', $.__d_map(
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
                 ($, id) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -57,8 +60,10 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         'containments': _p_cc(
             $['containments'],
-            ($) => ['dictionary', $.__d_map(
-                ($, id) => ['dictionary', $.__d_map(
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
+                ($, id) => ['dictionary', _p.dictionary.map(
+                    $,
                     ($, id) => Node(
                         $
                     )
@@ -67,7 +72,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         'references': _p_cc(
             $['references'],
-            ($) => ['dictionary', $.__d_map(
+            ($) => ['dictionary', _p.dictionary.map(
+                $,
                 ($, id) => Targets(
                     $
                 )
@@ -75,7 +81,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         'annotations': _p_cc(
             $['annotations'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -96,7 +103,8 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
         ),
         'languages': _p_cc(
             $['languages'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         'key': _p_cc(

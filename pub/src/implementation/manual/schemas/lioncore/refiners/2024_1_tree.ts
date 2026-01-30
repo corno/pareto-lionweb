@@ -135,9 +135,11 @@ export const M3 = (
                                                             "LionCore-M3:2024.1:Feature-optional",
                                                             "optional property of feature: " + feature_id,
                                                         ),
-                                                        'type': $.references.__get_possible_entry(
-                                                            "LionCore-M3:2024.1:Link-type",
-                                                        ).__is_set()
+                                                        'type': _p.boolean.optional_is_set(
+                                                            $.references.__get_possible_entry(
+                                                                "LionCore-M3:2024.1:Link-type",
+                                                            )
+                                                        )
                                                             ? ['link', {
                                                                 'multiple': context.expect_property(
                                                                     $.properties,
