@@ -7,6 +7,12 @@ import * as v_serialize from "astn-core/dist/implementation/manual/schemas/seale
 
 import * as v_marshall from "./marshall"
 
+export const M3: t_signatures.M3 = ($) => v_serialize.Document(
+    v_marshall.M3(
+        $
+    )
+)
+
 export const ID: t_signatures.ID = ($) => v_serialize.Document(
     v_marshall.ID(
         $
@@ -15,12 +21,6 @@ export const ID: t_signatures.ID = ($) => v_serialize.Document(
 
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => v_serialize.Document(
     v_marshall.Raw_Reference(
-        $
-    )
-)
-
-export const M3: t_signatures.M3 = ($) => v_serialize.Document(
-    v_marshall.M3(
         $
     )
 )

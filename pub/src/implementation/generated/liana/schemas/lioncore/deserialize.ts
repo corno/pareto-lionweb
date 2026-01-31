@@ -7,6 +7,22 @@ import * as v_deserialize from "astn-core/dist/implementation/manual/schemas/par
 
 import * as v_unmarshall from "./unmarshall"
 
+export const M3: t_signatures.M3 = ($, abort, $p) => v_unmarshall.M3(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['tbd', null]
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        }
+    )['content'],
+    ($) => abort(
+        ['tbd', null]
+    )
+)
+
 export const ID: t_signatures.ID = ($, abort, $p) => v_unmarshall.ID(
     v_deserialize.Document(
         $,
@@ -24,22 +40,6 @@ export const ID: t_signatures.ID = ($, abort, $p) => v_unmarshall.ID(
 )
 
 export const Raw_Reference: t_signatures.Raw_Reference = ($, abort, $p) => v_unmarshall.Raw_Reference(
-    v_deserialize.Document(
-        $,
-        ($) => abort(
-            ['tbd', null]
-        ),
-        {
-            'document resource identifier': $p['document resource identifier'],
-            'tab size': $p['tab size'],
-        }
-    )['content'],
-    ($) => abort(
-        ['tbd', null]
-    )
-)
-
-export const M3: t_signatures.M3 = ($, abort, $p) => v_unmarshall.M3(
     v_deserialize.Document(
         $,
         ($) => abort(

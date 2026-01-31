@@ -17,100 +17,6 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const ID: t_signatures.ID = ($, abort) => _p.optional.map(
-    v_unmarshalled_from_parse_tree.Optional(
-        $,
-        ($) => abort(
-            ['expected an optional', null]
-        )
-    ),
-    ($) => _p_cc(
-        v_unmarshalled_from_parse_tree.Group(
-            $,
-            ($) => abort(
-                ['expected a group', null]
-            )
-        ),
-        ($) => ({
-            'key': _p_cc(
-                $.__get_entry(
-                    'key',
-                    ($) => abort(
-                        ['no such entry', "key"]
-                    )
-                ),
-                ($) => v_unmarshalled_from_parse_tree.Text(
-                    $,
-                    ($) => abort(
-                        ['expected a text', null]
-                    )
-                )
-            ),
-            'id': _p_cc(
-                $.__get_entry(
-                    'id',
-                    ($) => abort(
-                        ['no such entry', "id"]
-                    )
-                ),
-                ($) => v_unmarshalled_from_parse_tree.Text(
-                    $,
-                    ($) => abort(
-                        ['expected a text', null]
-                    )
-                )
-            ),
-        })
-    )
-)
-
-export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
-        $,
-        ($) => abort(
-            ['expected a group', null]
-        )
-    ),
-    ($) => ({
-        'resolveInfo': _p_cc(
-            $.__get_entry(
-                'resolveInfo',
-                ($) => abort(
-                    ['no such entry', "resolveInfo"]
-                )
-            ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
-            )
-        ),
-        'reference': _p_cc(
-            $.__get_entry(
-                'reference',
-                ($) => abort(
-                    ['no such entry', "reference"]
-                )
-            ),
-            ($) => _p.optional.map(
-                v_unmarshalled_from_parse_tree.Optional(
-                    $,
-                    ($) => abort(
-                        ['expected an optional', null]
-                    )
-                ),
-                ($) => v_unmarshalled_from_parse_tree.Text(
-                    $,
-                    ($) => abort(
-                        ['expected a text', null]
-                    )
-                )
-            )
-        ),
-    })
-)
-
 export const M3: t_signatures.M3 = ($, abort) => _p_cc(
     v_unmarshalled_from_parse_tree.Group(
         $,
@@ -635,6 +541,100 @@ export const M3: t_signatures.M3 = ($, abort) => _p_cc(
                             )
                         ),
                     })
+                )
+            )
+        ),
+    })
+)
+
+export const ID: t_signatures.ID = ($, abort) => _p.optional.map(
+    v_unmarshalled_from_parse_tree.Optional(
+        $,
+        ($) => abort(
+            ['expected an optional', null]
+        )
+    ),
+    ($) => _p_cc(
+        v_unmarshalled_from_parse_tree.Group(
+            $,
+            ($) => abort(
+                ['expected a group', null]
+            )
+        ),
+        ($) => ({
+            'key': _p_cc(
+                $.__get_entry(
+                    'key',
+                    ($) => abort(
+                        ['no such entry', "key"]
+                    )
+                ),
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
+                    ($) => abort(
+                        ['expected a text', null]
+                    )
+                )
+            ),
+            'id': _p_cc(
+                $.__get_entry(
+                    'id',
+                    ($) => abort(
+                        ['no such entry', "id"]
+                    )
+                ),
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
+                    ($) => abort(
+                        ['expected a text', null]
+                    )
+                )
+            ),
+        })
+    )
+)
+
+export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
+        ($) => abort(
+            ['expected a group', null]
+        )
+    ),
+    ($) => ({
+        'resolveInfo': _p_cc(
+            $.__get_entry(
+                'resolveInfo',
+                ($) => abort(
+                    ['no such entry', "resolveInfo"]
+                )
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
+            )
+        ),
+        'reference': _p_cc(
+            $.__get_entry(
+                'reference',
+                ($) => abort(
+                    ['no such entry', "reference"]
+                )
+            ),
+            ($) => _p.optional.map(
+                v_unmarshalled_from_parse_tree.Optional(
+                    $,
+                    ($) => abort(
+                        ['expected an optional', null]
+                    )
+                ),
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
+                    ($) => abort(
+                        ['expected a text', null]
+                    )
                 )
             )
         ),

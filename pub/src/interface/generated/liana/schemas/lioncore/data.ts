@@ -1,44 +1,6 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-export namespace ID_ {
-    
-    export namespace O {
-        
-        export type key = string
-        
-        export type id = string
-        
-    }
-    
-    export type O = {
-        readonly 'key': O.key
-        readonly 'id': O.id
-    }
-    
-}
-
-export type ID_ = _pi.Optional_Value<ID_.O>
-
-export namespace Raw_Reference_ {
-    
-    export type resolveInfo = string
-    
-    export namespace reference {
-        
-        export type O = string
-        
-    }
-    
-    export type reference = _pi.Optional_Value<reference.O>
-    
-}
-
-export type Raw_Reference_ = {
-    readonly 'resolveInfo': Raw_Reference_.resolveInfo
-    readonly 'reference': Raw_Reference_.reference
-}
-
 export namespace M3_ {
     
     export type id = ID_
@@ -230,8 +192,46 @@ export type M3_ = {
     readonly 'entities': M3_.entities
 }
 
+export namespace ID_ {
+    
+    export namespace O {
+        
+        export type key = string
+        
+        export type id = string
+        
+    }
+    
+    export type O = {
+        readonly 'key': O.key
+        readonly 'id': O.id
+    }
+    
+}
+
+export type ID_ = _pi.Optional_Value<ID_.O>
+
+export namespace Raw_Reference_ {
+    
+    export type resolveInfo = string
+    
+    export namespace reference {
+        
+        export type O = string
+        
+    }
+    
+    export type reference = _pi.Optional_Value<reference.O>
+    
+}
+
+export type Raw_Reference_ = {
+    readonly 'resolveInfo': Raw_Reference_.resolveInfo
+    readonly 'reference': Raw_Reference_.reference
+}
+
 export { 
+    M3_ as M3, 
     ID_ as ID, 
     Raw_Reference_ as Raw_Reference, 
-    M3_ as M3, 
 }

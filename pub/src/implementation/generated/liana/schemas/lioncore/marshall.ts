@@ -13,52 +13,6 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const ID: t_signatures.ID = ($) => ['optional', _p.decide.optional(
-    $,
-    ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
-        {
-            'key': _p_cc(
-                $['key'],
-                ($) => ['text', {
-                    'delimiter': ['quote', null],
-                    'value': $,
-                }]
-            ),
-            'id': _p_cc(
-                $['id'],
-                ($) => ['text', {
-                    'delimiter': ['quote', null],
-                    'value': $,
-                }]
-            ),
-        }
-    )]]],
-    () => ['not set', null]
-)]
-
-export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'resolveInfo': _p_cc(
-            $['resolveInfo'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-        'reference': _p_cc(
-            $['reference'],
-            ($) => ['optional', _p.decide.optional(
-                $,
-                ($): t_out.Value.optional => ['set', ['text', {
-                    'delimiter': ['quote', null],
-                    'value': $,
-                }]],
-                () => ['not set', null]
-            )]
-        ),
-    }
-)]]
-
 export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         'id': _p_cc(
@@ -339,6 +293,52 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                         ),
                     }
                 )]]
+            )]
+        ),
+    }
+)]]
+
+export const ID: t_signatures.ID = ($) => ['optional', _p.decide.optional(
+    $,
+    ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+        {
+            'key': _p_cc(
+                $['key'],
+                ($) => ['text', {
+                    'delimiter': ['quote', null],
+                    'value': $,
+                }]
+            ),
+            'id': _p_cc(
+                $['id'],
+                ($) => ['text', {
+                    'delimiter': ['quote', null],
+                    'value': $,
+                }]
+            ),
+        }
+    )]]],
+    () => ['not set', null]
+)]
+
+export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'resolveInfo': _p_cc(
+            $['resolveInfo'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+        'reference': _p_cc(
+            $['reference'],
+            ($) => ['optional', _p.decide.optional(
+                $,
+                ($): t_out.Value.optional => ['set', ['text', {
+                    'delimiter': ['quote', null],
+                    'value': $,
+                }]],
+                () => ['not set', null]
             )]
         ),
     }

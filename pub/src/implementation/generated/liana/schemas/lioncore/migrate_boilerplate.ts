@@ -9,34 +9,6 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
 
-export const ID: t_signatures.ID = ($) => _p.optional.map(
-    $,
-    ($) => ({
-        'key': _p_cc(
-            $['key'],
-            ($) => $
-        ),
-        'id': _p_cc(
-            $['id'],
-            ($) => $
-        ),
-    })
-)
-
-export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
-    'resolveInfo': _p_cc(
-        $['resolveInfo'],
-        ($) => $
-    ),
-    'reference': _p_cc(
-        $['reference'],
-        ($) => _p.optional.map(
-            $,
-            ($) => $
-        )
-    ),
-})
-
 export const M3: t_signatures.M3 = ($) => ({
     'id': _p_cc(
         $['id'],
@@ -259,6 +231,34 @@ export const M3: t_signatures.M3 = ($) => ({
                     )
                 ),
             })
+        )
+    ),
+})
+
+export const ID: t_signatures.ID = ($) => _p.optional.map(
+    $,
+    ($) => ({
+        'key': _p_cc(
+            $['key'],
+            ($) => $
+        ),
+        'id': _p_cc(
+            $['id'],
+            ($) => $
+        ),
+    })
+)
+
+export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
+    'resolveInfo': _p_cc(
+        $['resolveInfo'],
+        ($) => $
+    ),
+    'reference': _p_cc(
+        $['reference'],
+        ($) => _p.optional.map(
+            $,
+            ($) => $
         )
     ),
 })

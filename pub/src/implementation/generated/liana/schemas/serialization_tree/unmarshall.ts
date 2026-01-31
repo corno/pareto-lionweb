@@ -17,59 +17,111 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Targets: t_signatures.Targets = ($, abort) => _p.list.map(
-    v_unmarshalled_from_parse_tree.List(
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
-            ['expected a list', null]
+            ['expected a group', null]
         )
     ),
-    ($) => _p_cc(
-        v_unmarshalled_from_parse_tree.Group(
-            $,
-            ($) => abort(
-                ['expected a group', null]
+    ($) => ({
+        'serializationFormatVersion': _p_cc(
+            $.__get_entry(
+                'serializationFormatVersion',
+                ($) => abort(
+                    ['no such entry', "serializationFormatVersion"]
+                )
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
             )
         ),
-        ($) => ({
-            'resolveInfo': _p_cc(
-                $.__get_entry(
-                    'resolveInfo',
-                    ($) => abort(
-                        ['no such entry', "resolveInfo"]
-                    )
-                ),
-                ($) => v_unmarshalled_from_parse_tree.Text(
+        'languages': _p_cc(
+            $.__get_entry(
+                'languages',
+                ($) => abort(
+                    ['no such entry', "languages"]
+                )
+            ),
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
                     $,
                     ($) => abort(
-                        ['expected a text', null]
-                    )
-                )
-            ),
-            'reference': _p_cc(
-                $.__get_entry(
-                    'reference',
-                    ($) => abort(
-                        ['no such entry', "reference"]
+                        ['expected a list', null]
                     )
                 ),
-                ($) => _p.optional.map(
-                    v_unmarshalled_from_parse_tree.Optional(
+                ($) => _p_cc(
+                    v_unmarshalled_from_parse_tree.Group(
                         $,
                         ($) => abort(
-                            ['expected an optional', null]
+                            ['expected a group', null]
                         )
                     ),
-                    ($) => v_unmarshalled_from_parse_tree.Text(
-                        $,
-                        ($) => abort(
-                            ['expected a text', null]
-                        )
-                    )
+                    ($) => ({
+                        'key': _p_cc(
+                            $.__get_entry(
+                                'key',
+                                ($) => abort(
+                                    ['no such entry', "key"]
+                                )
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
+                                ($) => abort(
+                                    ['expected a text', null]
+                                )
+                            )
+                        ),
+                        'version': _p_cc(
+                            $.__get_entry(
+                                'version',
+                                ($) => abort(
+                                    ['no such entry', "version"]
+                                )
+                            ),
+                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                $,
+                                ($) => abort(
+                                    ['expected a text', null]
+                                )
+                            )
+                        ),
+                    })
+                )
+            )
+        ),
+        'root node id': _p_cc(
+            $.__get_entry(
+                'root node id',
+                ($) => abort(
+                    ['no such entry', "root node id"]
                 )
             ),
-        })
-    )
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
+            )
+        ),
+        'node tree': _p_cc(
+            $.__get_entry(
+                'node tree',
+                ($) => abort(
+                    ['no such entry', "node tree"]
+                )
+            ),
+            ($) => Node(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+    })
 )
 
 export const Node: t_signatures.Node = ($, abort) => _p_cc(
@@ -193,109 +245,57 @@ export const Node: t_signatures.Node = ($, abort) => _p_cc(
     })
 )
 
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
+export const Targets: t_signatures.Targets = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
-            ['expected a group', null]
+            ['expected a list', null]
         )
     ),
-    ($) => ({
-        'serializationFormatVersion': _p_cc(
-            $.__get_entry(
-                'serializationFormatVersion',
-                ($) => abort(
-                    ['no such entry', "serializationFormatVersion"]
-                )
-            ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
+    ($) => _p_cc(
+        v_unmarshalled_from_parse_tree.Group(
+            $,
+            ($) => abort(
+                ['expected a group', null]
             )
         ),
-        'languages': _p_cc(
-            $.__get_entry(
-                'languages',
-                ($) => abort(
-                    ['no such entry', "languages"]
-                )
-            ),
-            ($) => _p.list.map(
-                v_unmarshalled_from_parse_tree.List(
-                    $,
+        ($) => ({
+            'resolveInfo': _p_cc(
+                $.__get_entry(
+                    'resolveInfo',
                     ($) => abort(
-                        ['expected a list', null]
+                        ['no such entry', "resolveInfo"]
                     )
                 ),
-                ($) => _p_cc(
-                    v_unmarshalled_from_parse_tree.Group(
+                ($) => v_unmarshalled_from_parse_tree.Text(
+                    $,
+                    ($) => abort(
+                        ['expected a text', null]
+                    )
+                )
+            ),
+            'reference': _p_cc(
+                $.__get_entry(
+                    'reference',
+                    ($) => abort(
+                        ['no such entry', "reference"]
+                    )
+                ),
+                ($) => _p.optional.map(
+                    v_unmarshalled_from_parse_tree.Optional(
                         $,
                         ($) => abort(
-                            ['expected a group', null]
+                            ['expected an optional', null]
                         )
                     ),
-                    ($) => ({
-                        'key': _p_cc(
-                            $.__get_entry(
-                                'key',
-                                ($) => abort(
-                                    ['no such entry', "key"]
-                                )
-                            ),
-                            ($) => v_unmarshalled_from_parse_tree.Text(
-                                $,
-                                ($) => abort(
-                                    ['expected a text', null]
-                                )
-                            )
-                        ),
-                        'version': _p_cc(
-                            $.__get_entry(
-                                'version',
-                                ($) => abort(
-                                    ['no such entry', "version"]
-                                )
-                            ),
-                            ($) => v_unmarshalled_from_parse_tree.Text(
-                                $,
-                                ($) => abort(
-                                    ['expected a text', null]
-                                )
-                            )
-                        ),
-                    })
-                )
-            )
-        ),
-        'root node id': _p_cc(
-            $.__get_entry(
-                'root node id',
-                ($) => abort(
-                    ['no such entry', "root node id"]
+                    ($) => v_unmarshalled_from_parse_tree.Text(
+                        $,
+                        ($) => abort(
+                            ['expected a text', null]
+                        )
+                    )
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
-            )
-        ),
-        'node tree': _p_cc(
-            $.__get_entry(
-                'node tree',
-                ($) => abort(
-                    ['no such entry', "node tree"]
-                )
-            ),
-            ($) => Node(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-    })
+        })
+    )
 )

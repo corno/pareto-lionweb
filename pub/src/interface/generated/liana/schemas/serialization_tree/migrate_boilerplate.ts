@@ -5,11 +5,11 @@ import * as i_out from "./data"
 
 import * as i_in from "./data"
 
-export namespace Targets_ {
+export namespace Serialization_Chunk_ {
     
-    export type I = i_in.Targets
+    export type I = i_in.Serialization_Chunk
     
-    export type O = i_out.Targets
+    export type O = i_out.Serialization_Chunk
     
     export namespace P {
         
@@ -17,9 +17,9 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = (
-    context: Targets_.I,
-) => Targets_.O
+export type Serialization_Chunk_ = (
+    context: Serialization_Chunk_.I,
+) => Serialization_Chunk_.O
 
 export namespace Node_ {
     
@@ -37,11 +37,11 @@ export type Node_ = (
     context: Node_.I,
 ) => Node_.O
 
-export namespace Serialization_Chunk_ {
+export namespace Targets_ {
     
-    export type I = i_in.Serialization_Chunk
+    export type I = i_in.Targets
     
-    export type O = i_out.Serialization_Chunk
+    export type O = i_out.Targets
     
     export namespace P {
         
@@ -49,12 +49,12 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-) => Serialization_Chunk_.O
+export type Targets_ = (
+    context: Targets_.I,
+) => Targets_.O
 
 export { 
-    Targets_ as Targets, 
-    Node_ as Node, 
     Serialization_Chunk_ as Serialization_Chunk, 
+    Node_ as Node, 
+    Targets_ as Targets, 
 }

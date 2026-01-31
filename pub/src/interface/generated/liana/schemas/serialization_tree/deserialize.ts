@@ -5,11 +5,11 @@ import * as i_generic from "../../generic/deserialize"
 
 import * as i_out from "./data"
 
-export namespace Targets_ {
+export namespace Serialization_Chunk_ {
     
     export type I = string
     
-    export type O = i_out.Targets
+    export type O = i_out.Serialization_Chunk
     
     export type E = i_generic.Error
     
@@ -23,14 +23,14 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = (
-    context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
+export type Serialization_Chunk_ = (
+    context: Serialization_Chunk_.I,
+    abort: _pi.Abort<Serialization_Chunk_.E>,
     parameters: {
-        readonly 'document resource identifier': Targets_.P.document_resource_identifier
-        readonly 'tab size': Targets_.P.tab_size
+        readonly 'document resource identifier': Serialization_Chunk_.P.document_resource_identifier
+        readonly 'tab size': Serialization_Chunk_.P.tab_size
     },
-) => Targets_.O
+) => Serialization_Chunk_.O
 
 export namespace Node_ {
     
@@ -59,11 +59,11 @@ export type Node_ = (
     },
 ) => Node_.O
 
-export namespace Serialization_Chunk_ {
+export namespace Targets_ {
     
     export type I = string
     
-    export type O = i_out.Serialization_Chunk
+    export type O = i_out.Targets
     
     export type E = i_generic.Error
     
@@ -77,17 +77,17 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-    abort: _pi.Abort<Serialization_Chunk_.E>,
+export type Targets_ = (
+    context: Targets_.I,
+    abort: _pi.Abort<Targets_.E>,
     parameters: {
-        readonly 'document resource identifier': Serialization_Chunk_.P.document_resource_identifier
-        readonly 'tab size': Serialization_Chunk_.P.tab_size
+        readonly 'document resource identifier': Targets_.P.document_resource_identifier
+        readonly 'tab size': Targets_.P.tab_size
     },
-) => Serialization_Chunk_.O
+) => Targets_.O
 
 export { 
-    Targets_ as Targets, 
-    Node_ as Node, 
     Serialization_Chunk_ as Serialization_Chunk, 
+    Node_ as Node, 
+    Targets_ as Targets, 
 }

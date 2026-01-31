@@ -5,9 +5,9 @@ import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as i_in from "./data"
 
-export namespace Meta_Pointer_ {
+export namespace Serialization_Chunk_ {
     
-    export type I = i_in.Meta_Pointer
+    export type I = i_in.Serialization_Chunk
     
     export type O = i_out.Value
     
@@ -17,9 +17,9 @@ export namespace Meta_Pointer_ {
     
 }
 
-export type Meta_Pointer_ = (
-    context: Meta_Pointer_.I,
-) => Meta_Pointer_.O
+export type Serialization_Chunk_ = (
+    context: Serialization_Chunk_.I,
+) => Serialization_Chunk_.O
 
 export namespace Targets_ {
     
@@ -37,9 +37,9 @@ export type Targets_ = (
     context: Targets_.I,
 ) => Targets_.O
 
-export namespace Serialization_Chunk_ {
+export namespace Meta_Pointer_ {
     
-    export type I = i_in.Serialization_Chunk
+    export type I = i_in.Meta_Pointer
     
     export type O = i_out.Value
     
@@ -49,12 +49,12 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-) => Serialization_Chunk_.O
+export type Meta_Pointer_ = (
+    context: Meta_Pointer_.I,
+) => Meta_Pointer_.O
 
 export { 
-    Meta_Pointer_ as Meta_Pointer, 
-    Targets_ as Targets, 
     Serialization_Chunk_ as Serialization_Chunk, 
+    Targets_ as Targets, 
+    Meta_Pointer_ as Meta_Pointer, 
 }

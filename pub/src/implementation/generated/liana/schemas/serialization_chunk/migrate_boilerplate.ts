@@ -9,38 +9,6 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 
-export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ({
-    'language': _p_cc(
-        $['language'],
-        ($) => $
-    ),
-    'key': _p_cc(
-        $['key'],
-        ($) => $
-    ),
-    'version': _p_cc(
-        $['version'],
-        ($) => $
-    ),
-})
-
-export const Targets: t_signatures.Targets = ($) => _p.list.map(
-    $,
-    ($) => ({
-        'resolveInfo': _p_cc(
-            $['resolveInfo'],
-            ($) => $
-        ),
-        'reference': _p_cc(
-            $['reference'],
-            ($) => _p.optional.map(
-                $,
-                ($) => $
-            )
-        ),
-    })
-)
-
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     'serializationFormatVersion': _p_cc(
         $['serializationFormatVersion'],
@@ -152,5 +120,37 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
             })
         )
+    ),
+})
+
+export const Targets: t_signatures.Targets = ($) => _p.list.map(
+    $,
+    ($) => ({
+        'resolveInfo': _p_cc(
+            $['resolveInfo'],
+            ($) => $
+        ),
+        'reference': _p_cc(
+            $['reference'],
+            ($) => _p.optional.map(
+                $,
+                ($) => $
+            )
+        ),
+    })
+)
+
+export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ({
+    'language': _p_cc(
+        $['language'],
+        ($) => $
+    ),
+    'key': _p_cc(
+        $['key'],
+        ($) => $
+    ),
+    'version': _p_cc(
+        $['version'],
+        ($) => $
     ),
 })

@@ -7,11 +7,11 @@ import * as i_out from "./data"
 
 import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 
-export namespace Targets_ {
+export namespace Serialization_Chunk_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Targets
+    export type O = i_out.Serialization_Chunk
     
     export type E = i_generic.Error
     
@@ -21,10 +21,10 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = (
-    context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
-) => Targets_.O
+export type Serialization_Chunk_ = (
+    context: Serialization_Chunk_.I,
+    abort: _pi.Abort<Serialization_Chunk_.E>,
+) => Serialization_Chunk_.O
 
 export namespace Node_ {
     
@@ -45,11 +45,11 @@ export type Node_ = (
     abort: _pi.Abort<Node_.E>,
 ) => Node_.O
 
-export namespace Serialization_Chunk_ {
+export namespace Targets_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Serialization_Chunk
+    export type O = i_out.Targets
     
     export type E = i_generic.Error
     
@@ -59,13 +59,13 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-    abort: _pi.Abort<Serialization_Chunk_.E>,
-) => Serialization_Chunk_.O
+export type Targets_ = (
+    context: Targets_.I,
+    abort: _pi.Abort<Targets_.E>,
+) => Targets_.O
 
 export { 
-    Targets_ as Targets, 
-    Node_ as Node, 
     Serialization_Chunk_ as Serialization_Chunk, 
+    Node_ as Node, 
+    Targets_ as Targets, 
 }

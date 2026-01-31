@@ -9,22 +9,38 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
 
-export const Targets: t_signatures.Targets = ($) => _p.list.map(
-    $,
-    ($) => ({
-        'resolveInfo': _p_cc(
-            $['resolveInfo'],
-            ($) => $
-        ),
-        'reference': _p_cc(
-            $['reference'],
-            ($) => _p.optional.map(
-                $,
-                ($) => $
-            )
-        ),
-    })
-)
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
+    'serializationFormatVersion': _p_cc(
+        $['serializationFormatVersion'],
+        ($) => $
+    ),
+    'languages': _p_cc(
+        $['languages'],
+        ($) => _p.list.map(
+            $,
+            ($) => ({
+                'key': _p_cc(
+                    $['key'],
+                    ($) => $
+                ),
+                'version': _p_cc(
+                    $['version'],
+                    ($) => $
+                ),
+            })
+        )
+    ),
+    'root node id': _p_cc(
+        $['root node id'],
+        ($) => $
+    ),
+    'node tree': _p_cc(
+        $['node tree'],
+        ($) => Node(
+            $
+        )
+    ),
+})
 
 export const Node: t_signatures.Node = ($) => ({
     'classifier': _p_cc(
@@ -68,35 +84,19 @@ export const Node: t_signatures.Node = ($) => ({
     ),
 })
 
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
-    'serializationFormatVersion': _p_cc(
-        $['serializationFormatVersion'],
-        ($) => $
-    ),
-    'languages': _p_cc(
-        $['languages'],
-        ($) => _p.list.map(
-            $,
-            ($) => ({
-                'key': _p_cc(
-                    $['key'],
-                    ($) => $
-                ),
-                'version': _p_cc(
-                    $['version'],
-                    ($) => $
-                ),
-            })
-        )
-    ),
-    'root node id': _p_cc(
-        $['root node id'],
-        ($) => $
-    ),
-    'node tree': _p_cc(
-        $['node tree'],
-        ($) => Node(
-            $
-        )
-    ),
-})
+export const Targets: t_signatures.Targets = ($) => _p.list.map(
+    $,
+    ($) => ({
+        'resolveInfo': _p_cc(
+            $['resolveInfo'],
+            ($) => $
+        ),
+        'reference': _p_cc(
+            $['reference'],
+            ($) => _p.optional.map(
+                $,
+                ($) => $
+            )
+        ),
+    })
+)

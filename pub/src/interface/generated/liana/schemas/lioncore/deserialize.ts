@@ -5,6 +5,33 @@ import * as i_generic from "../../generic/deserialize"
 
 import * as i_out from "./data"
 
+export namespace M3_ {
+    
+    export type I = string
+    
+    export type O = i_out.M3
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type M3_ = (
+    context: M3_.I,
+    abort: _pi.Abort<M3_.E>,
+    parameters: {
+        readonly 'document resource identifier': M3_.P.document_resource_identifier
+        readonly 'tab size': M3_.P.tab_size
+    },
+) => M3_.O
+
 export namespace ID_ {
     
     export type I = string
@@ -59,35 +86,8 @@ export type Raw_Reference_ = (
     },
 ) => Raw_Reference_.O
 
-export namespace M3_ {
-    
-    export type I = string
-    
-    export type O = i_out.M3
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type M3_ = (
-    context: M3_.I,
-    abort: _pi.Abort<M3_.E>,
-    parameters: {
-        readonly 'document resource identifier': M3_.P.document_resource_identifier
-        readonly 'tab size': M3_.P.tab_size
-    },
-) => M3_.O
-
 export { 
+    M3_ as M3, 
     ID_ as ID, 
     Raw_Reference_ as Raw_Reference, 
-    M3_ as M3, 
 }

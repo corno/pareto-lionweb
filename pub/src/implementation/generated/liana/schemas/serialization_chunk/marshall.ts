@@ -13,58 +13,6 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'language': _p_cc(
-            $['language'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-        'key': _p_cc(
-            $['key'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-        'version': _p_cc(
-            $['version'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-    }
-)]]
-
-export const Targets: t_signatures.Targets = ($) => ['list', _p.list.map(
-    $,
-    ($) => ['group', ['verbose', _p.dictionary.literal(
-        {
-            'resolveInfo': _p_cc(
-                $['resolveInfo'],
-                ($) => ['text', {
-                    'delimiter': ['quote', null],
-                    'value': $,
-                }]
-            ),
-            'reference': _p_cc(
-                $['reference'],
-                ($) => ['optional', _p.decide.optional(
-                    $,
-                    ($): t_out.Value.optional => ['set', ['text', {
-                        'delimiter': ['quote', null],
-                        'value': $,
-                    }]],
-                    () => ['not set', null]
-                )]
-            ),
-        }
-    )]]
-)]
-
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         'serializationFormatVersion': _p_cc(
@@ -212,6 +160,58 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                     }
                 )]]
             )]
+        ),
+    }
+)]]
+
+export const Targets: t_signatures.Targets = ($) => ['list', _p.list.map(
+    $,
+    ($) => ['group', ['verbose', _p.dictionary.literal(
+        {
+            'resolveInfo': _p_cc(
+                $['resolveInfo'],
+                ($) => ['text', {
+                    'delimiter': ['quote', null],
+                    'value': $,
+                }]
+            ),
+            'reference': _p_cc(
+                $['reference'],
+                ($) => ['optional', _p.decide.optional(
+                    $,
+                    ($): t_out.Value.optional => ['set', ['text', {
+                        'delimiter': ['quote', null],
+                        'value': $,
+                    }]],
+                    () => ['not set', null]
+                )]
+            ),
+        }
+    )]]
+)]
+
+export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'language': _p_cc(
+            $['language'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+        'key': _p_cc(
+            $['key'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+        'version': _p_cc(
+            $['version'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
         ),
     }
 )]]

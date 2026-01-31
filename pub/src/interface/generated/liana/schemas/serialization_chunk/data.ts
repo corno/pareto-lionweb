@@ -1,47 +1,6 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-export namespace Meta_Pointer_ {
-    
-    export type language = string
-    
-    export type key = string
-    
-    export type version = string
-    
-}
-
-export type Meta_Pointer_ = {
-    readonly 'language': Meta_Pointer_.language
-    readonly 'key': Meta_Pointer_.key
-    readonly 'version': Meta_Pointer_.version
-}
-
-export namespace Targets_ {
-    
-    export namespace L {
-        
-        export type resolveInfo = string
-        
-        export namespace reference {
-            
-            export type O = string
-            
-        }
-        
-        export type reference = _pi.Optional_Value<reference.O>
-        
-    }
-    
-    export type L = {
-        readonly 'resolveInfo': L.resolveInfo
-        readonly 'reference': L.reference
-    }
-    
-}
-
-export type Targets_ = _pi.List<Targets_.L>
-
 export namespace Serialization_Chunk_ {
     
     export type serializationFormatVersion = string
@@ -176,8 +135,49 @@ export type Serialization_Chunk_ = {
     readonly 'nodes': Serialization_Chunk_.nodes
 }
 
+export namespace Targets_ {
+    
+    export namespace L {
+        
+        export type resolveInfo = string
+        
+        export namespace reference {
+            
+            export type O = string
+            
+        }
+        
+        export type reference = _pi.Optional_Value<reference.O>
+        
+    }
+    
+    export type L = {
+        readonly 'resolveInfo': L.resolveInfo
+        readonly 'reference': L.reference
+    }
+    
+}
+
+export type Targets_ = _pi.List<Targets_.L>
+
+export namespace Meta_Pointer_ {
+    
+    export type language = string
+    
+    export type key = string
+    
+    export type version = string
+    
+}
+
+export type Meta_Pointer_ = {
+    readonly 'language': Meta_Pointer_.language
+    readonly 'key': Meta_Pointer_.key
+    readonly 'version': Meta_Pointer_.version
+}
+
 export { 
-    Meta_Pointer_ as Meta_Pointer, 
-    Targets_ as Targets, 
     Serialization_Chunk_ as Serialization_Chunk, 
+    Targets_ as Targets, 
+    Meta_Pointer_ as Meta_Pointer, 
 }

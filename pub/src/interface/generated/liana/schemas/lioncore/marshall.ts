@@ -5,6 +5,22 @@ import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as i_in from "./data"
 
+export namespace M3_ {
+    
+    export type I = i_in.M3
+    
+    export type O = i_out.Value
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type M3_ = (
+    context: M3_.I,
+) => M3_.O
+
 export namespace ID_ {
     
     export type I = i_in.ID
@@ -37,24 +53,8 @@ export type Raw_Reference_ = (
     context: Raw_Reference_.I,
 ) => Raw_Reference_.O
 
-export namespace M3_ {
-    
-    export type I = i_in.M3
-    
-    export type O = i_out.Value
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type M3_ = (
-    context: M3_.I,
-) => M3_.O
-
 export { 
+    M3_ as M3, 
     ID_ as ID, 
     Raw_Reference_ as Raw_Reference, 
-    M3_ as M3, 
 }
