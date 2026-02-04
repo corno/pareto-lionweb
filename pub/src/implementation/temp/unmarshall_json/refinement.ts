@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
-import { _p_cc } from 'pareto-core/dist/change_context'
+import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 import * as d_json from "../../../modules/json/interface/to_be_generated/json"
 
@@ -77,7 +77,7 @@ export const Serialization_Chunk = (
      * 1) generate the Serialization_Chunk schema, which is now handwritten (one time effort)
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
-    return _p_cc(
+    return _p_change_context(
         helpers.expect_verbose_type(
             $,
             abort,
@@ -104,7 +104,7 @@ export const Serialization_Chunk = (
                 ),
                 abort,
             ).__l_map(
-                ($) => _p_cc(
+                ($) => _p_change_context(
                     helpers.expect_verbose_type(
                         $,
                         abort,
@@ -140,7 +140,7 @@ export const Serialization_Chunk = (
                     abort,
                 ),
                 abort,
-            ).__l_map(($) => _p_cc(
+            ).__l_map(($) => _p_change_context(
                 helpers.expect_verbose_type(
                     $,
                     abort,
@@ -191,7 +191,7 @@ export const Serialization_Chunk = (
                         ),
                         abort,
                     ).__l_map(
-                        ($) => _p_cc(
+                        ($) => _p_change_context(
                             helpers.expect_verbose_type(
                                 $,
                                 abort,
@@ -228,7 +228,7 @@ export const Serialization_Chunk = (
                         ),
                         abort,
                     ).__l_map(
-                        ($) => _p_cc(
+                        ($) => _p_change_context(
                             helpers.expect_verbose_type(
                                 $,
                                 abort,
@@ -267,7 +267,7 @@ export const Serialization_Chunk = (
                         ),
                         abort,
                     ).__l_map(
-                        ($) => _p_cc(
+                        ($) => _p_change_context(
                             helpers.expect_verbose_type(
                                 $,
                                 abort,
@@ -293,7 +293,7 @@ export const Serialization_Chunk = (
                                     ),
                                     abort,
                                 ).__l_map(
-                                    ($) => _p_cc(
+                                    ($) => _p_change_context(
                                         helpers.expect_verbose_type(
                                             $,
                                             abort,
@@ -345,7 +345,7 @@ export const Meta_Pointer = (
     $: d_json.Value,
     abort: _pi.Abort<string>
 ): d.Meta_Pointer => {
-    return _p_cc(
+    return _p_change_context(
         helpers.expect_verbose_type(
             $,
             abort,

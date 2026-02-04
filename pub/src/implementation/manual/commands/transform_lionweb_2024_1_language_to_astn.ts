@@ -44,17 +44,17 @@ import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
 
 import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/transformers/text"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
-import * as ds_path from "pareto-resources/dist/implementation/manual/schemas/context_path/deserializers"
+import * as r_path_from_text from "pareto-resources/dist/implementation/manual/schemas/context_path/refiners/temp_string"
 export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query(
 
             $qr['read file'](
                 t_path_to_path.create_node_path(
-                    ds_path.Context_Path(settings['in']['dir']),
-                    settings['in']['file']
+                    r_path_from_text.Context_Path(settings['in']['dir']),
+                    { 'node': settings['in']['file'] }
                 ),
                 ($): d_main.Error => {
                     _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Block_Part(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
@@ -63,8 +63,8 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
             ),
             ($, abort) => ({
                 'path': t_path_to_path.create_node_path(
-                    ds_path.Context_Path(settings['out']['dir']),
-                    settings['out']['file']
+                    r_path_from_text.Context_Path(settings['out']['dir']),
+                    { 'node': settings['out']['file'] }
                 ),
                 'data': r_2024_1(
                     $,

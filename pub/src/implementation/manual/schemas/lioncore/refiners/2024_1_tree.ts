@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
-import { _p_cc } from 'pareto-core/dist/change_context'
+import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
@@ -154,7 +154,7 @@ export const M3 = (
                                                                     ($) => $,
                                                                     () => context.abort(['expected exactly one element for link type of feature', feature_id])
                                                                 ),
-                                                                'link type': _p_cc($.classifier, ($) => {
+                                                                'link type': _p_change_context($.classifier, ($) => {
                                                                     switch ($) {
                                                                         case "LionCore-M3:2024.1:Reference":
                                                                             return ['reference', null]
