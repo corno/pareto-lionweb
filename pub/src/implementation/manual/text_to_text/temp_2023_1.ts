@@ -5,6 +5,7 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 
 import * as d_m3 from "../../../interface/generated/liana/schemas/lioncore/data"
+import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 import * as r_sf_to_tree from "../schemas/serialization_tree/refiners/serialization_chunk"
 import * as r_tree from "../schemas/lioncore/refiners/2023_1_tree"
@@ -30,7 +31,7 @@ export type Some_Error =
     | ['deserialization error', r_sf_to_tree.Deserialization_Error]
     | ['unmarshalling error', Unmarshall_Error]
 
-export const $$: _pi.Refiner<string, Some_Error, string> = ($, abort) => {
+export const $$: _pi.Refiner<d_loc.List_of_Characters, Some_Error, d_loc.List_of_Characters> = ($, abort) => {
     return _p_change_context(
         r_sf_to_tree.Serialization_Chunk(
             temp_json_unmarshall_should_be_done_extenally($),
