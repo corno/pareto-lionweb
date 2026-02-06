@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/lioncore/marshall"
     
@@ -15,20 +15,20 @@
     
     export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'id': _p_change_context(
+            "id": _p_change_context(
                 $['id'],
                 ($) => ID(
                     $,
                 ),
             ),
-            'version': _p_change_context(
+            "version": _p_change_context(
                 $['version'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'dependencies': _p_change_context(
+            "dependencies": _p_change_context(
                 $['dependencies'],
                 ($) => ['list', _p.list.map(
                     $,
@@ -37,19 +37,19 @@
                     ),
                 )],
             ),
-            'entities': _p_change_context(
+            "entities": _p_change_context(
                 $['entities'],
                 ($) => ['dictionary', _p.dictionary.map(
                     $,
                     ($, id) => ['group', ['verbose', _p.dictionary.literal(
                         {
-                            'id': _p_change_context(
+                            "id": _p_change_context(
                                 $['id'],
                                 ($) => ID(
                                     $,
                                 ),
                             ),
-                            'type': _p_change_context(
+                            "type": _p_change_context(
                                 $['type'],
                                 ($) => ['state', _p.decide.state(
                                     $,
@@ -62,7 +62,7 @@
                                                         'option': 'classifier',
                                                         'value': ['group', ['verbose', _p.dictionary.literal(
                                                             {
-                                                                'type': _p_change_context(
+                                                                "type": _p_change_context(
                                                                     $['type'],
                                                                     ($) => ['state', _p.decide.state(
                                                                         $,
@@ -75,21 +75,21 @@
                                                                                             'option': 'concept',
                                                                                             'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                 {
-                                                                                                    'abstract': _p_change_context(
+                                                                                                    "abstract": _p_change_context(
                                                                                                         $['abstract'],
                                                                                                         ($) => ['text', {
                                                                                                             'delimiter': ['quote', null],
                                                                                                             'value': $,
                                                                                                         }],
                                                                                                     ),
-                                                                                                    'partition': _p_change_context(
+                                                                                                    "partition": _p_change_context(
                                                                                                         $['partition'],
                                                                                                         ($) => ['text', {
                                                                                                             'delimiter': ['quote', null],
                                                                                                             'value': $,
                                                                                                         }],
                                                                                                     ),
-                                                                                                    'extends': _p_change_context(
+                                                                                                    "extends": _p_change_context(
                                                                                                         $['extends'],
                                                                                                         ($) => ['optional', _p.decide.optional(
                                                                                                             $,
@@ -99,7 +99,7 @@
                                                                                                             () => ['not set', null],
                                                                                                         )],
                                                                                                     ),
-                                                                                                    'implements': _p_change_context(
+                                                                                                    "implements": _p_change_context(
                                                                                                         $['implements'],
                                                                                                         ($) => ['list', _p.list.map(
                                                                                                             $,
@@ -119,7 +119,7 @@
                                                                                             'option': 'interface',
                                                                                             'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                 {
-                                                                                                    'extends': _p_change_context(
+                                                                                                    "extends": _p_change_context(
                                                                                                         $['extends'],
                                                                                                         ($) => ['list', _p.list.map(
                                                                                                             $,
@@ -140,26 +140,26 @@
                                                                         },
                                                                     )],
                                                                 ),
-                                                                'features': _p_change_context(
+                                                                "features": _p_change_context(
                                                                     $['features'],
                                                                     ($) => ['dictionary', _p.dictionary.map(
                                                                         $,
                                                                         ($, id) => ['group', ['verbose', _p.dictionary.literal(
                                                                             {
-                                                                                'id': _p_change_context(
+                                                                                "id": _p_change_context(
                                                                                     $['id'],
                                                                                     ($) => ID(
                                                                                         $,
                                                                                     ),
                                                                                 ),
-                                                                                'optional': _p_change_context(
+                                                                                "optional": _p_change_context(
                                                                                     $['optional'],
                                                                                     ($) => ['text', {
                                                                                         'delimiter': ['quote', null],
                                                                                         'value': $,
                                                                                     }],
                                                                                 ),
-                                                                                'type': _p_change_context(
+                                                                                "type": _p_change_context(
                                                                                     $['type'],
                                                                                     ($) => ['state', _p.decide.state(
                                                                                         $,
@@ -172,7 +172,7 @@
                                                                                                             'option': 'property',
                                                                                                             'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                                 {
-                                                                                                                    'type': _p_change_context(
+                                                                                                                    "type": _p_change_context(
                                                                                                                         $['type'],
                                                                                                                         ($) => Raw_Reference(
                                                                                                                             $,
@@ -189,20 +189,20 @@
                                                                                                             'option': 'link',
                                                                                                             'value': ['group', ['verbose', _p.dictionary.literal(
                                                                                                                 {
-                                                                                                                    'multiple': _p_change_context(
+                                                                                                                    "multiple": _p_change_context(
                                                                                                                         $['multiple'],
                                                                                                                         ($) => ['text', {
                                                                                                                             'delimiter': ['quote', null],
                                                                                                                             'value': $,
                                                                                                                         }],
                                                                                                                     ),
-                                                                                                                    'type': _p_change_context(
+                                                                                                                    "type": _p_change_context(
                                                                                                                         $['type'],
                                                                                                                         ($) => Raw_Reference(
                                                                                                                             $,
                                                                                                                         ),
                                                                                                                     ),
-                                                                                                                    'link type': _p_change_context(
+                                                                                                                    "link type": _p_change_context(
                                                                                                                         $['link type'],
                                                                                                                         ($) => ['state', _p.decide.state(
                                                                                                                             $,
@@ -302,14 +302,14 @@
         $,
         ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
             {
-                'key': _p_change_context(
+                "key": _p_change_context(
                     $['key'],
                     ($) => ['text', {
                         'delimiter': ['quote', null],
                         'value': $,
                     }],
                 ),
-                'id': _p_change_context(
+                "id": _p_change_context(
                     $['id'],
                     ($) => ['text', {
                         'delimiter': ['quote', null],
@@ -323,14 +323,14 @@
     
     export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'resolveInfo': _p_change_context(
+            "resolveInfo": _p_change_context(
                 $['resolveInfo'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'reference': _p_change_context(
+            "reference": _p_change_context(
                 $['reference'],
                 ($) => ['optional', _p.decide.optional(
                     $,

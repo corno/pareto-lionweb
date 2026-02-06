@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/serialization_tree/marshall"
     
@@ -15,27 +15,27 @@
     
     export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'serializationFormatVersion': _p_change_context(
+            "serializationFormatVersion": _p_change_context(
                 $['serializationFormatVersion'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'languages': _p_change_context(
+            "languages": _p_change_context(
                 $['languages'],
                 ($) => ['list', _p.list.map(
                     $,
                     ($) => ['group', ['verbose', _p.dictionary.literal(
                         {
-                            'key': _p_change_context(
+                            "key": _p_change_context(
                                 $['key'],
                                 ($) => ['text', {
                                     'delimiter': ['quote', null],
                                     'value': $,
                                 }],
                             ),
-                            'version': _p_change_context(
+                            "version": _p_change_context(
                                 $['version'],
                                 ($) => ['text', {
                                     'delimiter': ['quote', null],
@@ -46,14 +46,14 @@
                     )]],
                 )],
             ),
-            'root node id': _p_change_context(
+            "root node id": _p_change_context(
                 $['root node id'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'node tree': _p_change_context(
+            "node tree": _p_change_context(
                 $['node tree'],
                 ($) => Node(
                     $,
@@ -64,14 +64,14 @@
     
     export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'classifier': _p_change_context(
+            "classifier": _p_change_context(
                 $['classifier'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'properties': _p_change_context(
+            "properties": _p_change_context(
                 $['properties'],
                 ($) => ['dictionary', _p.dictionary.map(
                     $,
@@ -81,7 +81,7 @@
                     }],
                 )],
             ),
-            'containments': _p_change_context(
+            "containments": _p_change_context(
                 $['containments'],
                 ($) => ['dictionary', _p.dictionary.map(
                     $,
@@ -93,7 +93,7 @@
                     )],
                 )],
             ),
-            'references': _p_change_context(
+            "references": _p_change_context(
                 $['references'],
                 ($) => ['dictionary', _p.dictionary.map(
                     $,
@@ -102,7 +102,7 @@
                     ),
                 )],
             ),
-            'annotations': _p_change_context(
+            "annotations": _p_change_context(
                 $['annotations'],
                 ($) => ['list', _p.list.map(
                     $,
@@ -119,14 +119,14 @@
         $,
         ($) => ['group', ['verbose', _p.dictionary.literal(
             {
-                'resolveInfo': _p_change_context(
+                "resolveInfo": _p_change_context(
                     $['resolveInfo'],
                     ($) => ['text', {
                         'delimiter': ['quote', null],
                         'value': $,
                     }],
                 ),
-                'reference': _p_change_context(
+                "reference": _p_change_context(
                     $['reference'],
                     ($) => ['optional', _p.decide.optional(
                         $,
