@@ -7,7 +7,7 @@ export const $$ = <T>(
     prop_name: string,
     path: string,
     abort: _pi.Abort<Refinement_Error>
-): T => props.__get_entry(
+): T => props.__get_entry_deprecated(
     prop_name,
     () => abort(['missing property', { 'property': prop_name, 'path': path }])
 )

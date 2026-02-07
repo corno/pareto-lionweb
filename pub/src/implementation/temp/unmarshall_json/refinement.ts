@@ -17,7 +17,7 @@ namespace helpers {
             case 'object': return _p.ss($, ($) => {
                 const obj = $
                 expectedTypes.__d_map(($, id) => {
-                    obj.__get_entry(
+                    obj.__get_entry_deprecated(
                         id,
                         ($) => abort(`missing expected property: ${id}`),
                     )
@@ -32,7 +32,7 @@ namespace helpers {
         $: d_json.Value__object,
         propertyName: string,
         abort: _pi.Abort<string>
-    ): d_json.Value => $.__get_entry(
+    ): d_json.Value => $.__get_entry_deprecated(
         propertyName,
         ($) => abort(`missing expected property: ${propertyName}`),
     )

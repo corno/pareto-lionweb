@@ -63,7 +63,7 @@ const expect_property = <T>(
     prop_name: string,
     path: string,
     abort: _pi.Abort<Unmarshall_Error>
-): T => props.__get_possible_entry(prop_name).__decide(
+): T => props.__get_possible_entry_deprecated(prop_name).__decide(
     ($) => $,
     () => abort(['missing property', { 'property': prop_name, 'path': path }])
 )

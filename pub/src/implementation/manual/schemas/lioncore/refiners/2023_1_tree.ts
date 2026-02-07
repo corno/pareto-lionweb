@@ -158,7 +158,7 @@ export const M3 = (
                                                     "optional property of feature: " + feature_id,
                                                 ),
                                                 'type': _p.boolean.optional_is_set(
-                                                    $.references.__get_possible_entry(
+                                                    $.references.__get_possible_entry_deprecated(
                                                         "LionCore-M3:2023.1:Link-type",
                                                     )
                                                 )

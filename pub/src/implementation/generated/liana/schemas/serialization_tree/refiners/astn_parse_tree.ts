@@ -26,7 +26,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
     ),
     ($) => ({
         'serializationFormatVersion': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'serializationFormatVersion',
                 ($) => abort(
                     ['no such entry', "serializationFormatVersion"],
@@ -40,7 +40,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
             ),
         ),
         'languages': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'languages',
                 ($) => abort(
                     ['no such entry', "languages"],
@@ -62,7 +62,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                     ),
                     ($) => ({
                         'key': _p_change_context(
-                            $.__get_entry(
+                            $.__get_entry_deprecated(
                                 'key',
                                 ($) => abort(
                                     ['no such entry', "key"],
@@ -76,7 +76,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                             ),
                         ),
                         'version': _p_change_context(
-                            $.__get_entry(
+                            $.__get_entry_deprecated(
                                 'version',
                                 ($) => abort(
                                     ['no such entry', "version"],
@@ -94,7 +94,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
             ),
         ),
         'root node id': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'root node id',
                 ($) => abort(
                     ['no such entry', "root node id"],
@@ -108,7 +108,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
             ),
         ),
         'node tree': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'node tree',
                 ($) => abort(
                     ['no such entry', "node tree"],
@@ -133,7 +133,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
     ),
     ($) => ({
         'classifier': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'classifier',
                 ($) => abort(
                     ['no such entry', "classifier"],
@@ -147,7 +147,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
             ),
         ),
         'properties': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'properties',
                 ($) => abort(
                     ['no such entry', "properties"],
@@ -169,7 +169,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
             ),
         ),
         'containments': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'containments',
                 ($) => abort(
                     ['no such entry', "containments"],
@@ -199,7 +199,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
             ),
         ),
         'references': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'references',
                 ($) => abort(
                     ['no such entry', "references"],
@@ -221,7 +221,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
             ),
         ),
         'annotations': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'annotations',
                 ($) => abort(
                     ['no such entry', "annotations"],
@@ -261,7 +261,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.map(
         ),
         ($) => ({
             'resolveInfo': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'resolveInfo',
                     ($) => abort(
                         ['no such entry', "resolveInfo"],
@@ -275,7 +275,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.map(
                 ),
             ),
             'reference': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'reference',
                     ($) => abort(
                         ['no such entry', "reference"],

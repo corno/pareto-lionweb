@@ -86,7 +86,7 @@ const Node = (
                 ($) => Node(
                     {
                         'nodes': $p.nodes,
-                        'current node': $p.nodes.__get_entry(
+                        'current node': $p.nodes.__get_entry_deprecated(
                             $,
                             () => abort(['child node not found', $]),
                         ),
