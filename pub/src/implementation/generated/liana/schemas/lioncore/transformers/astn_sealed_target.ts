@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -30,8 +30,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         "dependencies": _p_change_context(
             $['dependencies'],
-            ($) => ['list', _p.list.map(
+            ($) => ['list', _p.list.from.list(
                 $,
+            ).map(
                 ($) => Raw_Reference(
                     $,
                 ),
@@ -39,8 +40,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         "entities": _p_change_context(
             $['entities'],
-            ($) => ['dictionary', _p.dictionary.map(
+            ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
+            ).map(
                 ($, id) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         "id": _p_change_context(
@@ -101,8 +103,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 ),
                                                                                                 "implements": _p_change_context(
                                                                                                     $['implements'],
-                                                                                                    ($) => ['list', _p.list.map(
+                                                                                                    ($) => ['list', _p.list.from.list(
                                                                                                         $,
+                                                                                                    ).map(
                                                                                                         ($) => Raw_Reference(
                                                                                                             $,
                                                                                                         ),
@@ -121,8 +124,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                             {
                                                                                                 "extends": _p_change_context(
                                                                                                     $['extends'],
-                                                                                                    ($) => ['list', _p.list.map(
+                                                                                                    ($) => ['list', _p.list.from.list(
                                                                                                         $,
+                                                                                                    ).map(
                                                                                                         ($) => Raw_Reference(
                                                                                                             $,
                                                                                                         ),
@@ -142,8 +146,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                             ),
                                                             "features": _p_change_context(
                                                                 $['features'],
-                                                                ($) => ['dictionary', _p.dictionary.map(
+                                                                ($) => ['dictionary', _p.dictionary.from.dictionary(
                                                                     $,
+                                                                ).map(
                                                                     ($, id) => ['group', ['verbose', _p.dictionary.literal(
                                                                         {
                                                                             "id": _p_change_context(
@@ -266,8 +271,9 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'enumeration',
-                                                                            'value': ['dictionary', _p.dictionary.map(
+                                                                            'value': ['dictionary', _p.dictionary.from.dictionary(
                                                                                 $,
+                                                                            ).map(
                                                                                 ($, id) => ID(
                                                                                     $,
                                                                                 ),

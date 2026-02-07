@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -24,16 +24,17 @@ export const Serialization_Chunk = (
     abort: _pi.Abort<Deserialization_Error>
 ): d_out.Serialization_Chunk => {
     const chunk = $
-    const nodes_without_parent = _p.list.filter(
+    const nodes_without_parent = _p.list.from.list(
         $.nodes,
+    ).filter(
         ($) => _p.decide.boolean(
-            _p.boolean.optional_is_set($.parent),
-            () => _p.optional.not_set<d_in.Serialization_Chunk.nodes.L>(),
-            () => _p.optional.set($)
+            _p.boolean.from.optional($.parent).is_set(),
+            () => _p.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+            () => _p.optional.literal.set($)
         )
 
     )
-    if (_p.natural.amount_of_list_items(nodes_without_parent) > 1) {
+    if (_p.number.natural.from.list(nodes_without_parent).amount_of_items() > 1) {
         return abort(['could not determine root node', null])
     }
     return _p_change_context(
@@ -47,8 +48,9 @@ export const Serialization_Chunk = (
             'root node id': $.id,
             'node tree': Node(
                 {
-                    'nodes': _p.dictionary.from_list(
+                    'nodes': _p.dictionary.from.list(
                         chunk.nodes,
+                    ).convert(
                         ($) => $.id,
                         ($) => $,
                         () => abort(['clashing node IDs', null]),
@@ -71,17 +73,20 @@ const Node = (
 ): d_out.Node => {
     return {
         'classifier': Meta_Pointer($p['current node'].classifier),
-        'properties': _p.dictionary.from_list(
+        'properties': _p.dictionary.from.list(
             $p['current node'].properties,
+        ).convert(
             ($) => Meta_Pointer($.property),
             ($) => $.value,
             () => abort(['clashing property keys', null]),
         ),
-        'containments': _p.dictionary.from_list(
+        'containments': _p.dictionary.from.list(
             $p['current node'].containments,
+        ).convert(
             ($) => Meta_Pointer($.containment),
-            ($) => _p.dictionary.from_list(
+            ($) => _p.dictionary.from.list(
                 $.children,
+            ).convert(
                 ($) => $,
                 ($) => Node(
                     {
@@ -97,8 +102,9 @@ const Node = (
             ),
             () => abort(['clashing containment keys', null]),
         ),
-        'references': _p.dictionary.from_list(
+        'references': _p.dictionary.from.list(
             $p['current node'].references,
+        ).convert(
             ($) => Meta_Pointer($.reference),
             ($) => $.targets,
             () => abort(['clashing reference keys', null]),

@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -24,8 +24,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
         ),
         "languages": _p_change_context(
             $['languages'],
-            ($) => ['list', _p.list.map(
+            ($) => ['list', _p.list.from.list(
                 $,
+            ).map(
                 ($) => ['group', ['verbose', _p.dictionary.literal(
                     {
                         "key": _p_change_context(
@@ -73,8 +74,9 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         "properties": _p_change_context(
             $['properties'],
-            ($) => ['dictionary', _p.dictionary.map(
+            ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
+            ).map(
                 ($, id) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -83,10 +85,12 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         "containments": _p_change_context(
             $['containments'],
-            ($) => ['dictionary', _p.dictionary.map(
+            ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
-                ($, id) => ['dictionary', _p.dictionary.map(
+            ).map(
+                ($, id) => ['dictionary', _p.dictionary.from.dictionary(
                     $,
+                ).map(
                     ($, id) => Node(
                         $,
                     ),
@@ -95,8 +99,9 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         "references": _p_change_context(
             $['references'],
-            ($) => ['dictionary', _p.dictionary.map(
+            ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
+            ).map(
                 ($, id) => Targets(
                     $,
                 ),
@@ -104,8 +109,9 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
         ),
         "annotations": _p_change_context(
             $['annotations'],
-            ($) => ['list', _p.list.map(
+            ($) => ['list', _p.list.from.list(
                 $,
+            ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -115,8 +121,9 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
     },
 )]]
 
-export const Targets: t_signatures.Targets = ($) => ['list', _p.list.map(
+export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['group', ['verbose', _p.dictionary.literal(
         {
             "resolveInfo": _p_change_context(

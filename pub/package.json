@@ -27,10 +27,10 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn-core": "^0.5.29",
-    "liana-core": "^0.0.14",
+    "astn-core": "^0.5.30",
+    "liana-core": "^0.0.15",
     "pareto-core-dev": "^0.12.7",
-    "pareto-host-nodejs": "^0.2.21",
-    "pareto-resources": "^0.2.35"
+    "pareto-host-nodejs": "^0.2.22",
+    "pareto-resources": "^0.2.37"
   }
 }

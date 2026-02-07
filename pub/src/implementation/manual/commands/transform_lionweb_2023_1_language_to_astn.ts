@@ -11,12 +11,12 @@ import * as _pi from 'pareto-core/dist/interface'
 // }
 const settings = {
     'in': {
-        'dir': `./data`,
-        'file': `SysML_lionweb_lionweb.json`,
+        'dir': "./data",
+        'file': "SysML_lionweb_lionweb.json",
     },
     'out': {
-        'dir': `.`,
-        'file': `sysml.m3.astn`,
+        'dir': ".",
+        'file': "sysml.m3.astn",
     },
 }
 
@@ -59,7 +59,13 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                     { 'node': settings['in']['file'] }
                 ),
                 ($): d_main.Error => {
-                    _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Phrase(t_read_file_to_fountain_pen.Error($), { 'indentation': `    `, 'newline': `\n` })}`, () => { })
+                    _pdev.log_debug_message(`could not read file:  ${t_fountain_pen_to_text.Phrase(
+                        t_read_file_to_fountain_pen.Error($),
+                        {
+                            'indentation': "    ",
+                            'newline': "\n"
+                        }
+                    )}`, () => { })
                     return { 'exit code': 1 }
                 }
             ),
@@ -71,7 +77,7 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                 'data': r_2023_1(
                     $,
                     ($) => {
-                        _pdev.log_debug_message(`error during processing`, () => { })
+                        _pdev.log_debug_message("error during processing", () => { })
                         return abort({ 'exit code': 1 })
                     }
                 )

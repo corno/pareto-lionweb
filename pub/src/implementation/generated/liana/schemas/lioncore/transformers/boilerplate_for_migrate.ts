@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -20,8 +20,9 @@ export const M3: t_signatures.M3 = ($) => ({
     ),
     'dependencies': _p_change_context(
         $['dependencies'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => Raw_Reference(
                 $,
             ),
@@ -29,8 +30,9 @@ export const M3: t_signatures.M3 = ($) => ({
     ),
     'entities': _p_change_context(
         $['entities'],
-        ($) => _p.dictionary.map(
+        ($) => _p.dictionary.from.dictionary(
             $,
+        ).map(
             ($, id) => ({
                 'id': _p_change_context(
                     $['id'],
@@ -68,8 +70,9 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                         ),
                                                                         'extends': _p_change_context(
                                                                             $['extends'],
-                                                                            ($) => _p.optional.map(
+                                                                            ($) => _p.optional.from.optional(
                                                                                 $,
+                                                                            ).map(
                                                                                 ($) => Raw_Reference(
                                                                                     $,
                                                                                 ),
@@ -77,8 +80,9 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                         ),
                                                                         'implements': _p_change_context(
                                                                             $['implements'],
-                                                                            ($) => _p.list.map(
+                                                                            ($) => _p.list.from.list(
                                                                                 $,
+                                                                            ).map(
                                                                                 ($) => Raw_Reference(
                                                                                     $,
                                                                                 ),
@@ -92,8 +96,9 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                     ($) => ['interface', {
                                                                         'extends': _p_change_context(
                                                                             $['extends'],
-                                                                            ($) => _p.list.map(
+                                                                            ($) => _p.list.from.list(
                                                                                 $,
+                                                                            ).map(
                                                                                 ($) => Raw_Reference(
                                                                                     $,
                                                                                 ),
@@ -111,8 +116,9 @@ export const M3: t_signatures.M3 = ($) => ({
                                             ),
                                             'features': _p_change_context(
                                                 $['features'],
-                                                ($) => _p.dictionary.map(
+                                                ($) => _p.dictionary.from.dictionary(
                                                     $,
+                                                ).map(
                                                     ($, id) => ({
                                                         'id': _p_change_context(
                                                             $['id'],
@@ -205,8 +211,9 @@ export const M3: t_signatures.M3 = ($) => ({
                                                     case 'enumeration':
                                                         return _p.ss(
                                                             $,
-                                                            ($) => ['enumeration', _p.dictionary.map(
+                                                            ($) => ['enumeration', _p.dictionary.from.dictionary(
                                                                 $,
+                                                            ).map(
                                                                 ($, id) => ID(
                                                                     $,
                                                                 ),
@@ -233,8 +240,9 @@ export const M3: t_signatures.M3 = ($) => ({
     ),
 })
 
-export const ID: t_signatures.ID = ($) => _p.optional.map(
+export const ID: t_signatures.ID = ($) => _p.optional.from.optional(
     $,
+).map(
     ($) => ({
         'key': _p_change_context(
             $['key'],
@@ -254,8 +262,9 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
     ),
     'reference': _p_change_context(
         $['reference'],
-        ($) => _p.optional.map(
+        ($) => _p.optional.from.optional(
             $,
+        ).map(
             ($) => $,
         ),
     ),

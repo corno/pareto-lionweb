@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -61,8 +61,8 @@ namespace helpers {
         $: d_json.Value,
     ): _pi.Optional_Value<d_json.Value> => _p.decide.state($, ($) => {
         switch ($[0]) {
-            case 'null': return _p.ss($, ($) => _p.optional.not_set())
-            default: return _p.optional.set($)
+            case 'null': return _p.ss($, ($) => _p.optional.literal.not_set())
+            default: return _p.optional.literal.set($)
         }
     })
 }
@@ -171,13 +171,14 @@ export const Serialization_Chunk = (
                         ),
                         abort,
                     ),
-                    'parent': _p.optional.map(
+                    'parent': _p.optional.from.optional(
                         helpers.expect_optional_null(
                             helpers.expect_property(
                                 $,
                                 "parent",
                                 abort,
                             )),
+                    ).map(
                         ($) => helpers.expect_text(
                             $,
                             abort,
@@ -311,7 +312,7 @@ export const Serialization_Chunk = (
                                                 ),
                                                 abort,
                                             ),
-                                            'reference': _p.optional.map(
+                                            'reference': _p.optional.from.optional(
                                                 helpers.expect_optional_null(
                                                     helpers.expect_property(
                                                         $,
@@ -319,6 +320,7 @@ export const Serialization_Chunk = (
                                                         abort,
                                                     ),
                                                 ),
+                                            ).map(
                                                 ($) => helpers.expect_text($, abort)
                                             ),
                                         })

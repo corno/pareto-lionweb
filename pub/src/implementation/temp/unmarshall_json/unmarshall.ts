@@ -18,4 +18,4 @@ import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/
 
 // }
 
-export const temp_json_unmarshall_should_be_done_extenally = ($: d_loc.List_of_Characters) => _pdev.implement_me(`JSON unmarshall should be done externally`)
+export const temp_json_unmarshall_should_be_done_extenally = ($: d_loc.List_of_Characters) => _pdev.implement_me("JSON unmarshall should be done externally")

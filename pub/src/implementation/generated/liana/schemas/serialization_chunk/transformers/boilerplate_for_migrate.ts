@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -14,8 +14,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
     'languages': _p_change_context(
         $['languages'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => ({
                 'key': _p_change_context(
                     $['key'],
@@ -30,8 +31,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
     'nodes': _p_change_context(
         $['nodes'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => ({
                 'id': _p_change_context(
                     $['id'],
@@ -39,8 +41,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'parent': _p_change_context(
                     $['parent'],
-                    ($) => _p.optional.map(
+                    ($) => _p.optional.from.optional(
                         $,
+                    ).map(
                         ($) => $,
                     ),
                 ),
@@ -52,8 +55,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'properties': _p_change_context(
                     $['properties'],
-                    ($) => _p.list.map(
+                    ($) => _p.list.from.list(
                         $,
+                    ).map(
                         ($) => ({
                             'property': _p_change_context(
                                 $['property'],
@@ -70,8 +74,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'references': _p_change_context(
                     $['references'],
-                    ($) => _p.list.map(
+                    ($) => _p.list.from.list(
                         $,
+                    ).map(
                         ($) => ({
                             'reference': _p_change_context(
                                 $['reference'],
@@ -90,8 +95,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'containments': _p_change_context(
                     $['containments'],
-                    ($) => _p.list.map(
+                    ($) => _p.list.from.list(
                         $,
+                    ).map(
                         ($) => ({
                             'containment': _p_change_context(
                                 $['containment'],
@@ -101,8 +107,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                             ),
                             'children': _p_change_context(
                                 $['children'],
-                                ($) => _p.list.map(
+                                ($) => _p.list.from.list(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
@@ -111,8 +118,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'annotations': _p_change_context(
                     $['annotations'],
-                    ($) => _p.list.map(
+                    ($) => _p.list.from.list(
                         $,
+                    ).map(
                         ($) => $,
                     ),
                 ),
@@ -121,8 +129,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
 })
 
-export const Targets: t_signatures.Targets = ($) => _p.list.map(
+export const Targets: t_signatures.Targets = ($) => _p.list.from.list(
     $,
+).map(
     ($) => ({
         'resolveInfo': _p_change_context(
             $['resolveInfo'],
@@ -130,8 +139,9 @@ export const Targets: t_signatures.Targets = ($) => _p.list.map(
         ),
         'reference': _p_change_context(
             $['reference'],
-            ($) => _p.optional.map(
+            ($) => _p.optional.from.optional(
                 $,
+            ).map(
                 ($) => $,
             ),
         ),
