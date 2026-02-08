@@ -53,7 +53,9 @@ export const Serialization_Chunk = (
                     ).convert(
                         ($) => $.id,
                         ($) => $,
-                        () => abort(['clashing node IDs', null]),
+                        {
+                            duplicate_id: () => abort(['clashing node IDs', null])
+                        },
                     ),
                     'current node': $,
                 },
@@ -78,7 +80,9 @@ const Node = (
         ).convert(
             ($) => Meta_Pointer($.property),
             ($) => $.value,
-            () => abort(['clashing property keys', null]),
+            {
+                duplicate_id: () => abort(['clashing property keys', null])
+            },
         ),
         'containments': _p.dictionary.from.list(
             $p['current node'].containments,
@@ -93,21 +97,29 @@ const Node = (
                         'nodes': $p.nodes,
                         'current node': $p.nodes.__get_entry_deprecated(
                             $,
-                            () => abort(['child node not found', $]),
+                            {
+                                no_such_entry: () => abort(['child node not found', $]),
+                            }
                         ),
                     },
                     abort,
                 ),
-                () => abort(['clashing child node IDs', null]),
+                {
+                    duplicate_id: () => abort(['clashing child node IDs', null]),
+                }
             ),
-            () => abort(['clashing containment keys', null]),
+            {
+                duplicate_id: () => abort(['clashing containment keys', null])
+            },
         ),
         'references': _p.dictionary.from.list(
             $p['current node'].references,
         ).convert(
             ($) => Meta_Pointer($.reference),
             ($) => $.targets,
-            () => abort(['clashing reference keys', null]),
+            {
+                duplicate_id: () => abort(['clashing reference keys', null])
+            },
         ),
         'annotations': $p['current node'].annotations,
     }

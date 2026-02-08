@@ -19,7 +19,9 @@ namespace helpers {
                 expectedTypes.__d_map(($, id) => {
                     obj.__get_entry_deprecated(
                         id,
-                        ($) => abort(`missing expected property: ${id}`),
+                        {
+                            no_such_entry: ($) => abort(`missing expected property: ${id}`),
+                        }
                     )
                 })
                 return $
@@ -34,7 +36,9 @@ namespace helpers {
         abort: _pi.Abort<string>
     ): d_json.Value => $.__get_entry_deprecated(
         propertyName,
-        ($) => abort(`missing expected property: ${propertyName}`),
+        {
+            no_such_entry: ($) => abort(`missing expected property: ${propertyName}`),
+        }
     )
 
     export const expect_text = (
