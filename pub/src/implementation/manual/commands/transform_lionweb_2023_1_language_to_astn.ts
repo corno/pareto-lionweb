@@ -44,7 +44,7 @@ import { $$ as r_2023_1 } from "../text_to_text/temp_2023_1"
 
 import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/transformers/list_of_characters"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/prose/transformers/list_of_characters"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
 import * as r_path_from_text from "pareto-resources/dist/implementation/manual/schemas/context_path/refiners/temp_string"
 
