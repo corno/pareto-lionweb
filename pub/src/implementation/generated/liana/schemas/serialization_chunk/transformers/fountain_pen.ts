@@ -7,6 +7,12 @@ import * as v_serialize from "astn-core/dist/implementation/manual/transformers/
 
 import * as v_marshall from "./astn_sealed_target"
 
+export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => v_serialize.Document(
+    v_marshall.Serialization_Chunks(
+        $,
+    ),
+)
+
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => v_serialize.Document(
     v_marshall.Serialization_Chunk(
         $,

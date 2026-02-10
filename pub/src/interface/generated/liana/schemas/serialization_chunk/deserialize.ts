@@ -7,6 +7,33 @@ import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_o
 
 import * as i_out from "./data"
 
+export namespace Serialization_Chunks_ {
+    
+    export type I = i_in.List_of_Characters
+    
+    export type O = i_out.Serialization_Chunks
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Serialization_Chunks_ = (
+    context: Serialization_Chunks_.I,
+    abort: _pi.Abort<Serialization_Chunks_.E>,
+    parameters: {
+        readonly 'document resource identifier': Serialization_Chunks_.P.document_resource_identifier
+        readonly 'tab size': Serialization_Chunks_.P.tab_size
+    },
+) => Serialization_Chunks_.O
+
 export namespace Serialization_Chunk_ {
     
     export type I = i_in.List_of_Characters
@@ -89,6 +116,7 @@ export type Meta_Pointer_ = (
 ) => Meta_Pointer_.O
 
 export { 
+    Serialization_Chunks_ as Serialization_Chunks, 
     Serialization_Chunk_ as Serialization_Chunk, 
     Targets_ as Targets, 
     Meta_Pointer_ as Meta_Pointer, 

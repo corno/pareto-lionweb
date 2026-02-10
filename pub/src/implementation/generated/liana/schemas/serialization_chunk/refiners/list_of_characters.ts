@@ -7,6 +7,22 @@ import * as v_deserialize from "astn-core/dist/implementation/manual/refiners/pa
 
 import * as v_unmarshall from "./astn_parse_tree"
 
+export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($, abort, $p) => v_unmarshall.Serialization_Chunks(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['parse error', $],
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        },
+    )['content'],
+    ($) => abort(
+        ['unmarshall error', $],
+    ),
+)
+
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort, $p) => v_unmarshall.Serialization_Chunk(
     v_deserialize.Document(
         $,

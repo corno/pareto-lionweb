@@ -7,6 +7,14 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 
+export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => _p.dictionary.from.dictionary(
+    $,
+).map(
+    ($, id) => Serialization_Chunk(
+        $,
+    ),
+)
+
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     'serializationFormatVersion': _p_change_context(
         $['serializationFormatVersion'],

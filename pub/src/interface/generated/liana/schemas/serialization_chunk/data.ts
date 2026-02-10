@@ -1,6 +1,14 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
+export namespace Serialization_Chunks_ {
+    
+    export type D = Serialization_Chunk_
+    
+}
+
+export type Serialization_Chunks_ = _pi.Dictionary<Serialization_Chunks_.D>
+
 export namespace Serialization_Chunk_ {
     
     export type serializationFormatVersion = string
@@ -177,6 +185,7 @@ export type Meta_Pointer_ = {
 }
 
 export { 
+    Serialization_Chunks_ as Serialization_Chunks, 
     Serialization_Chunk_ as Serialization_Chunk, 
     Targets_ as Targets, 
     Meta_Pointer_ as Meta_Pointer, 
