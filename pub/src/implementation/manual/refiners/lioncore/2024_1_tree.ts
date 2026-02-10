@@ -2,15 +2,15 @@ import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
-import * as d_in from "../../../../../interface/generated/liana/schemas/serialization_tree/data"
-import * as d_out from "../../../../../interface/generated/liana/schemas/lioncore/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data"
+import * as d_out from "../../../../interface/generated/liana/schemas/lioncore/data"
 
 
 export const expect_exactly_one_element = <T>($: _pi.List<T>): _pi.Optional_Value<T> => _p.number.natural.from.list($).amount_of_items() !== 1
     ? _p.optional.literal.not_set()
     : $.__deprecated_get_possible_item_at(0)
 
-import * as h from "../../../../temp_context"
+import * as h from "../../../temp_context"
 
 
 export const ID = (

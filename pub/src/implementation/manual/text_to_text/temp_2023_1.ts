@@ -7,8 +7,8 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 import * as d_m3 from "../../../interface/generated/liana/schemas/lioncore/data"
 import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-import * as r_sf_to_tree from "../schemas/serialization_tree/refiners/serialization_chunk"
-import * as r_tree from "../schemas/lioncore/refiners/2023_1_tree"
+import * as r_sf_to_tree from "../refiners/serialization_tree/serialization_chunk"
+import * as r_tree from "../refiners/lioncore/2023_1_tree"
 
 // import * as m_x from "../../generated/liana/schemas/lioncore/marshall"
 
