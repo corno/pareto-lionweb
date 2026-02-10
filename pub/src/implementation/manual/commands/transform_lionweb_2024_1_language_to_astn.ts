@@ -42,11 +42,11 @@ import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
 import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
 
-import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
+import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
 // import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
-import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
-import * as r_path_from_text from "pareto-resources/dist/implementation/manual/schemas/context_path/refiners/temp_string"
+import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
+import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/context_path/temp_string"
 export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query(
