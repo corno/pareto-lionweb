@@ -1,0 +1,514 @@
+(
+    'id': ~
+    'version': "2024.1"
+    'dependencies': [ ]
+    'entities': {
+        `Annotation`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Classifier"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `annotates`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Classifier"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                    `extends`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Annotation"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                    `implements`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Interface"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Concept`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Classifier"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `abstract`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.Boolean"
+                                'reference': ~
+                            )
+                        )
+                    )
+                    `partition`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.Boolean"
+                                'reference': ~
+                            )
+                        )
+                    )
+                    `extends`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Concept"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                    `implements`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Interface"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Interface`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Classifier"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `extends`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Interface"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Containment`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Link"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {}
+            )
+        )
+        `DataType`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "true"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.LanguageEntity"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {}
+            )
+        )
+        `Enumeration`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.DataType"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `literals`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.EnumerationLiteral"
+                                'reference': ~
+                            )
+                            'link type': | 'containment' ~
+                        )
+                    )
+                }
+            )
+        )
+        `EnumerationLiteral`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': ~
+                    'implements': [ (
+                        'resolveInfo': "LionWeb.LionCore_M3.IKeyed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {}
+            )
+        )
+        `Feature`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "true"
+                    'partition': "false"
+                    'extends': ~
+                    'implements': [ (
+                        'resolveInfo': "LionWeb.LionCore_M3.IKeyed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {
+                    `optional`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.Boolean"
+                                'reference': ~
+                            )
+                        )
+                    )
+                }
+            )
+        )
+        `Field`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': ~
+                    'implements': [ (
+                        'resolveInfo': "LionWeb.LionCore_M3.IKeyed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {
+                    `type`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.DataType"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Classifier`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "true"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.LanguageEntity"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `features`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Feature"
+                                'reference': ~
+                            )
+                            'link type': | 'containment' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Link`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "true"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Feature"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `multiple`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.Boolean"
+                                'reference': ~
+                            )
+                        )
+                    )
+                    `type`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Classifier"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Language`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "true"
+                    'extends': ~
+                    'implements': [ (
+                        'resolveInfo': "LionWeb.LionCore_M3.IKeyed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {
+                    `version`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.String"
+                                'reference': ~
+                            )
+                        )
+                    )
+                    `dependsOn`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Language"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                    `entities`: (
+                        'id': ~
+                        'optional': "true"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.LanguageEntity"
+                                'reference': ~
+                            )
+                            'link type': | 'containment' ~
+                        )
+                    )
+                }
+            )
+        )
+        `LanguageEntity`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "true"
+                    'partition': "false"
+                    'extends': ~
+                    'implements': [ (
+                        'resolveInfo': "LionWeb.LionCore_M3.IKeyed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {}
+            )
+        )
+        `IKeyed`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'interface' (
+                    'extends': [ (
+                        'resolveInfo': "LionWeb.LionCore_builtins.INamed"
+                        'reference': ~
+                    ) ]
+                )
+                'features': {
+                    `key`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'property' (
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_builtins.String"
+                                'reference': ~
+                            )
+                        )
+                    )
+                }
+            )
+        )
+        `PrimitiveType`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.DataType"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {}
+            )
+        )
+        `Property`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Feature"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `type`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'link' (
+                            'multiple': "false"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.DataType"
+                                'reference': ~
+                            )
+                            'link type': | 'reference' ~
+                        )
+                    )
+                }
+            )
+        )
+        `Reference`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.Link"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {}
+            )
+        )
+        `StructuredDataType`: (
+            'id': ~
+            'type': | 'classifier' (
+                'type': | 'concept' (
+                    'abstract': "false"
+                    'partition': "false"
+                    'extends': * (
+                        'resolveInfo': "LionWeb.LionCore_M3.DataType"
+                        'reference': ~
+                    )
+                    'implements': [ ]
+                )
+                'features': {
+                    `fields`: (
+                        'id': ~
+                        'optional': "false"
+                        'type': | 'link' (
+                            'multiple': "true"
+                            'type': (
+                                'resolveInfo': "LionWeb.LionCore_M3.Field"
+                                'reference': ~
+                            )
+                            'link type': | 'containment' ~
+                        )
+                    )
+                }
+            )
+        )
+    }
+)

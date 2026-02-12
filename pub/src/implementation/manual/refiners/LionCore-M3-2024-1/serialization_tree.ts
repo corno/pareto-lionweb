@@ -39,17 +39,18 @@ export const M3 = (
         'write id': boolean
     },
 ): d_out.M3 => {
-    const root_node = $['node tree']
     return _p_assert(
         abort,
         () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
             $['node tree'],
             {
                 'expected containments': _p.dictionary.literal({
+                    "LionCore-M3:2024.1:Language-entities": null,
                 }),
                 'expected properties': _p.dictionary.literal({
                     "LionCore-M3:2024.1:Language-version": null,
-                    "LionCore-M3:2024.1:Language-entities": null,
+                    "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                    "LionCore-M3:2024.1:IKeyed-key": null,
                 }),
                 'expected references': _p.dictionary.literal({
                     "LionCore-M3:2024.1:Language-dependsOn": null,
@@ -96,38 +97,38 @@ export const M3 = (
                 },
             ).__d_map(
                 ($, id) => {
-                    return {
-                        'id': ID(
+                    return _p_assert(
+                        abort,
+                        () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                             $,
-                            abort,
                             {
-                                'id': id,
-                                'write id': $p['write id']
+                                'expected containments': _p.dictionary.literal({
+                                    "LionCore-M3:2024.1:Classifier-features": null,
+                                    "LionCore-M3:2024.1:Enumeration-literals": null,
+                                }),
+                                'expected properties': _p.dictionary.literal({
+                                    "LionCore-M3:2024.1:IKeyed-key": null,
+                                    "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                                    "LionCore-M3:2024.1:Concept-abstract": null,
+                                    "LionCore-M3:2024.1:Concept-partition": null,
+                                }),
+                                'expected references': _p.dictionary.literal({
+                                    "LionCore-M3:2024.1:Concept-extends": null,
+                                    "LionCore-M3:2024.1:Concept-implements": null,
+                                    "LionCore-M3:2024.1:Interface-extends": null,
+                                }),
                             }
                         ),
-                        'type': _p.state.block((): d_out.M3.entities.D.type_ => _p_assert(
-                            abort,
-                            () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
+                        () => ({
+                            'id': ID(
                                 $,
+                                abort,
                                 {
-                                    'expected containments': _p.dictionary.literal({
-                                        "LionCore-M3:2024.1:Classifier-features": null,
-                                        "LionCore-M3:2024.1:Enumeration-literals": null,
-                                    }),
-                                    'expected properties': _p.dictionary.literal({
-                                        "LionCore-M3:2024.1:IKeyed-key": null,
-                                        "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
-                                        "LionCore-M3:2024.1:Concept-abstract": null,
-                                        "LionCore-M3:2024.1:Concept-partition": null,
-                                    }),
-                                    'expected references': _p.dictionary.literal({
-                                        "LionCore-M3:2024.1:Concept-extends": null,
-                                        "LionCore-M3:2024.1:Concept-implements": null,
-                                        "LionCore-M3:2024.1:Interface-extends": null,
-                                    }),
+                                    'id': id,
+                                    'write id': $p['write id']
                                 }
                             ),
-                            (): d_out.M3.entities.D.type_ => {
+                            'type': _p.state.block((): d_out.M3.entities.D.type_ => {
                                 const node = $
                                 switch ($.classifier) {
                                     case "LionCore-M3:2024.1:Concept":
@@ -360,9 +361,9 @@ export const M3 = (
                                         }]
                                     })
                                 }
-                            }
-                        ))
-                    }
+                            })
+                        })
+                    )
                 }
             ),
             'dependencies': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(

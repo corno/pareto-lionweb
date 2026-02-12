@@ -71,9 +71,18 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     }
     return _p.optional.literal.set<d_out.Error>({
         'type': ['unexpected content', {
-            'containments': unexpected_containments,
-            'properties': unexpected_properties,
-            'references': unexpected_references,
+            'containments': {
+                'unexpected': unexpected_containments,
+                'expected': $p['expected containments'],
+            },
+            'properties': {
+                'unexpected': unexpected_properties,
+                'expected': $p['expected properties'],
+            },
+            'references': {
+                'unexpected': unexpected_references,
+                'expected': $p['expected references'],
+            },
         }],
         'range': $.range
     })

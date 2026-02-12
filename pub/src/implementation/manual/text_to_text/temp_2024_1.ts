@@ -4,38 +4,21 @@ import * as _pdev from 'pareto-core-dev'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 //data types
-import * as d_m3 from "../../../interface/generated/liana/schemas/lioncore/data"
 import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
-import * as d_unmarshall from "../../../modules/lionweb-core/interface/to_be_generated/unmarshall_serialization_tree"
-import * as d_deserialize_serialization_tree from "../../../modules/lionweb-core/interface/to_be_generated/deserialize_serialization_tree"
+import * as d_function from "../../../interface/to_be_generated/processing"
 
 //dependencies
 import * as r_serialization_tree_from_list_of_characters from "../../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters"
 import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree"
+import * as t_lioncore_to_fp from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
+import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-
-const temp_serialize_should_be_generated = (
-    m3: d_m3.M3,
-
-    // ) => serialize.Document(
-    //     m_x.M3(
-    //         m3,
-    //         $p
-    //     ),
-    // )
-) => _pdev.implement_me("LW2024")
-
-export type Some_Error =
-    | ['deserialization error', d_deserialize_serialization_tree.Error]
-    | ['unmarshalling error', d_unmarshall.Error]
-
-export type Parameter = d_deserialize_serialization_tree.Parameter
 
 export type Signature = _pi.Refiner_With_Parameter<
     d_loc.List_of_Characters,
-    Some_Error,
+    d_function.Error,
     d_loc.List_of_Characters,
-    Parameter
+    d_function.Parameter
 >
 
 export const $$: Signature = ($, abort, $p) => _p_change_context(
@@ -52,8 +35,14 @@ export const $$: Signature = ($, abort, $p) => _p_change_context(
                 'write id': false
             },
         ),
-        ($) => temp_serialize_should_be_generated(
-            $,
+        ($) => t_fp_to_list_of_characters.Paragraph(
+            t_lioncore_to_fp.M3(
+                $,
+            ),
+            {
+                'indentation': "    ",
+                'newline': "\n",
+            }
         )
     )
 )

@@ -13,9 +13,9 @@ export type Error = {
         'id': string
     }]
     | ['unexpected content', {
-        'containments': _pi.Dictionary<null>
-        'properties': _pi.Dictionary<null>
-        'references': _pi.Dictionary<null>
+        'containments': Unexpected_Content
+        'properties': Unexpected_Content
+        'references': Unexpected_Content
     }]
     | ['too many feature elements', null]
     | ['missing feature element', null]
@@ -31,6 +31,11 @@ export type Error = {
 //     | ['expected exactly one element for property type of feature', string]
 //     | ['unknown entity classifier type', string]
 //     | ['unknown classifier type', string]
+
+export type Unexpected_Content = {
+    'unexpected': _pi.Dictionary<null>
+    'expected': _pi.Dictionary<null>
+}
 
 
 export type Optional_Error = _pi.Optional_Value<Error>

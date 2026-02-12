@@ -5,19 +5,23 @@ import * as _pdev from 'pareto-core-dev'
 //data types
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_function from "../../../../interface/to_be_generated/unmarshall"
+import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
 import * as d_astn_unmarshalled from "astn-core/dist/interface/to_be_generated/unmarshalled"
 
 //dependencies
 import * as r_astn_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
+import * as t_astn_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
 
 export const Array = (
     $: d_in.Value,
     abort: _pi.Abort<d_function.Error>,
-) => r_astn_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(['astn', $]),
-)
+) => {
+    return r_astn_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(['astn', $]),
+    )
+}
 
 export const Boolean = (
     $: d_in.Value,
@@ -36,16 +40,28 @@ export const Boolean = (
                                     ? true
                                     : text_value.value === "false"
                                         ? false
-                                        : abort(['json', ['not a boolean', null]])
+                                        : abort(['json', {
+                                            'type': ['not a boolean', null],
+                                            'range': t_astn_parse_tree_to_location.Value(value),
+                                        }])
                                 )
-                                default: return abort(['json', ['not a boolean', null]])
+                                default: return abort(['json', {
+                                    'type': ['not a boolean', null],
+                                    'range': t_astn_parse_tree_to_location.Value(value),
+                                }])
                             }
                         })
                     })
-                    default: return abort(['json', ['not a boolean', null]])
+                    default: return abort(['json', {
+                        'type': ['not a boolean', null],
+                        'range': t_astn_parse_tree_to_location.Value(value),
+                    }])
                 }
             }))
-            default: return abort(['json', ['not a boolean', null]])
+            default: return abort(['json', {
+                'type': ['not a boolean', null],
+                'range': t_astn_parse_tree_to_location.Value(value),
+            }])
         }
     })
 }
@@ -65,16 +81,28 @@ export const Null = (
                             switch ($[0]) {
                                 case 'undelimited': return _p.ss($, ($) => text_value.value === "null"
                                     ? null
-                                    : abort(['json', ['not a null', null]])
+                                    : abort(['json', {
+                                        'type': ['not a null', null],
+                                        'range': t_astn_parse_tree_to_location.Value(value),
+                                    }])
                                 )
-                                default: return abort(['json', ['not a null', null]])
+                                default: return abort(['json', {
+                                    'type': ['not a null', null],
+                                    'range': t_astn_parse_tree_to_location.Value(value),
+                                }])
                             }
                         })
                     })
-                    default: return abort(['json', ['not a null', null]])
+                    default: return abort(['json', {
+                        'type': ['not a null', null],
+                        'range': t_astn_parse_tree_to_location.Value(value),
+                    }])
                 }
             }))
-            default: return abort(['json', ['not a null', null]])
+            default: return abort(['json', {
+                'type': ['not a null', null],
+                'range': t_astn_parse_tree_to_location.Value(value),
+            }])
         }
     })
 }
@@ -93,19 +121,28 @@ export const Number = (
                         return _p.decide.state($.type, ($) => {
                             switch ($[0]) {
                                 case 'undelimited': return _p.ss($, ($) => _pdev.implement_me(`parse number from text: ${text_value.value}`))
-                                default: return abort(['json', ['not a number', null]])
+                                default: return abort(['json', {
+                                    'type': ['not a number', null],
+                                    'range': t_astn_parse_tree_to_location.Value(value),
+                                }])
                             }
                         })
                     })
-                    default: return abort(['json', ['not a number', null]])
+                    default: return abort(['json', {
+                        'type': ['not a number', null],
+                        'range': t_astn_parse_tree_to_location.Value(value),
+                    }])
                 }
             }))
-            default: return abort(['json', ['not a number', null]])
+            default: return abort(['json', {
+                'type': ['not a number', null],
+                'range': t_astn_parse_tree_to_location.Value(value),
+            }])
         }
     })
 }
 
-export const Object = (
+export const ObjectX = (
     $: d_in.Value,
     abort: _pi.Abort<d_function.Error>,
 ) => {
@@ -134,10 +171,10 @@ export const Object_Static = (
             dictionary.entries,
         ).join(
             $p['expected properties'],
-            ($, other, id): _pi.Optional_Value<null> => _p.decide.optional(
+            ($, other, id): _pi.Optional_Value<d_location.Range> => _p.decide.optional(
                 other,
                 () => _p.optional.literal.not_set(),
-                () => _p.optional.literal.set(null)
+                () => _p.optional.literal.set($.id.range)
             )
         )
     ).filter(
@@ -145,7 +182,10 @@ export const Object_Static = (
     )
 
     if (unexpected_properties.__get_number_of_entries() > 0) {
-        return abort(['json', ['unexpected properties', unexpected_properties]])
+        return abort(['json', {
+            'type': ['unexpected properties', unexpected_properties],
+            'range': t_astn_parse_tree_to_location.Value($),
+        }])
     }
 
     return dictionary
@@ -185,15 +225,24 @@ export const Property = (
     $p: {
         'id': string
     }
-) => $.entries.__get_entry_deprecated(
-    $p.id,
-    {
-        no_such_entry: ($) => abort(['json', ['missing property', $p.id]])
-    }
-).value.__decide(
-    ($) => $.value,
-    () => abort(['json', ['missing property', $p.id]])
-)
+) => {
+    const dict = $
+    return $.entries.__get_entry_deprecated(
+        $p.id,
+        {
+            no_such_entry: ($) => abort(['json', {
+                'type': ['missing property', $p.id],
+                'range': t_astn_parse_tree_to_location.Value(dict.value),
+            }])
+        }
+    ).value.__decide(
+        ($) => $.value,
+        () => abort(['json', {
+            'type': ['missing property', $p.id],
+            'range': t_astn_parse_tree_to_location.Value(dict.value),
+        }])
+    )
+}
 
 export const String = (
     $: d_in.Value,
@@ -204,7 +253,10 @@ export const String = (
         ($) => abort(['astn', $]),
     )
     if (xxx.type[0] !== 'quoted') {
-        return abort(['json', ['not a string', null]])
+        return abort(['json', {
+            'type': ['not a string', null],
+            'range': t_astn_parse_tree_to_location.Value($),
+        }])
     }
     return xxx.value
 }
