@@ -1,17 +1,17 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
+import * as i_generic from "astn-core/dist/interface/to_be_generated/unmarshall"
 
 import * as i_out from "./data"
 
 import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 
-export namespace Serialization_Chunk_ {
+export namespace Serialization_Tree_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Serialization_Chunk
+    export type O = i_out.Serialization_Tree
     
     export type E = i_generic.Error
     
@@ -21,10 +21,10 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-    abort: _pi.Abort<Serialization_Chunk_.E>,
-) => Serialization_Chunk_.O
+export type Serialization_Tree_ = (
+    context: Serialization_Tree_.I,
+    abort: _pi.Abort<Serialization_Tree_.E>,
+) => Serialization_Tree_.O
 
 export namespace Node_ {
     
@@ -65,7 +65,7 @@ export type Targets_ = (
 ) => Targets_.O
 
 export { 
-    Serialization_Chunk_ as Serialization_Chunk, 
+    Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 
 }

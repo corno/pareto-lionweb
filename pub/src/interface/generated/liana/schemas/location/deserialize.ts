@@ -7,11 +7,11 @@ import * as i_in from "pareto-fountain-pen/dist/interface/generated/liana/schema
 
 import * as i_out from "./data"
 
-export namespace Serialization_Tree_ {
+export namespace Range_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Serialization_Tree
+    export type O = i_out.Range
     
     export type E = i_generic.Error
     
@@ -25,20 +25,20 @@ export namespace Serialization_Tree_ {
     
 }
 
-export type Serialization_Tree_ = (
-    context: Serialization_Tree_.I,
-    abort: _pi.Abort<Serialization_Tree_.E>,
+export type Range_ = (
+    context: Range_.I,
+    abort: _pi.Abort<Range_.E>,
     parameters: {
-        readonly 'document resource identifier': Serialization_Tree_.P.document_resource_identifier
-        readonly 'tab size': Serialization_Tree_.P.tab_size
+        readonly 'document resource identifier': Range_.P.document_resource_identifier
+        readonly 'tab size': Range_.P.tab_size
     },
-) => Serialization_Tree_.O
+) => Range_.O
 
-export namespace Node_ {
+export namespace Location_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Node
+    export type O = i_out.Location
     
     export type E = i_generic.Error
     
@@ -52,20 +52,20 @@ export namespace Node_ {
     
 }
 
-export type Node_ = (
-    context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+export type Location_ = (
+    context: Location_.I,
+    abort: _pi.Abort<Location_.E>,
     parameters: {
-        readonly 'document resource identifier': Node_.P.document_resource_identifier
-        readonly 'tab size': Node_.P.tab_size
+        readonly 'document resource identifier': Location_.P.document_resource_identifier
+        readonly 'tab size': Location_.P.tab_size
     },
-) => Node_.O
+) => Location_.O
 
-export namespace Targets_ {
+export namespace Relative_Location_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Targets
+    export type O = i_out.Relative_Location
     
     export type E = i_generic.Error
     
@@ -79,17 +79,17 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = (
-    context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
+export type Relative_Location_ = (
+    context: Relative_Location_.I,
+    abort: _pi.Abort<Relative_Location_.E>,
     parameters: {
-        readonly 'document resource identifier': Targets_.P.document_resource_identifier
-        readonly 'tab size': Targets_.P.tab_size
+        readonly 'document resource identifier': Relative_Location_.P.document_resource_identifier
+        readonly 'tab size': Relative_Location_.P.tab_size
     },
-) => Targets_.O
+) => Relative_Location_.O
 
 export { 
-    Serialization_Tree_ as Serialization_Tree, 
-    Node_ as Node, 
-    Targets_ as Targets, 
+    Range_ as Range, 
+    Location_ as Location, 
+    Relative_Location_ as Relative_Location, 
 }

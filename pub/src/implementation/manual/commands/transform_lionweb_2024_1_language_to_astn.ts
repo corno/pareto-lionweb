@@ -22,10 +22,7 @@ const settings = {
 
 //interface
 
-import * as d_read_file from "pareto-resources/dist/interface/generated/liana/schemas/read_file/data"
-import * as d_write_file from "pareto-resources/dist/interface/generated/liana/schemas/write_file/data"
 import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
-import * as d_path from "pareto-resources/dist/interface/generated/liana/schemas/path/data"
 
 export type Query_Resources = {
     'read file': resources_pareto.queries.read_file
@@ -43,10 +40,10 @@ import * as resources_pareto from "pareto-resources/dist/interface/resources"
 import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
 
 import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
-// import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/transformers/schemas/write_file/lines"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
 import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/context_path/temp_string"
+
 export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
         _p.query(
@@ -71,6 +68,10 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                     ($) => {
                         _pdev.log_debug_message("error during processing", () => { })
                         return abort({ 'exit code': 1 })
+                    },
+                    {
+                        'document resource identifier': settings['in']['file'],
+                        'tab size': 4,
                     }
                 )
             }),

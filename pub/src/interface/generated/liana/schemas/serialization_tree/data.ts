@@ -1,7 +1,9 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-export namespace Serialization_Chunk_ {
+import * as i__imports_location from "../location/data"
+
+export namespace Serialization_Tree_ {
     
     export type serializationFormatVersion = string
     
@@ -30,14 +32,16 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = {
-    readonly 'serializationFormatVersion': Serialization_Chunk_.serializationFormatVersion
-    readonly 'languages': Serialization_Chunk_.languages
-    readonly 'root node id': Serialization_Chunk_.root_node_id
-    readonly 'node tree': Serialization_Chunk_.node_tree
+export type Serialization_Tree_ = {
+    readonly 'serializationFormatVersion': Serialization_Tree_.serializationFormatVersion
+    readonly 'languages': Serialization_Tree_.languages
+    readonly 'root node id': Serialization_Tree_.root_node_id
+    readonly 'node tree': Serialization_Tree_.node_tree
 }
 
 export namespace Node_ {
+    
+    export type range = i__imports_location.Range
     
     export type classifier = string
     
@@ -82,6 +86,7 @@ export namespace Node_ {
 }
 
 export type Node_ = {
+    readonly 'range': Node_.range
     readonly 'classifier': Node_.classifier
     readonly 'properties': Node_.properties
     readonly 'containments': Node_.containments
@@ -115,7 +120,7 @@ export namespace Targets_ {
 export type Targets_ = _pi.List<Targets_.L>
 
 export { 
-    Serialization_Chunk_ as Serialization_Chunk, 
+    Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 
 }

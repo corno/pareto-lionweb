@@ -5,9 +5,9 @@ import * as i_in from "./data"
 
 import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export namespace Serialization_Chunk_ {
+export namespace Serialization_Tree_ {
     
-    export type I = i_in.Serialization_Chunk
+    export type I = i_in.Serialization_Tree
     
     export type O = i_out.Paragraph
     
@@ -17,9 +17,9 @@ export namespace Serialization_Chunk_ {
     
 }
 
-export type Serialization_Chunk_ = (
-    context: Serialization_Chunk_.I,
-) => Serialization_Chunk_.O
+export type Serialization_Tree_ = (
+    context: Serialization_Tree_.I,
+) => Serialization_Tree_.O
 
 export namespace Node_ {
     
@@ -54,7 +54,7 @@ export type Targets_ = (
 ) => Targets_.O
 
 export { 
-    Serialization_Chunk_ as Serialization_Chunk, 
+    Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 
 }

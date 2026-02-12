@@ -7,11 +7,11 @@ import * as i_out from "./data"
 
 import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 
-export namespace M3_ {
+export namespace Range_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.M3
+    export type O = i_out.Range
     
     export type E = i_generic.Error
     
@@ -21,16 +21,16 @@ export namespace M3_ {
     
 }
 
-export type M3_ = (
-    context: M3_.I,
-    abort: _pi.Abort<M3_.E>,
-) => M3_.O
+export type Range_ = (
+    context: Range_.I,
+    abort: _pi.Abort<Range_.E>,
+) => Range_.O
 
-export namespace ID_ {
+export namespace Location_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.ID
+    export type O = i_out.Location
     
     export type E = i_generic.Error
     
@@ -40,16 +40,16 @@ export namespace ID_ {
     
 }
 
-export type ID_ = (
-    context: ID_.I,
-    abort: _pi.Abort<ID_.E>,
-) => ID_.O
+export type Location_ = (
+    context: Location_.I,
+    abort: _pi.Abort<Location_.E>,
+) => Location_.O
 
-export namespace Raw_Reference_ {
+export namespace Relative_Location_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Raw_Reference
+    export type O = i_out.Relative_Location
     
     export type E = i_generic.Error
     
@@ -59,13 +59,13 @@ export namespace Raw_Reference_ {
     
 }
 
-export type Raw_Reference_ = (
-    context: Raw_Reference_.I,
-    abort: _pi.Abort<Raw_Reference_.E>,
-) => Raw_Reference_.O
+export type Relative_Location_ = (
+    context: Relative_Location_.I,
+    abort: _pi.Abort<Relative_Location_.E>,
+) => Relative_Location_.O
 
 export { 
-    M3_ as M3, 
-    ID_ as ID, 
-    Raw_Reference_ as Raw_Reference, 
+    Range_ as Range, 
+    Location_ as Location, 
+    Relative_Location_ as Relative_Location, 
 }
