@@ -84,7 +84,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
                 'expected': $p['expected references'],
             },
         }],
-        'range': $.range
+        'node': $
     })
 
 }

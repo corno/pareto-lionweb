@@ -1,9 +1,10 @@
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
+import * as d_serialization_tree from "../../../../interface/generated/liana/schemas/serialization_tree/data"
 
 export type Error = {
-    'range': d_location.Range,
+    'node': d_serialization_tree.Node
     'type':
     | ['missing content', {
         'type':
@@ -25,12 +26,6 @@ export type Error = {
     }]
     | ['expected single element', string]
 }
-
-//     | ['expected exactly one element for link type of feature', string]
-//     | ['unknown feature classifier type', string]
-//     | ['expected exactly one element for property type of feature', string]
-//     | ['unknown entity classifier type', string]
-//     | ['unknown classifier type', string]
 
 export type Unexpected_Content = {
     'unexpected': _pi.Dictionary<null>

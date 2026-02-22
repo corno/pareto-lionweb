@@ -12,15 +12,3 @@ export const M3: t_signatures.M3 = ($) => v_serialize.Document(
         $,
     ),
 )
-
-export const ID: t_signatures.ID = ($) => v_serialize.Document(
-    v_marshall.ID(
-        $,
-    ),
-)
-
-export const Raw_Reference: t_signatures.Raw_Reference = ($) => v_serialize.Document(
-    v_marshall.Raw_Reference(
-        $,
-    ),
-)

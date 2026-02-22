@@ -14,8 +14,32 @@ export type Property = _pi.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Containment = _pi.Refiner_With_Parameter<
-    d_out.Containment,
+export type Optional_Property = _pi.Refiner_With_Parameter<
+    d_out.Optional_Property,
+    d_function.Error,
+    d_in.Node,
+    {
+        'id': string
+    }
+>
+export type Singular_Containment = _pi.Refiner_With_Parameter<
+    d_out.Singular_Containment,
+    d_function.Error,
+    d_in.Node,
+    {
+        'id': string
+    }
+>
+export type Optional_Containment = _pi.Refiner_With_Parameter<
+    d_out.Optional_Containment,
+    d_function.Error,
+    d_in.Node,
+    {
+        'id': string
+    }
+>
+export type Multiple_Containments = _pi.Refiner_With_Parameter<
+    d_out.Multiple_Containments,
     d_function.Error,
     d_in.Node,
     {
@@ -32,8 +56,8 @@ export type Optional_Reference = _pi.Refiner_With_Parameter<
     }
 >
 
-export type Single_Reference = _pi.Refiner_With_Parameter<
-    d_out.Single_Reference,
+export type Singular_Reference = _pi.Refiner_With_Parameter<
+    d_out.Singular_Reference,
     d_function.Error,
     d_in.Node,
     {
@@ -42,7 +66,7 @@ export type Single_Reference = _pi.Refiner_With_Parameter<
 >
 
 export type Multiple_References = _pi.Refiner_With_Parameter<
-    d_out.Multiple_Reference,
+    d_out.Multiple_References,
     d_function.Error,
     d_in.Node,
     {
@@ -52,14 +76,14 @@ export type Multiple_References = _pi.Refiner_With_Parameter<
 
 //implementations
 
-export const Containment: Containment = ($, abort, $p) => {
+export const Multiple_Containments: Multiple_Containments = ($, abort, $p) => {
     const node = $
     return _p.select.entry(
         $.containments,
         $p.id,
         {
             no_such_entry: ($) => abort({
-                'range': node.range,
+                'node': node,
                 'type': ['missing content', {
                     'type': ['containment', null],
                     'id': $p.id
@@ -76,13 +100,21 @@ export const Property: Property = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: ($) => abort({
-                'range': node.range,
+                'node': node,
                 'type': ['missing content', {
                     'type': ['property', null],
                     'id': $p.id
                 }]
             })
         }
+    )
+}
+
+export const Optional_Property: Optional_Property = ($, abort, $p) => {
+    const node = $
+    return _p.select.possible_entry( //implement in pareto-core
+        $.properties,
+        $p.id,
     )
 }
 
@@ -93,7 +125,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: ($) => abort({
-                'range': node.range,
+                'node': node,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id
@@ -103,7 +135,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
     )
     return result.__get_number_of_items() > 1
         ? abort({
-            'range': node.range,
+            'node': node,
             'type': ['too many feature elements', null]
         })
         : result.__deprecated_get_possible_item_at(
@@ -112,14 +144,14 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
 
 }
 
-export const Single_Reference: Single_Reference = ($, abort, $p) => {
+export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
     const node = $
     const result = _p.select.entry(
         $.references,
         $p.id,
         {
             no_such_entry: ($) => abort({
-                'range': node.range,
+                'node': node,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id
@@ -129,14 +161,14 @@ export const Single_Reference: Single_Reference = ($, abort, $p) => {
     )
     return result.__get_number_of_items() > 1
         ? abort({
-            'range': node.range,
+            'node': node,
             'type': ['too many feature elements', null]
         })
         : result.__deprecated_get_item_at(
             0,
             {
                 out_of_bounds: ($) => abort({
-                    'range': node.range,
+                    'node': node,
                     'type': ['missing feature element', null]
                 })
             }
@@ -151,7 +183,7 @@ export const Multiple_References: Multiple_References = ($, abort, $p) => {
         $p.id,
         {
             no_such_entry: ($) => abort({
-                'range': node.range,
+                'node': node,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id

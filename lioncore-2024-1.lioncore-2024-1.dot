@@ -1,0 +1,39 @@
+strict digraph {
+    graph  [ ];
+    "LionWeb.LionCore_M3.Annotation" [ label="Annotation" shape=pentagon ];
+    "LionWeb.LionCore_M3.Concept" [ label="Concept" shape=pentagon ];
+    "LionWeb.LionCore_M3.Interface" [ label="Interface" shape=pentagon ];
+    "LionWeb.LionCore_M3.Containment" [ label="Containment" shape=pentagon ];
+    "LionWeb.LionCore_M3.DataType" [ label="DataType" shape=pentagon ];
+    "LionWeb.LionCore_M3.Enumeration" [ label="Enumeration" shape=pentagon ];
+    "LionWeb.LionCore_M3.EnumerationLiteral" [ label="EnumerationLiteral" shape=pentagon ];
+    "LionWeb.LionCore_M3.Feature" [ label="Feature" shape=pentagon ];
+    "LionWeb.LionCore_M3.Field" [ label="Field" shape=pentagon ];
+    "LionWeb.LionCore_M3.Classifier" [ label="Classifier" shape=pentagon ];
+    "LionWeb.LionCore_M3.Link" [ label="Link" shape=pentagon ];
+    "LionWeb.LionCore_M3.Language" [ label="Language" shape=pentagon ];
+    "LionWeb.LionCore_M3.LanguageEntity" [ label="LanguageEntity" shape=pentagon ];
+    "LionWeb.LionCore_M3.IKeyed" [ label="IKeyed" shape=ellipse ];
+    "LionWeb.LionCore_M3.PrimitiveType" [ label="PrimitiveType" shape=pentagon ];
+    "LionWeb.LionCore_M3.Property" [ label="Property" shape=pentagon ];
+    "LionWeb.LionCore_M3.Reference" [ label="Reference" shape=pentagon ];
+    "LionWeb.LionCore_M3.StructuredDataType" [ label="StructuredDataType" shape=pentagon ];
+    "LionWeb.LionCore_M3.Annotation" -> "LionWeb.LionCore_M3.Classifier" [ style=dashed ]
+    "LionWeb.LionCore_M3.Concept" -> "LionWeb.LionCore_M3.Classifier" [ style=dashed ]
+    "LionWeb.LionCore_M3.Interface" -> "LionWeb.LionCore_M3.Classifier" [ style=dashed ]
+    "LionWeb.LionCore_M3.Containment" -> "LionWeb.LionCore_M3.Link" [ style=dashed ]
+    "LionWeb.LionCore_M3.DataType" -> "LionWeb.LionCore_M3.LanguageEntity" [ style=dashed ]
+    "LionWeb.LionCore_M3.Enumeration" -> "LionWeb.LionCore_M3.DataType" [ style=dashed ]
+    "LionWeb.LionCore_M3.EnumerationLiteral" -> "LionWeb.LionCore_M3.IKeyed" [ style=dotted ]
+    "LionWeb.LionCore_M3.Feature" -> "LionWeb.LionCore_M3.IKeyed" [ style=dotted ]
+    "LionWeb.LionCore_M3.Field" -> "LionWeb.LionCore_M3.IKeyed" [ style=dotted ]
+    "LionWeb.LionCore_M3.Classifier" -> "LionWeb.LionCore_M3.LanguageEntity" [ style=dashed ]
+    "LionWeb.LionCore_M3.Link" -> "LionWeb.LionCore_M3.Feature" [ style=dashed ]
+    "LionWeb.LionCore_M3.Language" -> "LionWeb.LionCore_M3.IKeyed" [ style=dotted ]
+    "LionWeb.LionCore_M3.LanguageEntity" -> "LionWeb.LionCore_M3.IKeyed" [ style=dotted ]
+    "LionWeb.LionCore_M3.IKeyed" -> "LionWeb.LionCore_builtins.INamed" [ style=solid ]
+    "LionWeb.LionCore_M3.PrimitiveType" -> "LionWeb.LionCore_M3.DataType" [ style=dashed ]
+    "LionWeb.LionCore_M3.Property" -> "LionWeb.LionCore_M3.Feature" [ style=dashed ]
+    "LionWeb.LionCore_M3.Reference" -> "LionWeb.LionCore_M3.Link" [ style=dashed ]
+    "LionWeb.LionCore_M3.StructuredDataType" -> "LionWeb.LionCore_M3.DataType" [ style=dashed ]
+}

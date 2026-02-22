@@ -1,237 +1,271 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as i__imports_generic from "../generic/data"
+
 export namespace M3_ {
     
-    export type id = ID_
+    export type id = i__imports_generic.ID
     
-    export type version = string
-    
-    export namespace dependencies {
+    export namespace properties {
         
-        export type L = Raw_Reference_
+        export type version = string
         
     }
     
-    export type dependencies = _pi.List<dependencies.L>
+    export type properties = {
+        readonly 'version': properties.version
+    }
     
-    export namespace entities {
+    export namespace references {
         
-        export namespace D {
+        export type dependencies = i__imports_generic.References
+        
+    }
+    
+    export type references = {
+        readonly 'dependencies': references.dependencies
+    }
+    
+    export namespace containments {
+        
+        export namespace entities {
             
-            export type id = ID_
-            
-            export namespace type_ {
+            export namespace D {
+                
+                export type id = i__imports_generic.ID
                 
                 export namespace classifier {
                     
-                    export namespace type_ {
+                    export namespace Classifier {
                         
-                        export namespace concept {
+                        export namespace classifier {
                             
-                            export type abstract = string
-                            
-                            export type partition = string
-                            
-                            export namespace extends_ {
+                            export namespace Concept {
                                 
-                                export type O = Raw_Reference_
-                                
-                            }
-                            
-                            export type extends_ = _pi.Optional_Value<extends_.O>
-                            
-                            export namespace implements_ {
-                                
-                                export type L = Raw_Reference_
-                                
-                            }
-                            
-                            export type implements_ = _pi.List<implements_.L>
-                            
-                        }
-                        
-                        export type concept = {
-                            readonly 'abstract': concept.abstract
-                            readonly 'partition': concept.partition
-                            readonly 'extends': concept.extends_
-                            readonly 'implements': concept.implements_
-                        }
-                        
-                        export namespace interface_ {
-                            
-                            export namespace extends_ {
-                                
-                                export type L = Raw_Reference_
-                                
-                            }
-                            
-                            export type extends_ = _pi.List<extends_.L>
-                            
-                        }
-                        
-                        export type interface_ = {
-                            readonly 'extends': interface_.extends_
-                        }
-                        
-                    }
-                    
-                    export type type_ = 
-                        | readonly ['concept', type_.concept]
-                        | readonly ['interface', type_.interface_]
-                    
-                    export namespace features {
-                        
-                        export namespace D {
-                            
-                            export type id = ID_
-                            
-                            export type optional = string
-                            
-                            export namespace type_ {
-                                
-                                export namespace property {
+                                export namespace properties {
                                     
-                                    export type type_ = Raw_Reference_
+                                    export type abstract = string
+                                    
+                                    export type partition = string
                                     
                                 }
                                 
-                                export type property = {
-                                    readonly 'type': property.type_
+                                export type properties = {
+                                    readonly 'abstract': properties.abstract
+                                    readonly 'partition': properties.partition
                                 }
                                 
-                                export namespace link {
+                                export namespace references {
                                     
-                                    export type multiple = string
+                                    export type extends_ = i__imports_generic.Optional_Reference
                                     
-                                    export type type_ = Raw_Reference_
+                                    export type implements_ = i__imports_generic.References
                                     
-                                    export namespace link_type {
+                                }
+                                
+                                export type references = {
+                                    readonly 'extends': references.extends_
+                                    readonly 'implements': references.implements_
+                                }
+                                
+                            }
+                            
+                            export type Concept = {
+                                readonly 'properties': Concept.properties
+                                readonly 'references': Concept.references
+                            }
+                            
+                            export namespace Interface {
+                                
+                                export namespace references {
+                                    
+                                    export type extends_ = i__imports_generic.References
+                                    
+                                }
+                                
+                                export type references = {
+                                    readonly 'extends': references.extends_
+                                }
+                                
+                            }
+                            
+                            export type Interface = {
+                                readonly 'references': Interface.references
+                            }
+                            
+                        }
+                        
+                        export type classifier = 
+                            | readonly ['Concept', classifier.Concept]
+                            | readonly ['Interface', classifier.Interface]
+                        
+                        export namespace containments {
+                            
+                            export namespace features {
+                                
+                                export namespace D {
+                                    
+                                    export type id = i__imports_generic.ID
+                                    
+                                    export namespace classifier {
                                         
-                                        export type containment = null
+                                        export namespace Property {
+                                            
+                                            export namespace references {
+                                                
+                                                export type type_ = i__imports_generic.Singular_Reference
+                                                
+                                            }
+                                            
+                                            export type references = {
+                                                readonly 'type': references.type_
+                                            }
+                                            
+                                        }
                                         
-                                        export type reference = null
+                                        export type Property = {
+                                            readonly 'references': Property.references
+                                        }
+                                        
+                                        export namespace Link {
+                                            
+                                            export namespace classifier {
+                                                
+                                                export type Containment = null
+                                                
+                                                export type Reference = null
+                                                
+                                            }
+                                            
+                                            export type classifier = 
+                                                | readonly ['Containment', classifier.Containment]
+                                                | readonly ['Reference', classifier.Reference]
+                                            
+                                            export namespace properties {
+                                                
+                                                export type multiple = string
+                                                
+                                            }
+                                            
+                                            export type properties = {
+                                                readonly 'multiple': properties.multiple
+                                            }
+                                            
+                                            export namespace references {
+                                                
+                                                export type type_ = i__imports_generic.Singular_Reference
+                                                
+                                            }
+                                            
+                                            export type references = {
+                                                readonly 'type': references.type_
+                                            }
+                                            
+                                        }
+                                        
+                                        export type Link = {
+                                            readonly 'classifier': Link.classifier
+                                            readonly 'properties': Link.properties
+                                            readonly 'references': Link.references
+                                        }
                                         
                                     }
                                     
-                                    export type link_type = 
-                                        | readonly ['containment', link_type.containment]
-                                        | readonly ['reference', link_type.reference]
+                                    export type classifier = 
+                                        | readonly ['Property', classifier.Property]
+                                        | readonly ['Link', classifier.Link]
+                                    
+                                    export namespace properties {
+                                        
+                                        export type optional = string
+                                        
+                                    }
+                                    
+                                    export type properties = {
+                                        readonly 'optional': properties.optional
+                                    }
                                     
                                 }
                                 
-                                export type link = {
-                                    readonly 'multiple': link.multiple
-                                    readonly 'type': link.type_
-                                    readonly 'link type': link.link_type
+                                export type D = {
+                                    readonly 'id': D.id
+                                    readonly 'classifier': D.classifier
+                                    readonly 'properties': D.properties
                                 }
                                 
                             }
                             
-                            export type type_ = 
-                                | readonly ['property', type_.property]
-                                | readonly ['link', type_.link]
+                            export type features = _pi.Dictionary<features.D>
                             
                         }
                         
-                        export type D = {
-                            readonly 'id': D.id
-                            readonly 'optional': D.optional
-                            readonly 'type': D.type_
+                        export type containments = {
+                            readonly 'features': containments.features
                         }
                         
                     }
                     
-                    export type features = _pi.Dictionary<features.D>
+                    export type Classifier = {
+                        readonly 'classifier': Classifier.classifier
+                        readonly 'containments': Classifier.containments
+                    }
                     
-                }
-                
-                export type classifier = {
-                    readonly 'type': classifier.type_
-                    readonly 'features': classifier.features
-                }
-                
-                export namespace datatype {
-                    
-                    export namespace enumeration {
+                    export namespace Datatype {
                         
-                        export type D = ID_
+                        export namespace Enumeration {
+                            
+                            export namespace D {
+                                
+                                export type id = i__imports_generic.ID
+                                
+                            }
+                            
+                            export type D = {
+                                readonly 'id': D.id
+                            }
+                            
+                        }
+                        
+                        export type Enumeration = _pi.Dictionary<Enumeration.D>
                         
                     }
                     
-                    export type enumeration = _pi.Dictionary<enumeration.D>
+                    export type Datatype = 
+                        | readonly ['Enumeration', Datatype.Enumeration]
                     
                 }
                 
-                export type datatype = 
-                    | readonly ['enumeration', datatype.enumeration]
+                export type classifier = 
+                    | readonly ['Classifier', classifier.Classifier]
+                    | readonly ['Datatype', classifier.Datatype]
                 
             }
             
-            export type type_ = 
-                | readonly ['classifier', type_.classifier]
-                | readonly ['datatype', type_.datatype]
+            export type D = {
+                readonly 'id': D.id
+                readonly 'classifier': D.classifier
+            }
             
         }
         
-        export type D = {
-            readonly 'id': D.id
-            readonly 'type': D.type_
-        }
+        export type entities = _pi.Dictionary<entities.D>
         
     }
     
-    export type entities = _pi.Dictionary<entities.D>
+    export type containments = {
+        readonly 'entities': containments.entities
+    }
     
 }
 
 export type M3_ = {
     readonly 'id': M3_.id
-    readonly 'version': M3_.version
-    readonly 'dependencies': M3_.dependencies
-    readonly 'entities': M3_.entities
-}
-
-export namespace ID_ {
-    
-    export namespace O {
-        
-        export type key = string
-        
-        export type id = string
-        
-    }
-    
-    export type O = {
-        readonly 'key': O.key
-        readonly 'id': O.id
-    }
-    
-}
-
-export type ID_ = _pi.Optional_Value<ID_.O>
-
-export namespace Raw_Reference_ {
-    
-    export type resolveInfo = string
-    
-    export namespace reference {
-        
-        export type O = string
-        
-    }
-    
-    export type reference = _pi.Optional_Value<reference.O>
-    
-}
-
-export type Raw_Reference_ = {
-    readonly 'resolveInfo': Raw_Reference_.resolveInfo
-    readonly 'reference': Raw_Reference_.reference
+    readonly 'properties': M3_.properties
+    readonly 'references': M3_.references
+    readonly 'containments': M3_.containments
 }
 
 export { 
     M3_ as M3, 
-    ID_ as ID, 
-    Raw_Reference_ as Raw_Reference, 
 }

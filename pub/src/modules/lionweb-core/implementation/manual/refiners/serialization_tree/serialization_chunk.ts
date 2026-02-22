@@ -5,6 +5,7 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_function from "../../../../interface/to_be_generated/tree_from_chunk"
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 
 export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
@@ -49,7 +50,10 @@ export const Serialization_Tree = (
                         ($) => $.id,
                         ($) => $,
                         {
-                            duplicate_id: () => abort(['clashing node IDs', null])
+                            duplicate_id: () => abort(['node', {
+                                'type': ['clashing node IDs', null],
+                                'node': $,
+                            }])
                         },
                     ),
                 },
@@ -66,6 +70,7 @@ const Node = (
         'nodes': _pi.Dictionary<d_in.Serialization_Chunk.nodes.L>,
     },
 ): d_out.Node => {
+    const node = $
     return {
         'range': $.range,
         'classifier': Meta_Pointer($.classifier),
@@ -75,7 +80,10 @@ const Node = (
             ($) => Meta_Pointer($.property),
             ($) => $.value,
             {
-                duplicate_id: () => abort(['clashing property keys', null])
+                duplicate_id: () => abort(['node', {
+                    'type': ['clashing property keys', null],
+                    'node': $,
+                }])
             },
         ),
         'containments': _p.dictionary.from.list(
@@ -90,7 +98,10 @@ const Node = (
                     $p.nodes.__get_entry_deprecated(
                         $,
                         {
-                            no_such_entry: () => abort(['child node not found', $]),
+                            no_such_entry: () => abort(['node', {
+                                'type': ['child node not found', $],
+                                'node': node
+                            }]),
                         }
                     ),
                     abort,
@@ -100,11 +111,17 @@ const Node = (
                     },
                 ),
                 {
-                    duplicate_id: () => abort(['clashing child node IDs', null]),
+                    duplicate_id: () => abort(['node', {
+                        'type': ['clashing child node IDs', null],
+                        'node': node
+                    }]),
                 }
             ),
             {
-                duplicate_id: () => abort(['clashing containment keys', null])
+                duplicate_id: () => abort(['node', {
+                    'type': ['clashing containment keys', null],
+                    'node': node
+                }])
             },
         ),
         'references': _p.dictionary.from.list(
@@ -113,7 +130,10 @@ const Node = (
             ($) => Meta_Pointer($.reference),
             ($) => $.targets,
             {
-                duplicate_id: () => abort(['clashing reference keys', null])
+                duplicate_id: () => abort(['node', {
+                    'type': ['clashing reference keys', null],
+                    'node': node
+                }])
             },
         ),
         'annotations': $.annotations,
