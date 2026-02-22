@@ -6,11 +6,11 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
-import * as d_json_unmarshall from "../../../../../json/interface/to_be_generated/unmarshall"
+import * as d_json_unmarshall from "pareto-json/dist/interface/to_be_generated/unmarshall"
 
 //dependencies
 // import * as r_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
-import * as r_json_unmarshalled_from_astn_parse_tree from "../../../../../json/implementation/manual/refiners/unmarshalled/astn_parse_tree"
+import * as r_json_unmarshalled_from_astn_parse_tree from "pareto-json/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
 
 
