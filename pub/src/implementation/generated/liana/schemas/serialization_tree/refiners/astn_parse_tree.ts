@@ -257,23 +257,15 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => v_unmarshalled_from_parse_tree.Text(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                    ),
-                                )
-                            },
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => v_unmarshalled_from_parse_tree.Text(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -294,43 +286,27 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => _p_change_context(
+                                v_unmarshalled_from_parse_tree.Dictionary(
+                                    $,
+                                    ($) => abort(
+                                        $,
+                                    ),
+                                ),
+                                ($) => _p.dictionary.from.dictionary(
                                     $['entries'],
                                 ).map(
-                                    ($, id) => _p_change_context(
-                                        v_unmarshalled_from_parse_tree.Dictionary(
+                                    ($, id) => Node(
+                                        $,
+                                        ($) => abort(
                                             $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                        ),
-                                        ($) => _p_variables(
-                                            () => {
-                                                
-                                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                                    $['value'],
-                                                )
-                                                return _p.dictionary.from.dictionary(
-                                                    $['entries'],
-                                                ).map(
-                                                    ($, id) => Node(
-                                                        $,
-                                                        ($) => abort(
-                                                            $,
-                                                        ),
-                                                    ),
-                                                )
-                                            },
                                         ),
                                     ),
-                                )
-                            },
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -351,23 +327,15 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => Targets(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                    ),
-                                )
-                            },
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => Targets(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
+                            ),
                         ),
                     ),
                 ),

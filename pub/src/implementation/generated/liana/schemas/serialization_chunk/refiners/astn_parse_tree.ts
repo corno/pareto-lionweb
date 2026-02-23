@@ -24,23 +24,15 @@ export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($, abort
             $,
         ),
     ),
-    ($) => _p_variables(
-        () => {
-            
-            const var_dictionary_range = v_parse_tree_to_location.Value(
-                $['value'],
-            )
-            return _p.dictionary.from.dictionary(
-                $['entries'],
-            ).map(
-                ($, id) => Serialization_Chunk(
-                    $,
-                    ($) => abort(
-                        $,
-                    ),
-                ),
-            )
-        },
+    ($) => _p.dictionary.from.dictionary(
+        $['entries'],
+    ).map(
+        ($, id) => Serialization_Chunk(
+            $,
+            ($) => abort(
+                $,
+            ),
+        ),
     ),
 )
 
