@@ -1,10 +1,12 @@
 
 import * as _p from 'pareto-core/dist/assign'
+import * as _pi from 'pareto-core/dist/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/processing"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/to_be_generated/unmarshall_serialization_tree"
+import * as d_function_loc from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
 
 //dependencies
 import * as t_deserialize_parse_tree_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/fountain_pen"
@@ -50,16 +52,16 @@ export const Unexpected_Content = (
             ])
         )
 
-export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => {
+export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_function_loc.Parameters> = ($, $p) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'deserialization error': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
-                case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($, { 'position info': ['one based', null] }))
+                case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($, $p))
                 case 'tree from chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'could not determine root node': return _p.ss($, ($) => sh.ph.literal("could not determine root node"))
                         case 'node': return _p.ss($, ($) => sh.ph.composed([
-                            t_astn_location_to_fountain_pen.Range($.node.range, { 'position info': ['one based', null] }),
+                            t_astn_location_to_fountain_pen.Range($.node.range, $p),
                             sh.ph.literal(" > "),
                             _p.decide.state($.type, ($) => {
                                 switch ($[0]) {
@@ -78,9 +80,9 @@ export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => 
                 }))
                 case 'unmarshall serialization chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
+                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($, $p))
                         case 'json': return _p.ss($, ($) => sh.ph.composed([
-                            t_astn_location_to_fountain_pen.Range($.range, { 'position info': ['one based', null] }),
+                            t_astn_location_to_fountain_pen.Range($.range, $p),
                             sh.ph.literal(": "),
                             _p.decide.state($.type, ($) => {
                                 switch ($[0]) {
@@ -90,7 +92,7 @@ export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => 
                                             sh.pg.sentences($.__to_list(($, key) => sh.sentence([
                                                 sh.ph.literal(key),
                                                 sh.ph.literal(": "),
-                                                t_astn_location_to_fountain_pen.Range($, { 'position info': ['one based', null] }),
+                                                t_astn_location_to_fountain_pen.Range($, $p),
                                             ])))
                                         ),
                                     ]))
@@ -112,7 +114,7 @@ export const Error = ($: d_in.Error): d_out.Phrase => _p.decide.state($, ($) => 
         case 'unmarshalling error': return _p.ss($, ($) => {
             const node = $.node
             return sh.ph.composed([
-                t_astn_location_to_fountain_pen.Range($.node.range, { 'position info': ['one based', null] }),
+                t_astn_location_to_fountain_pen.Range($.node.range, $p),
                 sh.ph.literal(": "),
                 _p.decide.state($.type, ($) => {
                     switch ($[0]) {

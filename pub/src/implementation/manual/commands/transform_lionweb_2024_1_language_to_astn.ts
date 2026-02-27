@@ -83,7 +83,12 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                         $,
                         ($) => abort(sh.ph.composed([
                             sh.ph.literal("error during processing: "),
-                            t_processing_to_fountain_pen.Error($),
+                            t_processing_to_fountain_pen.Error(
+                                $,
+                                {
+                                    'character location reporting': ['one based', null],
+                                }
+                            ),
                         ])),
                         {
                             'document resource identifier': settings['in']['file'],
