@@ -11,7 +11,7 @@ import * as d_json_unmarshall from "pareto-json/dist/interface/to_be_generated/u
 //dependencies
 // import * as r_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import * as r_json_unmarshalled_from_astn_parse_tree from "pareto-json/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
-import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
+import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 
 
