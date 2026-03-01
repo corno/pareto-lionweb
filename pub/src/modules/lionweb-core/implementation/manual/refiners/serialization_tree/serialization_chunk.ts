@@ -29,12 +29,18 @@ export const Serialization_Tree = (
 
     )
     if (_p.number.natural.from.list(nodes_without_parent).amount_of_items() > 1) {
-        return abort(['could not determine root node', null])
+        return abort({
+            'range': chunk.range,
+            'type': ['could not determine root node', null]
+        })
     }
     return _p_change_context(
         nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
             ($): d_in.Serialization_Chunk.nodes.L => $,
-            () => abort(['could not determine root node', null]),
+            () => abort({
+                'range': chunk.range,
+                'type': ['could not determine root node', null]
+            }),
         ),
         ($) => ({
             'serializationFormatVersion': chunk.serializationFormatVersion,
@@ -50,10 +56,13 @@ export const Serialization_Tree = (
                         ($) => $.id,
                         ($) => $,
                         {
-                            duplicate_id: () => abort(['node', {
-                                'type': ['clashing node IDs', null],
-                                'node': $,
-                            }])
+                            duplicate_id: () => abort({
+                                'range': $.range,
+                                'type': ['node', {
+                                    'type': ['clashing node IDs', null],
+                                    'node': $,
+                                }]
+                            })
                         },
                     ),
                 },
@@ -80,10 +89,13 @@ const Node = (
             ($) => Meta_Pointer($.property),
             ($) => $.value,
             {
-                duplicate_id: () => abort(['node', {
-                    'type': ['clashing property keys', null],
-                    'node': $,
-                }])
+                duplicate_id: () => abort({
+                    'range': $.range,
+                    'type': ['node', {
+                        'type': ['clashing property keys', null],
+                        'node': $,
+                    }]
+                })
             },
         ),
         'containments': _p.dictionary.from.list(
@@ -98,10 +110,13 @@ const Node = (
                     $p.nodes.__get_entry_deprecated(
                         $,
                         {
-                            no_such_entry: () => abort(['node', {
-                                'type': ['child node not found', $],
-                                'node': node
-                            }]),
+                            no_such_entry: () => abort({
+                                'range': node.range,
+                                'type': ['node', {
+                                    'type': ['child node not found', $],
+                                    'node': node
+                                }]
+                            }),
                         }
                     ),
                     abort,
@@ -111,17 +126,23 @@ const Node = (
                     },
                 ),
                 {
-                    duplicate_id: () => abort(['node', {
-                        'type': ['clashing child node IDs', null],
-                        'node': node
-                    }]),
+                    duplicate_id: () => abort({
+                        'range': node.range,
+                        'type': ['node', {
+                            'type': ['clashing child node IDs', null],
+                            'node': node
+                        }]
+                    }),
                 }
             ),
             {
-                duplicate_id: () => abort(['node', {
-                    'type': ['clashing containment keys', null],
-                    'node': node
-                }])
+                duplicate_id: () => abort({
+                    'range': node.range,
+                    'type': ['node', {
+                        'type': ['clashing containment keys', null],
+                        'node': node
+                    }]
+                })
             },
         ),
         'references': _p.dictionary.from.list(
@@ -130,10 +151,13 @@ const Node = (
             ($) => Meta_Pointer($.reference),
             ($) => $.targets,
             {
-                duplicate_id: () => abort(['node', {
-                    'type': ['clashing reference keys', null],
-                    'node': node
-                }])
+                duplicate_id: () => abort({
+                    'range': node.range,
+                    'type': ['node', {
+                        'type': ['clashing reference keys', null],
+                        'node': node
+                    }]
+                })
             },
         ),
         'annotations': $.annotations,

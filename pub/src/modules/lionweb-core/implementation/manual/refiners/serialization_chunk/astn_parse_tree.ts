@@ -38,6 +38,7 @@ export const Serialization_Chunk = (
             },
         ),
         ($) => ({
+            'range': t_parse_tree_to_location.Value($.value),
             'serializationFormatVersion': r_json_unmarshalled_from_astn_parse_tree.String(
                 r_json_unmarshalled_from_astn_parse_tree.Property(
                     $,

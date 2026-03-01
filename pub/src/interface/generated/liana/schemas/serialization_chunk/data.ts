@@ -143,6 +143,7 @@ export namespace Serialization_Chunk_ {
 }
 
 export type Serialization_Chunk_ = {
+    'range': i__imports_location.Range
     readonly 'serializationFormatVersion': Serialization_Chunk_.serializationFormatVersion
     readonly 'languages': Serialization_Chunk_.languages
     readonly 'nodes': Serialization_Chunk_.nodes

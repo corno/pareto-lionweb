@@ -52,17 +52,15 @@ export const Unexpected_Content = (
             ])
         )
 
-export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_function_loc.Parameters> = ($, $p) => _p.decide.state($, ($) => {
+export const Error: _pi.Transformer<d_in.Error, d_out.Phrase> = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'deserialization error': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
-                case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($, $p))
-                case 'tree from chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
+                case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($))
+                case 'tree from chunk': return _p.ss($, ($) => _p.decide.state($.type, ($) => {
                     switch ($[0]) {
                         case 'could not determine root node': return _p.ss($, ($) => sh.ph.literal("could not determine root node"))
                         case 'node': return _p.ss($, ($) => sh.ph.composed([
-                            t_astn_location_to_fountain_pen.Range($.node.range, $p),
-                            sh.ph.literal(" > "),
                             _p.decide.state($.type, ($) => {
                                 switch ($[0]) {
                                     case 'clashing node IDs': return _p.ss($, ($) => sh.ph.literal("clashing node IDs"))
@@ -80,10 +78,8 @@ export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_f
                 }))
                 case 'unmarshall serialization chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($, $p))
+                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
                         case 'json': return _p.ss($, ($) => sh.ph.composed([
-                            t_astn_location_to_fountain_pen.Range($.range, $p),
-                            sh.ph.literal(": "),
                             _p.decide.state($.type, ($) => {
                                 switch ($[0]) {
                                     case 'unexpected properties': return _p.ss($, ($) => sh.ph.composed([
@@ -91,8 +87,8 @@ export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_f
                                         sh.ph.indent(
                                             sh.pg.sentences($.__to_list(($, key) => sh.sentence([
                                                 sh.ph.literal(key),
-                                                sh.ph.literal(": "),
-                                                t_astn_location_to_fountain_pen.Range($, $p),
+                                                // sh.ph.literal(": "),
+                                                // t_astn_location_to_fountain_pen.Range($, {'character location reporting': }),
                                             ])))
                                         ),
                                     ]))
@@ -114,8 +110,6 @@ export const Error: _pi.Transformer_With_Parameter<d_in.Error, d_out.Phrase, d_f
         case 'unmarshalling error': return _p.ss($, ($) => {
             const node = $.node
             return sh.ph.composed([
-                t_astn_location_to_fountain_pen.Range($.node.range, $p),
-                sh.ph.literal(": "),
                 _p.decide.state($.type, ($) => {
                     switch ($[0]) {
                         case 'missing content': return _p.ss($, ($) => sh.ph.literal("missing content"))
