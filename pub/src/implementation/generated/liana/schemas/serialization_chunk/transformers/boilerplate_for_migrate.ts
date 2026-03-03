@@ -8,7 +8,6 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 import * as t_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 
 import * as v_location from "../../location/transformers/boilerplate_for_migrate"
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => _p.dictionary.from.dictionary(
     $,
@@ -19,7 +18,7 @@ export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => _p
 )
 
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
-    'range': _p_unreachable_code_path("implement me"),
+    'range': $.range,
     'serializationFormatVersion': _p_change_context(
         $['serializationFormatVersion'],
         ($) => $,

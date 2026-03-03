@@ -59,7 +59,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                 $['value'],
             )
             return {
-                'range': v_parse_tree_to_location.Value($.value),
+                'range': var_verbose_group_range,
                 'serializationFormatVersion': _p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
