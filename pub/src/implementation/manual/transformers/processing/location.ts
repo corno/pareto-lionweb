@@ -5,7 +5,7 @@ import * as _pi from 'pareto-core/dist/interface'
 //data types
 import * as d_in from "../../../../interface/to_be_generated/processing"
 import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
-import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/to_be_generated/unmarshall_serialization_tree"
+import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/to_be_generated/lion_core_from_serialization_tree"
 import * as d_function_loc from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
 
 //dependencies

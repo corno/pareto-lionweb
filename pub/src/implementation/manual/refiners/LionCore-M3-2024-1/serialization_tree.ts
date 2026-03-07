@@ -7,7 +7,7 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_out from "../../../../interface/generated/liana/schemas/lioncore/data"
 import * as d_out_generic from "../../../../interface/generated/liana/schemas/generic/data"
-import * as d_function from "../../../../modules/lionweb-core/interface/to_be_generated/unmarshall_serialization_tree"
+import * as d_function from "../../../../modules/lionweb-core/interface/to_be_generated/lion_core_from_serialization_tree"
 
 //dependencies
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree"

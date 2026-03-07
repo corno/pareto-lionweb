@@ -2,7 +2,7 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
-import * as d_out from "../../../../interface/to_be_generated/unmarshall_serialization_tree"
+import * as d_out from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
 export type Node_With_Possibly_Unexpected_Content = _pi.Transformer_With_Parameter<

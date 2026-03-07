@@ -3,7 +3,7 @@ import * as _p from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
-import * as d_function from "../../../../interface/to_be_generated/unmarshall_serialization_tree"
+import * as d_function from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
 export type Property = _pi.Refiner_With_Parameter<
