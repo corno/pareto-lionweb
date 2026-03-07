@@ -3,14 +3,6 @@ import * as _pi from 'pareto-core/dist/interface'
 
 import * as i__imports_location from "../location/data"
 
-export namespace Serialization_Chunks_ {
-    
-    export type D = Serialization_Chunk_
-    
-}
-
-export type Serialization_Chunks_ = _pi.Dictionary<Serialization_Chunks_.D>
-
 export namespace Serialization_Chunk_ {
     
     export type serializationFormatVersion = string
@@ -143,7 +135,7 @@ export namespace Serialization_Chunk_ {
 }
 
 export type Serialization_Chunk_ = {
-    'range': i__imports_location.Range
+    readonly 'range': i__imports_location.Range
     readonly 'serializationFormatVersion': Serialization_Chunk_.serializationFormatVersion
     readonly 'languages': Serialization_Chunk_.languages
     readonly 'nodes': Serialization_Chunk_.nodes
@@ -191,7 +183,6 @@ export type Meta_Pointer_ = {
 }
 
 export { 
-    Serialization_Chunks_ as Serialization_Chunks, 
     Serialization_Chunk_ as Serialization_Chunk, 
     Targets_ as Targets, 
     Meta_Pointer_ as Meta_Pointer, 

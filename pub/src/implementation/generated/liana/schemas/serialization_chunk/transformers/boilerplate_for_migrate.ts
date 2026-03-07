@@ -9,14 +9,6 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/seri
 
 import * as v_location from "../../location/transformers/boilerplate_for_migrate"
 
-export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => _p.dictionary.from.dictionary(
-    $,
-).map(
-    ($, id) => Serialization_Chunk(
-        $,
-    ),
-)
-
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     'range': $.range,
     'serializationFormatVersion': _p_change_context(

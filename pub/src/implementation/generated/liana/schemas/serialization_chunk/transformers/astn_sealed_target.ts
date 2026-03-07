@@ -13,14 +13,6 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($) => ['dictionary', _p.dictionary.from.dictionary(
-    $,
-).map(
-    ($, id) => Serialization_Chunk(
-        $,
-    ),
-)]
-
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         "serializationFormatVersion": _p_change_context(

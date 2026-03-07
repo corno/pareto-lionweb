@@ -13,8 +13,6 @@ export const Meta_Pointer = ($: d_in.Meta_Pointer): d_out.Value => sh.v.object({
     "language": sh.v.string($.language),
 })
 
-export const Serialization_Chunks = ($: d_in.Serialization_Chunks): d_out.Document => ['object', ['dictionary', $.__d_map(($) => Serialization_Chunk($))]]
-
 export const Serialization_Chunk = ($: d_in.Serialization_Chunk): d_out.Document => sh.v.object({
     "serializationFormatVersion": sh.v.string($.serializationFormatVersion),
     "languages": sh.v.array($.languages.__l_map(($) => sh.v.object({

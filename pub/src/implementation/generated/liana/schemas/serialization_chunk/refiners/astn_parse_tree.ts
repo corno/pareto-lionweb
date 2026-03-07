@@ -17,25 +17,6 @@ import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/
 
 import * as v_external_location from "../../location/refiners/astn_parse_tree"
 
-export const Serialization_Chunks: t_signatures.Serialization_Chunks = ($, abort) => _p_change_context(
-    v_unmarshalled_from_parse_tree.Dictionary(
-        $,
-        ($) => abort(
-            $,
-        ),
-    ),
-    ($) => _p.dictionary.from.dictionary(
-        $['entries'],
-    ).map(
-        ($, id) => Serialization_Chunk(
-            $,
-            ($) => abort(
-                $,
-            ),
-        ),
-    ),
-)
-
 export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
