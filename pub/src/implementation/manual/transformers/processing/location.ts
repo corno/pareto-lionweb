@@ -17,23 +17,23 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 
 
-export const Error: _pi.Transformer<d_in.Error, d_out.Range> = ($) => _p.decide.state($, ($): d_out.Range => {
+export const Error: _pi.Transformer<d_in.Error, d_out.Possible_Range> = ($) => _p.decide.state($, ($): d_out.Possible_Range => {
     switch ($[0]) {
-        case 'deserialization error': return _p.ss($, ($) => _p.decide.state($, ($) => {
+        case 'deserialization error': return _p.ss($, ($) => _p.decide.state($, ($): d_out.Possible_Range => {
             switch ($[0]) {
                 case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_location.Error($))
-                case 'tree from chunk': return _p.ss($, ($) => $.range)
-                case 'unmarshall serialization chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
+                case 'tree from chunk': return _p.ss($, ($) => ['range', $.range])
+                case 'unmarshall serialization chunk': return _p.ss($, ($) => _p.decide.state($, ($): d_out.Possible_Range => {
                     switch ($[0]) {
-                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_location.Error($))
-                        case 'json': return _p.ss($, ($) => $.range)
+                        case 'astn': return _p.ss($, ($) => ['range', t_astn_unmarshall_to_location.Error($)])
+                        case 'json': return _p.ss($, ($) => ['range', $.range])
                         default: return _p.au($[0])
                     }
                 }))
                 default: return _p.au($[0])
             }
         }))
-        case 'unmarshalling error': return _p.ss($, ($) => $.node.range)
+        case 'unmarshalling error': return _p.ss($, ($) => ['range', $.node.range])
         default: return _p.au($[0])
     }
 })

@@ -272,7 +272,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                             ),
                                                                         ),
                                                                         ($) => _p.decide.text(
-                                                                            $['option']['value'],
+                                                                            $['option']['token']['value'],
                                                                             ($t): t_out.M3.containments.entities.D.classifier => {
                                                                                 switch ($t) {
                                                                                     case 'Classifier':
@@ -318,7 +318,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                         ),
                                                                                                                     ),
                                                                                                                     ($) => _p.decide.text(
-                                                                                                                        $['option']['value'],
+                                                                                                                        $['option']['token']['value'],
                                                                                                                         ($t): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                                                                             switch ($t) {
                                                                                                                                 case 'Concept':
@@ -578,7 +578,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                 default:
                                                                                                                                     return abort(
                                                                                                                                         ['liana', {
-                                                                                                                                            'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                                                            'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                 $['value'],
                                                                                                                                             ),
@@ -698,7 +698,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         ),
                                                                                                                                                                     ),
                                                                                                                                                                     ($) => _p.decide.text(
-                                                                                                                                                                        $['option']['value'],
+                                                                                                                                                                        $['option']['token']['value'],
                                                                                                                                                                         ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                                                                                                             switch ($t) {
                                                                                                                                                                                 case 'Property':
@@ -827,7 +827,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p.decide.text(
-                                                                                                                                                                                                                    $['option']['value'],
+                                                                                                                                                                                                                    $['option']['token']['value'],
                                                                                                                                                                                                                     ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                                                                                                                         switch ($t) {
                                                                                                                                                                                                                             case 'Containment':
@@ -853,7 +853,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                             default:
                                                                                                                                                                                                                                 return abort(
                                                                                                                                                                                                                                     ['liana', {
-                                                                                                                                                                                                                                        'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                                                                                                                                                        'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                                         ),
@@ -978,7 +978,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                 default:
                                                                                                                                                                                     return abort(
                                                                                                                                                                                         ['liana', {
-                                                                                                                                                                                            'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                                                                                                            'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                 $['value'],
                                                                                                                                                                                             ),
@@ -1070,7 +1070,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                     ),
                                                                                                 ),
                                                                                                 ($) => _p.decide.text(
-                                                                                                    $['option']['value'],
+                                                                                                    $['option']['token']['value'],
                                                                                                     ($t): t_out.M3.containments.entities.D.classifier.Datatype => {
                                                                                                         switch ($t) {
                                                                                                             case 'Enumeration':
@@ -1134,7 +1134,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                             default:
                                                                                                                 return abort(
                                                                                                                     ['liana', {
-                                                                                                                        'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                                        'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                             $['value'],
                                                                                                                         ),
@@ -1148,7 +1148,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                     default:
                                                                                         return abort(
                                                                                             ['liana', {
-                                                                                                'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                 'range': v_parse_tree_to_location.Value(
                                                                                                     $['value'],
                                                                                                 ),

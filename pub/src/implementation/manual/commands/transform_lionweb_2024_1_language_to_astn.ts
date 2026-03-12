@@ -51,6 +51,7 @@ import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
 import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/context_path/temp_string"
 import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
 import * as t_processing_to_fountain_pen from "../transformers/processing/fountain_pen"
@@ -85,9 +86,15 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                         $,
                         ($) => abort(sh.ph.composed([
                             sh.ph.literal("error during processing: "),
-                            t_location_to_fountain_pen.Range(
+                            t_location_to_fountain_pen.Possible_Range(
                                 t_processing_to_location.Error($),
                                 {
+                                    'document resource identifier': t_path_to_text.Node_Path(
+                                        t_path_to_path.create_node_path(
+                                            r_path_from_text.Context_Path(settings['in']['dir']),
+                                            { 'node': settings['in']['file'] }
+                                        )
+                                    ),
                                     'character location reporting': ['one based', null],
                                 }
                             ),
