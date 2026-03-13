@@ -14,7 +14,6 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort, 
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Targets: t_signatures.Targets = ($, abort, $p) => v_unmarshall.Targ
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort, $p) => v_unmar
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

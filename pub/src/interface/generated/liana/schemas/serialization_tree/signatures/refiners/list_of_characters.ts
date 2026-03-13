@@ -17,8 +17,6 @@ export namespace Serialization_Tree_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Serialization_Tree_ = (
     context: Serialization_Tree_.I,
     abort: _pi.Abort<Serialization_Tree_.E>,
     parameters: {
-        readonly 'document resource identifier': Serialization_Tree_.P.document_resource_identifier
         readonly 'tab size': Serialization_Tree_.P.tab_size
     },
 ) => Serialization_Tree_.O
@@ -44,8 +41,6 @@ export namespace Node_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Node_ = (
     context: Node_.I,
     abort: _pi.Abort<Node_.E>,
     parameters: {
-        readonly 'document resource identifier': Node_.P.document_resource_identifier
         readonly 'tab size': Node_.P.tab_size
     },
 ) => Node_.O
@@ -71,8 +65,6 @@ export namespace Targets_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type Targets_ = (
     context: Targets_.I,
     abort: _pi.Abort<Targets_.E>,
     parameters: {
-        readonly 'document resource identifier': Targets_.P.document_resource_identifier
         readonly 'tab size': Targets_.P.tab_size
     },
 ) => Targets_.O

@@ -103,7 +103,6 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                             ),
                         ])),
                         {
-                            'document resource identifier': settings['in']['file'],
                             'tab size': 4,
                         }
                     ),

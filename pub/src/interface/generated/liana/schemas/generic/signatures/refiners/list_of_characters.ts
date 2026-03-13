@@ -17,8 +17,6 @@ export namespace ID_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type ID_ = (
     context: ID_.I,
     abort: _pi.Abort<ID_.E>,
     parameters: {
-        readonly 'document resource identifier': ID_.P.document_resource_identifier
         readonly 'tab size': ID_.P.tab_size
     },
 ) => ID_.O
@@ -44,8 +41,6 @@ export namespace Raw_Reference_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Raw_Reference_ = (
     context: Raw_Reference_.I,
     abort: _pi.Abort<Raw_Reference_.E>,
     parameters: {
-        readonly 'document resource identifier': Raw_Reference_.P.document_resource_identifier
         readonly 'tab size': Raw_Reference_.P.tab_size
     },
 ) => Raw_Reference_.O
@@ -71,8 +65,6 @@ export namespace Singular_Reference_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type Singular_Reference_ = (
     context: Singular_Reference_.I,
     abort: _pi.Abort<Singular_Reference_.E>,
     parameters: {
-        readonly 'document resource identifier': Singular_Reference_.P.document_resource_identifier
         readonly 'tab size': Singular_Reference_.P.tab_size
     },
 ) => Singular_Reference_.O
@@ -98,8 +89,6 @@ export namespace References_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -110,7 +99,6 @@ export type References_ = (
     context: References_.I,
     abort: _pi.Abort<References_.E>,
     parameters: {
-        readonly 'document resource identifier': References_.P.document_resource_identifier
         readonly 'tab size': References_.P.tab_size
     },
 ) => References_.O
@@ -125,8 +113,6 @@ export namespace Optional_Reference_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -137,7 +123,6 @@ export type Optional_Reference_ = (
     context: Optional_Reference_.I,
     abort: _pi.Abort<Optional_Reference_.E>,
     parameters: {
-        readonly 'document resource identifier': Optional_Reference_.P.document_resource_identifier
         readonly 'tab size': Optional_Reference_.P.tab_size
     },
 ) => Optional_Reference_.O

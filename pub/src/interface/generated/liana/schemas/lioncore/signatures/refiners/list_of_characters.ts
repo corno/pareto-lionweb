@@ -17,8 +17,6 @@ export namespace M3_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type M3_ = (
     context: M3_.I,
     abort: _pi.Abort<M3_.E>,
     parameters: {
-        readonly 'document resource identifier': M3_.P.document_resource_identifier
         readonly 'tab size': M3_.P.tab_size
     },
 ) => M3_.O

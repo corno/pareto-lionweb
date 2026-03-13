@@ -14,7 +14,6 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort, $p
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Node: t_signatures.Node = ($, abort, $p) => v_unmarshall.Node(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const Targets: t_signatures.Targets = ($, abort, $p) => v_unmarshall.Targ
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

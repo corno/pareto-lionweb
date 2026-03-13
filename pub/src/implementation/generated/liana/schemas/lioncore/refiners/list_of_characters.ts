@@ -14,7 +14,6 @@ export const M3: t_signatures.M3 = ($, abort, $p) => v_unmarshall.M3(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
