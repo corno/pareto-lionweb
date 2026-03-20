@@ -1,316 +1,338 @@
 (
-    'omit (de)serializer': false
-    'schema tree': | 'set' {
-        `location`: | 'schema' (
-            'schema imports': {}
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {}
-                'number types': {}
+    `omit (de)serializer`: false
+    `schema tree`: | `set` {
+        'location': | `schema` (
+            `schema imports`: {}
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {}
+                `number types`: {}
             )
-            'modules': {
-                `Range`: (
-                    'root value': | 'group' {
-                        `start`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'internal' `Location`
-                                'results': ~
+            `modules`: {
+                'Range': (
+                    `root value`: | `group` {
+                        'start': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `internal` 'Location'
+                                `results`: _
                             )
                         )
-                        `end`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'internal' `Location`
-                                'results': ~
-                            )
-                        )
-                    }
-                )
-                `Location`: (
-                    'root value': | 'group' {
-                        `relative`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'internal' `Relative Location`
-                                'results': ~
-                            )
-                        )
-                        `absolute`: (
-                            'description': ~
-                            'value': | 'number' | 'local' (
-                                'precision': | 'exact' (
-                                    'decimal separator offset': ~
-                                    'type': | 'natural' ~
-                                )
+                        'end': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `internal` 'Location'
+                                `results`: _
                             )
                         )
                     }
                 )
-                `Relative Location`: (
-                    'root value': | 'group' {
-                        `document resource identifier`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
-                            )
-                        )
-                        `line`: (
-                            'description': ~
-                            'value': | 'number' | 'local' (
-                                'precision': | 'exact' (
-                                    'decimal separator offset': ~
-                                    'type': | 'natural' ~
+                'Possible Range': (
+                    `root value`: | `state` (
+                        `options`: {
+                            'range': (
+                                `constraints`: _
+                                `description`: _
+                                `value`: | `component` (
+                                    `type`: | `internal` 'Range'
+                                    `results`: _
                                 )
                             )
-                        )
-                        `column`: (
-                            'description': ~
-                            'value': | 'number' | 'local' (
-                                'precision': | 'exact' (
-                                    'decimal separator offset': ~
-                                    'type': | 'natural' ~
-                                )
-                            )
-                        )
-                    }
-                )
-            }
-            'complexity': | 'unconstrained' ~
-        )
-        `generic`: | 'schema' (
-            'schema imports': {
-                `location`: (
-                    'schema set child': `location`
-                    'schema': ~
-                )
-            }
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
-                'number types': {}
-            )
-            'modules': {
-                `ID`: (
-                    'root value': | 'group' {
-                        `key`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
-                            )
-                        )
-                        `id`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
-                            )
-                        )
-                        `source`: (
-                            'description': ~
-                            'value': | 'optional' | 'component' (
-                                'type': | 'external' (
-                                    'import': `location`
-                                    'module': `Range`
-                                )
-                                'results': ~
-                            )
-                        )
-                    }
-                )
-                `Raw Reference`: (
-                    'root value': | 'group' {
-                        `resolveInfo`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
-                            )
-                        )
-                        `reference`: (
-                            'description': ~
-                            'value': | 'optional' | 'text' | 'local' (
-                                'type': | 'single line' ~
-                            )
-                        )
-                    }
-                )
-                `Singular Reference`: (
-                    'root value': | 'component' (
-                        'type': | 'internal' `Raw Reference`
-                        'results': ~
-                    )
-                )
-                `References`: (
-                    'root value': | 'list' (
-                        'value': | 'component' (
-                            'type': | 'internal' `Raw Reference`
-                            'results': ~
-                        )
-                        'results': ~
-                    )
-                )
-                `Optional Reference`: (
-                    'root value': | 'optional' | 'component' (
-                        'type': | 'internal' `Raw Reference`
-                        'results': ~
-                    )
-                )
-            }
-            'complexity': | 'unconstrained' ~
-        )
-        `lioncore`: | 'schema' (
-            'schema imports': {
-                `generic`: (
-                    'schema set child': `generic`
-                    'schema': ~
-                )
-            }
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
-                'number types': {}
-            )
-            'modules': {
-                `M3`: (
-                    'root value': | 'group' {
-                        `id`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'external' (
-                                    'import': `generic`
-                                    'module': `ID`
-                                )
-                                'results': ~
-                            )
-                        )
-                        `properties`: (
-                            'description': ~
-                            'value': | 'group' {
-                                `version`: (
-                                    'description': ~
-                                    'value': | 'text' | 'local' (
-                                        'type': | 'single line' ~
-                                    )
-                                )
-                            }
-                        )
-                        `references`: (
-                            'description': ~
-                            'value': | 'group' {
-                                `dependencies`: (
-                                    'description': ~
-                                    'value': | 'component' (
-                                        'type': | 'external' (
-                                            'import': `generic`
-                                            'module': `References`
+                            'end of document': (
+                                `constraints`: _
+                                `description`: _
+                                `value`: | `group` {
+                                    'end': (
+                                        `description`: _
+                                        `value`: | `component` (
+                                            `type`: | `internal` 'Location'
+                                            `results`: _
                                         )
-                                        'results': ~
+                                    )
+                                }
+                            )
+                        }
+                        `results`: _
+                    )
+                )
+                'Location': (
+                    `root value`: | `group` {
+                        'relative': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `internal` 'Relative Location'
+                                `results`: _
+                            )
+                        )
+                        'absolute': (
+                            `description`: _
+                            `value`: | `number` | `local` (
+                                `precision`: | `exact` (
+                                    `decimal separator offset`: _
+                                    `type`: | `natural` ~
+                                )
+                            )
+                        )
+                    }
+                )
+                'Relative Location': (
+                    `root value`: | `group` {
+                        'line': (
+                            `description`: _
+                            `value`: | `number` | `local` (
+                                `precision`: | `exact` (
+                                    `decimal separator offset`: _
+                                    `type`: | `natural` ~
+                                )
+                            )
+                        )
+                        'column': (
+                            `description`: _
+                            `value`: | `number` | `local` (
+                                `precision`: | `exact` (
+                                    `decimal separator offset`: _
+                                    `type`: | `natural` ~
+                                )
+                            )
+                        )
+                    }
+                )
+            }
+            `complexity`: | `unconstrained` ~
+        )
+        'generic': | `schema` (
+            `schema imports`: {
+                'location': (
+                    `schema set child`: 'location'
+                    `schema`: ~
+                )
+            }
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {
+                    'Text Value': (
+                        `type`: | `single line` ~
+                    )
+                }
+                `number types`: {}
+            )
+            `modules`: {
+                'ID': (
+                    `root value`: | `group` {
+                        'key': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
+                            )
+                        )
+                        'id': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
+                            )
+                        )
+                        'source': (
+                            `description`: _
+                            `value`: | `optional` | `component` (
+                                `type`: | `external` (
+                                    `import`: 'location'
+                                    `module`: 'Range'
+                                )
+                                `results`: _
+                            )
+                        )
+                    }
+                )
+                'Raw Reference': (
+                    `root value`: | `group` {
+                        'resolveInfo': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
+                            )
+                        )
+                        'reference': (
+                            `description`: _
+                            `value`: | `optional` | `text` | `local` (
+                                `type`: | `single line` ~
+                            )
+                        )
+                    }
+                )
+                'Singular Reference': (
+                    `root value`: | `component` (
+                        `type`: | `internal` 'Raw Reference'
+                        `results`: _
+                    )
+                )
+                'References': (
+                    `root value`: | `list` (
+                        `value`: | `component` (
+                            `type`: | `internal` 'Raw Reference'
+                            `results`: _
+                        )
+                        `results`: _
+                    )
+                )
+                'Optional Reference': (
+                    `root value`: | `optional` | `component` (
+                        `type`: | `internal` 'Raw Reference'
+                        `results`: _
+                    )
+                )
+            }
+            `complexity`: | `unconstrained` ~
+        )
+        'lioncore': | `schema` (
+            `schema imports`: {
+                'generic': (
+                    `schema set child`: 'generic'
+                    `schema`: ~
+                )
+            }
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {
+                    'Text Value': (
+                        `type`: | `single line` ~
+                    )
+                }
+                `number types`: {}
+            )
+            `modules`: {
+                'M3': (
+                    `root value`: | `group` {
+                        'id': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `external` (
+                                    `import`: 'generic'
+                                    `module`: 'ID'
+                                )
+                                `results`: _
+                            )
+                        )
+                        'properties': (
+                            `description`: _
+                            `value`: | `group` {
+                                'version': (
+                                    `description`: _
+                                    `value`: | `text` | `local` (
+                                        `type`: | `single line` ~
                                     )
                                 )
                             }
                         )
-                        `containments`: (
-                            'description': ~
-                            'value': | 'group' {
-                                `entities`: (
-                                    'description': ~
-                                    'value': | 'dictionary' (
-                                        'value': | 'group' {
-                                            `id`: (
-                                                'description': ~
-                                                'value': | 'component' (
-                                                    'type': | 'external' (
-                                                        'import': `generic`
-                                                        'module': `ID`
+                        'references': (
+                            `description`: _
+                            `value`: | `group` {
+                                'dependencies': (
+                                    `description`: _
+                                    `value`: | `component` (
+                                        `type`: | `external` (
+                                            `import`: 'generic'
+                                            `module`: 'References'
+                                        )
+                                        `results`: _
+                                    )
+                                )
+                            }
+                        )
+                        'containments': (
+                            `description`: _
+                            `value`: | `group` {
+                                'entities': (
+                                    `description`: _
+                                    `value`: | `dictionary` (
+                                        `value`: | `group` {
+                                            'id': (
+                                                `description`: _
+                                                `value`: | `component` (
+                                                    `type`: | `external` (
+                                                        `import`: 'generic'
+                                                        `module`: 'ID'
                                                     )
-                                                    'results': ~
+                                                    `results`: _
                                                 )
                                             )
-                                            `classifier`: (
-                                                'description': ~
-                                                'value': | 'state' (
-                                                    'options': {
-                                                        `Classifier`: (
-                                                            'constraints': ~
-                                                            'description': ~
-                                                            'value': | 'group' {
-                                                                `classifier`: (
-                                                                    'description': ~
-                                                                    'value': | 'state' (
-                                                                        'options': {
-                                                                            `Concept`: (
-                                                                                'constraints': ~
-                                                                                'description': ~
-                                                                                'value': | 'group' {
-                                                                                    `properties`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'group' {
-                                                                                            `abstract`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'text' | 'local' (
-                                                                                                    'type': | 'single line' ~
+                                            'classifier': (
+                                                `description`: _
+                                                `value`: | `state` (
+                                                    `options`: {
+                                                        'Classifier': (
+                                                            `constraints`: _
+                                                            `description`: _
+                                                            `value`: | `group` {
+                                                                'classifier': (
+                                                                    `description`: _
+                                                                    `value`: | `state` (
+                                                                        `options`: {
+                                                                            'Concept': (
+                                                                                `constraints`: _
+                                                                                `description`: _
+                                                                                `value`: | `group` {
+                                                                                    'properties': (
+                                                                                        `description`: _
+                                                                                        `value`: | `group` {
+                                                                                            'abstract': (
+                                                                                                `description`: _
+                                                                                                `value`: | `text` | `local` (
+                                                                                                    `type`: | `single line` ~
                                                                                                 )
                                                                                             )
-                                                                                            `partition`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'text' | 'local' (
-                                                                                                    'type': | 'single line' ~
+                                                                                            'partition': (
+                                                                                                `description`: _
+                                                                                                `value`: | `text` | `local` (
+                                                                                                    `type`: | `single line` ~
                                                                                                 )
                                                                                             )
                                                                                         }
                                                                                     )
-                                                                                    `references`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'group' {
-                                                                                            `extends`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'component' (
-                                                                                                    'type': | 'external' (
-                                                                                                        'import': `generic`
-                                                                                                        'module': `Optional Reference`
+                                                                                    'references': (
+                                                                                        `description`: _
+                                                                                        `value`: | `group` {
+                                                                                            'extends': (
+                                                                                                `description`: _
+                                                                                                `value`: | `component` (
+                                                                                                    `type`: | `external` (
+                                                                                                        `import`: 'generic'
+                                                                                                        `module`: 'Optional Reference'
                                                                                                     )
-                                                                                                    'results': ~
+                                                                                                    `results`: _
                                                                                                 )
                                                                                             )
-                                                                                            `implements`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'component' (
-                                                                                                    'type': | 'external' (
-                                                                                                        'import': `generic`
-                                                                                                        'module': `References`
+                                                                                            'implements': (
+                                                                                                `description`: _
+                                                                                                `value`: | `component` (
+                                                                                                    `type`: | `external` (
+                                                                                                        `import`: 'generic'
+                                                                                                        `module`: 'References'
                                                                                                     )
-                                                                                                    'results': ~
+                                                                                                    `results`: _
                                                                                                 )
                                                                                             )
                                                                                         }
                                                                                     )
                                                                                 }
                                                                             )
-                                                                            `Interface`: (
-                                                                                'constraints': ~
-                                                                                'description': ~
-                                                                                'value': | 'group' {
-                                                                                    `references`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'group' {
-                                                                                            `extends`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'component' (
-                                                                                                    'type': | 'external' (
-                                                                                                        'import': `generic`
-                                                                                                        'module': `References`
+                                                                            'Interface': (
+                                                                                `constraints`: _
+                                                                                `description`: _
+                                                                                `value`: | `group` {
+                                                                                    'references': (
+                                                                                        `description`: _
+                                                                                        `value`: | `group` {
+                                                                                            'extends': (
+                                                                                                `description`: _
+                                                                                                `value`: | `component` (
+                                                                                                    `type`: | `external` (
+                                                                                                        `import`: 'generic'
+                                                                                                        `module`: 'References'
                                                                                                     )
-                                                                                                    'results': ~
+                                                                                                    `results`: _
                                                                                                 )
                                                                                             )
                                                                                         }
@@ -318,95 +340,95 @@
                                                                                 }
                                                                             )
                                                                         }
-                                                                        'results': ~
+                                                                        `results`: _
                                                                     )
                                                                 )
-                                                                `containments`: (
-                                                                    'description': ~
-                                                                    'value': | 'group' {
-                                                                        `features`: (
-                                                                            'description': ~
-                                                                            'value': | 'dictionary' (
-                                                                                'value': | 'group' {
-                                                                                    `id`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'component' (
-                                                                                            'type': | 'external' (
-                                                                                                'import': `generic`
-                                                                                                'module': `ID`
+                                                                'containments': (
+                                                                    `description`: _
+                                                                    `value`: | `group` {
+                                                                        'features': (
+                                                                            `description`: _
+                                                                            `value`: | `dictionary` (
+                                                                                `value`: | `group` {
+                                                                                    'id': (
+                                                                                        `description`: _
+                                                                                        `value`: | `component` (
+                                                                                            `type`: | `external` (
+                                                                                                `import`: 'generic'
+                                                                                                `module`: 'ID'
                                                                                             )
-                                                                                            'results': ~
+                                                                                            `results`: _
                                                                                         )
                                                                                     )
-                                                                                    `classifier`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'state' (
-                                                                                            'options': {
-                                                                                                `Property`: (
-                                                                                                    'constraints': ~
-                                                                                                    'description': ~
-                                                                                                    'value': | 'group' {
-                                                                                                        `references`: (
-                                                                                                            'description': ~
-                                                                                                            'value': | 'group' {
-                                                                                                                `type`: (
-                                                                                                                    'description': ~
-                                                                                                                    'value': | 'component' (
-                                                                                                                        'type': | 'external' (
-                                                                                                                            'import': `generic`
-                                                                                                                            'module': `Singular Reference`
+                                                                                    'classifier': (
+                                                                                        `description`: _
+                                                                                        `value`: | `state` (
+                                                                                            `options`: {
+                                                                                                'Property': (
+                                                                                                    `constraints`: _
+                                                                                                    `description`: _
+                                                                                                    `value`: | `group` {
+                                                                                                        'references': (
+                                                                                                            `description`: _
+                                                                                                            `value`: | `group` {
+                                                                                                                'type': (
+                                                                                                                    `description`: _
+                                                                                                                    `value`: | `component` (
+                                                                                                                        `type`: | `external` (
+                                                                                                                            `import`: 'generic'
+                                                                                                                            `module`: 'Singular Reference'
                                                                                                                         )
-                                                                                                                        'results': ~
+                                                                                                                        `results`: _
                                                                                                                     )
                                                                                                                 )
                                                                                                             }
                                                                                                         )
                                                                                                     }
                                                                                                 )
-                                                                                                `Link`: (
-                                                                                                    'constraints': ~
-                                                                                                    'description': ~
-                                                                                                    'value': | 'group' {
-                                                                                                        `classifier`: (
-                                                                                                            'description': ~
-                                                                                                            'value': | 'state' (
-                                                                                                                'options': {
-                                                                                                                    `Containment`: (
-                                                                                                                        'constraints': ~
-                                                                                                                        'description': ~
-                                                                                                                        'value': | 'nothing' ~
+                                                                                                'Link': (
+                                                                                                    `constraints`: _
+                                                                                                    `description`: _
+                                                                                                    `value`: | `group` {
+                                                                                                        'classifier': (
+                                                                                                            `description`: _
+                                                                                                            `value`: | `state` (
+                                                                                                                `options`: {
+                                                                                                                    'Containment': (
+                                                                                                                        `constraints`: _
+                                                                                                                        `description`: _
+                                                                                                                        `value`: | `nothing` ~
                                                                                                                     )
-                                                                                                                    `Reference`: (
-                                                                                                                        'constraints': ~
-                                                                                                                        'description': ~
-                                                                                                                        'value': | 'nothing' ~
+                                                                                                                    'Reference': (
+                                                                                                                        `constraints`: _
+                                                                                                                        `description`: _
+                                                                                                                        `value`: | `nothing` ~
                                                                                                                     )
                                                                                                                 }
-                                                                                                                'results': ~
+                                                                                                                `results`: _
                                                                                                             )
                                                                                                         )
-                                                                                                        `properties`: (
-                                                                                                            'description': ~
-                                                                                                            'value': | 'group' {
-                                                                                                                `multiple`: (
-                                                                                                                    'description': ~
-                                                                                                                    'value': | 'text' | 'local' (
-                                                                                                                        'type': | 'single line' ~
+                                                                                                        'properties': (
+                                                                                                            `description`: _
+                                                                                                            `value`: | `group` {
+                                                                                                                'multiple': (
+                                                                                                                    `description`: _
+                                                                                                                    `value`: | `text` | `local` (
+                                                                                                                        `type`: | `single line` ~
                                                                                                                     )
                                                                                                                 )
                                                                                                             }
                                                                                                         )
-                                                                                                        `references`: (
-                                                                                                            'description': ~
-                                                                                                            'value': | 'group' {
-                                                                                                                `type`: (
-                                                                                                                    'description': ~
-                                                                                                                    'value': | 'component' (
-                                                                                                                        'type': | 'external' (
-                                                                                                                            'import': `generic`
-                                                                                                                            'module': `Singular Reference`
+                                                                                                        'references': (
+                                                                                                            `description`: _
+                                                                                                            `value`: | `group` {
+                                                                                                                'type': (
+                                                                                                                    `description`: _
+                                                                                                                    `value`: | `component` (
+                                                                                                                        `type`: | `external` (
+                                                                                                                            `import`: 'generic'
+                                                                                                                            `module`: 'Singular Reference'
                                                                                                                         )
-                                                                                                                        'results': ~
+                                                                                                                        `results`: _
                                                                                                                     )
                                                                                                                 )
                                                                                                             }
@@ -414,16 +436,16 @@
                                                                                                     }
                                                                                                 )
                                                                                             }
-                                                                                            'results': ~
+                                                                                            `results`: _
                                                                                         )
                                                                                     )
-                                                                                    `properties`: (
-                                                                                        'description': ~
-                                                                                        'value': | 'group' {
-                                                                                            `optional`: (
-                                                                                                'description': ~
-                                                                                                'value': | 'text' | 'local' (
-                                                                                                    'type': | 'single line' ~
+                                                                                    'properties': (
+                                                                                        `description`: _
+                                                                                        `value`: | `group` {
+                                                                                            'optional': (
+                                                                                                `description`: _
+                                                                                                `value`: | `text` | `local` (
+                                                                                                    `type`: | `single line` ~
                                                                                                 )
                                                                                             )
                                                                                         }
@@ -435,35 +457,35 @@
                                                                 )
                                                             }
                                                         )
-                                                        `Datatype`: (
-                                                            'constraints': ~
-                                                            'description': ~
-                                                            'value': | 'state' (
-                                                                'options': {
-                                                                    `Enumeration`: (
-                                                                        'constraints': ~
-                                                                        'description': ~
-                                                                        'value': | 'dictionary' (
-                                                                            'value': | 'group' {
-                                                                                `id`: (
-                                                                                    'description': ~
-                                                                                    'value': | 'component' (
-                                                                                        'type': | 'external' (
-                                                                                            'import': `generic`
-                                                                                            'module': `ID`
+                                                        'Datatype': (
+                                                            `constraints`: _
+                                                            `description`: _
+                                                            `value`: | `state` (
+                                                                `options`: {
+                                                                    'Enumeration': (
+                                                                        `constraints`: _
+                                                                        `description`: _
+                                                                        `value`: | `dictionary` (
+                                                                            `value`: | `group` {
+                                                                                'id': (
+                                                                                    `description`: _
+                                                                                    `value`: | `component` (
+                                                                                        `type`: | `external` (
+                                                                                            `import`: 'generic'
+                                                                                            `module`: 'ID'
                                                                                         )
-                                                                                        'results': ~
+                                                                                        `results`: _
                                                                                     )
                                                                                 )
                                                                             }
                                                                         )
                                                                     )
                                                                 }
-                                                                'results': ~
+                                                                `results`: _
                                                             )
                                                         )
                                                     }
-                                                    'results': ~
+                                                    `results`: _
                                                 )
                                             )
                                         }
@@ -474,352 +496,352 @@
                     }
                 )
             }
-            'complexity': | 'unconstrained' ~
+            `complexity`: | `unconstrained` ~
         )
-        `serialization chunk`: | 'schema' (
-            'schema imports': {
-                `location`: (
-                    'schema set child': `location`
-                    'schema': ~
+        'serialization chunk': | `schema` (
+            `schema imports`: {
+                'location': (
+                    `schema set child`: 'location'
+                    `schema`: ~
                 )
             }
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {
+                    'Text Value': (
+                        `type`: | `single line` ~
                     )
                 }
-                'number types': {}
+                `number types`: {}
             )
-            'modules': {
-                `Serialization Chunk`: (
-                    'root value': | 'group' {
-                        `serializationFormatVersion`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+            `modules`: {
+                'Serialization Chunk': (
+                    `root value`: | `group` {
+                        'serializationFormatVersion': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `languages`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'group' {
-                                    `key`: (
-                                        'description': ~
-                                        'value': | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                        'languages': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `group` {
+                                    'key': (
+                                        `description`: _
+                                        `value`: | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
-                                    `version`: (
-                                        'description': ~
-                                        'value': | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                                    'version': (
+                                        `description`: _
+                                        `value`: | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
                                 }
-                                'results': ~
+                                `results`: _
                             )
                         )
-                        `nodes`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'group' {
-                                    `id`: (
-                                        'description': ~
-                                        'value': | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                        'nodes': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `group` {
+                                    'id': (
+                                        `description`: _
+                                        `value`: | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
-                                    `range`: (
-                                        'description': ~
-                                        'value': | 'component' (
-                                            'type': | 'external' (
-                                                'import': `location`
-                                                'module': `Range`
+                                    'range': (
+                                        `description`: _
+                                        `value`: | `component` (
+                                            `type`: | `external` (
+                                                `import`: 'location'
+                                                `module`: 'Range'
                                             )
-                                            'results': ~
+                                            `results`: _
                                         )
                                     )
-                                    `parent`: (
-                                        'description': ~
-                                        'value': | 'optional' | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                                    'parent': (
+                                        `description`: _
+                                        `value`: | `optional` | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
-                                    `classifier`: (
-                                        'description': ~
-                                        'value': | 'component' (
-                                            'type': | 'internal' `Meta Pointer`
-                                            'results': ~
+                                    'classifier': (
+                                        `description`: _
+                                        `value`: | `component` (
+                                            `type`: | `internal` 'Meta Pointer'
+                                            `results`: _
                                         )
                                     )
-                                    `properties`: (
-                                        'description': ~
-                                        'value': | 'list' (
-                                            'value': | 'group' {
-                                                `property`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Meta Pointer`
-                                                        'results': ~
+                                    'properties': (
+                                        `description`: _
+                                        `value`: | `list` (
+                                            `value`: | `group` {
+                                                'property': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Meta Pointer'
+                                                        `results`: _
                                                     )
                                                 )
-                                                `value`: (
-                                                    'description': ~
-                                                    'value': | 'text' | 'local' (
-                                                        'type': | 'single line' ~
-                                                    )
-                                                )
-                                            }
-                                            'results': ~
-                                        )
-                                    )
-                                    `references`: (
-                                        'description': ~
-                                        'value': | 'list' (
-                                            'value': | 'group' {
-                                                `reference`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Meta Pointer`
-                                                        'results': ~
-                                                    )
-                                                )
-                                                `targets`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Targets`
-                                                        'results': ~
+                                                'value': (
+                                                    `description`: _
+                                                    `value`: | `text` | `local` (
+                                                        `type`: | `single line` ~
                                                     )
                                                 )
                                             }
-                                            'results': ~
+                                            `results`: _
                                         )
                                     )
-                                    `containments`: (
-                                        'description': ~
-                                        'value': | 'list' (
-                                            'value': | 'group' {
-                                                `containment`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Meta Pointer`
-                                                        'results': ~
+                                    'references': (
+                                        `description`: _
+                                        `value`: | `list` (
+                                            `value`: | `group` {
+                                                'reference': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Meta Pointer'
+                                                        `results`: _
                                                     )
                                                 )
-                                                `children`: (
-                                                    'description': ~
-                                                    'value': | 'list' (
-                                                        'value': | 'text' | 'local' (
-                                                            'type': | 'single line' ~
+                                                'targets': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Targets'
+                                                        `results`: _
+                                                    )
+                                                )
+                                            }
+                                            `results`: _
+                                        )
+                                    )
+                                    'containments': (
+                                        `description`: _
+                                        `value`: | `list` (
+                                            `value`: | `group` {
+                                                'containment': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Meta Pointer'
+                                                        `results`: _
+                                                    )
+                                                )
+                                                'children': (
+                                                    `description`: _
+                                                    `value`: | `list` (
+                                                        `value`: | `text` | `local` (
+                                                            `type`: | `single line` ~
                                                         )
-                                                        'results': ~
+                                                        `results`: _
                                                     )
                                                 )
                                             }
-                                            'results': ~
+                                            `results`: _
                                         )
                                     )
-                                    `annotations`: (
-                                        'description': ~
-                                        'value': | 'list' (
-                                            'value': | 'text' | 'local' (
-                                                'type': | 'single line' ~
+                                    'annotations': (
+                                        `description`: _
+                                        `value`: | `list` (
+                                            `value`: | `text` | `local` (
+                                                `type`: | `single line` ~
                                             )
-                                            'results': ~
+                                            `results`: _
                                         )
                                     )
                                 }
-                                'results': ~
+                                `results`: _
                             )
                         )
                     }
                 )
-                `Targets`: (
-                    'root value': | 'list' (
-                        'value': | 'group' {
-                            `resolveInfo`: (
-                                'description': ~
-                                'value': | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                'Targets': (
+                    `root value`: | `list` (
+                        `value`: | `group` {
+                            'resolveInfo': (
+                                `description`: _
+                                `value`: | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
                             )
-                            `reference`: (
-                                'description': ~
-                                'value': | 'optional' | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                            'reference': (
+                                `description`: _
+                                `value`: | `optional` | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
                             )
                         }
-                        'results': ~
+                        `results`: _
                     )
                 )
-                `Meta Pointer`: (
-                    'root value': | 'group' {
-                        `language`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+                'Meta Pointer': (
+                    `root value`: | `group` {
+                        'language': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `key`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+                        'key': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `version`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+                        'version': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
                     }
                 )
             }
-            'complexity': | 'unconstrained' ~
+            `complexity`: | `unconstrained` ~
         )
-        `serialization tree`: | 'schema' (
-            'schema imports': {
-                `location`: (
-                    'schema set child': `location`
-                    'schema': ~
+        'serialization tree': | `schema` (
+            `schema imports`: {
+                'location': (
+                    `schema set child`: 'location'
+                    `schema`: ~
                 )
             }
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {
+                    'Text Value': (
+                        `type`: | `single line` ~
                     )
                 }
-                'number types': {}
+                `number types`: {}
             )
-            'modules': {
-                `Serialization Tree`: (
-                    'root value': | 'group' {
-                        `serializationFormatVersion`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+            `modules`: {
+                'Serialization Tree': (
+                    `root value`: | `group` {
+                        'serializationFormatVersion': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `languages`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'group' {
-                                    `key`: (
-                                        'description': ~
-                                        'value': | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                        'languages': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `group` {
+                                    'key': (
+                                        `description`: _
+                                        `value`: | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
-                                    `version`: (
-                                        'description': ~
-                                        'value': | 'text' | 'local' (
-                                            'type': | 'single line' ~
+                                    'version': (
+                                        `description`: _
+                                        `value`: | `text` | `local` (
+                                            `type`: | `single line` ~
                                         )
                                     )
                                 }
-                                'results': ~
+                                `results`: _
                             )
                         )
-                        `root node id`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+                        'root node id': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `node tree`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'internal' `Node`
-                                'results': ~
+                        'node tree': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `internal` 'Node'
+                                `results`: _
                             )
                         )
                     }
                 )
-                `Node`: (
-                    'root value': | 'group' {
-                        `range`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'external' (
-                                    'import': `location`
-                                    'module': `Range`
+                'Node': (
+                    `root value`: | `group` {
+                        'range': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `external` (
+                                    `import`: 'location'
+                                    `module`: 'Range'
                                 )
-                                'results': ~
+                                `results`: _
                             )
                         )
-                        `classifier`: (
-                            'description': ~
-                            'value': | 'text' | 'local' (
-                                'type': | 'single line' ~
+                        'classifier': (
+                            `description`: _
+                            `value`: | `text` | `local` (
+                                `type`: | `single line` ~
                             )
                         )
-                        `properties`: (
-                            'description': ~
-                            'value': | 'dictionary' (
-                                'value': | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                        'properties': (
+                            `description`: _
+                            `value`: | `dictionary` (
+                                `value`: | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
                             )
                         )
-                        `containments`: (
-                            'description': ~
-                            'value': | 'dictionary' (
-                                'value': | 'dictionary' (
-                                    'value': | 'component' (
-                                        'type': | 'internal' `Node`
-                                        'results': ~
+                        'containments': (
+                            `description`: _
+                            `value`: | `dictionary` (
+                                `value`: | `dictionary` (
+                                    `value`: | `component` (
+                                        `type`: | `internal` 'Node'
+                                        `results`: _
                                     )
                                 )
                             )
                         )
-                        `references`: (
-                            'description': ~
-                            'value': | 'dictionary' (
-                                'value': | 'component' (
-                                    'type': | 'internal' `Targets`
-                                    'results': ~
+                        'references': (
+                            `description`: _
+                            `value`: | `dictionary` (
+                                `value`: | `component` (
+                                    `type`: | `internal` 'Targets'
+                                    `results`: _
                                 )
                             )
                         )
-                        `annotations`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                        'annotations': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
-                                'results': ~
+                                `results`: _
                             )
                         )
                     }
                 )
-                `Targets`: (
-                    'root value': | 'list' (
-                        'value': | 'group' {
-                            `resolveInfo`: (
-                                'description': ~
-                                'value': | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                'Targets': (
+                    `root value`: | `list` (
+                        `value`: | `group` {
+                            'resolveInfo': (
+                                `description`: _
+                                `value`: | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
                             )
-                            `reference`: (
-                                'description': ~
-                                'value': | 'optional' | 'text' | 'local' (
-                                    'type': | 'single line' ~
+                            'reference': (
+                                `description`: _
+                                `value`: | `optional` | `text` | `local` (
+                                    `type`: | `single line` ~
                                 )
                             )
                         }
-                        'results': ~
+                        `results`: _
                     )
                 )
             }
-            'complexity': | 'unconstrained' ~
+            `complexity`: | `unconstrained` ~
         )
     }
 )
