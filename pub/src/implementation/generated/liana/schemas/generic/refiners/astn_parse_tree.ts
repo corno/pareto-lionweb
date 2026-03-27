@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/gene
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_location from "../../location/refiners/astn_parse_tree"
 
@@ -31,6 +31,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                     "source": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -38,6 +39,9 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'key': _p_change_context(
@@ -48,6 +52,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'key',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -65,6 +70,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'id',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -82,6 +88,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'source',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -118,6 +125,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
                     "reference": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -125,6 +133,9 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'resolveInfo': _p_change_context(
@@ -135,6 +146,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
                         ),
                         {
                             'id': 'resolveInfo',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -152,6 +164,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
                         ),
                         {
                             'id': 'reference',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -188,6 +201,9 @@ export const References: t_signatures.References = ($, abort) => _p.list.from.li
         ($) => abort(
             $,
         ),
+        {
+            'document resource identifier': "dummy dri",
+        },
     )['items'],
 ).map(
     ($) => _p_change_context(

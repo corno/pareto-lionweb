@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/lion
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_generic from "../../generic/refiners/astn_parse_tree"
 
@@ -32,6 +32,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                     "containments": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -39,6 +40,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'id': _p_change_context(
@@ -49,6 +53,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'id',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_external_generic.ID(
@@ -66,6 +71,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'properties',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -80,6 +86,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                         "version": null,
                                     },
                                 ),
+                                'document resource identifier': "dummy dri",
                             },
                         ),
                         ($) => _p_variables(
@@ -87,6 +94,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
+                                    {
+                                        'document resource identifier': "dummy dri",
+                                    },
                                 )
                                 return {
                                     'version': _p_change_context(
@@ -97,6 +107,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'version',
+                                                'document resource identifier': "dummy dri",
                                             },
                                         ),
                                         ($) => v_unmarshalled_from_parse_tree.Text(
@@ -119,6 +130,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'references',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -133,6 +145,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                         "dependencies": null,
                                     },
                                 ),
+                                'document resource identifier': "dummy dri",
                             },
                         ),
                         ($) => _p_variables(
@@ -140,6 +153,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
+                                    {
+                                        'document resource identifier': "dummy dri",
+                                    },
                                 )
                                 return {
                                     'dependencies': _p_change_context(
@@ -150,6 +166,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'dependencies',
+                                                'document resource identifier': "dummy dri",
                                             },
                                         ),
                                         ($) => v_external_generic.References(
@@ -172,6 +189,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'containments',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -186,6 +204,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                         "entities": null,
                                     },
                                 ),
+                                'document resource identifier': "dummy dri",
                             },
                         ),
                         ($) => _p_variables(
@@ -193,6 +212,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
+                                    {
+                                        'document resource identifier': "dummy dri",
+                                    },
                                 )
                                 return {
                                     'entities': _p_change_context(
@@ -203,6 +225,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'entities',
+                                                'document resource identifier': "dummy dri",
                                             },
                                         ),
                                         ($) => _p_change_context(
@@ -211,6 +234,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                 ($) => abort(
                                                     $,
                                                 ),
+                                                {
+                                                    'document resource identifier': "dummy dri",
+                                                },
                                             ),
                                             ($) => _p.dictionary.from.dictionary(
                                                 $['entries'],
@@ -228,6 +254,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                     "classifier": null,
                                                                 },
                                                             ),
+                                                            'document resource identifier': "dummy dri",
                                                         },
                                                     ),
                                                     ($) => _p_variables(
@@ -235,6 +262,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                             
                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                 $['value'],
+                                                                {
+                                                                    'document resource identifier': "dummy dri",
+                                                                },
                                                             )
                                                             return {
                                                                 'id': _p_change_context(
@@ -245,6 +275,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'id',
+                                                                            'document resource identifier': "dummy dri",
                                                                         },
                                                                     ),
                                                                     ($) => v_external_generic.ID(
@@ -262,6 +293,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'classifier',
+                                                                            'document resource identifier': "dummy dri",
                                                                         },
                                                                     ),
                                                                     ($) => _p_change_context(
@@ -291,6 +323,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                 "containments": null,
                                                                                                             },
                                                                                                         ),
+                                                                                                        'document resource identifier': "dummy dri",
                                                                                                     },
                                                                                                 ),
                                                                                                 ($) => _p_variables(
@@ -298,6 +331,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                         
                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                             $['value'],
+                                                                                                            {
+                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                            },
                                                                                                         )
                                                                                                         return {
                                                                                                             'classifier': _p_change_context(
@@ -308,6 +344,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'classifier',
+                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_change_context(
@@ -337,6 +374,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
+                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => _p_variables(
@@ -344,6 +382,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
+                                                                                                                                                        {
+                                                                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                                                                        },
                                                                                                                                                     )
                                                                                                                                                     return {
                                                                                                                                                         'properties': _p_change_context(
@@ -354,6 +395,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'properties',
+                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -369,6 +411,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                 "partition": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -376,6 +419,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
+                                                                                                                                                                            {
+                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                            },
                                                                                                                                                                         )
                                                                                                                                                                         return {
                                                                                                                                                                             'abstract': _p_change_context(
@@ -386,6 +432,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'abstract',
+                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -403,6 +450,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'partition',
+                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -425,6 +473,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
+                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -440,6 +489,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                 "implements": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -447,6 +497,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
+                                                                                                                                                                            {
+                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                            },
                                                                                                                                                                         )
                                                                                                                                                                         return {
                                                                                                                                                                             'extends': _p_change_context(
@@ -457,6 +510,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
+                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.Optional_Reference(
@@ -474,6 +528,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'implements',
+                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -508,6 +563,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
+                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => _p_variables(
@@ -515,6 +571,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
+                                                                                                                                                        {
+                                                                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                                                                        },
                                                                                                                                                     )
                                                                                                                                                     return {
                                                                                                                                                         'references': _p_change_context(
@@ -525,6 +584,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
+                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -539,6 +599,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                 "extends": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -546,6 +607,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
+                                                                                                                                                                            {
+                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                            },
                                                                                                                                                                         )
                                                                                                                                                                         return {
                                                                                                                                                                             'extends': _p_change_context(
@@ -556,6 +620,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
+                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -581,6 +646,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                             'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                 $['value'],
+                                                                                                                                                {
+                                                                                                                                                    'document resource identifier': "dummy dri",
+                                                                                                                                                },
                                                                                                                                             ),
                                                                                                                                         }],
                                                                                                                                     )
@@ -597,6 +665,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'containments',
+                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_change_context(
@@ -611,6 +680,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                     "features": null,
                                                                                                                                 },
                                                                                                                             ),
+                                                                                                                            'document resource identifier': "dummy dri",
                                                                                                                         },
                                                                                                                     ),
                                                                                                                     ($) => _p_variables(
@@ -618,6 +688,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                             
                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                 $['value'],
+                                                                                                                                {
+                                                                                                                                    'document resource identifier': "dummy dri",
+                                                                                                                                },
                                                                                                                             )
                                                                                                                             return {
                                                                                                                                 'features': _p_change_context(
@@ -628,6 +701,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                         ),
                                                                                                                                         {
                                                                                                                                             'id': 'features',
+                                                                                                                                            'document resource identifier': "dummy dri",
                                                                                                                                         },
                                                                                                                                     ),
                                                                                                                                     ($) => _p_change_context(
@@ -636,6 +710,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                             ($) => abort(
                                                                                                                                                 $,
                                                                                                                                             ),
+                                                                                                                                            {
+                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                            },
                                                                                                                                         ),
                                                                                                                                         ($) => _p.dictionary.from.dictionary(
                                                                                                                                             $['entries'],
@@ -654,6 +731,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 "properties": null,
                                                                                                                                                             },
                                                                                                                                                         ),
+                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => _p_variables(
@@ -661,6 +739,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                         
                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                             $['value'],
+                                                                                                                                                            {
+                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                            },
                                                                                                                                                         )
                                                                                                                                                         return {
                                                                                                                                                             'id': _p_change_context(
@@ -671,6 +752,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'id',
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => v_external_generic.ID(
@@ -688,6 +770,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'classifier',
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_change_context(
@@ -716,6 +799,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
+                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => _p_variables(
@@ -723,6 +807,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
+                                                                                                                                                                                                        {
+                                                                                                                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                                                                                                                        },
                                                                                                                                                                                                     )
                                                                                                                                                                                                     return {
                                                                                                                                                                                                         'references': _p_change_context(
@@ -733,6 +820,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
+                                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -747,6 +835,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
+                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -754,6 +843,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                                                                            },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
                                                                                                                                                                                                                             'type': _p_change_context(
@@ -764,6 +856,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
+                                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -800,6 +893,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
+                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => _p_variables(
@@ -807,6 +901,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
+                                                                                                                                                                                                        {
+                                                                                                                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                                                                                                                        },
                                                                                                                                                                                                     )
                                                                                                                                                                                                     return {
                                                                                                                                                                                                         'classifier': _p_change_context(
@@ -817,6 +914,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'classifier',
+                                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -856,6 +954,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                         'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                                                             $['value'],
+                                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                                                                                            },
                                                                                                                                                                                                                                         ),
                                                                                                                                                                                                                                     }],
                                                                                                                                                                                                                                 )
@@ -872,6 +973,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'properties',
+                                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -886,6 +988,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                 "multiple": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
+                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -893,6 +996,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                                                                            },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
                                                                                                                                                                                                                             'multiple': _p_change_context(
@@ -903,6 +1009,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'multiple',
+                                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -925,6 +1032,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
+                                                                                                                                                                                                                    'document resource identifier': "dummy dri",
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -939,6 +1047,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
+                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -946,6 +1055,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
+                                                                                                                                                                                                                            {
+                                                                                                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                                                                                                            },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
                                                                                                                                                                                                                             'type': _p_change_context(
@@ -956,6 +1068,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
+                                                                                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -981,6 +1094,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                             'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                 $['value'],
+                                                                                                                                                                                                {
+                                                                                                                                                                                                    'document resource identifier': "dummy dri",
+                                                                                                                                                                                                },
                                                                                                                                                                                             ),
                                                                                                                                                                                         }],
                                                                                                                                                                                     )
@@ -997,6 +1113,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'properties',
+                                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_change_context(
@@ -1011,6 +1128,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     "optional": null,
                                                                                                                                                                                 },
                                                                                                                                                                             ),
+                                                                                                                                                                            'document resource identifier': "dummy dri",
                                                                                                                                                                         },
                                                                                                                                                                     ),
                                                                                                                                                                     ($) => _p_variables(
@@ -1018,6 +1136,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                             
                                                                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                 $['value'],
+                                                                                                                                                                                {
+                                                                                                                                                                                    'document resource identifier': "dummy dri",
+                                                                                                                                                                                },
                                                                                                                                                                             )
                                                                                                                                                                             return {
                                                                                                                                                                                 'optional': _p_change_context(
@@ -1028,6 +1149,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                         ),
                                                                                                                                                                                         {
                                                                                                                                                                                             'id': 'optional',
+                                                                                                                                                                                            'document resource identifier': "dummy dri",
                                                                                                                                                                                         },
                                                                                                                                                                                     ),
                                                                                                                                                                                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1082,6 +1204,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                             ($) => abort(
                                                                                                                                 $,
                                                                                                                             ),
+                                                                                                                            {
+                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                            },
                                                                                                                         ),
                                                                                                                         ($) => _p.dictionary.from.dictionary(
                                                                                                                             $['entries'],
@@ -1098,6 +1223,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                 "id": null,
                                                                                                                                             },
                                                                                                                                         ),
+                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => _p_variables(
@@ -1105,6 +1231,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                         
                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                             $['value'],
+                                                                                                                                            {
+                                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                            },
                                                                                                                                         )
                                                                                                                                         return {
                                                                                                                                             'id': _p_change_context(
@@ -1115,6 +1244,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     ),
                                                                                                                                                     {
                                                                                                                                                         'id': 'id',
+                                                                                                                                                        'document resource identifier': "dummy dri",
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => v_external_generic.ID(
@@ -1137,6 +1267,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                         'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                             $['value'],
+                                                                                                                            {
+                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                            },
                                                                                                                         ),
                                                                                                                     }],
                                                                                                                 )
@@ -1151,6 +1284,9 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                 'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                 'range': v_parse_tree_to_location.Value(
                                                                                                     $['value'],
+                                                                                                    {
+                                                                                                        'document resource identifier': "dummy dri",
+                                                                                                    },
                                                                                                 ),
                                                                                             }],
                                                                                         )

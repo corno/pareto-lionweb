@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/seri
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_location from "../../location/refiners/astn_parse_tree"
 
@@ -32,6 +32,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                     "node tree": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -39,6 +40,9 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'serializationFormatVersion': _p_change_context(
@@ -49,6 +53,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                         ),
                         {
                             'id': 'serializationFormatVersion',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -66,6 +71,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                         ),
                         {
                             'id': 'languages',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -74,6 +80,9 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         )['items'],
                     ).map(
                         ($) => _p_change_context(
@@ -91,6 +100,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                                                 "version": null,
                                             },
                                         ),
+                                        'document resource identifier': "dummy dri",
                                     },
                                 ),
                                 ($) => _p_variables(
@@ -98,6 +108,9 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                                         
                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                             $['value'],
+                                            {
+                                                'document resource identifier': "dummy dri",
+                                            },
                                         )
                                         return {
                                             'key': _p_change_context(
@@ -108,6 +121,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                                                     ),
                                                     {
                                                         'id': 'key',
+                                                        'document resource identifier': "dummy dri",
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -125,6 +139,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                                                     ),
                                                     {
                                                         'id': 'version',
+                                                        'document resource identifier': "dummy dri",
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -149,6 +164,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                         ),
                         {
                             'id': 'root node id',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -166,6 +182,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                         ),
                         {
                             'id': 'node tree',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => Node(
@@ -197,6 +214,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                     "annotations": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -204,6 +222,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'range': _p_change_context(
@@ -214,6 +235,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'range',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_external_location.Range(
@@ -231,6 +253,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'classifier',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -248,6 +271,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'properties',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -256,6 +280,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         ),
                         ($) => _p.dictionary.from.dictionary(
                             $['entries'],
@@ -277,6 +304,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'containments',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -285,6 +313,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         ),
                         ($) => _p.dictionary.from.dictionary(
                             $['entries'],
@@ -295,6 +326,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                     ($) => abort(
                                         $,
                                     ),
+                                    {
+                                        'document resource identifier': "dummy dri",
+                                    },
                                 ),
                                 ($) => _p.dictionary.from.dictionary(
                                     $['entries'],
@@ -318,6 +352,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'references',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -326,6 +361,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         ),
                         ($) => _p.dictionary.from.dictionary(
                             $['entries'],
@@ -347,6 +385,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'annotations',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -355,6 +394,9 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         )['items'],
                     ).map(
                         ($) => _p_change_context(
@@ -379,6 +421,9 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
         ($) => abort(
             $,
         ),
+        {
+            'document resource identifier': "dummy dri",
+        },
     )['items'],
 ).map(
     ($) => _p_change_context(
@@ -396,6 +441,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                             "reference": null,
                         },
                     ),
+                    'document resource identifier': "dummy dri",
                 },
             ),
             ($) => _p_variables(
@@ -403,6 +449,9 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                     
                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                         $['value'],
+                        {
+                            'document resource identifier': "dummy dri",
+                        },
                     )
                     return {
                         'resolveInfo': _p_change_context(
@@ -413,6 +462,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'resolveInfo',
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -430,6 +480,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'reference',
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => _p.optional.from.optional(

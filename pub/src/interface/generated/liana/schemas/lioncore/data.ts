@@ -1,11 +1,11 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_generic from "../generic/data"
+import * as i_imports_generic from "../generic/data"
 
 export namespace M3_ {
     
-    export type id = i__imports_generic.ID
+    export type id = i_imports_generic.ID
     
     export namespace properties {
         
@@ -19,7 +19,7 @@ export namespace M3_ {
     
     export namespace references {
         
-        export type dependencies = i__imports_generic.References
+        export type dependencies = i_imports_generic.References
         
     }
     
@@ -33,7 +33,7 @@ export namespace M3_ {
             
             export namespace D {
                 
-                export type id = i__imports_generic.ID
+                export type id = i_imports_generic.ID
                 
                 export namespace classifier {
                     
@@ -58,9 +58,9 @@ export namespace M3_ {
                                 
                                 export namespace references {
                                     
-                                    export type extends_ = i__imports_generic.Optional_Reference
+                                    export type extends_ = i_imports_generic.Optional_Reference
                                     
-                                    export type implements_ = i__imports_generic.References
+                                    export type implements_ = i_imports_generic.References
                                     
                                 }
                                 
@@ -80,7 +80,7 @@ export namespace M3_ {
                                 
                                 export namespace references {
                                     
-                                    export type extends_ = i__imports_generic.References
+                                    export type extends_ = i_imports_generic.References
                                     
                                 }
                                 
@@ -106,7 +106,7 @@ export namespace M3_ {
                                 
                                 export namespace D {
                                     
-                                    export type id = i__imports_generic.ID
+                                    export type id = i_imports_generic.ID
                                     
                                     export namespace classifier {
                                         
@@ -114,7 +114,7 @@ export namespace M3_ {
                                             
                                             export namespace references {
                                                 
-                                                export type type_ = i__imports_generic.Singular_Reference
+                                                export type type_ = i_imports_generic.Singular_Reference
                                                 
                                             }
                                             
@@ -154,7 +154,7 @@ export namespace M3_ {
                                             
                                             export namespace references {
                                                 
-                                                export type type_ = i__imports_generic.Singular_Reference
+                                                export type type_ = i_imports_generic.Singular_Reference
                                                 
                                             }
                                             
@@ -217,7 +217,7 @@ export namespace M3_ {
                             
                             export namespace D {
                                 
-                                export type id = i__imports_generic.ID
+                                export type id = i_imports_generic.ID
                                 
                             }
                             

@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_location from "../location/data"
+import * as i_imports_location from "../location/data"
 
 export namespace Serialization_Chunk_ {
     
@@ -32,7 +32,7 @@ export namespace Serialization_Chunk_ {
             
             export type id = string
             
-            export type range = i__imports_location.Range
+            export type range = i_imports_location.Range
             
             export namespace parent {
                 
@@ -135,7 +135,7 @@ export namespace Serialization_Chunk_ {
 }
 
 export type Serialization_Chunk_ = {
-    readonly 'range': i__imports_location.Range
+    readonly 'range': i_imports_location.Range
     readonly 'serializationFormatVersion': Serialization_Chunk_.serializationFormatVersion
     readonly 'languages': Serialization_Chunk_.languages
     readonly 'nodes': Serialization_Chunk_.nodes

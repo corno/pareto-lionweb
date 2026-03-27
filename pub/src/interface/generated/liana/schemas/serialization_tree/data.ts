@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_location from "../location/data"
+import * as i_imports_location from "../location/data"
 
 export namespace Serialization_Tree_ {
     
@@ -41,7 +41,7 @@ export type Serialization_Tree_ = {
 
 export namespace Node_ {
     
-    export type range = i__imports_location.Range
+    export type range = i_imports_location.Range
     
     export type classifier = string
     

@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_location from "../location/data"
+import * as i_imports_location from "../location/data"
 
 export namespace ID_ {
     
@@ -11,7 +11,7 @@ export namespace ID_ {
     
     export namespace source {
         
-        export type O = i__imports_location.Range
+        export type O = i_imports_location.Range
         
     }
     
