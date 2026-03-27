@@ -86,15 +86,16 @@ export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_R
                         $,
                         ($) => abort(sh.ph.composed([
                             sh.ph.literal("error during processing: "),
+                            sh.ph.literal(t_path_to_text.Node_Path(
+                                t_path_to_path.create_node_path(
+                                    r_path_from_text.Context_Path(settings['in']['dir']),
+                                    { 'node': settings['in']['file'] }
+                                )
+                            )),
+                            sh.ph.literal(":"),
                             t_location_to_fountain_pen.Possible_Range(
                                 t_processing_to_location.Error($),
                                 {
-                                    'document resource identifier': t_path_to_text.Node_Path(
-                                        t_path_to_path.create_node_path(
-                                            r_path_from_text.Context_Path(settings['in']['dir']),
-                                            { 'node': settings['in']['file'] }
-                                        )
-                                    ),
                                     'character location reporting': ['one based', null],
                                 }
                             ),
