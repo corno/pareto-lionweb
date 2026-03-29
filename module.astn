@@ -7,7 +7,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Natural': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `natural` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Range': (
@@ -67,12 +74,7 @@
                         )
                         'absolute': (
                             `description`: _
-                            `value`: | `number` | `local` (
-                                `precision`: | `exact` (
-                                    `decimal separator offset`: _
-                                    `type`: | `natural` ~
-                                )
-                            )
+                            `value`: | `number` | `global` 'Natural'
                         )
                     }
                 )
@@ -80,21 +82,11 @@
                     `root value`: | `group` {
                         'line': (
                             `description`: _
-                            `value`: | `number` | `local` (
-                                `precision`: | `exact` (
-                                    `decimal separator offset`: _
-                                    `type`: | `natural` ~
-                                )
-                            )
+                            `value`: | `number` | `global` 'Natural'
                         )
                         'column': (
                             `description`: _
-                            `value`: | `number` | `local` (
-                                `precision`: | `exact` (
-                                    `decimal separator offset`: _
-                                    `type`: | `natural` ~
-                                )
-                            )
+                            `value`: | `number` | `global` 'Natural'
                         )
                     }
                 )
@@ -116,7 +108,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'ID': (
@@ -200,7 +192,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'M3': (
@@ -513,7 +505,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Serialization Chunk': (
@@ -718,7 +710,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Serialization Tree': (
