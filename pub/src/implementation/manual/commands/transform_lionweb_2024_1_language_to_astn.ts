@@ -42,27 +42,20 @@ export type Command_Resources = {
 
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
-
-
 //dependencies
-
 import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
-
-import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
+import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/path/text"
+import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
+import * as t_graphviz_to_fp from "pareto-graphviz/dist/implementation/manual/transformers/high_level_simple/fountain_pen"
+import * as t_lioncore_to_fp from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
+import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz"
+import * as t_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
-import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/context_path/temp_string"
-import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
 import * as t_processing_to_fountain_pen from "../transformers/processing/fountain_pen"
 import * as t_processing_to_location from "../transformers/processing/location"
-
-import * as t_lioncore_to_fp from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
-import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
-import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz"
-import * as t_graphviz_to_fp from "pareto-graphviz/dist/implementation/manual/transformers/high_level_simple/fountain_pen"
-import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
-import * as t_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
+import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
+import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
