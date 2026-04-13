@@ -27,9 +27,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "liana-core": "^0.1.0",
-    "pareto-graphviz": "^0.2.0",
-    "pareto-json": "^0.3.0",
-    "pareto-resources": "^0.2.0"
+    "lib": "file:../pub",
+    "pareto-host-nodejs": "^0.2.41"
   }
 }
