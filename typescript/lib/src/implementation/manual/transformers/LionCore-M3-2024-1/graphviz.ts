@@ -39,7 +39,7 @@ export const M3: M3 = ($) => sh.Graph(
     ).re_id(
         ($, id): string => "LionWeb.LionCore_M3." + id,
         {
-            duplicate_id: ($) => _p_unreachable_code_path("id's should be unique")
+            duplicate_id: () => _p_unreachable_code_path("id's should be unique")
         }
     ),
     _p.list.from.dictionary(
