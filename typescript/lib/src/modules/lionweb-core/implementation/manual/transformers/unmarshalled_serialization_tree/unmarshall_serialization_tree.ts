@@ -28,7 +28,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
                 () => _p.optional.literal.set(null)
             )
         )
-    ).filter(
+    ).map_optionally(
         ($) => $
     )
     const unexpected_properties = _p.dictionary.from.dictionary(
@@ -42,7 +42,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
                 () => _p.optional.literal.set(null)
             )
         )
-    ).filter(
+    ).map_optionally(
         ($) => $
     )
     const unexpected_references = _p.dictionary.from.dictionary(
@@ -56,7 +56,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
                 () => _p.optional.literal.set(null)
             )
         )
-    ).filter(
+    ).map_optionally(
         ($) => $
     )
 

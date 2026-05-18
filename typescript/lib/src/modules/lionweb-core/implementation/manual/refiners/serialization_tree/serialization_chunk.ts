@@ -19,7 +19,7 @@ export const Serialization_Tree = (
     const chunk = $
     const nodes_without_parent = _p.list.from.list(
         $.nodes,
-    ).filter(
+    ).map_optionally(
         ($) => _p.decide.boolean(
             _p.boolean.from.optional($.parent).is_set(),
             () => _p.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
