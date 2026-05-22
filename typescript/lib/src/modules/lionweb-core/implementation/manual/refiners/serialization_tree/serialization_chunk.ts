@@ -27,7 +27,7 @@ export const Serialization_Tree = (
         )
 
     )
-    if (_p.number.natural.from.list(nodes_without_parent).amount_of_items() > 1) {
+    if (_p.number.from.list(nodes_without_parent).amount_of_items() > 1) {
         return abort({
             'range': chunk.range,
             'type': ['could not determine root node', null]
