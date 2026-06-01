@@ -22,13 +22,13 @@ export type Signature = _pi.Refiner_With_Parameter<
 export const $$: Signature = ($, abort, $p) => _p_change_context(
     r_serialization_tree_from_list_of_characters.Serialization_Tree(
         $,
-        ($) => abort(['deserialization error', $]),
+        ($) => abort(['serialization tree', $]),
         $p
     ),
     ($) => _p_change_context(
         r_lion_core_from_serialization_tree.M3(
             $,
-            ($) => abort(['unmarshalling error', $]),
+            ($) => abort(['lioncore', $]),
             {
                 'write source': false
             },

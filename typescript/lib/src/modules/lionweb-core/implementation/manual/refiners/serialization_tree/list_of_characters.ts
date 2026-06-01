@@ -8,7 +8,7 @@ import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schema
 
 //dependencies
 import * as r_serialization_tree_from_serialization_chunk from "./serialization_chunk"
-import * as r_serialization_chunk_from_parse_tree from "../serialization_chunk/astn_parse_tree"
+import * as r_serialization_chunk_from_list_of_characters from "../serialization_chunk/list_of_characters"
 import * as r_astn_parse_tree_from_list_of_characters from "astn-core/dist/implementation/manual/refiners/parse_tree/list_of_characters"
 
 export type Serialization_Tree = _pi.Refiner_With_Parameter<
@@ -19,13 +19,10 @@ export type Serialization_Tree = _pi.Refiner_With_Parameter<
 >
 
 export const Serialization_Tree: Serialization_Tree = ($, abort, $p) => r_serialization_tree_from_serialization_chunk.Serialization_Tree(
-    r_serialization_chunk_from_parse_tree.Serialization_Chunk(
-        r_astn_parse_tree_from_list_of_characters.Document(
-            $,
-            ($) => abort(['deserialize astn parse tree', $]),
-            $p
-        ).content,
-        ($) => abort(['unmarshall serialization chunk', $])
+    r_serialization_chunk_from_list_of_characters.Serialization_Chunk(
+        $,
+        ($) => abort(['unmarshall serialization chunk', $]),
+        $p
     ),
     ($) => abort(['tree from chunk', $])
 )

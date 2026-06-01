@@ -6,12 +6,9 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as d_in from "../../../../interface/to_be_generated/processing"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/to_be_generated/lion_core_from_serialization_tree"
-import * as d_function_loc from "astn-core/dist/interface/to_be_generated/location_to_fountain_pen"
 
 //dependencies
-import * as t_deserialize_parse_tree_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/fountain_pen"
-import * as t_astn_unmarshall_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/unmarshall/fountain_pen"
-import * as t_astn_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
+import * as t_unmarshall_json from "pareto-json-schema/dist/implementation/manual/transformers/unmarshalled_from_json/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
@@ -54,9 +51,8 @@ export const Unexpected_Content = (
 
 export const Error: _pi.Transformer<d_in.Error, d_out.Phrase> = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'deserialization error': return _p.ss($, ($) => _p.decide.state($, ($) => {
+        case 'serialization tree': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
-                case 'deserialize astn parse tree': return _p.ss($, ($) => t_deserialize_parse_tree_to_fountain_pen.Error($))
                 case 'tree from chunk': return _p.ss($, ($) => _p.decide.state($.type, ($) => {
                     switch ($[0]) {
                         case 'could not determine root node': return _p.ss($, ($) => sh.ph.literal("could not determine root node"))
@@ -76,38 +72,11 @@ export const Error: _pi.Transformer<d_in.Error, d_out.Phrase> = ($) => _p.decide
                         default: return _p.au($[0])
                     }
                 }))
-                case 'unmarshall serialization chunk': return _p.ss($, ($) => _p.decide.state($, ($) => {
-                    switch ($[0]) {
-                        case 'astn': return _p.ss($, ($) => t_astn_unmarshall_to_fountain_pen.Error($))
-                        case 'json': return _p.ss($, ($) => sh.ph.composed([
-                            _p.decide.state($.type, ($) => {
-                                switch ($[0]) {
-                                    case 'unexpected properties': return _p.ss($, ($) => sh.ph.composed([
-                                        sh.ph.literal("unexpected json properties:"),
-                                        sh.ph.indent(
-                                            sh.pg.sentences($.__to_list(($, key) => sh.sentence([
-                                                sh.ph.literal(key),
-                                                // sh.ph.literal(": "),
-                                                // t_astn_location_to_fountain_pen.Range($, {'character location reporting': }),
-                                            ])))
-                                        ),
-                                    ]))
-                                    case 'missing property': return _p.ss($, ($) => sh.ph.literal("missing property"))
-                                    case 'not a string': return _p.ss($, ($) => sh.ph.literal("not a string"))
-                                    case 'not a boolean': return _p.ss($, ($) => sh.ph.literal("not a boolean"))
-                                    case 'not a null': return _p.ss($, ($) => sh.ph.literal("not a null"))
-                                    case 'not a number': return _p.ss($, ($) => sh.ph.literal("not a number"))
-                                    default: return _p.au($[0])
-                                }
-                            })
-                        ]))
-                        default: return _p.au($[0])
-                    }
-                }))
+                case 'unmarshall serialization chunk': return _p.ss($, ($) => t_unmarshall_json.Error($))
                 default: return _p.au($[0])
             }
         }))
-        case 'unmarshalling error': return _p.ss($, ($) => {
+        case 'lioncore': return _p.ss($, ($) => {
             const node = $.node
             return sh.ph.composed([
                 _p.decide.state($.type, ($) => {

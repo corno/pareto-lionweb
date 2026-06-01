@@ -4,21 +4,21 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
-import * as d_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+import * as d_in from "pareto-json/dist/interface/to_be_generated/json"
 import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
-import * as d_json_unmarshall from "pareto-json/dist/interface/to_be_generated/unmarshall"
+import * as d_unmarshalled_from_json from "pareto-json/dist/interface/to_be_generated/unmarshalled_from_json"
 
 //dependencies
 // import * as r_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
-import * as r_json_unmarshalled_from_astn_parse_tree from "pareto-json/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
-import * as t_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as r_json_unmarshalled_from_json from "pareto-json/dist/implementation/manual/refiners/unmarshalled/json"
 
 
 
 export const Serialization_Chunk = (
     $: d_in.Value,
-    abort: _pi.Abort<d_json_unmarshall.Error>
+    abort: _pi.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Serialization_Chunk => {
+    const value = $
     /**
      * this transformation should eventually not be handwritten, but be done by json-to-astn;
      * a mapping has to be written. with that mapping, json-to-astn will need to do 2 things:
@@ -26,7 +26,7 @@ export const Serialization_Chunk = (
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
     return _p_change_context(
-        r_json_unmarshalled_from_astn_parse_tree.Object_Static(
+        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
             $,
             abort,
             {
@@ -37,31 +37,31 @@ export const Serialization_Chunk = (
                 })
             },
         ),
-        ($) => ({
-            'range': t_parse_tree_to_location.Value($.value),
-            'serializationFormatVersion': r_json_unmarshalled_from_astn_parse_tree.String(
-                r_json_unmarshalled_from_astn_parse_tree.Property(
+        ($): d_out.Serialization_Chunk => ({
+            'range': $.range,
+            'serializationFormatVersion': r_json_unmarshalled_from_json.String(
+                r_json_unmarshalled_from_json.Property(
                     $,
                     abort,
                     {
-                        'id': "serializationFormatVersion",
+                        'key': "serializationFormatVersion",
                     }
-                ),
+                ).value,
                 abort,
             ),
-            'languages': r_json_unmarshalled_from_astn_parse_tree.Array(
-                r_json_unmarshalled_from_astn_parse_tree.Property(
+            'languages': r_json_unmarshalled_from_json.Array(
+                r_json_unmarshalled_from_json.Property(
                     $,
                     abort,
                     {
-                        'id': "languages",
+                        'key': "languages",
                     }
-                ),
+                ).value,
                 abort,
             ).items.__l_map(
                 ($) => _p_change_context(
-                    r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                        $.value,
+                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                        $,
                         abort,
                         {
                             'expected properties': _p.dictionary.literal({
@@ -71,44 +71,44 @@ export const Serialization_Chunk = (
                         }
                     ),
                     ($) => ({
-                        'key': r_json_unmarshalled_from_astn_parse_tree.String(
-                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                        'key': r_json_unmarshalled_from_json.String(
+                            r_json_unmarshalled_from_json.Property(
                                 $,
                                 abort,
                                 {
-                                    'id': "key",
+                                    'key': "key",
                                 }
-                            ),
+                            ).value,
                             abort,
                         ),
-                        'version': r_json_unmarshalled_from_astn_parse_tree.String(
-                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                        'version': r_json_unmarshalled_from_json.String(
+                            r_json_unmarshalled_from_json.Property(
                                 $,
                                 abort,
                                 {
-                                    'id': "version",
+                                    'key': "version",
                                 }
-                            ),
+                            ).value,
                             abort,
                         ),
                     })
                 ),
             ),
             'nodes': _p_change_context(
-                r_json_unmarshalled_from_astn_parse_tree.Array(
-                    r_json_unmarshalled_from_astn_parse_tree.Property(
+                r_json_unmarshalled_from_json.Array(
+                    r_json_unmarshalled_from_json.Property(
                         $,
                         abort,
                         {
-                            'id': "nodes",
+                            'key': "nodes",
                         }
-                    ),
+                    ).value,
                     abort,
                 ),
-                ($) => $.items.__l_map(
+                ($): d_out.Serialization_Chunk.nodes => $.items.__l_map(
                     ($) => _p_change_context(
-                        r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                            $.value,
+                        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                            $,
                             abort,
                             {
                                 'expected properties': _p.dictionary.literal({
@@ -122,56 +122,57 @@ export const Serialization_Chunk = (
                                 }),
                             }
                         ),
-                        ($) => ({
-                            'range': t_parse_tree_to_location.Value($.value),
-                            'id': r_json_unmarshalled_from_astn_parse_tree.String(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                        ($): d_out.Serialization_Chunk.nodes.L => ({
+                            'range': $.range,
+                            'id': r_json_unmarshalled_from_json.String(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "id",
+                                        'key': "id",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ),
                             'classifier': Meta_Pointer(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "classifier",
+                                        'key': "classifier",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ),
                             'parent': _p.optional.from.optional(
-                                r_json_unmarshalled_from_astn_parse_tree.Optional_Null(
-                                    r_json_unmarshalled_from_astn_parse_tree.Property(
+                                r_json_unmarshalled_from_json.Nullable_Value(
+                                    r_json_unmarshalled_from_json.Property(
                                         $,
                                         abort,
                                         {
-                                            'id': "parent",
+                                            'key': "parent",
                                         }
-                                    )),
+                                    ).value
+                                ),
                             ).map(
-                                ($) => r_json_unmarshalled_from_astn_parse_tree.String(
+                                ($) => r_json_unmarshalled_from_json.String(
                                     $,
                                     abort,
                                 )
                             ),
-                            'properties': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                            'properties': r_json_unmarshalled_from_json.Array(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "properties",
+                                        'key': "properties",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                                        $.value,
+                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                        $,
                                         abort,
                                         {
                                             'expected properties': _p.dictionary.literal({
@@ -182,41 +183,41 @@ export const Serialization_Chunk = (
                                     ),
                                     ($) => ({
                                         'property': Meta_Pointer(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
-                                                    'id': "property",
+                                                    'key': "property",
                                                 }
-                                            ),
+                                            ).value,
                                             abort,
                                         ),
-                                        'value': r_json_unmarshalled_from_astn_parse_tree.String(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                        'value': r_json_unmarshalled_from_json.String(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
-                                                    'id': "value",
+                                                    'key': "value",
                                                 }
-                                            ),
+                                            ).value,
                                             abort,
                                         ),
                                     })
                                 )
                             ),
-                            'containments': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                            'containments': r_json_unmarshalled_from_json.Array(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "containments",
+                                        'key': "containments",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                                        $.value,
+                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                        $,
                                         abort,
                                         {
                                             'expected properties': _p.dictionary.literal({
@@ -227,43 +228,43 @@ export const Serialization_Chunk = (
                                     ),
                                     ($) => ({
                                         'containment': Meta_Pointer(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
-                                                    'id': "containment",
+                                                    'key': "containment",
                                                 }
-                                            ),
+                                            ).value,
                                             abort,
                                         ),
-                                        'children': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                        'children': r_json_unmarshalled_from_json.Array(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
-                                                    'id': "children",
+                                                    'key': "children",
                                                 }
-                                            ),
+                                            ).value,
                                             abort,
                                         ).items.__l_map(
-                                            ($) => r_json_unmarshalled_from_astn_parse_tree.String($.value, abort)
+                                            ($) => r_json_unmarshalled_from_json.String($, abort)
                                         ),
                                     })
                                 ),
                             ),
-                            'references': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                            'references': r_json_unmarshalled_from_json.Array(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "references",
+                                        'key': "references",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                                        $.value,
+                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                        $,
                                         abort,
                                         {
                                             'expected properties': _p.dictionary.literal({
@@ -274,27 +275,27 @@ export const Serialization_Chunk = (
                                     ),
                                     ($) => ({
                                         'reference': Meta_Pointer(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
-                                                    'id': "reference",
+                                                    'key': "reference",
                                                 }
-                                            ),
+                                            ).value,
                                             abort,
                                         ),
-                                        'targets': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                        'targets': r_json_unmarshalled_from_json.Array(
+                                            r_json_unmarshalled_from_json.Property(
                                                 $,
                                                 abort, {
-                                                'id': "targets",
+                                                'key': "targets",
                                             }
-                                            ),
+                                            ).value,
                                             abort,
                                         ).items.__l_map(
                                             ($) => _p_change_context(
-                                                r_json_unmarshalled_from_astn_parse_tree.Object_Static(
-                                                    $.value,
+                                                r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                                    $,
                                                     abort,
                                                     {
                                                         'expected properties': _p.dictionary.literal({
@@ -304,28 +305,28 @@ export const Serialization_Chunk = (
                                                     }
                                                 ),
                                                 ($) => ({
-                                                    'resolveInfo': r_json_unmarshalled_from_astn_parse_tree.String(
-                                                        r_json_unmarshalled_from_astn_parse_tree.Property(
+                                                    'resolveInfo': r_json_unmarshalled_from_json.String(
+                                                        r_json_unmarshalled_from_json.Property(
                                                             $,
                                                             abort,
                                                             {
-                                                                'id': "resolveInfo",
+                                                                'key': "resolveInfo",
                                                             }
-                                                        ),
+                                                        ).value,
                                                         abort,
                                                     ),
                                                     'reference': _p.optional.from.optional(
-                                                        r_json_unmarshalled_from_astn_parse_tree.Optional_Null(
-                                                            r_json_unmarshalled_from_astn_parse_tree.Property(
+                                                        r_json_unmarshalled_from_json.Nullable_Value(
+                                                            r_json_unmarshalled_from_json.Property(
                                                                 $,
                                                                 abort,
                                                                 {
-                                                                    'id': "reference",
+                                                                    'key': "reference",
                                                                 }
-                                                            ),
+                                                            ).value,
                                                         ),
                                                     ).map(
-                                                        ($) => r_json_unmarshalled_from_astn_parse_tree.String($, abort)
+                                                        ($) => r_json_unmarshalled_from_json.String($, abort)
                                                     ),
                                                 })
                                             )
@@ -333,17 +334,17 @@ export const Serialization_Chunk = (
                                     })
                                 ),
                             ),
-                            'annotations': r_json_unmarshalled_from_astn_parse_tree.Array(
-                                r_json_unmarshalled_from_astn_parse_tree.Property(
+                            'annotations': r_json_unmarshalled_from_json.Array(
+                                r_json_unmarshalled_from_json.Property(
                                     $,
                                     abort,
                                     {
-                                        'id': "annotations",
+                                        'key': "annotations",
                                     }
-                                ),
+                                ).value,
                                 abort,
                             ).items.__l_map(
-                                ($) => r_json_unmarshalled_from_astn_parse_tree.String($.value, abort)
+                                ($) => r_json_unmarshalled_from_json.String($, abort)
                             ),
                         })
                     )),
@@ -353,10 +354,10 @@ export const Serialization_Chunk = (
 
 export const Meta_Pointer = (
     $: d_in.Value,
-    abort: _pi.Abort<d_json_unmarshall.Error>
+    abort: _pi.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Meta_Pointer => {
     return _p_change_context(
-        r_json_unmarshalled_from_astn_parse_tree.Object_Static(
+        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
             $,
             abort,
             {
@@ -368,34 +369,34 @@ export const Meta_Pointer = (
             },
         ),
         ($) => ({
-            'language': r_json_unmarshalled_from_astn_parse_tree.String(
-                r_json_unmarshalled_from_astn_parse_tree.Property(
+            'language': r_json_unmarshalled_from_json.String(
+                r_json_unmarshalled_from_json.Property(
                     $,
                     abort,
                     {
-                        'id': "language",
+                        'key': "language",
                     }
-                ),
+                ).value,
                 abort,
             ),
-            'key': r_json_unmarshalled_from_astn_parse_tree.String(
-                r_json_unmarshalled_from_astn_parse_tree.Property(
+            'key': r_json_unmarshalled_from_json.String(
+                r_json_unmarshalled_from_json.Property(
                     $,
                     abort,
                     {
-                        'id': "key",
+                        'key': "key",
                     }
-                ),
+                ).value,
                 abort
             ),
-            'version': r_json_unmarshalled_from_astn_parse_tree.String(
-                r_json_unmarshalled_from_astn_parse_tree.Property(
+            'version': r_json_unmarshalled_from_json.String(
+                r_json_unmarshalled_from_json.Property(
                     $,
                     abort,
                     {
-                        'id': "version",
+                        'key': "version",
                     }
-                ),
+                ).value,
                 abort,
             ),
         })
