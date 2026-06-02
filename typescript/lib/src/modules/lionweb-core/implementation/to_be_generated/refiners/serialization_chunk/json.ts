@@ -27,7 +27,7 @@ export const Serialization_Chunk = (
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
     return _p_change_context(
-        r_json_x_from_json.Object_No_Unexpected_Properties(
+        r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
             $,
             abort,
             {
@@ -61,7 +61,7 @@ export const Serialization_Chunk = (
                 abort,
             ).items.__l_map(
                 ($) => _p_change_context(
-                    r_json_x_from_json.Object_No_Unexpected_Properties(
+                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                         $,
                         abort,
                         {
@@ -108,7 +108,7 @@ export const Serialization_Chunk = (
                 ),
                 ($): d_out.Serialization_Chunk.nodes => $.items.__l_map(
                     ($) => _p_change_context(
-                        r_json_x_from_json.Object_No_Unexpected_Properties(
+                        r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                             $,
                             abort,
                             {
@@ -172,7 +172,7 @@ export const Serialization_Chunk = (
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_x_from_json.Object_No_Unexpected_Properties(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
                                         abort,
                                         {
@@ -217,7 +217,7 @@ export const Serialization_Chunk = (
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_x_from_json.Object_No_Unexpected_Properties(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
                                         abort,
                                         {
@@ -264,7 +264,7 @@ export const Serialization_Chunk = (
                                 abort,
                             ).items.__l_map(
                                 ($): d_out.Serialization_Chunk.nodes.L.references.L => _p_change_context(
-                                    r_json_x_from_json.Object_No_Unexpected_Properties(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
                                         abort,
                                         {
@@ -295,7 +295,7 @@ export const Serialization_Chunk = (
                                             abort,
                                         ).items.__l_map(
                                             ($) => _p_change_context(
-                                                r_json_x_from_json.Object_No_Unexpected_Properties(
+                                                r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                                     $,
                                                     abort,
                                                     {
@@ -358,7 +358,7 @@ export const Meta_Pointer = (
     abort: _pi.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Meta_Pointer => {
     return _p_change_context(
-        r_json_x_from_json.Object_No_Unexpected_Properties(
+        r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
             $,
             abort,
             {
