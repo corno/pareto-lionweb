@@ -10,7 +10,8 @@ import * as d_unmarshalled_from_json from "pareto-json/dist/interface/to_be_gene
 
 //dependencies
 // import * as r_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
-import * as r_json_unmarshalled_from_json from "pareto-json/dist/implementation/manual/refiners/unmarshalled/json_with_parse_info"
+import * as r_json_x_from_json from "pareto-json/dist/implementation/manual/refiners/json_x/json_with_parse_info"
+import * as r_json_y_from_json from "pareto-json/dist/implementation/manual/refiners/json_y/json_with_parse_info"
 
 
 
@@ -26,7 +27,7 @@ export const Serialization_Chunk = (
      * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
      */
     return _p_change_context(
-        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+        r_json_x_from_json.Object_No_Unexpected_Properties(
             $,
             abort,
             {
@@ -39,8 +40,8 @@ export const Serialization_Chunk = (
         ),
         ($): d_out.Serialization_Chunk => ({
             'range': $.range,
-            'serializationFormatVersion': r_json_unmarshalled_from_json.String(
-                r_json_unmarshalled_from_json.Property(
+            'serializationFormatVersion': r_json_x_from_json.String(
+                r_json_x_from_json.Property(
                     $,
                     abort,
                     {
@@ -48,9 +49,9 @@ export const Serialization_Chunk = (
                     }
                 ).value,
                 abort,
-            ),
-            'languages': r_json_unmarshalled_from_json.Array(
-                r_json_unmarshalled_from_json.Property(
+            ).token.value,
+            'languages': r_json_x_from_json.Array(
+                r_json_x_from_json.Property(
                     $,
                     abort,
                     {
@@ -60,7 +61,7 @@ export const Serialization_Chunk = (
                 abort,
             ).items.__l_map(
                 ($) => _p_change_context(
-                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                    r_json_x_from_json.Object_No_Unexpected_Properties(
                         $,
                         abort,
                         {
@@ -71,8 +72,8 @@ export const Serialization_Chunk = (
                         }
                     ),
                     ($) => ({
-                        'key': r_json_unmarshalled_from_json.String(
-                            r_json_unmarshalled_from_json.Property(
+                        'key': r_json_x_from_json.String(
+                            r_json_x_from_json.Property(
                                 $,
                                 abort,
                                 {
@@ -80,9 +81,9 @@ export const Serialization_Chunk = (
                                 }
                             ).value,
                             abort,
-                        ),
-                        'version': r_json_unmarshalled_from_json.String(
-                            r_json_unmarshalled_from_json.Property(
+                        ).token.value,
+                        'version': r_json_x_from_json.String(
+                            r_json_x_from_json.Property(
                                 $,
                                 abort,
                                 {
@@ -90,13 +91,13 @@ export const Serialization_Chunk = (
                                 }
                             ).value,
                             abort,
-                        ),
+                        ).token.value,
                     })
                 ),
             ),
             'nodes': _p_change_context(
-                r_json_unmarshalled_from_json.Array(
-                    r_json_unmarshalled_from_json.Property(
+                r_json_x_from_json.Array(
+                    r_json_x_from_json.Property(
                         $,
                         abort,
                         {
@@ -107,7 +108,7 @@ export const Serialization_Chunk = (
                 ),
                 ($): d_out.Serialization_Chunk.nodes => $.items.__l_map(
                     ($) => _p_change_context(
-                        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                        r_json_x_from_json.Object_No_Unexpected_Properties(
                             $,
                             abort,
                             {
@@ -124,8 +125,8 @@ export const Serialization_Chunk = (
                         ),
                         ($): d_out.Serialization_Chunk.nodes.L => ({
                             'range': $.range,
-                            'id': r_json_unmarshalled_from_json.String(
-                                r_json_unmarshalled_from_json.Property(
+                            'id': r_json_x_from_json.String(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -133,9 +134,9 @@ export const Serialization_Chunk = (
                                     }
                                 ).value,
                                 abort,
-                            ),
+                            ).token.value,
                             'classifier': Meta_Pointer(
-                                r_json_unmarshalled_from_json.Property(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -145,8 +146,8 @@ export const Serialization_Chunk = (
                                 abort,
                             ),
                             'parent': _p.optional.from.optional(
-                                r_json_unmarshalled_from_json.Nullable_Value(
-                                    r_json_unmarshalled_from_json.Property(
+                                r_json_x_from_json.Nullable_Value(
+                                    r_json_x_from_json.Property(
                                         $,
                                         abort,
                                         {
@@ -155,13 +156,13 @@ export const Serialization_Chunk = (
                                     ).value
                                 ),
                             ).map(
-                                ($) => r_json_unmarshalled_from_json.String(
+                                ($) => r_json_x_from_json.String(
                                     $,
                                     abort,
-                                )
+                                ).token.value
                             ),
-                            'properties': r_json_unmarshalled_from_json.Array(
-                                r_json_unmarshalled_from_json.Property(
+                            'properties': r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -171,7 +172,7 @@ export const Serialization_Chunk = (
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties(
                                         $,
                                         abort,
                                         {
@@ -183,7 +184,7 @@ export const Serialization_Chunk = (
                                     ),
                                     ($) => ({
                                         'property': Meta_Pointer(
-                                            r_json_unmarshalled_from_json.Property(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
@@ -192,8 +193,8 @@ export const Serialization_Chunk = (
                                             ).value,
                                             abort,
                                         ),
-                                        'value': r_json_unmarshalled_from_json.String(
-                                            r_json_unmarshalled_from_json.Property(
+                                        'value': r_json_x_from_json.String(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
@@ -201,12 +202,12 @@ export const Serialization_Chunk = (
                                                 }
                                             ).value,
                                             abort,
-                                        ),
+                                        ).token.value,
                                     })
                                 )
                             ),
-                            'containments': r_json_unmarshalled_from_json.Array(
-                                r_json_unmarshalled_from_json.Property(
+                            'containments': r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -216,7 +217,7 @@ export const Serialization_Chunk = (
                                 abort,
                             ).items.__l_map(
                                 ($) => _p_change_context(
-                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties(
                                         $,
                                         abort,
                                         {
@@ -228,7 +229,7 @@ export const Serialization_Chunk = (
                                     ),
                                     ($) => ({
                                         'containment': Meta_Pointer(
-                                            r_json_unmarshalled_from_json.Property(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
@@ -237,8 +238,8 @@ export const Serialization_Chunk = (
                                             ).value,
                                             abort,
                                         ),
-                                        'children': r_json_unmarshalled_from_json.Array(
-                                            r_json_unmarshalled_from_json.Property(
+                                        'children': r_json_x_from_json.Array(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
@@ -247,13 +248,13 @@ export const Serialization_Chunk = (
                                             ).value,
                                             abort,
                                         ).items.__l_map(
-                                            ($) => r_json_unmarshalled_from_json.String($, abort)
+                                            ($) => r_json_x_from_json.String($, abort).token.value
                                         ),
                                     })
                                 ),
                             ),
-                            'references': r_json_unmarshalled_from_json.Array(
-                                r_json_unmarshalled_from_json.Property(
+                            'references': r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -262,8 +263,8 @@ export const Serialization_Chunk = (
                                 ).value,
                                 abort,
                             ).items.__l_map(
-                                ($) => _p_change_context(
-                                    r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                ($): d_out.Serialization_Chunk.nodes.L.references.L => _p_change_context(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties(
                                         $,
                                         abort,
                                         {
@@ -273,9 +274,9 @@ export const Serialization_Chunk = (
                                             })
                                         }
                                     ),
-                                    ($) => ({
+                                    ($): d_out.Serialization_Chunk.nodes.L.references.L => ({
                                         'reference': Meta_Pointer(
-                                            r_json_unmarshalled_from_json.Property(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort,
                                                 {
@@ -284,8 +285,8 @@ export const Serialization_Chunk = (
                                             ).value,
                                             abort,
                                         ),
-                                        'targets': r_json_unmarshalled_from_json.Array(
-                                            r_json_unmarshalled_from_json.Property(
+                                        'targets': r_json_x_from_json.Array(
+                                            r_json_x_from_json.Property(
                                                 $,
                                                 abort, {
                                                 'key': "targets",
@@ -294,7 +295,7 @@ export const Serialization_Chunk = (
                                             abort,
                                         ).items.__l_map(
                                             ($) => _p_change_context(
-                                                r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+                                                r_json_x_from_json.Object_No_Unexpected_Properties(
                                                     $,
                                                     abort,
                                                     {
@@ -305,8 +306,8 @@ export const Serialization_Chunk = (
                                                     }
                                                 ),
                                                 ($) => ({
-                                                    'resolveInfo': r_json_unmarshalled_from_json.String(
-                                                        r_json_unmarshalled_from_json.Property(
+                                                    'resolveInfo': r_json_x_from_json.String(
+                                                        r_json_x_from_json.Property(
                                                             $,
                                                             abort,
                                                             {
@@ -314,10 +315,10 @@ export const Serialization_Chunk = (
                                                             }
                                                         ).value,
                                                         abort,
-                                                    ),
+                                                    ).token.value,
                                                     'reference': _p.optional.from.optional(
-                                                        r_json_unmarshalled_from_json.Nullable_Value(
-                                                            r_json_unmarshalled_from_json.Property(
+                                                        r_json_x_from_json.Nullable_Value(
+                                                            r_json_x_from_json.Property(
                                                                 $,
                                                                 abort,
                                                                 {
@@ -326,7 +327,7 @@ export const Serialization_Chunk = (
                                                             ).value,
                                                         ),
                                                     ).map(
-                                                        ($) => r_json_unmarshalled_from_json.String($, abort)
+                                                        ($) => r_json_x_from_json.String($, abort).token.value
                                                     ),
                                                 })
                                             )
@@ -334,8 +335,8 @@ export const Serialization_Chunk = (
                                     })
                                 ),
                             ),
-                            'annotations': r_json_unmarshalled_from_json.Array(
-                                r_json_unmarshalled_from_json.Property(
+                            'annotations': r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
                                     $,
                                     abort,
                                     {
@@ -344,7 +345,7 @@ export const Serialization_Chunk = (
                                 ).value,
                                 abort,
                             ).items.__l_map(
-                                ($) => r_json_unmarshalled_from_json.String($, abort)
+                                ($) => r_json_x_from_json.String($, abort).token.value
                             ),
                         })
                     )),
@@ -357,7 +358,7 @@ export const Meta_Pointer = (
     abort: _pi.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Meta_Pointer => {
     return _p_change_context(
-        r_json_unmarshalled_from_json.Object_No_Unexpected_Properties(
+        r_json_x_from_json.Object_No_Unexpected_Properties(
             $,
             abort,
             {
@@ -369,8 +370,8 @@ export const Meta_Pointer = (
             },
         ),
         ($) => ({
-            'language': r_json_unmarshalled_from_json.String(
-                r_json_unmarshalled_from_json.Property(
+            'language': r_json_x_from_json.String(
+                r_json_x_from_json.Property(
                     $,
                     abort,
                     {
@@ -378,9 +379,9 @@ export const Meta_Pointer = (
                     }
                 ).value,
                 abort,
-            ),
-            'key': r_json_unmarshalled_from_json.String(
-                r_json_unmarshalled_from_json.Property(
+            ).token.value,
+            'key': r_json_x_from_json.String(
+                r_json_x_from_json.Property(
                     $,
                     abort,
                     {
@@ -388,9 +389,9 @@ export const Meta_Pointer = (
                     }
                 ).value,
                 abort
-            ),
-            'version': r_json_unmarshalled_from_json.String(
-                r_json_unmarshalled_from_json.Property(
+            ).token.value,
+            'version': r_json_x_from_json.String(
+                r_json_x_from_json.Property(
                     $,
                     abort,
                     {
@@ -398,7 +399,7 @@ export const Meta_Pointer = (
                     }
                 ).value,
                 abort,
-            ),
+            ).token.value,
         })
     )
 }
