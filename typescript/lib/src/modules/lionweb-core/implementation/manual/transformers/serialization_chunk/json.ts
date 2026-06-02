@@ -2,9 +2,9 @@ import * as _p from 'pareto-core/dist/assign'
 
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
-import * as d_out from "pareto-json/dist/interface/generated/liana/schemas/json/data"
+import * as d_out from "pareto-json/dist/interface/generated/liana/schemas/json_with_unique_keys/data"
 
-import * as sh from "pareto-json/dist/shorthands/json"
+import * as sh from "pareto-json/dist/shorthands/json_with_unique_keys"
 
 
 export const Meta_Pointer = ($: d_in.Meta_Pointer): d_out.Value => sh.v.object({
