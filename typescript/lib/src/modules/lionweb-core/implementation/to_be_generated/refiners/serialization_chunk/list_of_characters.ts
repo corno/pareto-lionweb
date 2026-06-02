@@ -5,7 +5,7 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
-import * as d_unmarshall_json from "pareto-json-schema/dist/interface/to_be_generated/unmarshall_json"
+import * as d_unmarshall_json from "pareto-json/dist/interface/to_be_generated/unmarshall_json"
 import * as d_deserialize_parse_tree from "astn-core/dist/interface/generated/liana/schemas/deserialize_parse_tree/data"
 
 //dependencies
