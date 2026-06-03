@@ -18,17 +18,11 @@ export const Serialization_Chunk: _pi.Refiner_With_Parameter<
     d_unmarshall_json.Error,
     d_in.List_of_Characters,
     d_deserialize_parse_tree.Parameters
-> = (
-    $,
-    abort,
-    $p
-): d_out.Serialization_Chunk => {
-        return r_from_json.Serialization_Chunk(
-            r_json_from_list_of_characters.Value(
-                $,
-                ($) => abort(['deserialize', $]),
-                $p,
-            ),
-            ($) => abort(['unmarshall', $]),
-        )
-    }
+> = ($, abort, $p): d_out.Serialization_Chunk => r_from_json.Serialization_Chunk(
+    r_json_from_list_of_characters.Value(
+        $,
+        ($) => abort(['deserialize', $]),
+        $p,
+    ),
+    ($) => abort(['unmarshall', $]),
+)
