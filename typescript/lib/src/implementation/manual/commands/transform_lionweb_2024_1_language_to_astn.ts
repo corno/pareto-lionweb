@@ -32,12 +32,12 @@ import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_ma
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Query_Resources = {
-    'read file': resources_pareto.queries.fs_unrestricted_read_file
+    'read file': resources_pareto.filesystem_unrestricted.queries.read_file
 }
 
 export type Command_Resources = {
-    'write file': resources_pareto.commands.fs_unrestricted_write_file
-    'log error': resources_pareto.commands.stream_log_error
+    'write file': resources_pareto.filesystem_unrestricted.commands.write_file
+    'log error': resources_pareto.stream.commands.log_error
 }
 
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
@@ -60,7 +60,7 @@ import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementat
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const $$: _pi.Command_Procedure<resources_pareto.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
+export const $$: _pi.Command_Procedure<resources_pareto.resources.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
     ($p, $cr, $qr) => [
 
         _p.handle_error(
