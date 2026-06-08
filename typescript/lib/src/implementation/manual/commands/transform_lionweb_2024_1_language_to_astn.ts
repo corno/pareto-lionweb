@@ -32,19 +32,19 @@ import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_ma
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Query_Resources = {
-    'read file': resources_pareto.queries.read_file
+    'read file': resources_pareto.queries.fs_unrestricted_read_file
 }
 
 export type Command_Resources = {
-    'write file': resources_pareto.commands.write_file
-    'log error': resources_pareto.commands.log_error
+    'write file': resources_pareto.commands.fs_unrestricted_write_file
+    'log error': resources_pareto.commands.stream_log_error
 }
 
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
-import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/path/text"
+import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/path_unrestricted/text"
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 import * as t_graphviz_to_fp from "pareto-graphviz/dist/implementation/manual/transformers/high_level_simple/fountain_pen"
 import * as t_lioncore_to_fp from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
