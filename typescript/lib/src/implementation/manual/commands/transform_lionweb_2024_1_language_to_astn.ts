@@ -30,11 +30,14 @@ const settings = {
 
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
+import * as resources_pareto from "pareto-resources/dist/interface/resources"
+import * as resources_pareto_stream from "pareto-stream/dist/interface/resources"
+
 export type command_signature = _pi.Command_Procedure<
     resources_pareto.resources.commands.main,
     {
         'write file': resources_pareto.filesystem_unrestricted.commands.write_file
-        'log error': resources_pareto.stream.commands.log_error
+        'log error': resources_pareto_stream.commands.log_error
     },
     {
         'read file': resources_pareto.filesystem_unrestricted.queries.read_file
@@ -42,7 +45,6 @@ export type command_signature = _pi.Command_Procedure<
     null
 >
 
-import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { $$ as r_2024_1 } from "../text_to_text/temp_2024_1"
