@@ -28,17 +28,19 @@ const settings = {
 
 //interface
 
-import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_main"
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export type Query_Resources = {
-    'read file': resources_pareto.filesystem_unrestricted.queries.read_file
-}
-
-export type Command_Resources = {
-    'write file': resources_pareto.filesystem_unrestricted.commands.write_file
-    'log error': resources_pareto.stream.commands.log_error
-}
+export type command_signature = _pi.Command_Procedure<
+    resources_pareto.resources.commands.main,
+    {
+        'write file': resources_pareto.filesystem_unrestricted.commands.write_file
+        'log error': resources_pareto.stream.commands.log_error
+    },
+    {
+        'read file': resources_pareto.filesystem_unrestricted.queries.read_file
+    },
+    null
+>
 
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
 
@@ -60,118 +62,120 @@ import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementat
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const $$: _pi.Command_Procedure<resources_pareto.resources.commands.main, Command_Resources, Query_Resources> = _p.command_procedure(
-    ($p, $cr, $qr) => [
+export const $$: command_signature = _p.command_procedure(
+    ($p, $cr, $qr) => {
+        return [
 
-        _p.handle_error(
-            [
+            _p.handle_error(
+                [
 
-                _p.query(
+                    _p.query(
 
-                    $qr['read file'](
-                        t_path_to_path.create_node_path(
-                            r_path_from_text.Context_Path(settings['in']['dir']),
-                            { 'node': settings['in']['file'] }
+                        $qr['read file'](
+                            t_path_to_path.create_node_path(
+                                r_path_from_text.Context_Path(settings['in']['dir']),
+                                { 'node': settings['in']['file'] }
+                            ),
+                            ($): d_fp.Phrase => t_read_file_to_fountain_pen.Error($)
                         ),
-                        ($): d_fp.Phrase => t_read_file_to_fountain_pen.Error($)
-                    ),
-                    ($, abort) => r_2024_1(
-                        $,
-                        ($) => abort(sh.ph.composed([
-                            sh.ph.literal("error during processing: "),
-                            sh.ph.literal(t_path_to_text.Node_Path(
-                                t_path_to_path.create_node_path(
-                                    r_path_from_text.Context_Path(settings['in']['dir']),
-                                    { 'node': settings['in']['file'] }
-                                )
-                            )),
-                            sh.ph.literal(":"),
-                            t_location_to_fountain_pen.Possible_Range(
-                                t_processing_to_location.Error($),
-                                {
-                                    'character location reporting': ['one based', null],
-                                }
+                        ($, abort) => r_2024_1(
+                            $,
+                            ($) => abort(sh.ph.composed([
+                                sh.ph.literal("error during processing: "),
+                                sh.ph.literal(t_path_to_text.Node_Path(
+                                    t_path_to_path.create_node_path(
+                                        r_path_from_text.Context_Path(settings['in']['dir']),
+                                        { 'node': settings['in']['file'] }
+                                    )
+                                )),
+                                sh.ph.literal(":"),
+                                t_location_to_fountain_pen.Possible_Range(
+                                    t_processing_to_location.Error($),
+                                    {
+                                        'character location reporting': ['one based', null],
+                                    }
+                                ),
+                                t_processing_to_fountain_pen.Error(
+                                    $,
+                                ),
+                            ])),
+                            {
+                                'tab size': 4,
+                            }
+                        ),
+                        ($v) => [
+                            $cr['write file'].execute(
+                                ({
+                                    'path': t_path_to_path.create_node_path(
+                                        r_path_from_text.Context_Path(settings['out']['dir']),
+                                        { 'node': settings['out']['file'] }
+                                    ),
+                                    'data': t_fp_to_list_of_characters.Paragraph(
+                                        t_lioncore_to_fp.M3(
+                                            $v,
+                                        ),
+                                        {
+                                            'indentation': "    ",
+                                            'newline': "\n",
+                                        }
+                                    ),
+                                }),
+                                ($) => {
+                                    return sh.ph.composed([
+                                        sh.ph.literal("failed to write converted dataset to "),
+                                        sh.ph.literal(settings['out']['file']),
+                                        t_write_file_to_fountain_pen.Error($),
+                                    ])
+                                },
+
                             ),
-                            t_processing_to_fountain_pen.Error(
-                                $,
-                            ),
-                        ])),
+                            $cr['write file'].execute(
+                                ({
+                                    'path': t_path_to_path.create_node_path(
+                                        r_path_from_text.Context_Path(settings['out']['dir']),
+                                        { 'node': settings['out']['graphviz file'] }
+                                    ),
+                                    'data': t_fp_to_list_of_characters.Paragraph(
+                                        t_graphviz_to_fp.Graph(
+                                            t_lioncore_to_graphviz.M3($v),
+                                        ),
+                                        {
+                                            'indentation': "    ",
+                                            'newline': "\n",
+                                        }
+                                    ),
+                                }),
+                                ($) => {
+                                    return sh.ph.composed([
+                                        sh.ph.literal("failed to write converted dataset to "),
+                                        sh.ph.literal(settings['out']['graphviz file']),
+                                        t_write_file_to_fountain_pen.Error($),
+                                    ])
+                                },
+
+                            )
+                        ]
+                    )
+                ],
+                ($) => [
+                    $cr['log error'].execute(
                         {
-                            'tab size': 4,
-                        }
-                    ),
-                    ($v) => [
-                        $cr['write file'].execute(
-                            ({
-                                'path': t_path_to_path.create_node_path(
-                                    r_path_from_text.Context_Path(settings['out']['dir']),
-                                    { 'node': settings['out']['file'] }
-                                ),
-                                'data': t_fp_to_list_of_characters.Paragraph(
-                                    t_lioncore_to_fp.M3(
-                                        $v,
-                                    ),
-                                    {
-                                        'indentation': "    ",
-                                        'newline': "\n",
-                                    }
-                                ),
-                            }),
-                            ($) => {
-                                return sh.ph.composed([
-                                    sh.ph.literal("failed to write converted dataset to "),
-                                    sh.ph.literal(settings['out']['file']),
-                                    t_write_file_to_fountain_pen.Error($),
+                            'message': sh.pg.sentences([
+                                sh.sentence([
+                                    $
                                 ])
-                            },
-
-                        ),
-                        $cr['write file'].execute(
-                            ({
-                                'path': t_path_to_path.create_node_path(
-                                    r_path_from_text.Context_Path(settings['out']['dir']),
-                                    { 'node': settings['out']['graphviz file'] }
-                                ),
-                                'data': t_fp_to_list_of_characters.Paragraph(
-                                    t_graphviz_to_fp.Graph(
-                                        t_lioncore_to_graphviz.M3($v),
-                                    ),
-                                    {
-                                        'indentation': "    ",
-                                        'newline': "\n",
-                                    }
-                                ),
-                            }),
-                            ($) => {
-                                return sh.ph.composed([
-                                    sh.ph.literal("failed to write converted dataset to "),
-                                    sh.ph.literal(settings['out']['graphviz file']),
-                                    t_write_file_to_fountain_pen.Error($),
-                                ])
-                            },
-
-                        )
-                    ]
-                )
-            ],
-            ($) => [
-                $cr['log error'].execute(
-                    {
-                        'message': sh.pg.sentences([
-                            sh.sentence([
-                                $
                             ])
-                        ])
-                    },
-                    ($) => ({
-                        'exit code': 2,
-                    })
-                )
-            ],
-            () => ({
-                'exit code': 1,
-            })
+                        },
+                        ($) => ({
+                            'exit code': 2,
+                        })
+                    )
+                ],
+                () => ({
+                    'exit code': 1,
+                })
 
-        ),
-    ]
+            ),
+        ]
+    }
 )
