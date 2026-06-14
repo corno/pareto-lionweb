@@ -1,5 +1,5 @@
 import * as _p from 'pareto-core/dist/command'
-import * as _pi from 'pareto-core/dist/interface'
+import * as _pci from 'pareto-core/dist/command_interface'
 
 //data
 
@@ -33,16 +33,16 @@ import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schema
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
 import * as resources_pareto_stream from "pareto-stream/dist/interface/resources"
 
-export type command_signature = _pi.Command_Procedure<
+export type command_signature = _pci.Command_Procedure<
     resources_pareto.resources.commands.main,
-    {
-        'write file': resources_pareto.filesystem_unrestricted.commands.write_file
-        'log error': resources_pareto_stream.commands.log_error
-    },
+    null,
     {
         'read file': resources_pareto.filesystem_unrestricted.queries.read_file
     },
-    null
+    {
+        'write file': resources_pareto.filesystem_unrestricted.commands.write_file
+        'log error': resources_pareto_stream.commands.log_error
+    }
 >
 
 
@@ -65,7 +65,7 @@ import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementat
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const $$: command_signature = _p.command_procedure(
-    ($p, $cr, $qr) => {
+    ($d, $s, $q, $c) => {
         return [
 
             _p.handle_error(
@@ -73,7 +73,7 @@ export const $$: command_signature = _p.command_procedure(
 
                     _p.query(
 
-                        $qr['read file'](
+                        $q['read file'](
                             t_path_to_path.create_node_path(
                                 r_path_from_text.Context_Path(settings['in']['dir']),
                                 { 'node': settings['in']['file'] }
@@ -106,7 +106,7 @@ export const $$: command_signature = _p.command_procedure(
                             }
                         ),
                         ($v) => [
-                            $cr['write file'].execute(
+                            $c['write file'].execute(
                                 ({
                                     'path': t_path_to_path.create_node_path(
                                         r_path_from_text.Context_Path(settings['out']['dir']),
@@ -131,7 +131,7 @@ export const $$: command_signature = _p.command_procedure(
                                 },
 
                             ),
-                            $cr['write file'].execute(
+                            $c['write file'].execute(
                                 ({
                                     'path': t_path_to_path.create_node_path(
                                         r_path_from_text.Context_Path(settings['out']['dir']),
@@ -160,7 +160,7 @@ export const $$: command_signature = _p.command_procedure(
                     )
                 ],
                 ($) => [
-                    $cr['log error'].execute(
+                    $c['log error'].execute(
                         {
                             'message': sh.pg.sentences([
                                 sh.sentence([
