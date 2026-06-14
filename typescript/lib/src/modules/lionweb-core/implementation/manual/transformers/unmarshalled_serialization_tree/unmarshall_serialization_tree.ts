@@ -1,59 +1,59 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
 import * as d_out from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
-export type Node_With_Possibly_Unexpected_Content = _pi.Transformer_With_Parameter<
+export type Node_With_Possibly_Unexpected_Content = pi.Transformer_With_Parameter<
     d_in.Node_With_Possibly_Unexpected_References,
     d_out.Optional_Error,
     {
-        'expected containments': _pi.Dictionary<null>
-        'expected properties': _pi.Dictionary<null>
-        'expected references': _pi.Dictionary<null>
+        'expected containments': pi.Dictionary<null>
+        'expected properties': pi.Dictionary<null>
+        'expected references': pi.Dictionary<null>
     }
 >
 
 export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpected_Content = ($, $p) => {
 
-    const unexpected_containments = _p.dictionary.from.dictionary(
-        _p.dictionary.from.dictionary(
+    const unexpected_containments = pt.dictionary.from.dictionary(
+        pt.dictionary.from.dictionary(
             $.containments,
         ).join(
             $p['expected containments'],
-            ($, other, id): _pi.Optional_Value<null> => _p.decide.optional(
+            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => _p.optional.literal.not_set(),
-                () => _p.optional.literal.set(null)
+                () => pt.optional.literal.not_set(),
+                () => pt.optional.literal.set(null)
             )
         )
     ).map_optionally(
         ($) => $
     )
-    const unexpected_properties = _p.dictionary.from.dictionary(
-        _p.dictionary.from.dictionary(
+    const unexpected_properties = pt.dictionary.from.dictionary(
+        pt.dictionary.from.dictionary(
             $.properties,
         ).join(
             $p['expected properties'],
-            ($, other, id): _pi.Optional_Value<null> => _p.decide.optional(
+            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => _p.optional.literal.not_set(),
-                () => _p.optional.literal.set(null)
+                () => pt.optional.literal.not_set(),
+                () => pt.optional.literal.set(null)
             )
         )
     ).map_optionally(
         ($) => $
     )
-    const unexpected_references = _p.dictionary.from.dictionary(
-        _p.dictionary.from.dictionary(
+    const unexpected_references = pt.dictionary.from.dictionary(
+        pt.dictionary.from.dictionary(
             $.references,
         ).join(
             $p['expected references'],
-            ($, other, id): _pi.Optional_Value<null> => _p.decide.optional(
+            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => _p.optional.literal.not_set(),
-                () => _p.optional.literal.set(null)
+                () => pt.optional.literal.not_set(),
+                () => pt.optional.literal.set(null)
             )
         )
     ).map_optionally(
@@ -67,9 +67,9 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
         &&
         unexpected_references.__get_number_of_entries() === 0
     ) {
-        return _p.optional.literal.not_set()
+        return pt.optional.literal.not_set()
     }
-    return _p.optional.literal.set<d_out.Error>({
+    return pt.optional.literal.set<d_out.Error>({
         'type': ['unexpected content', {
             'containments': {
                 'unexpected': unexpected_containments,

@@ -1,5 +1,5 @@
-import * as _p from 'pareto-core/dist/command'
-import * as _pci from 'pareto-core/dist/command_interface'
+import * as pt from 'pareto-core/dist/command'
+import * as pci from 'pareto-core/dist/command_interface'
 
 //data
 
@@ -33,7 +33,7 @@ import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schema
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
 import * as resources_pareto_stream from "pareto-stream/dist/interface/resources"
 
-export type command_signature = _pci.Command_Procedure<
+export type command_signature = pci.Command_Procedure<
     resources_pareto.resources.commands.main,
     null,
     {
@@ -64,14 +64,14 @@ import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementat
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const $$: command_signature = _p.command_procedure(
+export const $$: command_signature = pt.command_procedure(
     ($d, $s, $q, $c) => {
         return [
 
-            _p.handle_error(
+            pt.handle_error(
                 [
 
-                    _p.query(
+                    pt.query(
 
                         $q['read file'](
                             t_path_to_path.create_node_path(

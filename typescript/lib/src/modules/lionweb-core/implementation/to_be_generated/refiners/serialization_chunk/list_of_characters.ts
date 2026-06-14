@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
-import _p_change_context from 'pareto-core/dist/_p_change_context'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
+import p_change_context from 'pareto-core/dist/_p_change_context'
 
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
@@ -13,7 +13,7 @@ import * as d_deserialize_parse_tree from "astn-core/dist/interface/generated/li
 import * as r_from_json from "./json"
 import * as r_json_from_list_of_characters from "pareto-json/dist/implementation/manual/refiners/json_with_parse_info/list_of_characters"
 
-export const Serialization_Chunk: _pi.Refiner_With_Parameter<
+export const Serialization_Chunk: pi.Refiner_With_Parameter<
     d_out.Serialization_Chunk,
     d_unmarshall_json.Error,
     d_in.List_of_Characters,

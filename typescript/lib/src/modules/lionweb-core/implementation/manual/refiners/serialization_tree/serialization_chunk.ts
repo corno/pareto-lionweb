@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
-import _p_change_context from 'pareto-core/dist/_p_change_context'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
+import p_change_context from 'pareto-core/dist/_p_change_context'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -14,26 +14,26 @@ export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
 
 export const Serialization_Tree = (
     $: d_in.Serialization_Chunk,
-    abort: _pi.Abort<d_function.Error>
+    abort: pi.Abort<d_function.Error>
 ): d_out.Serialization_Tree => {
     const chunk = $
-    const nodes_without_parent = _p.list.from.list(
+    const nodes_without_parent = pt.list.from.list(
         $.nodes,
     ).map_optionally(
-        ($) => _p.decide.boolean(
-            _p.boolean.from.optional($.parent).is_set(),
-            () => _p.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
-            () => _p.optional.literal.set($)
+        ($) => pt.decide.boolean(
+            pt.boolean.from.optional($.parent).is_set(),
+            () => pt.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+            () => pt.optional.literal.set($)
         )
 
     )
-    if (_p.number.from.list(nodes_without_parent).amount_of_items() > 1) {
+    if (pt.number.from.list(nodes_without_parent).amount_of_items() > 1) {
         return abort({
             'range': chunk.range,
             'type': ['could not determine root node', null]
         })
     }
-    return _p_change_context(
+    return p_change_context(
         nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
             ($): d_in.Serialization_Chunk.nodes.L => $,
             () => abort({
@@ -49,7 +49,7 @@ export const Serialization_Tree = (
                 $,
                 abort,
                 {
-                    'nodes': _p.dictionary.from.list(
+                    'nodes': pt.dictionary.from.list(
                         chunk.nodes,
                     ).convert(
                         ($) => $.id,
@@ -73,16 +73,16 @@ export const Serialization_Tree = (
 
 const Node = (
     $: d_in.Serialization_Chunk.nodes.L,
-    abort: _pi.Abort<d_function.Error>,
+    abort: pi.Abort<d_function.Error>,
     $p: {
-        'nodes': _pi.Dictionary<d_in.Serialization_Chunk.nodes.L>,
+        'nodes': pi.Dictionary<d_in.Serialization_Chunk.nodes.L>,
     },
 ): d_out.Node => {
     const node = $
     return {
         'range': $.range,
         'classifier': Meta_Pointer($.classifier),
-        'properties': _p.dictionary.from.list(
+        'properties': pt.dictionary.from.list(
             $.properties,
         ).convert(
             ($) => Meta_Pointer($.property),
@@ -97,11 +97,11 @@ const Node = (
                 })
             },
         ),
-        'containments': _p.dictionary.from.list(
+        'containments': pt.dictionary.from.list(
             $.containments,
         ).convert(
             ($) => Meta_Pointer($.containment),
-            ($) => _p.dictionary.from.list(
+            ($) => pt.dictionary.from.list(
                 $.children,
             ).convert(
                 ($) => $,
@@ -144,7 +144,7 @@ const Node = (
                 })
             },
         ),
-        'references': _p.dictionary.from.list(
+        'references': pt.dictionary.from.list(
             $.references,
         ).convert(
             ($) => Meta_Pointer($.reference),

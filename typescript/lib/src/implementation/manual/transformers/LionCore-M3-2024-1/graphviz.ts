@@ -1,6 +1,6 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/assign'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import * as pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/lioncore/data"
@@ -10,48 +10,48 @@ import * as d_out_attributes from "pareto-graphviz/dist/interface/generated/lian
 //shorthands
 import * as sh from "pareto-graphviz/dist/shorthands/high_level_simple"
 
-export type M3 = _pi.Transformer<d_in.M3, d_out.Graph>
+export type M3 = pi.Transformer<d_in.M3, d_out.Graph>
 
 export const M3: M3 = ($) => sh.Graph(
     [],
-    _p.dictionary.from.dictionary(
+    pt.dictionary.from.dictionary(
         $.containments.entities.__d_map(($, id) => sh.node([
             ['label', id],
-            ['shape', _p.decide.state($.classifier, ($): d_out_attributes.Attributes.L.shape => {
+            ['shape', pt.decide.state($.classifier, ($): d_out_attributes.Attributes.L.shape => {
                 switch ($[0]) {
-                    case 'Classifier': return _p.ss($, ($) => _p.decide.state($.classifier, ($) => {
+                    case 'Classifier': return pt.ss($, ($) => pt.decide.state($.classifier, ($) => {
                         switch ($[0]) {
-                            case 'Concept': return _p.ss($, ($) => ['pentagon', null])
-                            case 'Interface': return _p.ss($, ($) => ['ellipse', null])
-                            default: return _p.au($[0])
+                            case 'Concept': return pt.ss($, ($) => ['pentagon', null])
+                            case 'Interface': return pt.ss($, ($) => ['ellipse', null])
+                            default: return pt.au($[0])
                         }
                     }))
-                    case 'Datatype': return _p.ss($, ($) => _p.decide.state($, ($) => {
+                    case 'Datatype': return pt.ss($, ($) => pt.decide.state($, ($) => {
                         switch ($[0]) {
-                            case 'Enumeration': return _p.ss($, ($) => ['diamond', null])
-                            default: return _p.au($[0])
+                            case 'Enumeration': return pt.ss($, ($) => ['diamond', null])
+                            default: return pt.au($[0])
                         }
                     }))
-                    default: return _p.au($[0])
+                    default: return pt.au($[0])
                 }
             })]
         ]))
     ).re_id(
         ($, id): string => "LionWeb.LionCore_M3." + id,
         {
-            duplicate_id: () => _p_unreachable_code_path("id's should be unique")
+            duplicate_id: () => p_unreachable_code_path("id's should be unique")
         }
     ),
-    _p.list.from.dictionary(
+    pt.list.from.dictionary(
         $.containments.entities
     ).flatten(
-        ($, id) => _p.decide.state($.classifier, ($): d_out.Graph.edges => {
+        ($, id) => pt.decide.state($.classifier, ($): d_out.Graph.edges => {
             switch ($[0]) {
-                case 'Classifier': return _p.ss($, ($) => _p.decide.state($.classifier, ($) => {
+                case 'Classifier': return pt.ss($, ($) => pt.decide.state($.classifier, ($) => {
                     switch ($[0]) {
-                        case 'Concept': return _p.ss($, ($) => _p.list.nested_literal_old([
+                        case 'Concept': return pt.ss($, ($) => pt.list.nested_literal_old([
                             $.references.extends.__decide(
-                                ($) => _p.list.literal([
+                                ($) => pt.list.literal([
                                     sh.edge(
                                        "LionWeb.LionCore_M3." +  id,
                                         $.resolveInfo,
@@ -61,7 +61,7 @@ export const M3: M3 = ($) => sh.Graph(
                                     )
                                 ]),
                                 // ($) => $.reference.__decide(
-                                //     ($) => _p.list.literal([
+                                //     ($) => pt.list.literal([
                                 //         sh.edge(
                                 //             id,
                                 //             $,
@@ -70,14 +70,14 @@ export const M3: M3 = ($) => sh.Graph(
                                 //             ]
                                 //         )
                                 //     ]),
-                                //     () => _p.list.literal([])
+                                //     () => pt.list.literal([])
                                 // ),
-                                () => _p.list.literal([])
+                                () => pt.list.literal([])
                             ),
-                            _p.list.from.list(
+                            pt.list.from.list(
                                 $.references.implements
                             ).flatten(
-                                ($) => _p.list.literal([
+                                ($) => pt.list.literal([
                                     sh.edge(
                                         "LionWeb.LionCore_M3." +  id,
                                         $.resolveInfo,
@@ -87,7 +87,7 @@ export const M3: M3 = ($) => sh.Graph(
                                     )
                                 ]),
                                 // ($) => $.reference.__decide(
-                                //     ($) => _p.list.literal([
+                                //     ($) => pt.list.literal([
                                 //         sh.edge(
                                 //             id,
                                 //             $,
@@ -96,14 +96,14 @@ export const M3: M3 = ($) => sh.Graph(
                                 //             ]
                                 //         )
                                 //     ]),
-                                //     () => _p.list.literal([])
+                                //     () => pt.list.literal([])
                                 // )
                             )
                         ]))
-                        case 'Interface': return _p.ss($, ($) => _p.list.from.list(
+                        case 'Interface': return pt.ss($, ($) => pt.list.from.list(
                             $.references.extends
                         ).flatten(
-                            ($) => _p.list.literal([
+                            ($) => pt.list.literal([
                                 sh.edge(
                                     "LionWeb.LionCore_M3." +  id,
                                     $.resolveInfo,
@@ -113,7 +113,7 @@ export const M3: M3 = ($) => sh.Graph(
                                 )
                             ]),
                             // ($) => $.reference.__decide(
-                            //     ($) => _p.list.literal([
+                            //     ($) => pt.list.literal([
                             //         sh.edge(
                             //             id,
                             //             $,
@@ -122,19 +122,19 @@ export const M3: M3 = ($) => sh.Graph(
                             //             ]
                             //         )
                             //     ]),
-                            //     () => _p.list.literal([])
+                            //     () => pt.list.literal([])
                             // )
                         ))
-                        default: return _p.au($[0])
+                        default: return pt.au($[0])
                     }
                 }))
-                case 'Datatype': return _p.ss($, ($) => _p.decide.state($, ($) => {
+                case 'Datatype': return pt.ss($, ($) => pt.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'Enumeration': return _p.ss($, ($) => _p.list.literal([]))
-                        default: return _p.au($[0])
+                        case 'Enumeration': return pt.ss($, ($) => pt.list.literal([]))
+                        default: return pt.au($[0])
                     }
                 }))
-                default: return _p.au($[0])
+                default: return pt.au($[0])
             }
         })
     )
