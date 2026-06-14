@@ -31,7 +31,7 @@ const settings = {
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 import * as resources_pareto from "pareto-resources/dist/interface/resources"
-import * as resources_pareto_stream from "pareto-stream/dist/interface/resources"
+import * as resources_pareto_stream from "pareto-stream/dist/interface/commands"
 
 export type command_signature = pci.Command_Procedure<
     resources_pareto.resources.commands.main,
