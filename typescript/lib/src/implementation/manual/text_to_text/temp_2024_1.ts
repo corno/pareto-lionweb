@@ -19,7 +19,7 @@ export type Signature = pi.Refiner_With_Parameter<
     d_function.Parameter
 >
 
-export const $$: Signature = ($, abort, $p) => p_change_context(
+export const $$x: Signature = ($, abort, $p) => p_change_context(
     r_serialization_tree_from_list_of_characters.Serialization_Tree(
         $,
         ($) => abort(['serialization tree', $]),
