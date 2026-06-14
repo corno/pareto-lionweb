@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Serialization_Chunk_ {
 
 export type Serialization_Chunk_ = (
     context: Serialization_Chunk_.I,
-    abort: _pi.Abort<Serialization_Chunk_.E>,
+    abort: p_i.Abort<Serialization_Chunk_.E>,
 ) => Serialization_Chunk_.O
 
 export namespace Targets_ {
@@ -42,7 +42,7 @@ export namespace Targets_ {
 
 export type Targets_ = (
     context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
+    abort: p_i.Abort<Targets_.E>,
 ) => Targets_.O
 
 export namespace Meta_Pointer_ {
@@ -61,7 +61,7 @@ export namespace Meta_Pointer_ {
 
 export type Meta_Pointer_ = (
     context: Meta_Pointer_.I,
-    abort: _pi.Abort<Meta_Pointer_.E>,
+    abort: p_i.Abort<Meta_Pointer_.E>,
 ) => Meta_Pointer_.O
 
 export { 

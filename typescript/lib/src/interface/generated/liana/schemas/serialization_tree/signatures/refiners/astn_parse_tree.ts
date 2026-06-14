@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Serialization_Tree_ {
 
 export type Serialization_Tree_ = (
     context: Serialization_Tree_.I,
-    abort: _pi.Abort<Serialization_Tree_.E>,
+    abort: p_i.Abort<Serialization_Tree_.E>,
 ) => Serialization_Tree_.O
 
 export namespace Node_ {
@@ -42,7 +42,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+    abort: p_i.Abort<Node_.E>,
 ) => Node_.O
 
 export namespace Targets_ {
@@ -61,7 +61,7 @@ export namespace Targets_ {
 
 export type Targets_ = (
     context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
+    abort: p_i.Abort<Targets_.E>,
 ) => Targets_.O
 
 export { 

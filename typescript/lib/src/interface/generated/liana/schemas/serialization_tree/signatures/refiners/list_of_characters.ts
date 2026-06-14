@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Serialization_Tree_ {
 
 export type Serialization_Tree_ = (
     context: Serialization_Tree_.I,
-    abort: _pi.Abort<Serialization_Tree_.E>,
+    abort: p_i.Abort<Serialization_Tree_.E>,
     parameters: {
         readonly 'tab size': Serialization_Tree_.P.tab_size
     },
@@ -49,7 +49,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+    abort: p_i.Abort<Node_.E>,
     parameters: {
         readonly 'tab size': Node_.P.tab_size
     },
@@ -73,7 +73,7 @@ export namespace Targets_ {
 
 export type Targets_ = (
     context: Targets_.I,
-    abort: _pi.Abort<Targets_.E>,
+    abort: p_i.Abort<Targets_.E>,
     parameters: {
         readonly 'tab size': Targets_.P.tab_size
     },

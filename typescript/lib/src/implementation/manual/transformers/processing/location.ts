@@ -1,6 +1,6 @@
 
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/to_be_generated/processing"
@@ -9,7 +9,7 @@ import * as d_out from "astn-core/dist/interface/generated/liana/schemas/locatio
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/location"
 
-export const Error: pi.Transformer<d_in.Error, d_out.Possible_Range> = ($) => pt.decide.state($, ($): d_out.Possible_Range => {
+export const Error: p_ti.Transformer<d_in.Error, d_out.Possible_Range> = ($) => pt.decide.state($, ($): d_out.Possible_Range => {
     switch ($[0]) {
         case 'serialization tree': return pt.ss($, ($) => pt.decide.state($, ($): d_out.Possible_Range => {
             switch ($[0]) {

@@ -1,6 +1,6 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import p_change_context from 'pareto-core/dist/_p_change_context'
+import * as p_i from 'pareto-core/dist/interface'
+import p_change_context from 'pareto-core/dist/specials/change_context'
 
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
@@ -17,7 +17,7 @@ import * as r_json_y_from_json from "pareto-json/dist/implementation/manual/refi
 
 export const Serialization_Chunk = (
     $: d_in.Value,
-    abort: pi.Abort<d_unmarshalled_from_json.Error>
+    abort: p_i.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Serialization_Chunk => {
     const value = $
     /**
@@ -355,7 +355,7 @@ export const Serialization_Chunk = (
 
 export const Meta_Pointer = (
     $: d_in.Value,
-    abort: pi.Abort<d_unmarshalled_from_json.Error>
+    abort: p_i.Abort<d_unmarshalled_from_json.Error>
 ): d_out.Meta_Pointer => {
     return p_change_context(
         r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(

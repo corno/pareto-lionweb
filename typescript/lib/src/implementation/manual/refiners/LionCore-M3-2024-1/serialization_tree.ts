@@ -1,7 +1,7 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import p_assert from 'pareto-core/dist/_p_assert'
-import p_change_context from 'pareto-core/dist/_p_change_context'
+import * as p_i from 'pareto-core/dist/interface'
+import p_assert from 'pareto-core/dist/specials/assert'
+import p_change_context from 'pareto-core/dist/specials/change_context'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -15,7 +15,7 @@ import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../.
 
 export const ID = (
     $: d_in.Node,
-    abort: pi.Abort<d_function.Error>,
+    abort: p_i.Abort<d_function.Error>,
     $p: {
         'id': string,
         'write source': boolean,
@@ -36,7 +36,7 @@ export const ID = (
 
 export const M3 = (
     $: d_in.Serialization_Tree,
-    abort: pi.Abort<d_function.Error>,
+    abort: p_i.Abort<d_function.Error>,
     $p: {
         'write source': boolean
     },

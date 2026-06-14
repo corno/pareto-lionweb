@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_generic from "../generic/data"
 
@@ -196,7 +197,7 @@ export namespace M3_ {
                                 
                             }
                             
-                            export type features = _pi.Dictionary<features.D>
+                            export type features = p_di.Dictionary<features.D>
                             
                         }
                         
@@ -227,7 +228,7 @@ export namespace M3_ {
                             
                         }
                         
-                        export type Enumeration = _pi.Dictionary<Enumeration.D>
+                        export type Enumeration = p_di.Dictionary<Enumeration.D>
                         
                     }
                     
@@ -249,7 +250,7 @@ export namespace M3_ {
             
         }
         
-        export type entities = _pi.Dictionary<entities.D>
+        export type entities = p_di.Dictionary<entities.D>
         
     }
     

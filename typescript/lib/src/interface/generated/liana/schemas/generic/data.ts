@@ -1,5 +1,7 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+
 
 import * as i_imports_location from "../location/data"
 
@@ -15,7 +17,7 @@ export namespace ID_ {
         
     }
     
-    export type source = _pi.Optional_Value<source.O>
+    export type source = p_di.Optional_Value<source.O>
     
 }
 
@@ -35,7 +37,7 @@ export namespace Raw_Reference_ {
         
     }
     
-    export type reference = _pi.Optional_Value<reference.O>
+    export type reference = p_di.Optional_Value<reference.O>
     
 }
 
@@ -52,7 +54,7 @@ export namespace References_ {
     
 }
 
-export type References_ = _pi.List<References_.L>
+export type References_ = p_di.List<References_.L>
 
 export namespace Optional_Reference_ {
     
@@ -60,7 +62,7 @@ export namespace Optional_Reference_ {
     
 }
 
-export type Optional_Reference_ = _pi.Optional_Value<Optional_Reference_.O>
+export type Optional_Reference_ = p_di.Optional_Value<Optional_Reference_.O>
 
 export { 
     ID_ as ID, 

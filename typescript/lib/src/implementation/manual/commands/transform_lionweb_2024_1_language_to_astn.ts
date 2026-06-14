@@ -1,5 +1,5 @@
-import * as p_ from 'pareto-core/dist/command'
-import * as p_ci from 'pareto-core/dist/command_interface'
+import * as p_ from 'pareto-core/dist/command/implementation'
+import * as p_ci from 'pareto-core/dist/command/interface'
 
 //data
 

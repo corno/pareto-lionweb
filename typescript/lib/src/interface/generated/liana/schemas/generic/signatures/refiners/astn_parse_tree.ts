@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace ID_ {
 
 export type ID_ = (
     context: ID_.I,
-    abort: _pi.Abort<ID_.E>,
+    abort: p_i.Abort<ID_.E>,
 ) => ID_.O
 
 export namespace Raw_Reference_ {
@@ -42,7 +42,7 @@ export namespace Raw_Reference_ {
 
 export type Raw_Reference_ = (
     context: Raw_Reference_.I,
-    abort: _pi.Abort<Raw_Reference_.E>,
+    abort: p_i.Abort<Raw_Reference_.E>,
 ) => Raw_Reference_.O
 
 export namespace Singular_Reference_ {
@@ -61,7 +61,7 @@ export namespace Singular_Reference_ {
 
 export type Singular_Reference_ = (
     context: Singular_Reference_.I,
-    abort: _pi.Abort<Singular_Reference_.E>,
+    abort: p_i.Abort<Singular_Reference_.E>,
 ) => Singular_Reference_.O
 
 export namespace References_ {
@@ -80,7 +80,7 @@ export namespace References_ {
 
 export type References_ = (
     context: References_.I,
-    abort: _pi.Abort<References_.E>,
+    abort: p_i.Abort<References_.E>,
 ) => References_.O
 
 export namespace Optional_Reference_ {
@@ -99,7 +99,7 @@ export namespace Optional_Reference_ {
 
 export type Optional_Reference_ = (
     context: Optional_Reference_.I,
-    abort: _pi.Abort<Optional_Reference_.E>,
+    abort: p_i.Abort<Optional_Reference_.E>,
 ) => Optional_Reference_.O
 
 export { 

@@ -1,6 +1,5 @@
-import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import p_change_context from 'pareto-core/dist/_p_change_context'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
+import p_change_context from 'pareto-core/dist/specials/change_context'
 
 //data types
 import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -12,7 +11,7 @@ import * as r_serialization_tree_from_list_of_characters from "../../../modules/
 import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree"
 
 
-export type Signature = pi.Refiner_With_Parameter<
+export type Signature = p_ri.Refiner_With_Parameter<
     d_out.M3,
     d_function.Error,
     d_loc.List_of_Characters,

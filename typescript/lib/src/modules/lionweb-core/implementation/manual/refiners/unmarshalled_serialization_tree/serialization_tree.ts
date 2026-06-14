@@ -1,4 +1,4 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import * as pt from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -6,7 +6,7 @@ import * as d_out from "../../../../interface/to_be_generated/unmarshalled_seria
 import * as d_function from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
-export type Property = pi.Refiner_With_Parameter<
+export type Property = p_ri.Refiner_With_Parameter<
     d_out.Property,
     d_function.Error,
     d_in.Node,
@@ -14,7 +14,7 @@ export type Property = pi.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Optional_Property = pi.Refiner_With_Parameter<
+export type Optional_Property = p_ri.Refiner_With_Parameter<
     d_out.Optional_Property,
     d_function.Error,
     d_in.Node,
@@ -22,7 +22,7 @@ export type Optional_Property = pi.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Singular_Containment = pi.Refiner_With_Parameter<
+export type Singular_Containment = p_ri.Refiner_With_Parameter<
     d_out.Singular_Containment,
     d_function.Error,
     d_in.Node,
@@ -30,7 +30,7 @@ export type Singular_Containment = pi.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Optional_Containment = pi.Refiner_With_Parameter<
+export type Optional_Containment = p_ri.Refiner_With_Parameter<
     d_out.Optional_Containment,
     d_function.Error,
     d_in.Node,
@@ -38,7 +38,7 @@ export type Optional_Containment = pi.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Multiple_Containments = pi.Refiner_With_Parameter<
+export type Multiple_Containments = p_ri.Refiner_With_Parameter<
     d_out.Multiple_Containments,
     d_function.Error,
     d_in.Node,
@@ -47,7 +47,7 @@ export type Multiple_Containments = pi.Refiner_With_Parameter<
     }
 >
 
-export type Optional_Reference = pi.Refiner_With_Parameter<
+export type Optional_Reference = p_ri.Refiner_With_Parameter<
     d_out.Optional_Reference,
     d_function.Error,
     d_in.Node,
@@ -56,7 +56,7 @@ export type Optional_Reference = pi.Refiner_With_Parameter<
     }
 >
 
-export type Singular_Reference = pi.Refiner_With_Parameter<
+export type Singular_Reference = p_ri.Refiner_With_Parameter<
     d_out.Singular_Reference,
     d_function.Error,
     d_in.Node,
@@ -65,7 +65,7 @@ export type Singular_Reference = pi.Refiner_With_Parameter<
     }
 >
 
-export type Multiple_References = pi.Refiner_With_Parameter<
+export type Multiple_References = p_ri.Refiner_With_Parameter<
     d_out.Multiple_References,
     d_function.Error,
     d_in.Node,

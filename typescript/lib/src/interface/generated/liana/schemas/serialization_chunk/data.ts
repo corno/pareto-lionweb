@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_location from "../location/data"
 
@@ -24,7 +25,7 @@ export namespace Serialization_Chunk_ {
         
     }
     
-    export type languages = _pi.List<languages.L>
+    export type languages = p_di.List<languages.L>
     
     export namespace nodes {
         
@@ -40,7 +41,7 @@ export namespace Serialization_Chunk_ {
                 
             }
             
-            export type parent = _pi.Optional_Value<parent.O>
+            export type parent = p_di.Optional_Value<parent.O>
             
             export type classifier = Meta_Pointer_
             
@@ -61,7 +62,7 @@ export namespace Serialization_Chunk_ {
                 
             }
             
-            export type properties = _pi.List<properties.L>
+            export type properties = p_di.List<properties.L>
             
             export namespace references {
                 
@@ -80,7 +81,7 @@ export namespace Serialization_Chunk_ {
                 
             }
             
-            export type references = _pi.List<references.L>
+            export type references = p_di.List<references.L>
             
             export namespace containments {
                 
@@ -94,7 +95,7 @@ export namespace Serialization_Chunk_ {
                         
                     }
                     
-                    export type children = _pi.List<children.L>
+                    export type children = p_di.List<children.L>
                     
                 }
                 
@@ -105,7 +106,7 @@ export namespace Serialization_Chunk_ {
                 
             }
             
-            export type containments = _pi.List<containments.L>
+            export type containments = p_di.List<containments.L>
             
             export namespace annotations {
                 
@@ -113,7 +114,7 @@ export namespace Serialization_Chunk_ {
                 
             }
             
-            export type annotations = _pi.List<annotations.L>
+            export type annotations = p_di.List<annotations.L>
             
         }
         
@@ -130,7 +131,7 @@ export namespace Serialization_Chunk_ {
         
     }
     
-    export type nodes = _pi.List<nodes.L>
+    export type nodes = p_di.List<nodes.L>
     
 }
 
@@ -153,7 +154,7 @@ export namespace Targets_ {
             
         }
         
-        export type reference = _pi.Optional_Value<reference.O>
+        export type reference = p_di.Optional_Value<reference.O>
         
     }
     
@@ -164,7 +165,7 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = _pi.List<Targets_.L>
+export type Targets_ = p_di.List<Targets_.L>
 
 export namespace Meta_Pointer_ {
     

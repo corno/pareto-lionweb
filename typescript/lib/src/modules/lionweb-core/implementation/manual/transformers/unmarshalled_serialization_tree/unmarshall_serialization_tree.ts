@@ -1,17 +1,18 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 import * as pt from 'pareto-core/dist/assign'
 
 import * as d_in from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
 import * as d_out from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
-export type Node_With_Possibly_Unexpected_Content = pi.Transformer_With_Parameter<
+export type Node_With_Possibly_Unexpected_Content = p_ti.Transformer_With_Parameter<
     d_in.Node_With_Possibly_Unexpected_References,
     d_out.Optional_Error,
     {
-        'expected containments': pi.Dictionary<null>
-        'expected properties': pi.Dictionary<null>
-        'expected references': pi.Dictionary<null>
+        'expected containments': p_di.Dictionary<null>
+        'expected properties': p_di.Dictionary<null>
+        'expected references': p_di.Dictionary<null>
     }
 >
 
@@ -22,7 +23,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $.containments,
         ).join(
             $p['expected containments'],
-            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
                 () => pt.optional.literal.not_set(),
                 () => pt.optional.literal.set(null)
@@ -36,7 +37,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $.properties,
         ).join(
             $p['expected properties'],
-            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
                 () => pt.optional.literal.not_set(),
                 () => pt.optional.literal.set(null)
@@ -50,7 +51,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $.references,
         ).join(
             $p['expected references'],
-            ($, other, id): pi.Optional_Value<null> => pt.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
                 () => pt.optional.literal.not_set(),
                 () => pt.optional.literal.set(null)

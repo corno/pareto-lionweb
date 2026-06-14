@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_location from "../location/data"
 
@@ -24,7 +25,7 @@ export namespace Serialization_Tree_ {
         
     }
     
-    export type languages = _pi.List<languages.L>
+    export type languages = p_di.List<languages.L>
     
     export type root_node_id = string
     
@@ -51,7 +52,7 @@ export namespace Node_ {
         
     }
     
-    export type properties = _pi.Dictionary<properties.D>
+    export type properties = p_di.Dictionary<properties.D>
     
     export namespace containments {
         
@@ -61,11 +62,11 @@ export namespace Node_ {
             
         }
         
-        export type D = _pi.Dictionary<D.D>
+        export type D = p_di.Dictionary<D.D>
         
     }
     
-    export type containments = _pi.Dictionary<containments.D>
+    export type containments = p_di.Dictionary<containments.D>
     
     export namespace references {
         
@@ -73,7 +74,7 @@ export namespace Node_ {
         
     }
     
-    export type references = _pi.Dictionary<references.D>
+    export type references = p_di.Dictionary<references.D>
     
     export namespace annotations {
         
@@ -81,7 +82,7 @@ export namespace Node_ {
         
     }
     
-    export type annotations = _pi.List<annotations.L>
+    export type annotations = p_di.List<annotations.L>
     
 }
 
@@ -106,7 +107,7 @@ export namespace Targets_ {
             
         }
         
-        export type reference = _pi.Optional_Value<reference.O>
+        export type reference = p_di.Optional_Value<reference.O>
         
     }
     
@@ -117,7 +118,7 @@ export namespace Targets_ {
     
 }
 
-export type Targets_ = _pi.List<Targets_.L>
+export type Targets_ = p_di.List<Targets_.L>
 
 export { 
     Serialization_Tree_ as Serialization_Tree, 

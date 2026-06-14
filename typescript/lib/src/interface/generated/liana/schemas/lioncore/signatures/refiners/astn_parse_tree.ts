@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace M3_ {
 
 export type M3_ = (
     context: M3_.I,
-    abort: _pi.Abort<M3_.E>,
+    abort: p_i.Abort<M3_.E>,
 ) => M3_.O
 
 export { 
