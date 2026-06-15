@@ -1,4 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/command'
+import p_super_query_result from 'pareto-core/dist/implementation/query/super_query_result'
 
 import * as commands from "../../../interface/commands"
 
@@ -56,37 +57,38 @@ export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn =
         p_.handle_error(
             [
                 p_.query(
-                    $q['read file'](
+                    p_super_query_result($q['read file'](
                         t_path_to_path.create_node_path(
                             r_path_from_text.Context_Path(settings['in']['dir']),
                             { 'node': settings['in']['file'] }
                         ),
                         ($): d_fp.Phrase => t_read_file_to_fountain_pen.Error($)
-                    ),
-                    ($, abort) => r_2024_1(
-                        $,
-                        ($) => abort(sh.ph.composed([
-                            sh.ph.literal("error during processing: "),
-                            sh.ph.literal(t_path_to_text.Node_Path(
-                                t_path_to_path.create_node_path(
-                                    r_path_from_text.Context_Path(settings['in']['dir']),
-                                    { 'node': settings['in']['file'] }
-                                )
-                            )),
-                            sh.ph.literal(":"),
-                            t_location_to_fountain_pen.Possible_Range(
-                                t_processing_to_location.Error($),
-                                {
-                                    'character location reporting': ['one based', null],
-                                }
-                            ),
-                            t_processing_to_fountain_pen.Error(
-                                $,
-                            ),
-                        ])),
-                        {
-                            'tab size': 4,
-                        }
+                    )).refine(
+                        ($, abort) => r_2024_1(
+                            $,
+                            ($) => abort(sh.ph.composed([
+                                sh.ph.literal("error during processing: "),
+                                sh.ph.literal(t_path_to_text.Node_Path(
+                                    t_path_to_path.create_node_path(
+                                        r_path_from_text.Context_Path(settings['in']['dir']),
+                                        { 'node': settings['in']['file'] }
+                                    )
+                                )),
+                                sh.ph.literal(":"),
+                                t_location_to_fountain_pen.Possible_Range(
+                                    t_processing_to_location.Error($),
+                                    {
+                                        'character location reporting': ['one based', null],
+                                    }
+                                ),
+                                t_processing_to_fountain_pen.Error(
+                                    $,
+                                ),
+                            ])),
+                            {
+                                'tab size': 4,
+                            }
+                        )
                     ),
                     ($v) => [
                         $c['write file'].execute(
