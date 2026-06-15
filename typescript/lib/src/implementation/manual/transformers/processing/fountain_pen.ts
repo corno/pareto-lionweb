@@ -3,9 +3,9 @@ import * as pt from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/to_be_generated/processing"
+import * as d_in from "../../../../interface/data/processing"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
-import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/to_be_generated/lion_core_from_serialization_tree"
+import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree"
 
 //dependencies
 import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/transformers/unmarshalled_from_json/fountain_pen"

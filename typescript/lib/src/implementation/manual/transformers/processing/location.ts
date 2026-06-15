@@ -3,7 +3,7 @@ import * as pt from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/to_be_generated/processing"
+import * as d_in from "../../../../interface/data/processing"
 import * as d_out from "astn-core/dist/interface/generated/liana/schemas/location/data"
 
 //dependencies

@@ -3,7 +3,7 @@ import p_change_context from 'pareto-core/dist/implementation/specials/change_co
 
 //data types
 import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
-import * as d_function from "../../../interface/to_be_generated/processing"
+import * as d_function from "../../../interface/data/processing"
 import * as d_out from "../../../interface/generated/liana/schemas/lioncore/data"
 
 //dependencies
