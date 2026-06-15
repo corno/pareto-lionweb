@@ -1,4 +1,4 @@
-import * as p_ri from 'pareto-core/dist/refiner/interface'
+import * as p_i from 'pareto-core/dist/interface/refiner'
 
 
 //data types
@@ -12,7 +12,7 @@ import * as d_deserialize_parse_tree from "astn-core/dist/interface/generated/li
 import * as r_from_json from "./json"
 import * as r_json_from_list_of_characters from "pareto-json/dist/implementation/manual/refiners/json_with_parse_info/list_of_characters"
 
-export const Serialization_Chunk: p_ri.Refiner_With_Parameter<
+export const Serialization_Chunk: p_i.Refiner_With_Parameter<
     d_out.Serialization_Chunk,
     d_unmarshall_json.Error,
     d_in.List_of_Characters,

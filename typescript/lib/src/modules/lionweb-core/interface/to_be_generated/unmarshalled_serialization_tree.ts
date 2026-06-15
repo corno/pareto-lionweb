@@ -1,4 +1,4 @@
-import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_di from 'pareto-core/dist/interface/data'
 
 import * as d_serialization_tree from "../../../../interface/generated/liana/schemas/serialization_tree/data"
 

@@ -1,12 +1,13 @@
-import * as p_ri from 'pareto-core/dist/refiner/interface'
-import * as pt from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_i from 'pareto-core/dist/interface/refiner'
+import * as p_temp from 'pareto-core/dist/implementation/transformer'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
 import * as d_out from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
 import * as d_function from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
 
 
-export type Property = p_ri.Refiner_With_Parameter<
+export type Property = p_i.Refiner_With_Parameter<
     d_out.Property,
     d_function.Error,
     d_in.Node,
@@ -14,7 +15,7 @@ export type Property = p_ri.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Optional_Property = p_ri.Refiner_With_Parameter<
+export type Optional_Property = p_i.Refiner_With_Parameter<
     d_out.Optional_Property,
     d_function.Error,
     d_in.Node,
@@ -22,7 +23,7 @@ export type Optional_Property = p_ri.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Singular_Containment = p_ri.Refiner_With_Parameter<
+export type Singular_Containment = p_i.Refiner_With_Parameter<
     d_out.Singular_Containment,
     d_function.Error,
     d_in.Node,
@@ -30,7 +31,7 @@ export type Singular_Containment = p_ri.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Optional_Containment = p_ri.Refiner_With_Parameter<
+export type Optional_Containment = p_i.Refiner_With_Parameter<
     d_out.Optional_Containment,
     d_function.Error,
     d_in.Node,
@@ -38,7 +39,7 @@ export type Optional_Containment = p_ri.Refiner_With_Parameter<
         'id': string
     }
 >
-export type Multiple_Containments = p_ri.Refiner_With_Parameter<
+export type Multiple_Containments = p_i.Refiner_With_Parameter<
     d_out.Multiple_Containments,
     d_function.Error,
     d_in.Node,
@@ -47,7 +48,7 @@ export type Multiple_Containments = p_ri.Refiner_With_Parameter<
     }
 >
 
-export type Optional_Reference = p_ri.Refiner_With_Parameter<
+export type Optional_Reference = p_i.Refiner_With_Parameter<
     d_out.Optional_Reference,
     d_function.Error,
     d_in.Node,
@@ -56,7 +57,7 @@ export type Optional_Reference = p_ri.Refiner_With_Parameter<
     }
 >
 
-export type Singular_Reference = p_ri.Refiner_With_Parameter<
+export type Singular_Reference = p_i.Refiner_With_Parameter<
     d_out.Singular_Reference,
     d_function.Error,
     d_in.Node,
@@ -65,7 +66,7 @@ export type Singular_Reference = p_ri.Refiner_With_Parameter<
     }
 >
 
-export type Multiple_References = p_ri.Refiner_With_Parameter<
+export type Multiple_References = p_i.Refiner_With_Parameter<
     d_out.Multiple_References,
     d_function.Error,
     d_in.Node,
@@ -78,7 +79,7 @@ export type Multiple_References = p_ri.Refiner_With_Parameter<
 
 export const Multiple_Containments: Multiple_Containments = ($, abort, $p) => {
     const node = $
-    return pt.select.entry(
+    return p_.select.entry(
         $.containments,
         $p.id,
         {
@@ -95,7 +96,7 @@ export const Multiple_Containments: Multiple_Containments = ($, abort, $p) => {
 
 export const Property: Property = ($, abort, $p) => {
     const node = $
-    return pt.select.entry(
+    return p_.select.entry(
         $.properties,
         $p.id,
         {
@@ -112,7 +113,7 @@ export const Property: Property = ($, abort, $p) => {
 
 export const Optional_Property: Optional_Property = ($, abort, $p) => {
     const node = $
-    return pt.select.possible_entry( //implement in pareto-core
+    return p_temp.select.possible_entry( //implement in pareto-core
         $.properties,
         $p.id,
     )
@@ -120,7 +121,7 @@ export const Optional_Property: Optional_Property = ($, abort, $p) => {
 
 export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
     const node = $
-    const result = pt.select.entry(
+    const result = p_.select.entry(
         $.references,
         $p.id,
         {
@@ -146,7 +147,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
 
 export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
     const node = $
-    const result = pt.select.entry(
+    const result = p_.select.entry(
         $.references,
         $p.id,
         {
@@ -178,7 +179,7 @@ export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
 
 export const Multiple_References: Multiple_References = ($, abort, $p) => {
     const node = $
-    return pt.select.entry(
+    return p_.select.entry(
         $.references,
         $p.id,
         {

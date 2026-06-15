@@ -1,7 +1,8 @@
-import * as pt from 'pareto-core/dist/assign'
-import * as p_di from 'pareto-core/dist/data/interface'
-import p_change_context from 'pareto-core/dist/specials/change_context'
-import * as p_ri from 'pareto-core/dist/refiner/interface'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_temp from 'pareto-core/dist/assign'
+import * as p_di from 'pareto-core/dist/interface/data'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import * as p_i from 'pareto-core/dist/interface/refiner'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -13,7 +14,7 @@ export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
 }
 
 
-export const Serialization_Tree: p_ri.Refiner<
+export const Serialization_Tree: p_i.Refiner<
     d_out.Serialization_Tree,
     d_function.Error,
     d_in.Serialization_Chunk
@@ -22,17 +23,17 @@ export const Serialization_Tree: p_ri.Refiner<
     abort
 ) => {
         const chunk = $
-        const nodes_without_parent = pt.list.from.list(
+        const nodes_without_parent = p_temp.list.from.list(
             $.nodes,
         ).map_optionally(
-            ($) => pt.decide.boolean(
-                pt.boolean.from.optional($.parent).is_set(),
-                () => pt.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
-                () => pt.literal.set($)
+            ($) => p_temp.decide.boolean(
+                p_temp.boolean.from.optional($.parent).is_set(),
+                () => p_.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+                () => p_.literal.set($)
             )
 
         )
-        if (pt.number.from.list(nodes_without_parent).amount_of_items() > 1) {
+        if (p_temp.number.from.list(nodes_without_parent).amount_of_items() > 1) {
             return abort({
                 'range': chunk.range,
                 'type': ['could not determine root node', null]
@@ -54,7 +55,7 @@ export const Serialization_Tree: p_ri.Refiner<
                     $,
                     abort,
                     {
-                        'nodes': pt.dictionary.from.list(
+                        'nodes': p_temp.dictionary.from.list(
                             chunk.nodes,
                         ).convert(
                             ($) => $.id,
@@ -76,7 +77,7 @@ export const Serialization_Tree: p_ri.Refiner<
 
     }
 
-const Node: p_ri.Refiner_With_Parameter<
+const Node: p_i.Refiner_With_Parameter<
     d_out.Node,
     d_function.Error,
     d_in.Serialization_Chunk.nodes.L,
@@ -92,7 +93,7 @@ const Node: p_ri.Refiner_With_Parameter<
     return {
         'range': $.range,
         'classifier': Meta_Pointer($.classifier),
-        'properties': pt.dictionary.from.list(
+        'properties': p_temp.dictionary.from.list(
             $.properties,
         ).convert(
             ($) => Meta_Pointer($.property),
@@ -107,11 +108,11 @@ const Node: p_ri.Refiner_With_Parameter<
                 })
             },
         ),
-        'containments': pt.dictionary.from.list(
+        'containments': p_temp.dictionary.from.list(
             $.containments,
         ).convert(
             ($) => Meta_Pointer($.containment),
-            ($) => pt.dictionary.from.list(
+            ($) => p_temp.dictionary.from.list(
                 $.children,
             ).convert(
                 ($) => $,
@@ -154,7 +155,7 @@ const Node: p_ri.Refiner_With_Parameter<
                 })
             },
         ),
-        'references': pt.dictionary.from.list(
+        'references': p_temp.dictionary.from.list(
             $.references,
         ).convert(
             ($) => Meta_Pointer($.reference),

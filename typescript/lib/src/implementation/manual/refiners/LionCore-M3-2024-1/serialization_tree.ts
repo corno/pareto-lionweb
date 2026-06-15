@@ -1,7 +1,8 @@
-import * as p_ from 'pareto-core/dist/assign'
-import * as p_ri from 'pareto-core/dist/refiner/interface'
-import p_assert from 'pareto-core/dist/specials/assert'
-import p_change_context from 'pareto-core/dist/specials/change_context'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_temp from 'pareto-core/dist/assign'
+import * as p_i from 'pareto-core/dist/interface/refiner'
+import p_assert from 'pareto-core/dist/implementation/specials/assert'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -13,7 +14,7 @@ import * as d_function from "../../../../modules/lionweb-core/interface/to_be_ge
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree"
 import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../../modules/lionweb-core/implementation/manual/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree"
 
-export const ID: p_ri.Refiner_With_Parameter<
+export const ID: p_i.Refiner_With_Parameter<
     d_out_generic.ID,
     d_function.Error,
     d_in.Node,
@@ -39,7 +40,7 @@ export const ID: p_ri.Refiner_With_Parameter<
         : p_.literal.not_set(),
 })
 
-export const M3: p_ri.Refiner_With_Parameter<
+export const M3: p_i.Refiner_With_Parameter<
     d_out.M3,
     d_function.Error,
     d_in.Serialization_Tree,
@@ -101,7 +102,7 @@ export const M3: p_ri.Refiner_With_Parameter<
                     })),
                 },
                 'containments': {
-                    'entities': p_.dictionary.from.dictionary(
+                    'entities': p_temp.dictionary.from.dictionary(
                         r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                             $['node tree'],
                             abort,
@@ -156,14 +157,14 @@ export const M3: p_ri.Refiner_With_Parameter<
                                             'write source': $p['write source']
                                         }
                                     ),
-                                    'classifier': p_.state.block((): d_out.M3.containments.entities.D.classifier => {
+                                    'classifier': p_temp.state.block((): d_out.M3.containments.entities.D.classifier => {
                                         const node = $
                                         switch ($.classifier) {
                                             case "LionCore-M3:2024.1:Concept":
                                             case "LionCore-M3:2024.1:Interface":
                                                 {
                                                     return ['Classifier', {
-                                                        'classifier': p_.state.block((): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                        'classifier': p_temp.state.block((): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                             switch ($.classifier) {
                                                                 case "LionCore-M3:2024.1:Concept": {
                                                                     return ['Concept', {
@@ -224,7 +225,7 @@ export const M3: p_ri.Refiner_With_Parameter<
                                                             }
                                                         }),
                                                         'containments': {
-                                                            'features': p_.dictionary.from.dictionary(
+                                                            'features': p_temp.dictionary.from.dictionary(
                                                                 r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                                     $,
                                                                     abort,
@@ -278,7 +279,7 @@ export const M3: p_ri.Refiner_With_Parameter<
                                                                                 'write source': $p['write source']
                                                                             }
                                                                         ),
-                                                                        'classifier': p_.boolean.from.optional(
+                                                                        'classifier': p_temp.boolean.from.optional(
                                                                             $.references.__get_possible_entry_deprecated(
                                                                                 "LionCore-M3:2024.1:Link-type",
                                                                             )
@@ -346,7 +347,7 @@ export const M3: p_ri.Refiner_With_Parameter<
                                                         },
                                                     }]
                                                 }
-                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_.dictionary.from.dictionary(
+                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.dictionary.from.dictionary(
                                                 r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                     $,
                                                     abort,

@@ -1,11 +1,11 @@
-import * as pt from 'pareto-core/dist/assign'
-import * as p_ri from 'pareto-core/dist/refiner/interface'
-import p_change_context from 'pareto-core/dist/specials/change_context'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_temp from 'pareto-core/dist/assign'
+import * as p_i from 'pareto-core/dist/interface/refiner'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_in from "pareto-json/dist/interface/to_be_generated/json_with_parse_info"
-import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 import * as d_unmarshalled_from_json from "pareto-json/dist/interface/to_be_generated/unmarshalled_from_json"
 
 //dependencies
@@ -15,7 +15,7 @@ import * as r_json_y_from_json from "pareto-json/dist/implementation/manual/refi
 
 
 
-export const Serialization_Chunk: p_ri.Refiner<
+export const Serialization_Chunk: p_i.Refiner<
     d_out.Serialization_Chunk,
     d_unmarshalled_from_json.Error,
     d_in.Value
@@ -35,7 +35,7 @@ export const Serialization_Chunk: p_ri.Refiner<
             $,
             abort,
             {
-                'expected properties': pt.literal.dictionary({
+                'expected properties': p_.literal.dictionary({
                     "serializationFormatVersion": null,
                     "languages": null,
                     "nodes": null,
@@ -69,7 +69,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                         $,
                         abort,
                         {
-                            'expected properties': pt.literal.dictionary({
+                            'expected properties': p_.literal.dictionary({
                                 "key": null,
                                 "version": null,
                             })
@@ -116,7 +116,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                             $,
                             abort,
                             {
-                                'expected properties': pt.literal.dictionary({
+                                'expected properties': p_.literal.dictionary({
                                     "id": null,
                                     "classifier": null,
                                     "properties": null,
@@ -149,7 +149,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                 ).value,
                                 abort,
                             ),
-                            'parent': pt.optional.from.optional(
+                            'parent': p_temp.optional.from.optional(
                                 r_json_x_from_json.Nullable_Value(
                                     r_json_x_from_json.Property(
                                         $,
@@ -180,7 +180,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.literal.dictionary({
+                                            'expected properties': p_.literal.dictionary({
                                                 "property": null,
                                                 "value": null,
                                             }),
@@ -225,7 +225,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.literal.dictionary({
+                                            'expected properties': p_.literal.dictionary({
                                                 "containment": null,
                                                 "children": null,
                                             }),
@@ -272,7 +272,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.literal.dictionary({
+                                            'expected properties': p_.literal.dictionary({
                                                 "reference": null,
                                                 "targets": null,
                                             })
@@ -303,7 +303,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                                     $,
                                                     abort,
                                                     {
-                                                        'expected properties': pt.literal.dictionary({
+                                                        'expected properties': p_.literal.dictionary({
                                                             "resolveInfo": null,
                                                             "reference": null,
                                                         })
@@ -320,7 +320,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                                         ).value,
                                                         abort,
                                                     ).token.value,
-                                                    'reference': pt.optional.from.optional(
+                                                    'reference': p_temp.optional.from.optional(
                                                         r_json_x_from_json.Nullable_Value(
                                                             r_json_x_from_json.Property(
                                                                 $,
@@ -357,7 +357,7 @@ export const Serialization_Chunk: p_ri.Refiner<
         }))
 }
 
-export const Meta_Pointer: p_ri.Refiner<
+export const Meta_Pointer: p_i.Refiner<
     d_out.Meta_Pointer,
     d_unmarshalled_from_json.Error,
     d_in.Value
@@ -370,7 +370,7 @@ export const Meta_Pointer: p_ri.Refiner<
             $,
             abort,
             {
-                'expected properties': pt.literal.dictionary({
+                'expected properties': p_.literal.dictionary({
                     "language": null,
                     "key": null,
                     "version": null,
