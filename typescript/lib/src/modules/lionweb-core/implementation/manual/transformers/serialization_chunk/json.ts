@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/assign'
+import * as pt from 'pareto-core/dist/transformer/implementation'
 
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"

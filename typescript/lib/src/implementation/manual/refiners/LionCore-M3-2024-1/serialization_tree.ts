@@ -1,5 +1,5 @@
-import * as pt from 'pareto-core/dist/assign'
-import * as p_i from 'pareto-core/dist/interface'
+import * as p_ from 'pareto-core/dist/assign'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import p_assert from 'pareto-core/dist/specials/assert'
 import p_change_context from 'pareto-core/dist/specials/change_context'
 
@@ -13,14 +13,19 @@ import * as d_function from "../../../../modules/lionweb-core/interface/to_be_ge
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree"
 import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../../modules/lionweb-core/implementation/manual/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree"
 
-export const ID = (
-    $: d_in.Node,
-    abort: p_i.Abort<d_function.Error>,
-    $p: {
+export const ID: p_ri.Refiner_With_Parameter<
+    d_out_generic.ID,
+    d_function.Error,
+    d_in.Node,
+    {
         'id': string,
         'write source': boolean,
-    },
-): d_out_generic.ID => ({
+    }
+> = (
+    $,
+    abort,
+    $p,
+) => ({
     'key': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
         $,
         abort,
@@ -30,381 +35,387 @@ export const ID = (
     ),
     'id': $p['id'],
     'source': $p['write source']
-        ? pt.optional.literal.set($.range)
-        : pt.optional.literal.not_set(),
+        ? p_.optional.literal.set($.range)
+        : p_.optional.literal.not_set(),
 })
 
-export const M3 = (
-    $: d_in.Serialization_Tree,
-    abort: p_i.Abort<d_function.Error>,
-    $p: {
+export const M3: p_ri.Refiner_With_Parameter<
+    d_out.M3,
+    d_function.Error,
+    d_in.Serialization_Tree,
+    {
         'write source': boolean
-    },
-): d_out.M3 => {
-    return p_assert(
-        abort,
-        () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
-            $['node tree'],
-            {
-                'expected containments': pt.dictionary.literal({
-                    "LionCore-M3:2024.1:Language-entities": null,
-                }),
-                'expected properties': pt.dictionary.literal({
-                    "LionCore-M3:2024.1:Language-version": null,
-                    "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
-                    "LionCore-M3:2024.1:IKeyed-key": null,
-                }),
-                'expected references': pt.dictionary.literal({
-                    "LionCore-M3:2024.1:Language-dependsOn": null,
-                }),
-            }
-        ),
-        () => ({
-            'id': ID(
+    }
+> = (
+    $,
+    abort,
+    $p,
+
+) => {
+        return p_assert(
+            abort,
+            () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                 $['node tree'],
-                abort,
                 {
-                    'id': $['root node id'],
-                    'write source': $p['write source'],
+                    'expected containments': p_.dictionary.literal({
+                        "LionCore-M3:2024.1:Language-entities": null,
+                    }),
+                    'expected properties': p_.dictionary.literal({
+                        "LionCore-M3:2024.1:Language-version": null,
+                        "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                        "LionCore-M3:2024.1:IKeyed-key": null,
+                    }),
+                    'expected references': p_.dictionary.literal({
+                        "LionCore-M3:2024.1:Language-dependsOn": null,
+                    }),
                 }
             ),
-            'properties': {
-                'version': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+            () => ({
+                'id': ID(
                     $['node tree'],
                     abort,
                     {
-                        'id': "LionCore-M3:2024.1:Language-version",
+                        'id': $['root node id'],
+                        'write source': $p['write source'],
                     }
                 ),
-            },
-            'references': {
-                'dependencies': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
-                    $['node tree'],
-                    abort,
-                    {
-                        'id': "LionCore-M3:2024.1:Language-dependsOn",
-                    },
-                ).__l_map(($) => ({
-                    'resolveInfo': $.resolveInfo,
-                    'reference': $.reference
-                })),
-            },
-            'containments': {
-                'entities': pt.dictionary.from.dictionary(
-                    r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                'properties': {
+                    'version': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
                         $['node tree'],
                         abort,
                         {
-                            'id': "LionCore-M3:2024.1:Language-entities",
-                        }
-                    )
-                ).re_id(
-                    ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                        $,
-                        abort,
-                        {
-                            'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                            'id': "LionCore-M3:2024.1:Language-version",
                         }
                     ),
-                    {
-                        duplicate_id: ($, id) => abort({
-                            'node': $,
-                            'type': ['expected single element', id]
-                        })
-                    },
-                ).__d_map(
-                    ($, id) => {
-                        return p_assert(
+                },
+                'references': {
+                    'dependencies': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
+                        $['node tree'],
+                        abort,
+                        {
+                            'id': "LionCore-M3:2024.1:Language-dependsOn",
+                        },
+                    ).__l_map(($) => ({
+                        'resolveInfo': $.resolveInfo,
+                        'reference': $.reference
+                    })),
+                },
+                'containments': {
+                    'entities': p_.dictionary.from.dictionary(
+                        r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                            $['node tree'],
                             abort,
-                            () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
-                                $,
-                                {
-                                    'expected containments': pt.dictionary.literal({
-                                        "LionCore-M3:2024.1:Classifier-features": null,
-                                        "LionCore-M3:2024.1:Enumeration-literals": null,
-                                    }),
-                                    'expected properties': pt.dictionary.literal({
-                                        "LionCore-M3:2024.1:IKeyed-key": null,
-                                        "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
-                                        "LionCore-M3:2024.1:Concept-abstract": null,
-                                        "LionCore-M3:2024.1:Concept-partition": null,
-                                    }),
-                                    'expected references': pt.dictionary.literal({
-                                        "LionCore-M3:2024.1:Concept-extends": null,
-                                        "LionCore-M3:2024.1:Concept-implements": null,
-                                        "LionCore-M3:2024.1:Interface-extends": null,
-                                    }),
-                                }
-                            ),
-                            () => ({
-                                'id': ID(
+                            {
+                                'id': "LionCore-M3:2024.1:Language-entities",
+                            }
+                        )
+                    ).re_id(
+                        ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                            $,
+                            abort,
+                            {
+                                'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                            }
+                        ),
+                        {
+                            duplicate_id: ($, id) => abort({
+                                'node': $,
+                                'type': ['expected single element', id]
+                            })
+                        },
+                    ).__d_map(
+                        ($, id) => {
+                            return p_assert(
+                                abort,
+                                () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                     $,
-                                    abort,
                                     {
-                                        'id': id,
-                                        'write source': $p['write source']
+                                        'expected containments': p_.dictionary.literal({
+                                            "LionCore-M3:2024.1:Classifier-features": null,
+                                            "LionCore-M3:2024.1:Enumeration-literals": null,
+                                        }),
+                                        'expected properties': p_.dictionary.literal({
+                                            "LionCore-M3:2024.1:IKeyed-key": null,
+                                            "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                                            "LionCore-M3:2024.1:Concept-abstract": null,
+                                            "LionCore-M3:2024.1:Concept-partition": null,
+                                        }),
+                                        'expected references': p_.dictionary.literal({
+                                            "LionCore-M3:2024.1:Concept-extends": null,
+                                            "LionCore-M3:2024.1:Concept-implements": null,
+                                            "LionCore-M3:2024.1:Interface-extends": null,
+                                        }),
                                     }
                                 ),
-                                'classifier': pt.state.block((): d_out.M3.containments.entities.D.classifier => {
-                                    const node = $
-                                    switch ($.classifier) {
-                                        case "LionCore-M3:2024.1:Concept":
-                                        case "LionCore-M3:2024.1:Interface":
-                                            {
-                                                return ['Classifier', {
-                                                    'classifier': pt.state.block((): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
-                                                        switch ($.classifier) {
-                                                            case "LionCore-M3:2024.1:Concept": {
-                                                                return ['Concept', {
-                                                                    'properties': {
-                                                                        'abstract': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                                                                            $,
-                                                                            abort,
-                                                                            {
-                                                                                'id': "LionCore-M3:2024.1:Concept-abstract"
-                                                                            },
-                                                                        ),
-                                                                        'partition': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                                                                            $,
-                                                                            abort,
-                                                                            {
-                                                                                'id': "LionCore-M3:2024.1:Concept-partition"
-                                                                            },
-                                                                        ),
-                                                                    },
+                                () => ({
+                                    'id': ID(
+                                        $,
+                                        abort,
+                                        {
+                                            'id': id,
+                                            'write source': $p['write source']
+                                        }
+                                    ),
+                                    'classifier': p_.state.block((): d_out.M3.containments.entities.D.classifier => {
+                                        const node = $
+                                        switch ($.classifier) {
+                                            case "LionCore-M3:2024.1:Concept":
+                                            case "LionCore-M3:2024.1:Interface":
+                                                {
+                                                    return ['Classifier', {
+                                                        'classifier': p_.state.block((): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                            switch ($.classifier) {
+                                                                case "LionCore-M3:2024.1:Concept": {
+                                                                    return ['Concept', {
+                                                                        'properties': {
+                                                                            'abstract': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                                $,
+                                                                                abort,
+                                                                                {
+                                                                                    'id': "LionCore-M3:2024.1:Concept-abstract"
+                                                                                },
+                                                                            ),
+                                                                            'partition': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                                $,
+                                                                                abort,
+                                                                                {
+                                                                                    'id': "LionCore-M3:2024.1:Concept-partition"
+                                                                                },
+                                                                            ),
+                                                                        },
+                                                                        'references': {
+                                                                            'extends': r_unmarshalled_serialization_tree_from_serialization_tree.Optional_Reference(
+                                                                                $,
+                                                                                abort,
+                                                                                {
+                                                                                    'id': "LionCore-M3:2024.1:Concept-extends",
+
+                                                                                }
+                                                                            ),
+                                                                            'implements': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
+                                                                                $,
+                                                                                abort,
+                                                                                {
+                                                                                    'id': "LionCore-M3:2024.1:Concept-implements",
+                                                                                }
+                                                                            ),
+                                                                        },
+                                                                    }]
+                                                                }
+                                                                case "LionCore-M3:2024.1:Interface": return ['Interface', {
                                                                     'references': {
-                                                                        'extends': r_unmarshalled_serialization_tree_from_serialization_tree.Optional_Reference(
+                                                                        'extends': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
                                                                             $,
                                                                             abort,
                                                                             {
-                                                                                'id': "LionCore-M3:2024.1:Concept-extends",
+                                                                                'id': "LionCore-M3:2024.1:Interface-extends",
 
-                                                                            }
-                                                                        ),
-                                                                        'implements': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
-                                                                            $,
-                                                                            abort,
-                                                                            {
-                                                                                'id': "LionCore-M3:2024.1:Concept-implements",
                                                                             }
                                                                         ),
                                                                     },
                                                                 }]
-                                                            }
-                                                            case "LionCore-M3:2024.1:Interface": return ['Interface', {
-                                                                'references': {
-                                                                    'extends': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
-                                                                        $,
-                                                                        abort,
-                                                                        {
-                                                                            'id': "LionCore-M3:2024.1:Interface-extends",
-
-                                                                        }
-                                                                    ),
-                                                                },
-                                                            }]
-                                                            default: return abort({
-                                                                'node': node,
-                                                                'type': ['unknown option', {
-                                                                    'option name': $.classifier,
-                                                                    'state name': "entity classifier"
-                                                                }]
-                                                            })
-                                                        }
-                                                    }),
-                                                    'containments': {
-                                                        'features': pt.dictionary.from.dictionary(
-                                                            r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
-                                                                $,
-                                                                abort,
-                                                                {
-                                                                    'id': "LionCore-M3:2024.1:Classifier-features",
-                                                                }
-                                                            )
-                                                        ).re_id(
-                                                            ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                                                                $,
-                                                                abort,
-                                                                {
-                                                                    'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
-                                                                }
-                                                            ),
-                                                            {
-                                                                duplicate_id: ($, id) => abort({
-                                                                    'node': $,
-                                                                    'type': ['expected single element', id]
+                                                                default: return abort({
+                                                                    'node': node,
+                                                                    'type': ['unknown option', {
+                                                                        'option name': $.classifier,
+                                                                        'state name': "entity classifier"
+                                                                    }]
                                                                 })
-                                                            },
-                                                        ).__d_map(($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
-                                                            const node = $
-
-                                                            return p_assert(
-                                                                abort,
-                                                                () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
+                                                            }
+                                                        }),
+                                                        'containments': {
+                                                            'features': p_.dictionary.from.dictionary(
+                                                                r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                                     $,
+                                                                    abort,
                                                                     {
-                                                                        'expected containments': pt.dictionary.literal({
-                                                                            //empty
-                                                                        }),
-                                                                        'expected properties': pt.dictionary.literal({
-                                                                            "LionCore-M3:2024.1:IKeyed-key": null,
-                                                                            "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
-                                                                            "LionCore-M3:2024.1:Feature-optional": null,
-                                                                            "LionCore-M3:2024.1:Link-multiple": null,
-                                                                        }),
-                                                                        'expected references': pt.dictionary.literal({
-                                                                            "LionCore-M3:2024.1:Link-type": null,
-                                                                            "LionCore-M3:2024.1:Property-type": null,
-                                                                        })
+                                                                        'id': "LionCore-M3:2024.1:Classifier-features",
+                                                                    }
+                                                                )
+                                                            ).re_id(
+                                                                ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                    $,
+                                                                    abort,
+                                                                    {
+                                                                        'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
                                                                     }
                                                                 ),
-                                                                () => ({
-                                                                    'id': ID(
+                                                                {
+                                                                    duplicate_id: ($, id) => abort({
+                                                                        'node': $,
+                                                                        'type': ['expected single element', id]
+                                                                    })
+                                                                },
+                                                            ).__d_map(($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
+                                                                const node = $
+
+                                                                return p_assert(
+                                                                    abort,
+                                                                    () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                                                         $,
-                                                                        abort,
                                                                         {
-                                                                            'id': id,
-                                                                            'write source': $p['write source']
+                                                                            'expected containments': p_.dictionary.literal({
+                                                                                //empty
+                                                                            }),
+                                                                            'expected properties': p_.dictionary.literal({
+                                                                                "LionCore-M3:2024.1:IKeyed-key": null,
+                                                                                "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                                                                                "LionCore-M3:2024.1:Feature-optional": null,
+                                                                                "LionCore-M3:2024.1:Link-multiple": null,
+                                                                            }),
+                                                                            'expected references': p_.dictionary.literal({
+                                                                                "LionCore-M3:2024.1:Link-type": null,
+                                                                                "LionCore-M3:2024.1:Property-type": null,
+                                                                            })
                                                                         }
                                                                     ),
-                                                                    'classifier': pt.boolean.from.optional(
-                                                                        $.references.__get_possible_entry_deprecated(
-                                                                            "LionCore-M3:2024.1:Link-type",
-                                                                        )
-                                                                    ).is_set()
-                                                                        ? ['Link', {
-                                                                            'classifier': p_change_context($.classifier, ($) => {
-                                                                                switch ($) {
-                                                                                    case "LionCore-M3:2024.1:Reference":
-                                                                                        return ['Reference', null]
-                                                                                    case "LionCore-M3:2024.1:Containment":
-                                                                                        return ['Containment', null]
-                                                                                    default: return abort({
-                                                                                        'node': node,
-                                                                                        'type': ['unknown option', {
-                                                                                            'option name': $,
-                                                                                            'state name': "link type"
-                                                                                        }]
-                                                                                    })
-                                                                                }
-                                                                            }),
-                                                                            'properties': {
-                                                                                'multiple': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                                                                                    $,
-                                                                                    abort,
-                                                                                    {
-                                                                                        'id': "LionCore-M3:2024.1:Link-multiple"
-                                                                                    }
-                                                                                ),
-                                                                            },
-                                                                            'references': {
-                                                                                'type': r_unmarshalled_serialization_tree_from_serialization_tree.Singular_Reference(
-                                                                                    $,
-                                                                                    abort,
-                                                                                    {
-
-                                                                                        'id': "LionCore-M3:2024.1:Link-type"
-                                                                                    },
-                                                                                ),
-                                                                            },
-                                                                        }]
-                                                                        : ['Property', {
-                                                                            'references': {
-                                                                                'type': r_unmarshalled_serialization_tree_from_serialization_tree.Singular_Reference(
-                                                                                    $,
-                                                                                    abort,
-                                                                                    {
-                                                                                        'id': "LionCore-M3:2024.1:Property-type"
-                                                                                    }
-                                                                                )
-                                                                            },
-                                                                        }],
-                                                                    'properties': {
-                                                                        'optional': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                    () => ({
+                                                                        'id': ID(
                                                                             $,
                                                                             abort,
                                                                             {
-                                                                                'id': "LionCore-M3:2024.1:Feature-optional",
+                                                                                'id': id,
+                                                                                'write source': $p['write source']
                                                                             }
                                                                         ),
-                                                                    }
-                                                                })
-                                                            )
+                                                                        'classifier': p_.boolean.from.optional(
+                                                                            $.references.__get_possible_entry_deprecated(
+                                                                                "LionCore-M3:2024.1:Link-type",
+                                                                            )
+                                                                        ).is_set()
+                                                                            ? ['Link', {
+                                                                                'classifier': p_change_context($.classifier, ($) => {
+                                                                                    switch ($) {
+                                                                                        case "LionCore-M3:2024.1:Reference":
+                                                                                            return ['Reference', null]
+                                                                                        case "LionCore-M3:2024.1:Containment":
+                                                                                            return ['Containment', null]
+                                                                                        default: return abort({
+                                                                                            'node': node,
+                                                                                            'type': ['unknown option', {
+                                                                                                'option name': $,
+                                                                                                'state name': "link type"
+                                                                                            }]
+                                                                                        })
+                                                                                    }
+                                                                                }),
+                                                                                'properties': {
+                                                                                    'multiple': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                                        $,
+                                                                                        abort,
+                                                                                        {
+                                                                                            'id': "LionCore-M3:2024.1:Link-multiple"
+                                                                                        }
+                                                                                    ),
+                                                                                },
+                                                                                'references': {
+                                                                                    'type': r_unmarshalled_serialization_tree_from_serialization_tree.Singular_Reference(
+                                                                                        $,
+                                                                                        abort,
+                                                                                        {
 
-                                                        }),
-                                                    },
-                                                }]
-                                            }
-                                        case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', pt.dictionary.from.dictionary(
-                                            r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
-                                                $,
-                                                abort,
-                                                {
-                                                    'id': "LionCore-M3:2024.1:Enumeration-literals"
+                                                                                            'id': "LionCore-M3:2024.1:Link-type"
+                                                                                        },
+                                                                                    ),
+                                                                                },
+                                                                            }]
+                                                                            : ['Property', {
+                                                                                'references': {
+                                                                                    'type': r_unmarshalled_serialization_tree_from_serialization_tree.Singular_Reference(
+                                                                                        $,
+                                                                                        abort,
+                                                                                        {
+                                                                                            'id': "LionCore-M3:2024.1:Property-type"
+                                                                                        }
+                                                                                    )
+                                                                                },
+                                                                            }],
+                                                                        'properties': {
+                                                                            'optional': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                                $,
+                                                                                abort,
+                                                                                {
+                                                                                    'id': "LionCore-M3:2024.1:Feature-optional",
+                                                                                }
+                                                                            ),
+                                                                        }
+                                                                    })
+                                                                )
+
+                                                            }),
+                                                        },
+                                                    }]
                                                 }
-                                            )
-                                        ).re_id(
-                                            ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                                                $,
-                                                abort,
-                                                {
-                                                    'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name"
-                                                }
-                                            ),
-                                            {
-                                                'duplicate_id': ($, id) => abort({
-                                                    'node': $,
-                                                    'type': ['expected single element', id]
-                                                })
-                                            }
-                                        ).__d_map(($, id) => {
-                                            return p_assert(
-                                                abort,
-                                                () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
+                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_.dictionary.from.dictionary(
+                                                r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                     $,
+                                                    abort,
                                                     {
-                                                        'expected containments': pt.dictionary.literal({
-                                                            //empty
-                                                        }),
-                                                        'expected properties': pt.dictionary.literal({
-                                                            "LionCore-M3:2024.1:IKeyed-key": null,
-                                                            "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
-                                                        }),
-                                                        'expected references': pt.dictionary.literal({
-                                                            //empty
-                                                        }),
+                                                        'id': "LionCore-M3:2024.1:Enumeration-literals"
+                                                    }
+                                                )
+                                            ).re_id(
+                                                ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                    $,
+                                                    abort,
+                                                    {
+                                                        'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name"
                                                     }
                                                 ),
-                                                () => ({
-                                                    'id': ID(
+                                                {
+                                                    'duplicate_id': ($, id) => abort({
+                                                        'node': $,
+                                                        'type': ['expected single element', id]
+                                                    })
+                                                }
+                                            ).__d_map(($, id) => {
+                                                return p_assert(
+                                                    abort,
+                                                    () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                                         $,
-                                                        abort,
                                                         {
-                                                            'id': id,
-                                                            'write source': $p['write source'],
+                                                            'expected containments': p_.dictionary.literal({
+                                                                //empty
+                                                            }),
+                                                            'expected properties': p_.dictionary.literal({
+                                                                "LionCore-M3:2024.1:IKeyed-key": null,
+                                                                "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
+                                                            }),
+                                                            'expected references': p_.dictionary.literal({
+                                                                //empty
+                                                            }),
                                                         }
-                                                    )
-                                                })
-                                            )
-                                        })
-                                        ]]
-                                        default: return abort({
-                                            'node': node,
-                                            'type': ['unknown option', {
-                                                'option name': $.classifier,
-                                                'state name': "entity classifier"
-                                            }]
-                                        })
-                                    }
-                                }),
-                                'properties': {
-                                },
-                            })
-                        )
-                    }
-                ),
+                                                    ),
+                                                    () => ({
+                                                        'id': ID(
+                                                            $,
+                                                            abort,
+                                                            {
+                                                                'id': id,
+                                                                'write source': $p['write source'],
+                                                            }
+                                                        )
+                                                    })
+                                                )
+                                            })
+                                            ]]
+                                            default: return abort({
+                                                'node': node,
+                                                'type': ['unknown option', {
+                                                    'option name': $.classifier,
+                                                    'state name': "entity classifier"
+                                                }]
+                                            })
+                                        }
+                                    }),
+                                    'properties': {
+                                    },
+                                })
+                            )
+                        }
+                    ),
 
-            },
-        })
-    )
-}
+                },
+            })
+        )
+    }

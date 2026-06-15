@@ -2,7 +2,6 @@ import * as pt from 'pareto-core/dist/assign'
 import * as p_di from 'pareto-core/dist/data/interface'
 import p_change_context from 'pareto-core/dist/specials/change_context'
 import * as p_ri from 'pareto-core/dist/refiner/interface'
-import * as p_i from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -14,71 +13,80 @@ export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
 }
 
 
-export const Serialization_Tree = (
-    $: d_in.Serialization_Chunk,
-    abort: p_i.Abort<d_function.Error>
-): d_out.Serialization_Tree => {
-    const chunk = $
-    const nodes_without_parent = pt.list.from.list(
-        $.nodes,
-    ).map_optionally(
-        ($) => pt.decide.boolean(
-            pt.boolean.from.optional($.parent).is_set(),
-            () => pt.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
-            () => pt.optional.literal.set($)
-        )
+export const Serialization_Tree: p_ri.Refiner<
+    d_out.Serialization_Tree,
+    d_function.Error,
+    d_in.Serialization_Chunk
+> = (
+    $,
+    abort
+) => {
+        const chunk = $
+        const nodes_without_parent = pt.list.from.list(
+            $.nodes,
+        ).map_optionally(
+            ($) => pt.decide.boolean(
+                pt.boolean.from.optional($.parent).is_set(),
+                () => pt.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+                () => pt.optional.literal.set($)
+            )
 
-    )
-    if (pt.number.from.list(nodes_without_parent).amount_of_items() > 1) {
-        return abort({
-            'range': chunk.range,
-            'type': ['could not determine root node', null]
-        })
-    }
-    return p_change_context(
-        nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
-            ($): d_in.Serialization_Chunk.nodes.L => $,
-            () => abort({
+        )
+        if (pt.number.from.list(nodes_without_parent).amount_of_items() > 1) {
+            return abort({
                 'range': chunk.range,
                 'type': ['could not determine root node', null]
-            }),
-        ),
-        ($) => ({
-            'serializationFormatVersion': chunk.serializationFormatVersion,
-            'languages': chunk.languages,
-            'root node id': $.id,
-            'node tree': Node(
-                $,
-                abort,
-                {
-                    'nodes': pt.dictionary.from.list(
-                        chunk.nodes,
-                    ).convert(
-                        ($) => $.id,
-                        ($) => $,
-                        {
-                            duplicate_id: () => abort({
-                                'range': $.range,
-                                'type': ['node', {
-                                    'type': ['clashing node IDs', null],
-                                    'node': $,
-                                }]
-                            })
-                        },
-                    ),
-                },
-            )
-        })
-    )
+            })
+        }
+        return p_change_context(
+            nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
+                ($): d_in.Serialization_Chunk.nodes.L => $,
+                () => abort({
+                    'range': chunk.range,
+                    'type': ['could not determine root node', null]
+                }),
+            ),
+            ($) => ({
+                'serializationFormatVersion': chunk.serializationFormatVersion,
+                'languages': chunk.languages,
+                'root node id': $.id,
+                'node tree': Node(
+                    $,
+                    abort,
+                    {
+                        'nodes': pt.dictionary.from.list(
+                            chunk.nodes,
+                        ).convert(
+                            ($) => $.id,
+                            ($) => $,
+                            {
+                                duplicate_id: () => abort({
+                                    'range': $.range,
+                                    'type': ['node', {
+                                        'type': ['clashing node IDs', null],
+                                        'node': $,
+                                    }]
+                                })
+                            },
+                        ),
+                    },
+                )
+            })
+        )
 
-}
+    }
 
-const Node = (
-    $: d_in.Serialization_Chunk.nodes.L,
-    abort: p_i.Abort<d_function.Error>,
-    $p: {
+const Node: p_ri.Refiner_With_Parameter<
+    d_out.Node,
+    d_function.Error,
+    d_in.Serialization_Chunk.nodes.L,
+    {
         'nodes': p_di.Dictionary<d_in.Serialization_Chunk.nodes.L>,
-    },
+    }
+> = (
+    $,
+    abort,
+    $p,
 ): d_out.Node => {
     const node = $
     return {

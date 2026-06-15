@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as p_i from 'pareto-core/dist/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import p_change_context from 'pareto-core/dist/specials/change_context'
 
 //data types
@@ -15,10 +15,14 @@ import * as r_json_y_from_json from "pareto-json/dist/implementation/manual/refi
 
 
 
-export const Serialization_Chunk = (
-    $: d_in.Value,
-    abort: p_i.Abort<d_unmarshalled_from_json.Error>
-): d_out.Serialization_Chunk => {
+export const Serialization_Chunk: p_ri.Refiner<
+    d_out.Serialization_Chunk,
+    d_unmarshalled_from_json.Error,
+    d_in.Value
+> = (
+    $,
+    abort
+) => {
     const value = $
     /**
      * this transformation should eventually not be handwritten, but be done by json-to-astn;
@@ -353,10 +357,14 @@ export const Serialization_Chunk = (
         }))
 }
 
-export const Meta_Pointer = (
-    $: d_in.Value,
-    abort: p_i.Abort<d_unmarshalled_from_json.Error>
-): d_out.Meta_Pointer => {
+export const Meta_Pointer: p_ri.Refiner<
+    d_out.Meta_Pointer,
+    d_unmarshalled_from_json.Error,
+    d_in.Value
+> = (
+    $,
+    abort
+) => {
     return p_change_context(
         r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
             $,

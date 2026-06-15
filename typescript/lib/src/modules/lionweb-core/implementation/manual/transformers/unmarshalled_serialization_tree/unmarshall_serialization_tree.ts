@@ -1,6 +1,6 @@
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 import * as p_di from 'pareto-core/dist/data/interface'
-import * as pt from 'pareto-core/dist/assign'
+import * as pt from 'pareto-core/dist/transformer/implementation'
 
 import * as d_in from "../../../../interface/to_be_generated/unmarshalled_serialization_tree"
 import * as d_out from "../../../../interface/to_be_generated/lion_core_from_serialization_tree"
