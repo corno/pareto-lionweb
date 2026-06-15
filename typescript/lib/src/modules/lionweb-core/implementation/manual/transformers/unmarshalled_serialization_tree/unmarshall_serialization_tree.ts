@@ -25,8 +25,8 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $p['expected containments'],
             ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => pt.optional.literal.not_set(),
-                () => pt.optional.literal.set(null)
+                () => pt.literal.not_set(),
+                () => pt.literal.set(null)
             )
         )
     ).map_optionally(
@@ -39,8 +39,8 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $p['expected properties'],
             ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => pt.optional.literal.not_set(),
-                () => pt.optional.literal.set(null)
+                () => pt.literal.not_set(),
+                () => pt.literal.set(null)
             )
         )
     ).map_optionally(
@@ -53,8 +53,8 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
             $p['expected references'],
             ($, other, id): p_di.Optional_Value<null> => pt.decide.optional(
                 other,
-                () => pt.optional.literal.not_set(),
-                () => pt.optional.literal.set(null)
+                () => pt.literal.not_set(),
+                () => pt.literal.set(null)
             )
         )
     ).map_optionally(
@@ -68,9 +68,9 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
         &&
         unexpected_references.__get_number_of_entries() === 0
     ) {
-        return pt.optional.literal.not_set()
+        return pt.literal.not_set()
     }
-    return pt.optional.literal.set<d_out.Error>({
+    return pt.literal.set<d_out.Error>({
         'type': ['unexpected content', {
             'containments': {
                 'unexpected': unexpected_containments,

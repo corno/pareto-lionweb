@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_generic from "../../generic/transformers/astn_sealed_target"
 
-export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "id": _p_change_context(
             $['id'],
@@ -23,7 +23,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         "properties": _p_change_context(
             $['properties'],
-            ($) => ['group', ['verbose', _p.dictionary.literal(
+            ($) => ['group', ['verbose', _p.literal.dictionary(
                 {
                     "version": _p_change_context(
                         $['version'],
@@ -37,7 +37,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         "references": _p_change_context(
             $['references'],
-            ($) => ['group', ['verbose', _p.dictionary.literal(
+            ($) => ['group', ['verbose', _p.literal.dictionary(
                 {
                     "dependencies": _p_change_context(
                         $['dependencies'],
@@ -50,14 +50,14 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
         ),
         "containments": _p_change_context(
             $['containments'],
-            ($) => ['group', ['verbose', _p.dictionary.literal(
+            ($) => ['group', ['verbose', _p.literal.dictionary(
                 {
                     "entities": _p_change_context(
                         $['entities'],
                         ($) => ['dictionary', _p.dictionary.from.dictionary(
                             $,
                         ).map(
-                            ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                            ($, id) => ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "id": _p_change_context(
                                         $['id'],
@@ -76,7 +76,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Classifier',
-                                                                'value': ['group', ['verbose', _p.dictionary.literal(
+                                                                'value': ['group', ['verbose', _p.literal.dictionary(
                                                                     {
                                                                         "classifier": _p_change_context(
                                                                             $['classifier'],
@@ -89,11 +89,11 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Concept',
-                                                                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                                                                         {
                                                                                                             "properties": _p_change_context(
                                                                                                                 $['properties'],
-                                                                                                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                     {
                                                                                                                         "abstract": _p_change_context(
                                                                                                                             $['abstract'],
@@ -114,7 +114,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                             ),
                                                                                                             "references": _p_change_context(
                                                                                                                 $['references'],
-                                                                                                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                     {
                                                                                                                         "extends": _p_change_context(
                                                                                                                             $['extends'],
@@ -140,11 +140,11 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Interface',
-                                                                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                                                                         {
                                                                                                             "references": _p_change_context(
                                                                                                                 $['references'],
-                                                                                                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                     {
                                                                                                                         "extends": _p_change_context(
                                                                                                                             $['extends'],
@@ -169,14 +169,14 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                         ),
                                                                         "containments": _p_change_context(
                                                                             $['containments'],
-                                                                            ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                            ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                 {
                                                                                     "features": _p_change_context(
                                                                                         $['features'],
                                                                                         ($) => ['dictionary', _p.dictionary.from.dictionary(
                                                                                             $,
                                                                                         ).map(
-                                                                                            ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                            ($, id) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                 {
                                                                                                     "id": _p_change_context(
                                                                                                         $['id'],
@@ -195,11 +195,11 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Property',
-                                                                                                                                'value': ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                                'value': ['group', ['verbose', _p.literal.dictionary(
                                                                                                                                     {
                                                                                                                                         "references": _p_change_context(
                                                                                                                                             $['references'],
-                                                                                                                                            ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                                            ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                                                 {
                                                                                                                                                     "type": _p_change_context(
                                                                                                                                                         $['type'],
@@ -219,7 +219,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Link',
-                                                                                                                                'value': ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                                'value': ['group', ['verbose', _p.literal.dictionary(
                                                                                                                                     {
                                                                                                                                         "classifier": _p_change_context(
                                                                                                                                             $['classifier'],
@@ -253,7 +253,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                                         ),
                                                                                                                                         "properties": _p_change_context(
                                                                                                                                             $['properties'],
-                                                                                                                                            ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                                            ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                                                 {
                                                                                                                                                     "multiple": _p_change_context(
                                                                                                                                                         $['multiple'],
@@ -267,7 +267,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                                                         ),
                                                                                                                                         "references": _p_change_context(
                                                                                                                                             $['references'],
-                                                                                                                                            ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                                                            ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                                                                 {
                                                                                                                                                     "type": _p_change_context(
                                                                                                                                                         $['type'],
@@ -292,7 +292,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                                     ),
                                                                                                     "properties": _p_change_context(
                                                                                                         $['properties'],
-                                                                                                        ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                                        ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                             {
                                                                                                                 "optional": _p_change_context(
                                                                                                                     $['optional'],
@@ -332,7 +332,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', _p.dictionary.li
                                                                                         'value': ['dictionary', _p.dictionary.from.dictionary(
                                                                                             $,
                                                                                         ).map(
-                                                                                            ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                            ($, id) => ['group', ['verbose', _p.literal.dictionary(
                                                                                                 {
                                                                                                     "id": _p_change_context(
                                                                                                         $['id'],

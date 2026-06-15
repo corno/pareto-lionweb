@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "serializationFormatVersion": _p_change_context(
             $['serializationFormatVersion'],
@@ -27,7 +27,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "key": _p_change_context(
                             $['key'],
@@ -52,7 +52,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "id": _p_change_context(
                             $['id'],
@@ -89,7 +89,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                             ($) => ['list', _p.list.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                     {
                                         "property": _p_change_context(
                                             $['property'],
@@ -113,7 +113,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                             ($) => ['list', _p.list.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                     {
                                         "reference": _p_change_context(
                                             $['reference'],
@@ -136,7 +136,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                             ($) => ['list', _p.list.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.dictionary.literal(
+                                ($) => ['group', ['verbose', _p.literal.dictionary(
                                     {
                                         "containment": _p_change_context(
                                             $['containment'],
@@ -180,7 +180,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
 export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
     $,
 ).map(
-    ($) => ['group', ['verbose', _p.dictionary.literal(
+    ($) => ['group', ['verbose', _p.literal.dictionary(
         {
             "resolveInfo": _p_change_context(
                 $['resolveInfo'],
@@ -204,7 +204,7 @@ export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
     )]],
 )]
 
-export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "language": _p_change_context(
             $['language'],

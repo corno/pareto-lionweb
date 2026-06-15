@@ -1,4 +1,3 @@
-import * as p_di from 'pareto-core/dist/data/interface'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 import * as pt from 'pareto-core/dist/transformer/implementation'
 import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
@@ -50,9 +49,9 @@ export const M3: M3 = ($) => sh.Graph(
             switch ($[0]) {
                 case 'Classifier': return pt.ss($, ($) => pt.decide.state($.classifier, ($) => {
                     switch ($[0]) {
-                        case 'Concept': return pt.ss($, ($) => pt.list.nested_literal_old([
+                        case 'Concept': return pt.ss($, ($) => pt.literal.nested_list([
                             $.references.extends.__decide(
-                                ($) => pt.list.literal([
+                                ($) => pt.literal.list([
                                     sh.edge(
                                        "LionWeb.LionCore_M3." +  id,
                                         $.resolveInfo,
@@ -62,7 +61,7 @@ export const M3: M3 = ($) => sh.Graph(
                                     )
                                 ]),
                                 // ($) => $.reference.__decide(
-                                //     ($) => pt.list.literal([
+                                //     ($) => pt.literal.list([
                                 //         sh.edge(
                                 //             id,
                                 //             $,
@@ -71,14 +70,14 @@ export const M3: M3 = ($) => sh.Graph(
                                 //             ]
                                 //         )
                                 //     ]),
-                                //     () => pt.list.literal([])
+                                //     () => pt.literal.list([])
                                 // ),
-                                () => pt.list.literal([])
+                                () => pt.literal.list([])
                             ),
                             pt.list.from.list(
                                 $.references.implements
                             ).flatten(
-                                ($) => pt.list.literal([
+                                ($) => pt.literal.list([
                                     sh.edge(
                                         "LionWeb.LionCore_M3." +  id,
                                         $.resolveInfo,
@@ -88,7 +87,7 @@ export const M3: M3 = ($) => sh.Graph(
                                     )
                                 ]),
                                 // ($) => $.reference.__decide(
-                                //     ($) => pt.list.literal([
+                                //     ($) => pt.literal.list([
                                 //         sh.edge(
                                 //             id,
                                 //             $,
@@ -97,14 +96,14 @@ export const M3: M3 = ($) => sh.Graph(
                                 //             ]
                                 //         )
                                 //     ]),
-                                //     () => pt.list.literal([])
+                                //     () => pt.literal.list([])
                                 // )
                             )
                         ]))
                         case 'Interface': return pt.ss($, ($) => pt.list.from.list(
                             $.references.extends
                         ).flatten(
-                            ($) => pt.list.literal([
+                            ($) => pt.literal.list([
                                 sh.edge(
                                     "LionWeb.LionCore_M3." +  id,
                                     $.resolveInfo,
@@ -114,7 +113,7 @@ export const M3: M3 = ($) => sh.Graph(
                                 )
                             ]),
                             // ($) => $.reference.__decide(
-                            //     ($) => pt.list.literal([
+                            //     ($) => pt.literal.list([
                             //         sh.edge(
                             //             id,
                             //             $,
@@ -123,7 +122,7 @@ export const M3: M3 = ($) => sh.Graph(
                             //             ]
                             //         )
                             //     ]),
-                            //     () => pt.list.literal([])
+                            //     () => pt.literal.list([])
                             // )
                         ))
                         default: return pt.au($[0])
@@ -131,7 +130,7 @@ export const M3: M3 = ($) => sh.Graph(
                 }))
                 case 'Datatype': return pt.ss($, ($) => pt.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'Enumeration': return pt.ss($, ($) => pt.list.literal([]))
+                        case 'Enumeration': return pt.ss($, ($) => pt.literal.list([]))
                         default: return pt.au($[0])
                     }
                 }))

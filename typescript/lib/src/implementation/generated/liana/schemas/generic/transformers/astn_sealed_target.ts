@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const ID: t_signatures.ID = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const ID: t_signatures.ID = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "key": _p_change_context(
             $['key'],
@@ -42,7 +42,7 @@ export const ID: t_signatures.ID = ($) => ['group', ['verbose', _p.dictionary.li
     },
 )]]
 
-export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "resolveInfo": _p_change_context(
             $['resolveInfo'],

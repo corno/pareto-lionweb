@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "serializationFormatVersion": _p_change_context(
             $['serializationFormatVersion'],
@@ -27,7 +27,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ['grou
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "key": _p_change_context(
                             $['key'],
@@ -63,7 +63,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ['grou
     },
 )]]
 
-export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "range": _p_change_context(
             $['range'],
@@ -130,7 +130,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
 export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
     $,
 ).map(
-    ($) => ['group', ['verbose', _p.dictionary.literal(
+    ($) => ['group', ['verbose', _p.literal.dictionary(
         {
             "resolveInfo": _p_change_context(
                 $['resolveInfo'],

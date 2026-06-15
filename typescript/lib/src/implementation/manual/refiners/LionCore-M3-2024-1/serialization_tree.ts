@@ -35,8 +35,8 @@ export const ID: p_ri.Refiner_With_Parameter<
     ),
     'id': $p['id'],
     'source': $p['write source']
-        ? p_.optional.literal.set($.range)
-        : p_.optional.literal.not_set(),
+        ? p_.literal.set($.range)
+        : p_.literal.not_set(),
 })
 
 export const M3: p_ri.Refiner_With_Parameter<
@@ -57,15 +57,15 @@ export const M3: p_ri.Refiner_With_Parameter<
             () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                 $['node tree'],
                 {
-                    'expected containments': p_.dictionary.literal({
+                    'expected containments': p_.literal.dictionary({
                         "LionCore-M3:2024.1:Language-entities": null,
                     }),
-                    'expected properties': p_.dictionary.literal({
+                    'expected properties': p_.literal.dictionary({
                         "LionCore-M3:2024.1:Language-version": null,
                         "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
                         "LionCore-M3:2024.1:IKeyed-key": null,
                     }),
-                    'expected references': p_.dictionary.literal({
+                    'expected references': p_.literal.dictionary({
                         "LionCore-M3:2024.1:Language-dependsOn": null,
                     }),
                 }
@@ -130,17 +130,17 @@ export const M3: p_ri.Refiner_With_Parameter<
                                 () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                     $,
                                     {
-                                        'expected containments': p_.dictionary.literal({
+                                        'expected containments': p_.literal.dictionary({
                                             "LionCore-M3:2024.1:Classifier-features": null,
                                             "LionCore-M3:2024.1:Enumeration-literals": null,
                                         }),
-                                        'expected properties': p_.dictionary.literal({
+                                        'expected properties': p_.literal.dictionary({
                                             "LionCore-M3:2024.1:IKeyed-key": null,
                                             "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
                                             "LionCore-M3:2024.1:Concept-abstract": null,
                                             "LionCore-M3:2024.1:Concept-partition": null,
                                         }),
-                                        'expected references': p_.dictionary.literal({
+                                        'expected references': p_.literal.dictionary({
                                             "LionCore-M3:2024.1:Concept-extends": null,
                                             "LionCore-M3:2024.1:Concept-implements": null,
                                             "LionCore-M3:2024.1:Interface-extends": null,
@@ -254,16 +254,16 @@ export const M3: p_ri.Refiner_With_Parameter<
                                                                     () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                                                         $,
                                                                         {
-                                                                            'expected containments': p_.dictionary.literal({
+                                                                            'expected containments': p_.literal.dictionary({
                                                                                 //empty
                                                                             }),
-                                                                            'expected properties': p_.dictionary.literal({
+                                                                            'expected properties': p_.literal.dictionary({
                                                                                 "LionCore-M3:2024.1:IKeyed-key": null,
                                                                                 "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
                                                                                 "LionCore-M3:2024.1:Feature-optional": null,
                                                                                 "LionCore-M3:2024.1:Link-multiple": null,
                                                                             }),
-                                                                            'expected references': p_.dictionary.literal({
+                                                                            'expected references': p_.literal.dictionary({
                                                                                 "LionCore-M3:2024.1:Link-type": null,
                                                                                 "LionCore-M3:2024.1:Property-type": null,
                                                                             })
@@ -374,14 +374,14 @@ export const M3: p_ri.Refiner_With_Parameter<
                                                     () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
                                                         $,
                                                         {
-                                                            'expected containments': p_.dictionary.literal({
+                                                            'expected containments': p_.literal.dictionary({
                                                                 //empty
                                                             }),
-                                                            'expected properties': p_.dictionary.literal({
+                                                            'expected properties': p_.literal.dictionary({
                                                                 "LionCore-M3:2024.1:IKeyed-key": null,
                                                                 "LionCore-builtins:2024.1:LionCore-builtins-INamed-name": null,
                                                             }),
-                                                            'expected references': p_.dictionary.literal({
+                                                            'expected references': p_.literal.dictionary({
                                                                 //empty
                                                             }),
                                                         }

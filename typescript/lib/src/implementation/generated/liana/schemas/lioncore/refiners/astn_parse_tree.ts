@@ -24,7 +24,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "id": null,
                     "properties": null,
@@ -32,7 +32,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                     "containments": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -41,7 +41,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -53,7 +53,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'id',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_external_generic.ID(
@@ -71,7 +71,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'properties',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p_change_context(
@@ -81,12 +81,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 $,
                             ),
                             {
-                                'expected properties': _p.dictionary.literal(
+                                'expected properties': _p.literal.dictionary(
                                     {
                                         "version": null,
                                     },
                                 ),
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         ),
                         ($) => _p_variables(
@@ -95,7 +95,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                     {
-                                        'subdocument context': _p.optional.literal.not_set(),
+                                        'subdocument context': _p.literal.not_set(),
                                     },
                                 )
                                 return {
@@ -107,7 +107,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'version',
-                                                'subdocument context': _p.optional.literal.not_set(),
+                                                'subdocument context': _p.literal.not_set(),
                                             },
                                         ),
                                         ($) => v_unmarshalled_from_parse_tree.Text(
@@ -130,7 +130,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'references',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p_change_context(
@@ -140,12 +140,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 $,
                             ),
                             {
-                                'expected properties': _p.dictionary.literal(
+                                'expected properties': _p.literal.dictionary(
                                     {
                                         "dependencies": null,
                                     },
                                 ),
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         ),
                         ($) => _p_variables(
@@ -154,7 +154,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                     {
-                                        'subdocument context': _p.optional.literal.not_set(),
+                                        'subdocument context': _p.literal.not_set(),
                                     },
                                 )
                                 return {
@@ -166,7 +166,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'dependencies',
-                                                'subdocument context': _p.optional.literal.not_set(),
+                                                'subdocument context': _p.literal.not_set(),
                                             },
                                         ),
                                         ($) => v_external_generic.References(
@@ -189,7 +189,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'containments',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p_change_context(
@@ -199,12 +199,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 $,
                             ),
                             {
-                                'expected properties': _p.dictionary.literal(
+                                'expected properties': _p.literal.dictionary(
                                     {
                                         "entities": null,
                                     },
                                 ),
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         ),
                         ($) => _p_variables(
@@ -213,7 +213,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                     {
-                                        'subdocument context': _p.optional.literal.not_set(),
+                                        'subdocument context': _p.literal.not_set(),
                                     },
                                 )
                                 return {
@@ -225,7 +225,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                             ),
                                             {
                                                 'id': 'entities',
-                                                'subdocument context': _p.optional.literal.not_set(),
+                                                'subdocument context': _p.literal.not_set(),
                                             },
                                         ),
                                         ($) => _p_change_context(
@@ -235,7 +235,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                     $,
                                                 ),
                                                 {
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.dictionary.from.dictionary(
@@ -248,13 +248,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                             $,
                                                         ),
                                                         {
-                                                            'expected properties': _p.dictionary.literal(
+                                                            'expected properties': _p.literal.dictionary(
                                                                 {
                                                                     "id": null,
                                                                     "classifier": null,
                                                                 },
                                                             ),
-                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                            'subdocument context': _p.literal.not_set(),
                                                         },
                                                     ),
                                                     ($) => _p_variables(
@@ -263,7 +263,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                                 {
-                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                    'subdocument context': _p.literal.not_set(),
                                                                 },
                                                             )
                                                             return {
@@ -275,7 +275,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'id',
-                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                            'subdocument context': _p.literal.not_set(),
                                                                         },
                                                                     ),
                                                                     ($) => v_external_generic.ID(
@@ -293,7 +293,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'classifier',
-                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                            'subdocument context': _p.literal.not_set(),
                                                                         },
                                                                     ),
                                                                     ($) => _p_change_context(
@@ -317,13 +317,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                         $,
                                                                                                     ),
                                                                                                     {
-                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                             {
                                                                                                                 "classifier": null,
                                                                                                                 "containments": null,
                                                                                                             },
                                                                                                         ),
-                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                     },
                                                                                                 ),
                                                                                                 ($) => _p_variables(
@@ -332,7 +332,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                             $['value'],
                                                                                                             {
-                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                             },
                                                                                                         )
                                                                                                         return {
@@ -344,7 +344,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'classifier',
-                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_change_context(
@@ -368,13 +368,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     $,
                                                                                                                                                 ),
                                                                                                                                                 {
-                                                                                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                                                                                    'expected properties': _p.literal.dictionary(
                                                                                                                                                         {
                                                                                                                                                             "properties": null,
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
-                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => _p_variables(
@@ -383,7 +383,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
                                                                                                                                                         {
-                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                         },
                                                                                                                                                     )
                                                                                                                                                     return {
@@ -395,7 +395,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'properties',
-                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -405,13 +405,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         $,
                                                                                                                                                                     ),
                                                                                                                                                                     {
-                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                             {
                                                                                                                                                                                 "abstract": null,
                                                                                                                                                                                 "partition": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -420,7 +420,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                             {
-                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                             },
                                                                                                                                                                         )
                                                                                                                                                                         return {
@@ -432,7 +432,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'abstract',
-                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -450,7 +450,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'partition',
-                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -473,7 +473,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -483,13 +483,13 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         $,
                                                                                                                                                                     ),
                                                                                                                                                                     {
-                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                             {
                                                                                                                                                                                 "extends": null,
                                                                                                                                                                                 "implements": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -498,7 +498,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                             {
-                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                             },
                                                                                                                                                                         )
                                                                                                                                                                         return {
@@ -510,7 +510,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
-                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.Optional_Reference(
@@ -528,7 +528,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'implements',
-                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -558,12 +558,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     $,
                                                                                                                                                 ),
                                                                                                                                                 {
-                                                                                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                                                                                    'expected properties': _p.literal.dictionary(
                                                                                                                                                         {
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
-                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => _p_variables(
@@ -572,7 +572,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
                                                                                                                                                         {
-                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                         },
                                                                                                                                                     )
                                                                                                                                                     return {
@@ -584,7 +584,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => _p_change_context(
@@ -594,12 +594,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         $,
                                                                                                                                                                     ),
                                                                                                                                                                     {
-                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                             {
                                                                                                                                                                                 "extends": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_variables(
@@ -608,7 +608,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                             {
-                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                             },
                                                                                                                                                                         )
                                                                                                                                                                         return {
@@ -620,7 +620,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
-                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -647,7 +647,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                 $['value'],
                                                                                                                                                 {
-                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                         }],
@@ -665,7 +665,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'containments',
-                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_change_context(
@@ -675,12 +675,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                             $,
                                                                                                                         ),
                                                                                                                         {
-                                                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                                                            'expected properties': _p.literal.dictionary(
                                                                                                                                 {
                                                                                                                                     "features": null,
                                                                                                                                 },
                                                                                                                             ),
-                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                         },
                                                                                                                     ),
                                                                                                                     ($) => _p_variables(
@@ -689,7 +689,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                 $['value'],
                                                                                                                                 {
-                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                 },
                                                                                                                             )
                                                                                                                             return {
@@ -701,7 +701,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                         ),
                                                                                                                                         {
                                                                                                                                             'id': 'features',
-                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                         },
                                                                                                                                     ),
                                                                                                                                     ($) => _p_change_context(
@@ -711,7 +711,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                 $,
                                                                                                                                             ),
                                                                                                                                             {
-                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                             },
                                                                                                                                         ),
                                                                                                                                         ($) => _p.dictionary.from.dictionary(
@@ -724,14 +724,14 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                         $,
                                                                                                                                                     ),
                                                                                                                                                     {
-                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                             {
                                                                                                                                                                 "id": null,
                                                                                                                                                                 "classifier": null,
                                                                                                                                                                 "properties": null,
                                                                                                                                                             },
                                                                                                                                                         ),
-                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => _p_variables(
@@ -740,7 +740,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                             $['value'],
                                                                                                                                                             {
-                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                             },
                                                                                                                                                         )
                                                                                                                                                         return {
@@ -752,7 +752,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'id',
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => v_external_generic.ID(
@@ -770,7 +770,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'classifier',
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_change_context(
@@ -794,12 +794,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     $,
                                                                                                                                                                                                 ),
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                                                                                                                                    'expected properties': _p.literal.dictionary(
                                                                                                                                                                                                         {
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
-                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => _p_variables(
@@ -808,7 +808,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
                                                                                                                                                                                                         {
-                                                                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                         },
                                                                                                                                                                                                     )
                                                                                                                                                                                                     return {
@@ -820,7 +820,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -830,12 +830,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         $,
                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                     {
-                                                                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                                                                             {
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -844,7 +844,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                             {
-                                                                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
@@ -856,7 +856,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
-                                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -886,14 +886,14 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     $,
                                                                                                                                                                                                 ),
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                                                                                                                                    'expected properties': _p.literal.dictionary(
                                                                                                                                                                                                         {
                                                                                                                                                                                                             "classifier": null,
                                                                                                                                                                                                             "properties": null,
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
-                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => _p_variables(
@@ -902,7 +902,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
                                                                                                                                                                                                         {
-                                                                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                         },
                                                                                                                                                                                                     )
                                                                                                                                                                                                     return {
@@ -914,7 +914,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'classifier',
-                                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -955,7 +955,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                                             {
-                                                                                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                                             },
                                                                                                                                                                                                                                         ),
                                                                                                                                                                                                                                     }],
@@ -973,7 +973,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'properties',
-                                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -983,12 +983,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         $,
                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                     {
-                                                                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                                                                             {
                                                                                                                                                                                                                                 "multiple": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -997,7 +997,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                             {
-                                                                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
@@ -1009,7 +1009,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'multiple',
-                                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1032,7 +1032,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => _p_change_context(
@@ -1042,12 +1042,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         $,
                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                     {
-                                                                                                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                                                                                                             {
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => _p_variables(
@@ -1056,7 +1056,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                             {
-                                                                                                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         )
                                                                                                                                                                                                                         return {
@@ -1068,7 +1068,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
-                                                                                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -1095,7 +1095,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                                                                 $['value'],
                                                                                                                                                                                                 {
-                                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                         }],
@@ -1113,7 +1113,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'properties',
-                                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => _p_change_context(
@@ -1123,12 +1123,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                             $,
                                                                                                                                                                         ),
                                                                                                                                                                         {
-                                                                                                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                                                                                                            'expected properties': _p.literal.dictionary(
                                                                                                                                                                                 {
                                                                                                                                                                                     "optional": null,
                                                                                                                                                                                 },
                                                                                                                                                                             ),
-                                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                                         },
                                                                                                                                                                     ),
                                                                                                                                                                     ($) => _p_variables(
@@ -1137,7 +1137,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                 $['value'],
                                                                                                                                                                                 {
-                                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                 },
                                                                                                                                                                             )
                                                                                                                                                                             return {
@@ -1149,7 +1149,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                                                         ),
                                                                                                                                                                                         {
                                                                                                                                                                                             'id': 'optional',
-                                                                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                                                                         },
                                                                                                                                                                                     ),
                                                                                                                                                                                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1205,7 +1205,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                 $,
                                                                                                                             ),
                                                                                                                             {
-                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                             },
                                                                                                                         ),
                                                                                                                         ($) => _p.dictionary.from.dictionary(
@@ -1218,12 +1218,12 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                         $,
                                                                                                                                     ),
                                                                                                                                     {
-                                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                                             {
                                                                                                                                                 "id": null,
                                                                                                                                             },
                                                                                                                                         ),
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => _p_variables(
@@ -1232,7 +1232,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                             $['value'],
                                                                                                                                             {
-                                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                                             },
                                                                                                                                         )
                                                                                                                                         return {
@@ -1244,7 +1244,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                                                     ),
                                                                                                                                                     {
                                                                                                                                                         'id': 'id',
-                                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => v_external_generic.ID(
@@ -1268,7 +1268,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                                         'range': v_parse_tree_to_location.Value(
                                                                                                                             $['value'],
                                                                                                                             {
-                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                             },
                                                                                                                         ),
                                                                                                                     }],
@@ -1285,7 +1285,7 @@ export const M3: t_signatures.M3 = ($, abort) => _p_change_context(
                                                                                                 'range': v_parse_tree_to_location.Value(
                                                                                                     $['value'],
                                                                                                     {
-                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                     },
                                                                                                 ),
                                                                                             }],

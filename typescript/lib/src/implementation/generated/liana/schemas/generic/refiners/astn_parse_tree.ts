@@ -24,14 +24,14 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "key": null,
                     "id": null,
                     "source": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -40,7 +40,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -52,7 +52,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'key',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -70,7 +70,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'id',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -88,7 +88,7 @@ export const ID: t_signatures.ID = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'source',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -119,13 +119,13 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "resolveInfo": null,
                     "reference": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -134,7 +134,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -146,7 +146,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
                         ),
                         {
                             'id': 'resolveInfo',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -164,7 +164,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => _p_change
                         ),
                         {
                             'id': 'reference',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -202,7 +202,7 @@ export const References: t_signatures.References = ($, abort) => _p.list.from.li
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     )['items'],
 ).map(

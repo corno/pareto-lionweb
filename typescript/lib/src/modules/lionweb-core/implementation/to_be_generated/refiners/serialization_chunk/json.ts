@@ -35,7 +35,7 @@ export const Serialization_Chunk: p_ri.Refiner<
             $,
             abort,
             {
-                'expected properties': pt.dictionary.literal({
+                'expected properties': pt.literal.dictionary({
                     "serializationFormatVersion": null,
                     "languages": null,
                     "nodes": null,
@@ -69,7 +69,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                         $,
                         abort,
                         {
-                            'expected properties': pt.dictionary.literal({
+                            'expected properties': pt.literal.dictionary({
                                 "key": null,
                                 "version": null,
                             })
@@ -116,7 +116,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                             $,
                             abort,
                             {
-                                'expected properties': pt.dictionary.literal({
+                                'expected properties': pt.literal.dictionary({
                                     "id": null,
                                     "classifier": null,
                                     "properties": null,
@@ -180,7 +180,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.dictionary.literal({
+                                            'expected properties': pt.literal.dictionary({
                                                 "property": null,
                                                 "value": null,
                                             }),
@@ -225,7 +225,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.dictionary.literal({
+                                            'expected properties': pt.literal.dictionary({
                                                 "containment": null,
                                                 "children": null,
                                             }),
@@ -272,7 +272,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                         $,
                                         abort,
                                         {
-                                            'expected properties': pt.dictionary.literal({
+                                            'expected properties': pt.literal.dictionary({
                                                 "reference": null,
                                                 "targets": null,
                                             })
@@ -303,7 +303,7 @@ export const Serialization_Chunk: p_ri.Refiner<
                                                     $,
                                                     abort,
                                                     {
-                                                        'expected properties': pt.dictionary.literal({
+                                                        'expected properties': pt.literal.dictionary({
                                                             "resolveInfo": null,
                                                             "reference": null,
                                                         })
@@ -370,7 +370,7 @@ export const Meta_Pointer: p_ri.Refiner<
             $,
             abort,
             {
-                'expected properties': pt.dictionary.literal({
+                'expected properties': pt.literal.dictionary({
                     "language": null,
                     "key": null,
                     "version": null,

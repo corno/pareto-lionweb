@@ -24,14 +24,14 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "serializationFormatVersion": null,
                     "languages": null,
                     "nodes": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -50,7 +50,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'serializationFormatVersion',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -68,7 +68,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'languages',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -78,7 +78,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                 $,
                             ),
                             {
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         )['items'],
                     ).map(
@@ -91,13 +91,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.dictionary.literal(
+                                        'expected properties': _p.literal.dictionary(
                                             {
                                                 "key": null,
                                                 "version": null,
                                             },
                                         ),
-                                        'subdocument context': _p.optional.literal.not_set(),
+                                        'subdocument context': _p.literal.not_set(),
                                     },
                                 ),
                                 ($) => _p_variables(
@@ -115,7 +115,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'key',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -133,7 +133,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'version',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -158,7 +158,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'nodes',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -168,7 +168,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                 $,
                             ),
                             {
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         )['items'],
                     ).map(
@@ -181,7 +181,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.dictionary.literal(
+                                        'expected properties': _p.literal.dictionary(
                                             {
                                                 "id": null,
                                                 "range": null,
@@ -193,7 +193,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                 "annotations": null,
                                             },
                                         ),
-                                        'subdocument context': _p.optional.literal.not_set(),
+                                        'subdocument context': _p.literal.not_set(),
                                     },
                                 ),
                                 ($) => _p_variables(
@@ -211,7 +211,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'id',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -229,7 +229,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'range',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_external_location.Range(
@@ -247,7 +247,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'parent',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => _p.optional.from.optional(
@@ -274,7 +274,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'classifier',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => Meta_Pointer(
@@ -292,7 +292,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'properties',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => _p.list.from.list(
@@ -302,7 +302,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                            'subdocument context': _p.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
@@ -315,13 +315,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.dictionary.literal(
+                                                                    'expected properties': _p.literal.dictionary(
                                                                         {
                                                                             "property": null,
                                                                             "value": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                    'subdocument context': _p.literal.not_set(),
                                                                 },
                                                             ),
                                                             ($) => _p_variables(
@@ -339,7 +339,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'property',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -357,7 +357,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'value',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -382,7 +382,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'references',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => _p.list.from.list(
@@ -392,7 +392,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                            'subdocument context': _p.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
@@ -405,13 +405,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.dictionary.literal(
+                                                                    'expected properties': _p.literal.dictionary(
                                                                         {
                                                                             "reference": null,
                                                                             "targets": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                    'subdocument context': _p.literal.not_set(),
                                                                 },
                                                             ),
                                                             ($) => _p_variables(
@@ -429,7 +429,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'reference',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -447,7 +447,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'targets',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Targets(
@@ -472,7 +472,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'containments',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => _p.list.from.list(
@@ -482,7 +482,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                            'subdocument context': _p.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
@@ -495,13 +495,13 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.dictionary.literal(
+                                                                    'expected properties': _p.literal.dictionary(
                                                                         {
                                                                             "containment": null,
                                                                             "children": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                    'subdocument context': _p.literal.not_set(),
                                                                 },
                                                             ),
                                                             ($) => _p_variables(
@@ -519,7 +519,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'containment',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -537,7 +537,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'children',
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => _p.list.from.list(
@@ -547,7 +547,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                         $,
                                                                                     ),
                                                                                     {
-                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                     },
                                                                                 )['items'],
                                                                             ).map(
@@ -577,7 +577,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'annotations',
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => _p.list.from.list(
@@ -587,7 +587,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                            'subdocument context': _p.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
@@ -621,7 +621,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -634,13 +634,13 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                     $,
                 ),
                 {
-                    'expected properties': _p.dictionary.literal(
+                    'expected properties': _p.literal.dictionary(
                         {
                             "resolveInfo": null,
                             "reference": null,
                         },
                     ),
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             ),
             ($) => _p_variables(
@@ -658,7 +658,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'resolveInfo',
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -676,7 +676,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'reference',
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p.optional.from.optional(
@@ -709,14 +709,14 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "language": null,
                     "key": null,
                     "version": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -734,7 +734,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'language',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -752,7 +752,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'key',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -770,7 +770,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'version',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(

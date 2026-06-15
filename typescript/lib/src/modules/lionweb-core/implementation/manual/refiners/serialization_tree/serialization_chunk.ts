@@ -27,8 +27,8 @@ export const Serialization_Tree: p_ri.Refiner<
         ).map_optionally(
             ($) => pt.decide.boolean(
                 pt.boolean.from.optional($.parent).is_set(),
-                () => pt.optional.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
-                () => pt.optional.literal.set($)
+                () => pt.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+                () => pt.literal.set($)
             )
 
         )
