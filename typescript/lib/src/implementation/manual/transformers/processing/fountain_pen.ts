@@ -1,5 +1,5 @@
 
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
@@ -50,46 +50,46 @@ export const Unexpected_Content = (
             ])
         )
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => pt.decide.state($, ($) => {
+export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'serialization tree': return pt.ss($, ($) => pt.decide.state($, ($) => {
+        case 'serialization tree': return p_.ss($, ($) => p_.decide.state($, ($) => {
             switch ($[0]) {
-                case 'tree from chunk': return pt.ss($, ($) => pt.decide.state($.type, ($) => {
+                case 'tree from chunk': return p_.ss($, ($) => p_.decide.state($.type, ($) => {
                     switch ($[0]) {
-                        case 'could not determine root node': return pt.ss($, ($) => sh.ph.literal("could not determine root node"))
-                        case 'node': return pt.ss($, ($) => sh.ph.composed([
-                            pt.decide.state($.type, ($) => {
+                        case 'could not determine root node': return p_.ss($, ($) => sh.ph.literal("could not determine root node"))
+                        case 'node': return p_.ss($, ($) => sh.ph.composed([
+                            p_.decide.state($.type, ($) => {
                                 switch ($[0]) {
-                                    case 'clashing node IDs': return pt.ss($, ($) => sh.ph.literal("clashing node IDs"))
-                                    case 'clashing child node IDs': return pt.ss($, ($) => sh.ph.literal("clashing child node IDs"))
-                                    case 'clashing property keys': return pt.ss($, ($) => sh.ph.literal("clashing property keys"))
-                                    case 'child node not found': return pt.ss($, ($) => sh.ph.literal("child node not found"))
-                                    case 'clashing containment keys': return pt.ss($, ($) => sh.ph.literal("clashing containment keys"))
-                                    case 'clashing reference keys': return pt.ss($, ($) => sh.ph.literal("clashing reference keys"))
-                                    default: return pt.au($[0])
+                                    case 'clashing node IDs': return p_.ss($, ($) => sh.ph.literal("clashing node IDs"))
+                                    case 'clashing child node IDs': return p_.ss($, ($) => sh.ph.literal("clashing child node IDs"))
+                                    case 'clashing property keys': return p_.ss($, ($) => sh.ph.literal("clashing property keys"))
+                                    case 'child node not found': return p_.ss($, ($) => sh.ph.literal("child node not found"))
+                                    case 'clashing containment keys': return p_.ss($, ($) => sh.ph.literal("clashing containment keys"))
+                                    case 'clashing reference keys': return p_.ss($, ($) => sh.ph.literal("clashing reference keys"))
+                                    default: return p_.au($[0])
                                 }
                             })
                         ]))
-                        default: return pt.au($[0])
+                        default: return p_.au($[0])
                     }
                 }))
-                case 'unmarshall serialization chunk': return pt.ss($, ($) => pt.decide.state($, ($) => {
+                case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'deserialize': return pt.ss($, ($) => t_json_from_list_of_characters.Error($))
-                        case 'unmarshall': return pt.ss($, ($) => t_unmarshall_json.Error($))
-                        default: return pt.au($[0])
+                        case 'deserialize': return p_.ss($, ($) => t_json_from_list_of_characters.Error($))
+                        case 'unmarshall': return p_.ss($, ($) => t_unmarshall_json.Error($))
+                        default: return p_.au($[0])
                     }
                 }))
-                default: return pt.au($[0])
+                default: return p_.au($[0])
             }
         }))
-        case 'lioncore': return pt.ss($, ($) => {
+        case 'lioncore': return p_.ss($, ($) => {
             const node = $.node
             return sh.ph.composed([
-                pt.decide.state($.type, ($) => {
+                p_.decide.state($.type, ($) => {
                     switch ($[0]) {
-                        case 'missing content': return pt.ss($, ($) => sh.ph.literal("missing content"))
-                        case 'unexpected content': return pt.ss($, ($) => sh.ph.composed([
+                        case 'missing content': return p_.ss($, ($) => sh.ph.literal("missing content"))
+                        case 'unexpected content': return p_.ss($, ($) => sh.ph.composed([
                             sh.ph.literal("unexpected content:"),
                             sh.ph.indent(
                                 sh.pg.composed([
@@ -116,15 +116,15 @@ export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => pt.decide
                                 ])
                             )
                         ]))
-                        case 'too many feature elements': return pt.ss($, ($) => sh.ph.literal("too many feature elements"))
-                        case 'missing feature element': return pt.ss($, ($) => sh.ph.literal("missing feature element"))
-                        case 'unknown option': return pt.ss($, ($) => sh.ph.literal("unknown option"))
-                        case 'expected single element': return pt.ss($, ($) => sh.ph.literal("expected single element"))
-                        default: return pt.au($[0])
+                        case 'too many feature elements': return p_.ss($, ($) => sh.ph.literal("too many feature elements"))
+                        case 'missing feature element': return p_.ss($, ($) => sh.ph.literal("missing feature element"))
+                        case 'unknown option': return p_.ss($, ($) => sh.ph.literal("unknown option"))
+                        case 'expected single element': return p_.ss($, ($) => sh.ph.literal("expected single element"))
+                        default: return p_.au($[0])
                     }
                 })
             ])
         })
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })

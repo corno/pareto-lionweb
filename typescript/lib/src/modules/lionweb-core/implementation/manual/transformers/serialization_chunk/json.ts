@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
@@ -43,7 +43,7 @@ export const Serialization_Chunk = ($: d_in.Serialization_Chunk): d_out.Document
 })
 
 export const Targets = ($: d_in.Targets): d_out.Value => sh.v.array($.__l_map(($) => sh.v.object({
-    "reference": pt.decide.optional(
+    "reference": p_.decide.optional(
         $.reference,
         ($) => sh.v.string($),
         () => sh.v.null_()
