@@ -1,5 +1,6 @@
 import * as p_ from 'pareto-core/dist/command/implementation'
-import * as p_ci from 'pareto-core/dist/command/interface'
+
+import * as commands from "../../../interface/commands"
 
 //data
 
@@ -30,21 +31,6 @@ const settings = {
 
 import * as d_fp from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-import * as resources_pareto from "pareto-resources/dist/interface/resources"
-import * as resources_pareto_stream from "pareto-stream/dist/interface/commands"
-
-export type command_signature = p_ci.Command_Procedure<
-    resources_pareto.resources.commands.main,
-    null,
-    {
-        'read file': resources_pareto.filesystem_unrestricted.queries.read_file
-    },
-    {
-        'write file': resources_pareto.filesystem_unrestricted.commands.write_file
-        'log error': resources_pareto_stream.commands.log_error
-    }
->
-
 
 //dependencies
 import { $$x as r_2024_1 } from "../text_to_text/temp_2024_1"
@@ -64,7 +50,7 @@ import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementat
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const $$: command_signature = p_.command_procedure(
+export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn = p_.command_procedure(
     ($d, $s, $q, $c) => [
 
         p_.handle_error(

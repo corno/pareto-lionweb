@@ -1,4 +1,4 @@
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 import * as pt from 'pareto-core/dist/transformer/implementation'
 import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 
@@ -10,7 +10,7 @@ import * as d_out_attributes from "pareto-graphviz/dist/interface/generated/lian
 //shorthands
 import * as sh from "pareto-graphviz/dist/shorthands/high_level_simple"
 
-export type M3 = p_ti.Transformer<d_in.M3, d_out.Graph>
+export type M3 = p_i.Transformer<d_in.M3, d_out.Graph>
 
 export const M3: M3 = ($) => sh.Graph(
     [],
