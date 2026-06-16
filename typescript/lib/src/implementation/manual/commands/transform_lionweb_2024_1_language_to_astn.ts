@@ -54,9 +54,9 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn = p_.command_procedure(
     ($d, $s, $q, $c) => [
 
-        p_.handle_error(
+        p_.s.handle_error(
             [
-                p_.query(
+                p_.s.query(
                     p_super_query_result($q['read file'](
                         t_path_to_path.create_node_path(
                             r_path_from_text.Context_Path(settings['in']['dir']),
