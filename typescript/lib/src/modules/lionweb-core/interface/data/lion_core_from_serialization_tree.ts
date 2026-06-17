@@ -1,4 +1,4 @@
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/dist/interface/data'
 
 import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 import * as d_serialization_tree from "../../../../interface/generated/liana/schemas/serialization_tree/data"
@@ -28,9 +28,9 @@ export type Error = {
 }
 
 export type Unexpected_Content = {
-    'unexpected': p_di.Dictionary<null>
-    'expected': p_di.Dictionary<null>
+    'unexpected': p_.Dictionary<null>
+    'expected': p_.Dictionary<null>
 }
 
 
-export type Optional_Error = p_di.Optional_Value<Error>
+export type Optional_Error = p_.Optional_Value<Error>

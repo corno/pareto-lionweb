@@ -1,3 +1,4 @@
+import * as p_ from 'pareto-core/dist/interface/data'
 
 import * as d_chunk from "../../../../interface/generated/liana/schemas/serialization_chunk/data"
 import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
@@ -18,4 +19,8 @@ export type Node_Error = {
     | ['child node not found', string]
     | ['clashing containment keys', null]
     | ['clashing reference keys', null]
+}
+
+export type Node_Parameters = {
+    'nodes': p_.Dictionary<d_chunk.Serialization_Chunk.nodes.L>,
 }

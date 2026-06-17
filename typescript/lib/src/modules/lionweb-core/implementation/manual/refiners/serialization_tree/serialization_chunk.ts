@@ -1,6 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
 import * as p_temp from 'pareto-core/dist/assign'
-import * as p_di from 'pareto-core/dist/interface/data'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 
@@ -81,95 +80,93 @@ const Node: p_i.Refiner_With_Parameter<
     d_out.Node,
     d_function.Error,
     d_in.Serialization_Chunk.nodes.L,
-    {
-        'nodes': p_di.Dictionary<d_in.Serialization_Chunk.nodes.L>,
-    }
+    d_function.Node_Parameters
 > = (
     $,
     abort,
     $p,
 ): d_out.Node => {
-    const node = $
-    return {
-        'range': $.range,
-        'classifier': Meta_Pointer($.classifier),
-        'properties': p_temp.dictionary.from.list(
-            $.properties,
-        ).convert(
-            ($) => Meta_Pointer($.property),
-            ($) => $.value,
-            {
-                duplicate_id: () => abort({
-                    'range': $.range,
-                    'type': ['node', {
-                        'type': ['clashing property keys', null],
-                        'node': $,
-                    }]
-                })
-            },
-        ),
-        'containments': p_temp.dictionary.from.list(
-            $.containments,
-        ).convert(
-            ($) => Meta_Pointer($.containment),
-            ($) => p_temp.dictionary.from.list(
-                $.children,
+        const node = $
+        return {
+            'range': $.range,
+            'classifier': Meta_Pointer($.classifier),
+            'properties': p_temp.dictionary.from.list(
+                $.properties,
             ).convert(
-                ($) => $,
-                ($) => Node(
-                    $p.nodes.__get_entry_deprecated(
-                        $,
-                        {
-                            no_such_entry: () => abort({
-                                'range': node.range,
-                                'type': ['node', {
-                                    'type': ['child node not found', $],
-                                    'node': node
-                                }]
-                            }),
-                        }
-                    ),
-                    abort,
+                ($) => Meta_Pointer($.property),
+                ($) => $.value,
+                {
+                    duplicate_id: () => abort({
+                        'range': $.range,
+                        'type': ['node', {
+                            'type': ['clashing property keys', null],
+                            'node': $,
+                        }]
+                    })
+                },
+            ),
+            'containments': p_temp.dictionary.from.list(
+                $.containments,
+            ).convert(
+                ($) => Meta_Pointer($.containment),
+                ($) => p_temp.dictionary.from.list(
+                    $.children,
+                ).convert(
+                    ($) => $,
+                    ($) => Node(
+                        $p.nodes.__get_entry_deprecated(
+                            $,
+                            {
+                                no_such_entry: () => abort({
+                                    'range': node.range,
+                                    'type': ['node', {
+                                        'type': ['child node not found', $],
+                                        'node': node
+                                    }]
+                                }),
+                            }
+                        ),
+                        abort,
 
+                        {
+                            'nodes': $p.nodes,
+                        },
+                    ),
                     {
-                        'nodes': $p.nodes,
-                    },
+                        duplicate_id: () => abort({
+                            'range': node.range,
+                            'type': ['node', {
+                                'type': ['clashing child node IDs', null],
+                                'node': node
+                            }]
+                        }),
+                    }
                 ),
                 {
                     duplicate_id: () => abort({
                         'range': node.range,
                         'type': ['node', {
-                            'type': ['clashing child node IDs', null],
+                            'type': ['clashing containment keys', null],
                             'node': node
                         }]
-                    }),
-                }
+                    })
+                },
             ),
-            {
-                duplicate_id: () => abort({
-                    'range': node.range,
-                    'type': ['node', {
-                        'type': ['clashing containment keys', null],
-                        'node': node
-                    }]
-                })
-            },
-        ),
-        'references': p_temp.dictionary.from.list(
-            $.references,
-        ).convert(
-            ($) => Meta_Pointer($.reference),
-            ($) => $.targets,
-            {
-                duplicate_id: () => abort({
-                    'range': node.range,
-                    'type': ['node', {
-                        'type': ['clashing reference keys', null],
-                        'node': node
-                    }]
-                })
-            },
-        ),
-        'annotations': $.annotations,
+            'references': p_temp.dictionary.from.list(
+                $.references,
+            ).convert(
+                ($) => Meta_Pointer($.reference),
+                ($) => $.targets,
+                {
+                    duplicate_id: () => abort({
+                        'range': node.range,
+                        'type': ['node', {
+                            'type': ['clashing reference keys', null],
+                            'node': node
+                        }]
+                    })
+                },
+            ),
+            'annotations': $.annotations,
+        }
     }
-}
