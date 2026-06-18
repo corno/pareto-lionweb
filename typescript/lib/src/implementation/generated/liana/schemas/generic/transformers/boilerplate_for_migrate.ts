@@ -1,7 +1,7 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/generic/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,17 +10,17 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/gene
 import * as v_location from "../../location/transformers/boilerplate_for_migrate"
 
 export const ID: t_signatures.ID = ($) => ({
-    'key': _p_change_context(
+    'key': p_change_context(
         $['key'],
         ($) => $,
     ),
-    'id': _p_change_context(
+    'id': p_change_context(
         $['id'],
         ($) => $,
     ),
-    'source': _p_change_context(
+    'source': p_change_context(
         $['source'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => v_location.Range(
@@ -31,13 +31,13 @@ export const ID: t_signatures.ID = ($) => ({
 })
 
 export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
-    'resolveInfo': _p_change_context(
+    'resolveInfo': p_change_context(
         $['resolveInfo'],
         ($) => $,
     ),
-    'reference': _p_change_context(
+    'reference': p_change_context(
         $['reference'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => $,
@@ -49,7 +49,7 @@ export const Singular_Reference: t_signatures.Singular_Reference = ($) => Raw_Re
     $,
 )
 
-export const References: t_signatures.References = ($) => _p.list.from.list(
+export const References: t_signatures.References = ($) => p_.from.list(
     $,
 ).map(
     ($) => Raw_Reference(
@@ -57,7 +57,7 @@ export const References: t_signatures.References = ($) => _p.list.from.list(
     ),
 )
 
-export const Optional_Reference: t_signatures.Optional_Reference = ($) => _p.optional.from.optional(
+export const Optional_Reference: t_signatures.Optional_Reference = ($) => p_.from.optional(
     $,
 ).map(
     ($) => Raw_Reference(

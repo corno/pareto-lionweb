@@ -134,7 +134,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
             })
         }
     )
-    return result.__get_number_of_items() > 1
+    return  p_temp.from.list(result).amount_of_items() > 1
         ? abort({
             'node': node,
             'type': ['too many feature elements', null]
@@ -160,7 +160,7 @@ export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
             })
         }
     )
-    return result.__get_number_of_items() > 1
+    return  p_temp.from.list(result).amount_of_items() > 1
         ? abort({
             'node': node,
             'type': ['too many feature elements', null]

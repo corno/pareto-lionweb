@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,25 +17,25 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const ID: t_signatures.ID = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const ID: t_signatures.ID = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "key": _p_change_context(
+        "key": p_change_context(
             $['key'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "id": _p_change_context(
+        "id": p_change_context(
             $['id'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "source": _p_change_context(
+        "source": p_change_context(
             $['source'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
                 ($): t_out.Value.optional => ['set', v_external_location.Range(
                     $,
@@ -42,18 +46,18 @@ export const ID: t_signatures.ID = ($) => ['group', ['verbose', _p.literal.dicti
     },
 )]]
 
-export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Raw_Reference: t_signatures.Raw_Reference = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "resolveInfo": _p_change_context(
+        "resolveInfo": p_change_context(
             $['resolveInfo'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "reference": _p_change_context(
+        "reference": p_change_context(
             $['reference'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
                 ($): t_out.Value.optional => ['set', ['text', {
                     'delimiter': ['quote', null],
@@ -69,7 +73,7 @@ export const Singular_Reference: t_signatures.Singular_Reference = ($) => Raw_Re
     $,
 )
 
-export const References: t_signatures.References = ($) => ['list', _p.list.from.list(
+export const References: t_signatures.References = ($) => ['list', p_.from.list(
     $,
 ).map(
     ($) => Raw_Reference(
@@ -77,7 +81,7 @@ export const References: t_signatures.References = ($) => ['list', _p.list.from.
     ),
 )]
 
-export const Optional_Reference: t_signatures.Optional_Reference = ($) => ['optional', _p.decide.optional(
+export const Optional_Reference: t_signatures.Optional_Reference = ($) => ['optional', p_decide_optional(
     $,
     ($): t_out.Value.optional => ['set', Raw_Reference(
         $,

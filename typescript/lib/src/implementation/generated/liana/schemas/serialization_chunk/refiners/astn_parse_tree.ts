@@ -1,11 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
-import _p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
-import _p_variables from 'pareto-core/dist/implementation/specials/variables'
+import p_variables from 'pareto-core/dist/implementation/specials/variables'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/serialization_chunk/signatures/refiners/astn_parse_tree"
 
@@ -17,24 +17,24 @@ import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/
 
 import * as v_external_location from "../../location/refiners/astn_parse_tree"
 
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => _p_change_context(
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
             $,
         ),
         {
-            'expected properties': _p.literal.dictionary(
+            'expected properties': p_.literal.dictionary(
                 {
                     "serializationFormatVersion": null,
                     "languages": null,
                     "nodes": null,
                 },
             ),
-            'subdocument context': _p.literal.not_set(),
+            'subdocument context': p_.literal.not_set(),
         },
     ),
-    ($) => _p_variables(
+    ($) => p_variables(
         () => {
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
@@ -42,7 +42,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
             )
             return {
                 'range': var_verbose_group_range,
-                'serializationFormatVersion': _p_change_context(
+                'serializationFormatVersion': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -50,7 +50,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'serializationFormatVersion',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -60,7 +60,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                     ),
                 ),
-                'languages': _p_change_context(
+                'languages': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -68,46 +68,46 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'languages',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => _p.list.from.list(
+                    ($) => p_.from.list(
                         v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
                             ),
                             {
-                                'subdocument context': _p.literal.not_set(),
+                                'subdocument context': p_.literal.not_set(),
                             },
                         )['items'],
                     ).map(
-                        ($) => _p_change_context(
+                        ($) => p_change_context(
                             $['value'],
-                            ($) => _p_change_context(
+                            ($) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(
                                     $,
                                     ($) => abort(
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.literal.dictionary(
+                                        'expected properties': p_.literal.dictionary(
                                             {
                                                 "key": null,
                                                 "version": null,
                                             },
                                         ),
-                                        'subdocument context': _p.literal.not_set(),
+                                        'subdocument context': p_.literal.not_set(),
                                     },
                                 ),
-                                ($) => _p_variables(
+                                ($) => p_variables(
                                     () => {
                                         
                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                             $['value'],
                                         )
                                         return {
-                                            'key': _p_change_context(
+                                            'key': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -115,7 +115,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'key',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -125,7 +125,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'version': _p_change_context(
+                                            'version': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -133,7 +133,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'version',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -150,7 +150,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                     ),
                 ),
-                'nodes': _p_change_context(
+                'nodes': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -158,30 +158,30 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                         ),
                         {
                             'id': 'nodes',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => _p.list.from.list(
+                    ($) => p_.from.list(
                         v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
                             ),
                             {
-                                'subdocument context': _p.literal.not_set(),
+                                'subdocument context': p_.literal.not_set(),
                             },
                         )['items'],
                     ).map(
-                        ($) => _p_change_context(
+                        ($) => p_change_context(
                             $['value'],
-                            ($) => _p_change_context(
+                            ($) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(
                                     $,
                                     ($) => abort(
                                         $,
                                     ),
                                     {
-                                        'expected properties': _p.literal.dictionary(
+                                        'expected properties': p_.literal.dictionary(
                                             {
                                                 "id": null,
                                                 "range": null,
@@ -193,17 +193,17 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                 "annotations": null,
                                             },
                                         ),
-                                        'subdocument context': _p.literal.not_set(),
+                                        'subdocument context': p_.literal.not_set(),
                                     },
                                 ),
-                                ($) => _p_variables(
+                                ($) => p_variables(
                                     () => {
                                         
                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                             $['value'],
                                         )
                                         return {
-                                            'id': _p_change_context(
+                                            'id': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -211,7 +211,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'id',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -221,7 +221,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'range': _p_change_context(
+                                            'range': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -229,7 +229,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'range',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => v_external_location.Range(
@@ -239,7 +239,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'parent': _p_change_context(
+                                            'parent': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -247,10 +247,10 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'parent',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => _p.optional.from.optional(
+                                                ($) => p_.from.optional(
                                                     v_unmarshalled_from_parse_tree.Optional(
                                                         $,
                                                         ($) => abort(
@@ -266,7 +266,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'classifier': _p_change_context(
+                                            'classifier': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -274,7 +274,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'classifier',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
                                                 ($) => Meta_Pointer(
@@ -284,7 +284,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'properties': _p_change_context(
+                                            'properties': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -292,46 +292,46 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'properties',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => _p.list.from.list(
+                                                ($) => p_.from.list(
                                                     v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.literal.not_set(),
+                                                            'subdocument context': p_.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
-                                                    ($) => _p_change_context(
+                                                    ($) => p_change_context(
                                                         $['value'],
-                                                        ($) => _p_change_context(
+                                                        ($) => p_change_context(
                                                             v_unmarshalled_from_parse_tree.Verbose_Group(
                                                                 $,
                                                                 ($) => abort(
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.literal.dictionary(
+                                                                    'expected properties': p_.literal.dictionary(
                                                                         {
                                                                             "property": null,
                                                                             "value": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.literal.not_set(),
+                                                                    'subdocument context': p_.literal.not_set(),
                                                                 },
                                                             ),
-                                                            ($) => _p_variables(
+                                                            ($) => p_variables(
                                                                 () => {
                                                                     
                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                         $['value'],
                                                                     )
                                                                     return {
-                                                                        'property': _p_change_context(
+                                                                        'property': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -339,7 +339,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'property',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -349,7 +349,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                             ),
                                                                         ),
-                                                                        'value': _p_change_context(
+                                                                        'value': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -357,7 +357,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'value',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -374,7 +374,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'references': _p_change_context(
+                                            'references': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -382,46 +382,46 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'references',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => _p.list.from.list(
+                                                ($) => p_.from.list(
                                                     v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.literal.not_set(),
+                                                            'subdocument context': p_.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
-                                                    ($) => _p_change_context(
+                                                    ($) => p_change_context(
                                                         $['value'],
-                                                        ($) => _p_change_context(
+                                                        ($) => p_change_context(
                                                             v_unmarshalled_from_parse_tree.Verbose_Group(
                                                                 $,
                                                                 ($) => abort(
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.literal.dictionary(
+                                                                    'expected properties': p_.literal.dictionary(
                                                                         {
                                                                             "reference": null,
                                                                             "targets": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.literal.not_set(),
+                                                                    'subdocument context': p_.literal.not_set(),
                                                                 },
                                                             ),
-                                                            ($) => _p_variables(
+                                                            ($) => p_variables(
                                                                 () => {
                                                                     
                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                         $['value'],
                                                                     )
                                                                     return {
-                                                                        'reference': _p_change_context(
+                                                                        'reference': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -429,7 +429,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'reference',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -439,7 +439,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                             ),
                                                                         ),
-                                                                        'targets': _p_change_context(
+                                                                        'targets': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -447,7 +447,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'targets',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Targets(
@@ -464,7 +464,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'containments': _p_change_context(
+                                            'containments': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -472,46 +472,46 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'containments',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => _p.list.from.list(
+                                                ($) => p_.from.list(
                                                     v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.literal.not_set(),
+                                                            'subdocument context': p_.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
-                                                    ($) => _p_change_context(
+                                                    ($) => p_change_context(
                                                         $['value'],
-                                                        ($) => _p_change_context(
+                                                        ($) => p_change_context(
                                                             v_unmarshalled_from_parse_tree.Verbose_Group(
                                                                 $,
                                                                 ($) => abort(
                                                                     $,
                                                                 ),
                                                                 {
-                                                                    'expected properties': _p.literal.dictionary(
+                                                                    'expected properties': p_.literal.dictionary(
                                                                         {
                                                                             "containment": null,
                                                                             "children": null,
                                                                         },
                                                                     ),
-                                                                    'subdocument context': _p.literal.not_set(),
+                                                                    'subdocument context': p_.literal.not_set(),
                                                                 },
                                                             ),
-                                                            ($) => _p_variables(
+                                                            ($) => p_variables(
                                                                 () => {
                                                                     
                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                         $['value'],
                                                                     )
                                                                     return {
-                                                                        'containment': _p_change_context(
+                                                                        'containment': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -519,7 +519,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'containment',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
                                                                             ($) => Meta_Pointer(
@@ -529,7 +529,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                             ),
                                                                         ),
-                                                                        'children': _p_change_context(
+                                                                        'children': p_change_context(
                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                 $,
                                                                                 ($) => abort(
@@ -537,21 +537,21 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                 ),
                                                                                 {
                                                                                     'id': 'children',
-                                                                                    'subdocument context': _p.literal.not_set(),
+                                                                                    'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
-                                                                            ($) => _p.list.from.list(
+                                                                            ($) => p_.from.list(
                                                                                 v_unmarshalled_from_parse_tree.List(
                                                                                     $,
                                                                                     ($) => abort(
                                                                                         $,
                                                                                     ),
                                                                                     {
-                                                                                        'subdocument context': _p.literal.not_set(),
+                                                                                        'subdocument context': p_.literal.not_set(),
                                                                                     },
                                                                                 )['items'],
                                                                             ).map(
-                                                                                ($) => _p_change_context(
+                                                                                ($) => p_change_context(
                                                                                     $['value'],
                                                                                     ($) => v_unmarshalled_from_parse_tree.Text(
                                                                                         $,
@@ -569,7 +569,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                 ),
                                             ),
-                                            'annotations': _p_change_context(
+                                            'annotations': p_change_context(
                                                 v_unmarshalled_from_parse_tree.Property(
                                                     $,
                                                     ($) => abort(
@@ -577,21 +577,21 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                     ),
                                                     {
                                                         'id': 'annotations',
-                                                        'subdocument context': _p.literal.not_set(),
+                                                        'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => _p.list.from.list(
+                                                ($) => p_.from.list(
                                                     v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
                                                         ),
                                                         {
-                                                            'subdocument context': _p.literal.not_set(),
+                                                            'subdocument context': p_.literal.not_set(),
                                                         },
                                                     )['items'],
                                                 ).map(
-                                                    ($) => _p_change_context(
+                                                    ($) => p_change_context(
                                                         $['value'],
                                                         ($) => v_unmarshalled_from_parse_tree.Text(
                                                             $,
@@ -614,43 +614,43 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
     ),
 )
 
-export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
+export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
         ),
         {
-            'subdocument context': _p.literal.not_set(),
+            'subdocument context': p_.literal.not_set(),
         },
     )['items'],
 ).map(
-    ($) => _p_change_context(
+    ($) => p_change_context(
         $['value'],
-        ($) => _p_change_context(
+        ($) => p_change_context(
             v_unmarshalled_from_parse_tree.Verbose_Group(
                 $,
                 ($) => abort(
                     $,
                 ),
                 {
-                    'expected properties': _p.literal.dictionary(
+                    'expected properties': p_.literal.dictionary(
                         {
                             "resolveInfo": null,
                             "reference": null,
                         },
                     ),
-                    'subdocument context': _p.literal.not_set(),
+                    'subdocument context': p_.literal.not_set(),
                 },
             ),
-            ($) => _p_variables(
+            ($) => p_variables(
                 () => {
                     
                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                         $['value'],
                     )
                     return {
-                        'resolveInfo': _p_change_context(
+                        'resolveInfo': p_change_context(
                             v_unmarshalled_from_parse_tree.Property(
                                 $,
                                 ($) => abort(
@@ -658,7 +658,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'resolveInfo',
-                                    'subdocument context': _p.literal.not_set(),
+                                    'subdocument context': p_.literal.not_set(),
                                 },
                             ),
                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -668,7 +668,7 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                             ),
                         ),
-                        'reference': _p_change_context(
+                        'reference': p_change_context(
                             v_unmarshalled_from_parse_tree.Property(
                                 $,
                                 ($) => abort(
@@ -676,10 +676,10 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
                                 ),
                                 {
                                     'id': 'reference',
-                                    'subdocument context': _p.literal.not_set(),
+                                    'subdocument context': p_.literal.not_set(),
                                 },
                             ),
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 v_unmarshalled_from_parse_tree.Optional(
                                     $,
                                     ($) => abort(
@@ -702,31 +702,31 @@ export const Targets: t_signatures.Targets = ($, abort) => _p.list.from.list(
     ),
 )
 
-export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_context(
+export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
             $,
         ),
         {
-            'expected properties': _p.literal.dictionary(
+            'expected properties': p_.literal.dictionary(
                 {
                     "language": null,
                     "key": null,
                     "version": null,
                 },
             ),
-            'subdocument context': _p.literal.not_set(),
+            'subdocument context': p_.literal.not_set(),
         },
     ),
-    ($) => _p_variables(
+    ($) => p_variables(
         () => {
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
             )
             return {
-                'language': _p_change_context(
+                'language': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -734,7 +734,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'language',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -744,7 +744,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                     ),
                 ),
-                'key': _p_change_context(
+                'key': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -752,7 +752,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'key',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -762,7 +762,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                     ),
                 ),
-                'version': _p_change_context(
+                'version': p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,
                         ($) => abort(
@@ -770,7 +770,7 @@ export const Meta_Pointer: t_signatures.Meta_Pointer = ($, abort) => _p_change_c
                         ),
                         {
                             'id': 'version',
-                            'subdocument context': _p.literal.not_set(),
+                            'subdocument context': p_.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(

@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_temp from 'pareto-core/dist/assign'
+import * as p_temp from 'pareto-core/dist/implementation/transformer'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 
@@ -22,17 +22,18 @@ export const Serialization_Tree: p_i.Refiner<
     abort
 ) => {
         const chunk = $
-        const nodes_without_parent = p_temp.list.from.list(
+        const nodes_without_parent = p_temp.from.list(
             $.nodes,
         ).map_optionally(
-            ($) => p_temp.decide.boolean(
-                p_temp.boolean.from.optional($.parent).is_set(),
+            ($) => p_temp.from.optional(
+                $.parent,
+            ).decide(
                 () => p_.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
                 () => p_.literal.set($)
             )
 
         )
-        if (p_temp.number.from.list(nodes_without_parent).amount_of_items() > 1) {
+        if (p_temp.from.list(nodes_without_parent).amount_of_items() > 1) {
             return abort({
                 'range': chunk.range,
                 'type': ['could not determine root node', null]
@@ -54,9 +55,9 @@ export const Serialization_Tree: p_i.Refiner<
                     $,
                     abort,
                     {
-                        'nodes': p_temp.dictionary.from.list(
+                        'nodes': p_.from.list(
                             chunk.nodes,
-                        ).convert(
+                        ).convert_to_dictionary(
                             ($) => $.id,
                             ($) => $,
                             {
@@ -90,9 +91,9 @@ const Node: p_i.Refiner_With_Parameter<
         return {
             'range': $.range,
             'classifier': Meta_Pointer($.classifier),
-            'properties': p_temp.dictionary.from.list(
+            'properties': p_.from.list(
                 $.properties,
-            ).convert(
+            ).convert_to_dictionary(
                 ($) => Meta_Pointer($.property),
                 ($) => $.value,
                 {
@@ -105,13 +106,13 @@ const Node: p_i.Refiner_With_Parameter<
                     })
                 },
             ),
-            'containments': p_temp.dictionary.from.list(
+            'containments': p_.from.list(
                 $.containments,
-            ).convert(
+            ).convert_to_dictionary(
                 ($) => Meta_Pointer($.containment),
-                ($) => p_temp.dictionary.from.list(
+                ($) => p_.from.list(
                     $.children,
-                ).convert(
+                ).convert_to_dictionary(
                     ($) => $,
                     ($) => Node(
                         $p.nodes.__get_entry_deprecated(
@@ -152,9 +153,9 @@ const Node: p_i.Refiner_With_Parameter<
                     })
                 },
             ),
-            'references': p_temp.dictionary.from.list(
+            'references': p_.from.list(
                 $.references,
-            ).convert(
+            ).convert_to_dictionary(
                 ($) => Meta_Pointer($.reference),
                 ($) => $.targets,
                 {

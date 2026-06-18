@@ -1,5 +1,4 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_temp from 'pareto-core/dist/assign'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
@@ -63,7 +62,7 @@ export const Serialization_Chunk: p_i.Refiner<
                     }
                 ).value,
                 abort,
-            ).items.__l_map(
+            ).items.__l_map_deprecated(
                 ($) => p_change_context(
                     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                         $,
@@ -110,7 +109,7 @@ export const Serialization_Chunk: p_i.Refiner<
                     ).value,
                     abort,
                 ),
-                ($): d_out.Serialization_Chunk.nodes => $.items.__l_map(
+                ($): d_out.Serialization_Chunk.nodes => $.items.__l_map_deprecated(
                     ($) => p_change_context(
                         r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                             $,
@@ -149,7 +148,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                 ).value,
                                 abort,
                             ),
-                            'parent': p_temp.optional.from.optional(
+                            'parent': p_.from.optional(
                                 r_json_x_from_json.Nullable_Value(
                                     r_json_x_from_json.Property(
                                         $,
@@ -174,7 +173,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                     }
                                 ).value,
                                 abort,
-                            ).items.__l_map(
+                            ).items.__l_map_deprecated(
                                 ($) => p_change_context(
                                     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
@@ -219,7 +218,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                     }
                                 ).value,
                                 abort,
-                            ).items.__l_map(
+                            ).items.__l_map_deprecated(
                                 ($) => p_change_context(
                                     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
@@ -251,7 +250,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                                 }
                                             ).value,
                                             abort,
-                                        ).items.__l_map(
+                                        ).items.__l_map_deprecated(
                                             ($) => r_json_x_from_json.String($, abort).token.value
                                         ),
                                     })
@@ -266,7 +265,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                     }
                                 ).value,
                                 abort,
-                            ).items.__l_map(
+                            ).items.__l_map_deprecated(
                                 ($): d_out.Serialization_Chunk.nodes.L.references.L => p_change_context(
                                     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
@@ -297,7 +296,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                             }
                                             ).value,
                                             abort,
-                                        ).items.__l_map(
+                                        ).items.__l_map_deprecated(
                                             ($) => p_change_context(
                                                 r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                                     $,
@@ -320,7 +319,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                                         ).value,
                                                         abort,
                                                     ).token.value,
-                                                    'reference': p_temp.optional.from.optional(
+                                                    'reference': p_.from.optional(
                                                         r_json_x_from_json.Nullable_Value(
                                                             r_json_x_from_json.Property(
                                                                 $,
@@ -348,7 +347,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                     }
                                 ).value,
                                 abort,
-                            ).items.__l_map(
+                            ).items.__l_map_deprecated(
                                 ($) => r_json_x_from_json.String($, abort).token.value
                             ),
                         })

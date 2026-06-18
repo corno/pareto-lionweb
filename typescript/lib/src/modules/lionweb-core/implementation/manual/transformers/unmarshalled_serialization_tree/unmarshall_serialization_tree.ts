@@ -18,42 +18,45 @@ export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Paramet
 
 export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpected_Content = ($, $p) => {
 
-    const unexpected_containments = p_.dictionary.from.dictionary(
-        p_.dictionary.from.dictionary(
+    const unexpected_containments = p_.from.dictionary(
+        p_.from.dictionary(
             $.containments,
         ).join(
             $p['expected containments'],
-            ($, other, id): p_di.Optional_Value<null> => p_.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(
                 other,
-                () => p_.literal.not_set(),
+            ).decide(
+                ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
         )
     ).map_optionally(
         ($) => $
     )
-    const unexpected_properties = p_.dictionary.from.dictionary(
-        p_.dictionary.from.dictionary(
+    const unexpected_properties = p_.from.dictionary(
+        p_.from.dictionary(
             $.properties,
         ).join(
             $p['expected properties'],
-            ($, other, id): p_di.Optional_Value<null> => p_.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(
                 other,
-                () => p_.literal.not_set(),
+            ).decide(
+                ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
         )
     ).map_optionally(
         ($) => $
     )
-    const unexpected_references = p_.dictionary.from.dictionary(
-        p_.dictionary.from.dictionary(
+    const unexpected_references = p_.from.dictionary(
+        p_.from.dictionary(
             $.references,
         ).join(
             $p['expected references'],
-            ($, other, id): p_di.Optional_Value<null> => p_.decide.optional(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(
                 other,
-                () => p_.literal.not_set(),
+            ).decide(
+                ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
         )
@@ -62,11 +65,11 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     )
 
     if (
-        unexpected_containments.__get_number_of_entries() === 0
+        p_.from.dictionary(unexpected_containments).amount_of_entries() === 0
         &&
-        unexpected_properties.__get_number_of_entries() === 0
+        p_.from.dictionary(unexpected_properties).amount_of_entries() === 0
         &&
-        unexpected_references.__get_number_of_entries() === 0
+        p_.from.dictionary(unexpected_references).amount_of_entries() === 0
     ) {
         return p_.literal.not_set()
     }

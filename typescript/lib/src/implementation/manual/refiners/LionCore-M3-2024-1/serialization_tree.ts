@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_temp from 'pareto-core/dist/assign'
+import * as p_temp from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_assert from 'pareto-core/dist/implementation/specials/assert'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
@@ -96,13 +96,13 @@ export const M3: p_i.Refiner_With_Parameter<
                         {
                             'id': "LionCore-M3:2024.1:Language-dependsOn",
                         },
-                    ).__l_map(($) => ({
+                    ).__l_map_deprecated(($) => ({
                         'resolveInfo': $.resolveInfo,
                         'reference': $.reference
                     })),
                 },
                 'containments': {
-                    'entities': p_temp.dictionary.from.dictionary(
+                    'entities': p_temp.from.dictionary(
                         r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                             $['node tree'],
                             abort,
@@ -124,7 +124,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                 'type': ['expected single element', id]
                             })
                         },
-                    ).__d_map(
+                    ).__d_map_deprecated(
                         ($, id) => {
                             return p_assert(
                                 abort,
@@ -157,15 +157,14 @@ export const M3: p_i.Refiner_With_Parameter<
                                             'write source': $p['write source']
                                         }
                                     ),
-                                    'classifier': p_temp.state.block((): d_out.M3.containments.entities.D.classifier => {
-                                        const node = $
-                                        switch ($.classifier) {
+                                    'classifier': p_.from.text($.classifier).state($, ($, text): d_out.M3.containments.entities.D.classifier => {
+                                        switch (text) {
                                             case "LionCore-M3:2024.1:Concept":
                                             case "LionCore-M3:2024.1:Interface":
                                                 {
                                                     return ['Classifier', {
-                                                        'classifier': p_temp.state.block((): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
-                                                            switch ($.classifier) {
+                                                        'classifier': p_.from.text($.classifier).state($, ($, text): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                            switch (text) {
                                                                 case "LionCore-M3:2024.1:Concept": {
                                                                     return ['Concept', {
                                                                         'properties': {
@@ -216,7 +215,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                     },
                                                                 }]
                                                                 default: return abort({
-                                                                    'node': node,
+                                                                    'node': $,
                                                                     'type': ['unknown option', {
                                                                         'option name': $.classifier,
                                                                         'state name': "entity classifier"
@@ -225,7 +224,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                             }
                                                         }),
                                                         'containments': {
-                                                            'features': p_temp.dictionary.from.dictionary(
+                                                            'features': p_temp.from.dictionary(
                                                                 r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                                     $,
                                                                     abort,
@@ -247,7 +246,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                         'type': ['expected single element', id]
                                                                     })
                                                                 },
-                                                            ).__d_map(($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
+                                                            ).__d_map_deprecated(($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
                                                                 const node = $
 
                                                                 return p_assert(
@@ -279,12 +278,12 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                                 'write source': $p['write source']
                                                                             }
                                                                         ),
-                                                                        'classifier': p_temp.boolean.from.optional(
+                                                                        'classifier': p_temp.from.optional(
                                                                             $.references.__get_possible_entry_deprecated(
                                                                                 "LionCore-M3:2024.1:Link-type",
                                                                             )
-                                                                        ).is_set()
-                                                                            ? ['Link', {
+                                                                        ).decide(
+                                                                            (): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => ['Link', {
                                                                                 'classifier': p_change_context($.classifier, ($) => {
                                                                                     switch ($) {
                                                                                         case "LionCore-M3:2024.1:Reference":
@@ -319,8 +318,8 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                                         },
                                                                                     ),
                                                                                 },
-                                                                            }]
-                                                                            : ['Property', {
+                                                                            }],
+                                                                            () => ['Property', {
                                                                                 'references': {
                                                                                     'type': r_unmarshalled_serialization_tree_from_serialization_tree.Singular_Reference(
                                                                                         $,
@@ -331,6 +330,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                                     )
                                                                                 },
                                                                             }],
+                                                                        ),
                                                                         'properties': {
                                                                             'optional': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
                                                                                 $,
@@ -347,7 +347,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                         },
                                                     }]
                                                 }
-                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.dictionary.from.dictionary(
+                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.from.dictionary(
                                                 r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                     $,
                                                     abort,
@@ -369,7 +369,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                         'type': ['expected single element', id]
                                                     })
                                                 }
-                                            ).__d_map(($, id) => {
+                                            ).__d_map_deprecated(($, id) => {
                                                 return p_assert(
                                                     abort,
                                                     () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
@@ -401,7 +401,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                             })
                                             ]]
                                             default: return abort({
-                                                'node': node,
+                                                'node': $,
                                                 'type': ['unknown option', {
                                                     'option name': $.classifier,
                                                     'state name': "entity classifier"

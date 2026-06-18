@@ -21,44 +21,46 @@ export const Unexpected_Content = (
     $p: {
         'classifier': string
     }
-): d_out.Phrase => $.unexpected.__get_number_of_entries() === 0
-        ? sh.ph.nothing()
-        : sh.ph.indent(
-            sh.pg.composed([
-                sh.pg.sentences([
-                    sh.sentence([
-                        sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
-                        sh.ph.indent(
-                            sh.pg.sentences($.unexpected.__to_list(($, id) => sh.sentence([
-                                sh.ph.literal("- "),
-                                sh.ph.literal(id),
-                            ]))),
-                        )
-                    ])
-                ]),
-                // sh.pg.sentences([
-                //     sh.sentence([
-                //         sh.ph.literal(":"),
-                //         sh.ph.indent(
-                //             sh.pg.sentences($.expected.__to_list(($, id) => sh.sentence([
-                //                 sh.ph.literal("- "),
-                //                 sh.ph.literal(id),
-                //             ]))),
-                //         )
-                //     ])
-                // ]),
-            ])
-        )
+): d_out.Phrase => p_.from.dictionary($.unexpected).on_has_entries(
+    ($) => sh.ph.indent(
+        sh.pg.composed([
+            sh.pg.sentences([
+                sh.sentence([
+                    sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
+                    sh.ph.indent(
+                        sh.pg.sentences(p_.from.dictionary($).convert_to_list(($, id) => sh.sentence([
+                            sh.ph.literal("- "),
+                            sh.ph.literal(id),
+                        ]))),
+                    )
+                ])
+            ]),
+            // sh.pg.sentences([
+            //     sh.sentence([
+            //         sh.ph.literal(":"),
+            //         sh.ph.indent(
+            //             sh.pg.sentences($.expected.__to_list(($, id) => sh.sentence([
+            //                 sh.ph.literal("- "),
+            //                 sh.ph.literal(id),
+            //             ]))),
+            //         )
+            //     ])
+            // ]),
+        ])
+    ),
+    () => sh.ph.nothing()
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.decide.state($, ($) => {
+)
+
+export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
-        case 'serialization tree': return p_.ss($, ($) => p_.decide.state($, ($) => {
+        case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(($) => {
             switch ($[0]) {
-                case 'tree from chunk': return p_.ss($, ($) => p_.decide.state($.type, ($) => {
+                case 'tree from chunk': return p_.ss($, ($) => p_.from.state($.type).decide(($) => {
                     switch ($[0]) {
                         case 'could not determine root node': return p_.ss($, ($) => sh.ph.literal("could not determine root node"))
                         case 'node': return p_.ss($, ($) => sh.ph.composed([
-                            p_.decide.state($.type, ($) => {
+                            p_.from.state($.type).decide(($) => {
                                 switch ($[0]) {
                                     case 'clashing node IDs': return p_.ss($, ($) => sh.ph.literal("clashing node IDs"))
                                     case 'clashing child node IDs': return p_.ss($, ($) => sh.ph.literal("clashing child node IDs"))
@@ -73,7 +75,7 @@ export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.decide
                         default: return p_.au($[0])
                     }
                 }))
-                case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.decide.state($, ($) => {
+                case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.from.state($).decide(($) => {
                     switch ($[0]) {
                         case 'deserialize': return p_.ss($, ($) => t_json_from_list_of_characters.Error($))
                         case 'unmarshall': return p_.ss($, ($) => t_unmarshall_json.Error($))
@@ -86,7 +88,7 @@ export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.decide
         case 'lioncore': return p_.ss($, ($) => {
             const node = $.node
             return sh.ph.composed([
-                p_.decide.state($.type, ($) => {
+                p_.from.state($.type).decide(($) => {
                     switch ($[0]) {
                         case 'missing content': return p_.ss($, ($) => sh.ph.literal("missing content"))
                         case 'unexpected content': return p_.ss($, ($) => sh.ph.composed([

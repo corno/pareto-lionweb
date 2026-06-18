@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/lioncore/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,25 +14,25 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/lion
 import * as v_generic from "../../generic/transformers/boilerplate_for_migrate"
 
 export const M3: t_signatures.M3 = ($) => ({
-    'id': _p_change_context(
+    'id': p_change_context(
         $['id'],
         ($) => v_generic.ID(
             $,
         ),
     ),
-    'properties': _p_change_context(
+    'properties': p_change_context(
         $['properties'],
         ($) => ({
-            'version': _p_change_context(
+            'version': p_change_context(
                 $['version'],
                 ($) => $,
             ),
         }),
     ),
-    'references': _p_change_context(
+    'references': p_change_context(
         $['references'],
         ($) => ({
-            'dependencies': _p_change_context(
+            'dependencies': p_change_context(
                 $['dependencies'],
                 ($) => v_generic.References(
                     $,
@@ -36,64 +40,64 @@ export const M3: t_signatures.M3 = ($) => ({
             ),
         }),
     ),
-    'containments': _p_change_context(
+    'containments': p_change_context(
         $['containments'],
         ($) => ({
-            'entities': _p_change_context(
+            'entities': p_change_context(
                 $['entities'],
-                ($) => _p.dictionary.from.dictionary(
+                ($) => p_.from.dictionary(
                     $,
                 ).map(
                     ($, id) => ({
-                        'id': _p_change_context(
+                        'id': p_change_context(
                             $['id'],
                             ($) => v_generic.ID(
                                 $,
                             ),
                         ),
-                        'classifier': _p_change_context(
+                        'classifier': p_change_context(
                             $['classifier'],
-                            ($) => _p.decide.state(
+                            ($) => p_decide_state(
                                 $,
                                 ($): t_out.M3.containments.entities.D.classifier => {
                                     switch ($[0]) {
                                         case 'Classifier':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ['Classifier', {
-                                                    'classifier': _p_change_context(
+                                                    'classifier': p_change_context(
                                                         $['classifier'],
-                                                        ($) => _p.decide.state(
+                                                        ($) => p_decide_state(
                                                             $,
                                                             ($): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                 switch ($[0]) {
                                                                     case 'Concept':
-                                                                        return _p.ss(
+                                                                        return p_.ss(
                                                                             $,
                                                                             ($) => ['Concept', {
-                                                                                'properties': _p_change_context(
+                                                                                'properties': p_change_context(
                                                                                     $['properties'],
                                                                                     ($) => ({
-                                                                                        'abstract': _p_change_context(
+                                                                                        'abstract': p_change_context(
                                                                                             $['abstract'],
                                                                                             ($) => $,
                                                                                         ),
-                                                                                        'partition': _p_change_context(
+                                                                                        'partition': p_change_context(
                                                                                             $['partition'],
                                                                                             ($) => $,
                                                                                         ),
                                                                                     }),
                                                                                 ),
-                                                                                'references': _p_change_context(
+                                                                                'references': p_change_context(
                                                                                     $['references'],
                                                                                     ($) => ({
-                                                                                        'extends': _p_change_context(
+                                                                                        'extends': p_change_context(
                                                                                             $['extends'],
                                                                                             ($) => v_generic.Optional_Reference(
                                                                                                 $,
                                                                                             ),
                                                                                         ),
-                                                                                        'implements': _p_change_context(
+                                                                                        'implements': p_change_context(
                                                                                             $['implements'],
                                                                                             ($) => v_generic.References(
                                                                                                 $,
@@ -104,13 +108,13 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             }],
                                                                         )
                                                                     case 'Interface':
-                                                                        return _p.ss(
+                                                                        return p_.ss(
                                                                             $,
                                                                             ($) => ['Interface', {
-                                                                                'references': _p_change_context(
+                                                                                'references': p_change_context(
                                                                                     $['references'],
                                                                                     ($) => ({
-                                                                                        'extends': _p_change_context(
+                                                                                        'extends': p_change_context(
                                                                                             $['extends'],
                                                                                             ($) => v_generic.References(
                                                                                                 $,
@@ -121,42 +125,42 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             }],
                                                                         )
                                                                     default:
-                                                                        return _p.au(
+                                                                        return p_.au(
                                                                             $[0],
                                                                         )
                                                                 }
                                                             },
                                                         ),
                                                     ),
-                                                    'containments': _p_change_context(
+                                                    'containments': p_change_context(
                                                         $['containments'],
                                                         ($) => ({
-                                                            'features': _p_change_context(
+                                                            'features': p_change_context(
                                                                 $['features'],
-                                                                ($) => _p.dictionary.from.dictionary(
+                                                                ($) => p_.from.dictionary(
                                                                     $,
                                                                 ).map(
                                                                     ($, id) => ({
-                                                                        'id': _p_change_context(
+                                                                        'id': p_change_context(
                                                                             $['id'],
                                                                             ($) => v_generic.ID(
                                                                                 $,
                                                                             ),
                                                                         ),
-                                                                        'classifier': _p_change_context(
+                                                                        'classifier': p_change_context(
                                                                             $['classifier'],
-                                                                            ($) => _p.decide.state(
+                                                                            ($) => p_decide_state(
                                                                                 $,
                                                                                 ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                     switch ($[0]) {
                                                                                         case 'Property':
-                                                                                            return _p.ss(
+                                                                                            return p_.ss(
                                                                                                 $,
                                                                                                 ($) => ['Property', {
-                                                                                                    'references': _p_change_context(
+                                                                                                    'references': p_change_context(
                                                                                                         $['references'],
                                                                                                         ($) => ({
-                                                                                                            'type': _p_change_context(
+                                                                                                            'type': p_change_context(
                                                                                                                 $['type'],
                                                                                                                 ($) => v_generic.Singular_Reference(
                                                                                                                     $,
@@ -167,46 +171,46 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                                 }],
                                                                                             )
                                                                                         case 'Link':
-                                                                                            return _p.ss(
+                                                                                            return p_.ss(
                                                                                                 $,
                                                                                                 ($) => ['Link', {
-                                                                                                    'classifier': _p_change_context(
+                                                                                                    'classifier': p_change_context(
                                                                                                         $['classifier'],
-                                                                                                        ($) => _p.decide.state(
+                                                                                                        ($) => p_decide_state(
                                                                                                             $,
                                                                                                             ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Containment':
-                                                                                                                        return _p.ss(
+                                                                                                                        return p_.ss(
                                                                                                                             $,
                                                                                                                             ($) => ['Containment', null],
                                                                                                                         )
                                                                                                                     case 'Reference':
-                                                                                                                        return _p.ss(
+                                                                                                                        return p_.ss(
                                                                                                                             $,
                                                                                                                             ($) => ['Reference', null],
                                                                                                                         )
                                                                                                                     default:
-                                                                                                                        return _p.au(
+                                                                                                                        return p_.au(
                                                                                                                             $[0],
                                                                                                                         )
                                                                                                                 }
                                                                                                             },
                                                                                                         ),
                                                                                                     ),
-                                                                                                    'properties': _p_change_context(
+                                                                                                    'properties': p_change_context(
                                                                                                         $['properties'],
                                                                                                         ($) => ({
-                                                                                                            'multiple': _p_change_context(
+                                                                                                            'multiple': p_change_context(
                                                                                                                 $['multiple'],
                                                                                                                 ($) => $,
                                                                                                             ),
                                                                                                         }),
                                                                                                     ),
-                                                                                                    'references': _p_change_context(
+                                                                                                    'references': p_change_context(
                                                                                                         $['references'],
                                                                                                         ($) => ({
-                                                                                                            'type': _p_change_context(
+                                                                                                            'type': p_change_context(
                                                                                                                 $['type'],
                                                                                                                 ($) => v_generic.Singular_Reference(
                                                                                                                     $,
@@ -217,17 +221,17 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                                 }],
                                                                                             )
                                                                                         default:
-                                                                                            return _p.au(
+                                                                                            return p_.au(
                                                                                                 $[0],
                                                                                             )
                                                                                     }
                                                                                 },
                                                                             ),
                                                                         ),
-                                                                        'properties': _p_change_context(
+                                                                        'properties': p_change_context(
                                                                             $['properties'],
                                                                             ($) => ({
-                                                                                'optional': _p_change_context(
+                                                                                'optional': p_change_context(
                                                                                     $['optional'],
                                                                                     ($) => $,
                                                                                 ),
@@ -241,20 +245,20 @@ export const M3: t_signatures.M3 = ($) => ({
                                                 }],
                                             )
                                         case 'Datatype':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
-                                                ($) => ['Datatype', _p.decide.state(
+                                                ($) => ['Datatype', p_decide_state(
                                                     $,
                                                     ($): t_out.M3.containments.entities.D.classifier.Datatype => {
                                                         switch ($[0]) {
                                                             case 'Enumeration':
-                                                                return _p.ss(
+                                                                return p_.ss(
                                                                     $,
-                                                                    ($) => ['Enumeration', _p.dictionary.from.dictionary(
+                                                                    ($) => ['Enumeration', p_.from.dictionary(
                                                                         $,
                                                                     ).map(
                                                                         ($, id) => ({
-                                                                            'id': _p_change_context(
+                                                                            'id': p_change_context(
                                                                                 $['id'],
                                                                                 ($) => v_generic.ID(
                                                                                     $,
@@ -264,7 +268,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                     )],
                                                                 )
                                                             default:
-                                                                return _p.au(
+                                                                return p_.au(
                                                                     $[0],
                                                                 )
                                                         }
@@ -272,7 +276,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                 )],
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }

@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,30 +17,30 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_location from "../../location/transformers/astn_sealed_target"
 
-export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "serializationFormatVersion": _p_change_context(
+        "serializationFormatVersion": p_change_context(
             $['serializationFormatVersion'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "languages": _p_change_context(
+        "languages": p_change_context(
             $['languages'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.literal.dictionary(
+                ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "key": _p_change_context(
+                        "key": p_change_context(
                             $['key'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
                             }],
                         ),
-                        "version": _p_change_context(
+                        "version": p_change_context(
                             $['version'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
@@ -47,29 +51,29 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                 )]],
             )],
         ),
-        "nodes": _p_change_context(
+        "nodes": p_change_context(
             $['nodes'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.literal.dictionary(
+                ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "id": _p_change_context(
+                        "id": p_change_context(
                             $['id'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
                                 'value': $,
                             }],
                         ),
-                        "range": _p_change_context(
+                        "range": p_change_context(
                             $['range'],
                             ($) => v_external_location.Range(
                                 $,
                             ),
                         ),
-                        "parent": _p_change_context(
+                        "parent": p_change_context(
                             $['parent'],
-                            ($) => ['optional', _p.decide.optional(
+                            ($) => ['optional', p_decide_optional(
                                 $,
                                 ($): t_out.Value.optional => ['set', ['text', {
                                     'delimiter': ['quote', null],
@@ -78,26 +82,26 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                                 () => ['not set', null],
                             )],
                         ),
-                        "classifier": _p_change_context(
+                        "classifier": p_change_context(
                             $['classifier'],
                             ($) => Meta_Pointer(
                                 $,
                             ),
                         ),
-                        "properties": _p_change_context(
+                        "properties": p_change_context(
                             $['properties'],
-                            ($) => ['list', _p.list.from.list(
+                            ($) => ['list', p_.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.literal.dictionary(
+                                ($) => ['group', ['verbose', p_.literal.dictionary(
                                     {
-                                        "property": _p_change_context(
+                                        "property": p_change_context(
                                             $['property'],
                                             ($) => Meta_Pointer(
                                                 $,
                                             ),
                                         ),
-                                        "value": _p_change_context(
+                                        "value": p_change_context(
                                             $['value'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
@@ -108,20 +112,20 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                                 )]],
                             )],
                         ),
-                        "references": _p_change_context(
+                        "references": p_change_context(
                             $['references'],
-                            ($) => ['list', _p.list.from.list(
+                            ($) => ['list', p_.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.literal.dictionary(
+                                ($) => ['group', ['verbose', p_.literal.dictionary(
                                     {
-                                        "reference": _p_change_context(
+                                        "reference": p_change_context(
                                             $['reference'],
                                             ($) => Meta_Pointer(
                                                 $,
                                             ),
                                         ),
-                                        "targets": _p_change_context(
+                                        "targets": p_change_context(
                                             $['targets'],
                                             ($) => Targets(
                                                 $,
@@ -131,22 +135,22 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                                 )]],
                             )],
                         ),
-                        "containments": _p_change_context(
+                        "containments": p_change_context(
                             $['containments'],
-                            ($) => ['list', _p.list.from.list(
+                            ($) => ['list', p_.from.list(
                                 $,
                             ).map(
-                                ($) => ['group', ['verbose', _p.literal.dictionary(
+                                ($) => ['group', ['verbose', p_.literal.dictionary(
                                     {
-                                        "containment": _p_change_context(
+                                        "containment": p_change_context(
                                             $['containment'],
                                             ($) => Meta_Pointer(
                                                 $,
                                             ),
                                         ),
-                                        "children": _p_change_context(
+                                        "children": p_change_context(
                                             $['children'],
-                                            ($) => ['list', _p.list.from.list(
+                                            ($) => ['list', p_.from.list(
                                                 $,
                                             ).map(
                                                 ($) => ['text', {
@@ -159,9 +163,9 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
                                 )]],
                             )],
                         ),
-                        "annotations": _p_change_context(
+                        "annotations": p_change_context(
                             $['annotations'],
-                            ($) => ['list', _p.list.from.list(
+                            ($) => ['list', p_.from.list(
                                 $,
                             ).map(
                                 ($) => ['text', {
@@ -177,21 +181,21 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ['gr
     },
 )]]
 
-export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
+export const Targets: t_signatures.Targets = ($) => ['list', p_.from.list(
     $,
 ).map(
-    ($) => ['group', ['verbose', _p.literal.dictionary(
+    ($) => ['group', ['verbose', p_.literal.dictionary(
         {
-            "resolveInfo": _p_change_context(
+            "resolveInfo": p_change_context(
                 $['resolveInfo'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            "reference": _p_change_context(
+            "reference": p_change_context(
                 $['reference'],
-                ($) => ['optional', _p.decide.optional(
+                ($) => ['optional', p_decide_optional(
                     $,
                     ($): t_out.Value.optional => ['set', ['text', {
                         'delimiter': ['quote', null],
@@ -204,23 +208,23 @@ export const Targets: t_signatures.Targets = ($) => ['list', _p.list.from.list(
     )]],
 )]
 
-export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Meta_Pointer: t_signatures.Meta_Pointer = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "language": _p_change_context(
+        "language": p_change_context(
             $['language'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "key": _p_change_context(
+        "key": p_change_context(
             $['key'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "version": _p_change_context(
+        "version": p_change_context(
             $['version'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
