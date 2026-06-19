@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
 import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
 //data types
 import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
