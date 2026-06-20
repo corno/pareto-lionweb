@@ -1,10 +1,10 @@
 #!/usr/bin/env -S node --enable-source-maps
 
-import * as ph from 'pareto-host-nodejs'
+import * as p_h from 'pareto-host-nodejs'
 
 import { $$ as procedure } from "lib/dist/implementation/manual/commands/transform_lionweb_2024_1_language_to_astn"
 
-ph.run_main_command(
+p_h.run_main_command(
     ($r) => {
         return procedure(
             null,
