@@ -50,7 +50,7 @@ export const M3: M3 = ($) => sh.Graph(
                 case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(($) => {
                     switch ($[0]) {
                         case 'Concept': return p_.ss($, ($) => p_.literal.nested_list([
-                            $.references.extends.__decide(
+                            p_.from.optional($.references.extends).decide(
                                 ($) => p_.literal.list([
                                     sh.edge(
                                        "LionWeb.LionCore_M3." +  id,
@@ -60,7 +60,7 @@ export const M3: M3 = ($) => sh.Graph(
                                         ]
                                     )
                                 ]),
-                                // ($) => $.reference.__decide(
+                                // ($) => p_.from.optional($.reference).decide(
                                 //     ($) => p_.literal.list([
                                 //         sh.edge(
                                 //             id,
@@ -86,7 +86,7 @@ export const M3: M3 = ($) => sh.Graph(
                                         ]
                                     )
                                 ]),
-                                // ($) => $.reference.__decide(
+                                // ($) => p_.from.optional($.reference).decide(
                                 //     ($) => p_.literal.list([
                                 //         sh.edge(
                                 //             id,
@@ -112,7 +112,7 @@ export const M3: M3 = ($) => sh.Graph(
                                     ]
                                 )
                             ]),
-                            // ($) => $.reference.__decide(
+                            // ($) => $.reference.__ decide(
                             //     ($) => p_.literal.list([
                             //         sh.edge(
                             //             id,
