@@ -49,7 +49,7 @@ export const M3: M3 = ($) => sh.Graph(
             switch ($[0]) {
                 case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(($) => {
                     switch ($[0]) {
-                        case 'Concept': return p_.ss($, ($) => p_.literal.nested_list([
+                        case 'Concept': return p_.ss($, ($) => p_.literal.segmented_list([
                             p_.from.optional($.references.extends).decide(
                                 ($) => p_.literal.list([
                                     sh.edge(
