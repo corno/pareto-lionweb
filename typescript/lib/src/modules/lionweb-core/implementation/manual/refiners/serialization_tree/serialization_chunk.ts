@@ -40,7 +40,7 @@ export const Serialization_Tree: p_i.Refiner<
             })
         }
         return p_change_context(
-            nodes_without_parent.__deprecated_get_possible_item_at(0).__decide(
+            p_.from.optional(nodes_without_parent.__deprecated_get_possible_item_at(0)).decide(
                 ($): d_in.Serialization_Chunk.nodes.L => $,
                 () => abort({
                     'range': chunk.range,
