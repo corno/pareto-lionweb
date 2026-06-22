@@ -73,8 +73,7 @@ export const Singular_Reference: t_signatures.Singular_Reference = ($) => Raw_Re
     $,
 )
 
-export const References: t_signatures.References = ($) => ['list', p_.from.list(
-    $,
+export const References: t_signatures.References = ($) => ['list', p_.from.list($,
 ).map(
     ($) => Raw_Reference(
         $,

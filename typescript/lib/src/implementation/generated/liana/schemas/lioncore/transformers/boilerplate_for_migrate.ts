@@ -45,8 +45,7 @@ export const M3: t_signatures.M3 = ($) => ({
         ($) => ({
             'entities': p_change_context(
                 $['entities'],
-                ($) => p_.from.dictionary(
-                    $,
+                ($) => p_.from.dictionary($,
                 ).map(
                     ($, id) => ({
                         'id': p_change_context(
@@ -137,8 +136,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                         ($) => ({
                                                             'features': p_change_context(
                                                                 $['features'],
-                                                                ($) => p_.from.dictionary(
-                                                                    $,
+                                                                ($) => p_.from.dictionary($,
                                                                 ).map(
                                                                     ($, id) => ({
                                                                         'id': p_change_context(
@@ -254,8 +252,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                             case 'Enumeration':
                                                                 return p_.ss(
                                                                     $,
-                                                                    ($) => ['Enumeration', p_.from.dictionary(
-                                                                        $,
+                                                                    ($) => ['Enumeration', p_.from.dictionary($,
                                                                     ).map(
                                                                         ($, id) => ({
                                                                             'id': p_change_context(

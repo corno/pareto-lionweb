@@ -20,8 +20,7 @@ export const ID: t_signatures.ID = ($) => ({
     ),
     'source': p_change_context(
         $['source'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => v_location.Range(
                 $,
@@ -37,8 +36,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($) => ({
     ),
     'reference': p_change_context(
         $['reference'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => $,
         ),
@@ -49,16 +47,14 @@ export const Singular_Reference: t_signatures.Singular_Reference = ($) => Raw_Re
     $,
 )
 
-export const References: t_signatures.References = ($) => p_.from.list(
-    $,
+export const References: t_signatures.References = ($) => p_.from.list($,
 ).map(
     ($) => Raw_Reference(
         $,
     ),
 )
 
-export const Optional_Reference: t_signatures.Optional_Reference = ($) => p_.from.optional(
-    $,
+export const Optional_Reference: t_signatures.Optional_Reference = ($) => p_.from.optional($,
 ).map(
     ($) => Raw_Reference(
         $,

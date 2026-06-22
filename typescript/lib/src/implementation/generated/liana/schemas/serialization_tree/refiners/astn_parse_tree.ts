@@ -74,8 +74,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($, abort) =>
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -284,8 +283,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => v_unmarshalled_from_parse_tree.Text(
                                 $,
@@ -317,8 +315,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Dictionary(
@@ -330,8 +327,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                         'subdocument context': p_.literal.not_set(),
                                     },
                                 ),
-                                ($) => p_.from.dictionary(
-                                    $['entries'],
+                                ($) => p_.from.dictionary($['entries'],
                                 ).map(
                                     ($, id) => Node(
                                         $,
@@ -365,8 +361,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => Targets(
                                 $,
@@ -388,8 +383,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -415,8 +409,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
     ),
 )
 
-export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -483,8 +476,7 @@ export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(
                                     'subdocument context': p_.literal.not_set(),
                                 },
                             ),
-                            ($) => p_.from.optional(
-                                v_unmarshalled_from_parse_tree.Optional(
+                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                     $,
                                     ($) => abort(
                                         $,

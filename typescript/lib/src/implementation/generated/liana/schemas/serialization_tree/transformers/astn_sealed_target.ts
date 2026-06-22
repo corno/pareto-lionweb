@@ -28,8 +28,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ['grou
         ),
         "languages": p_change_context(
             $['languages'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
@@ -84,8 +83,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "properties": p_change_context(
             $['properties'],
-            ($) => ['dictionary', p_.from.dictionary(
-                $,
+            ($) => ['dictionary', p_.from.dictionary($,
             ).map(
                 ($, id) => ['text', {
                     'delimiter': ['quote', null],
@@ -95,11 +93,9 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "containments": p_change_context(
             $['containments'],
-            ($) => ['dictionary', p_.from.dictionary(
-                $,
+            ($) => ['dictionary', p_.from.dictionary($,
             ).map(
-                ($, id) => ['dictionary', p_.from.dictionary(
-                    $,
+                ($, id) => ['dictionary', p_.from.dictionary($,
                 ).map(
                     ($, id) => Node(
                         $,
@@ -109,8 +105,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "references": p_change_context(
             $['references'],
-            ($) => ['dictionary', p_.from.dictionary(
-                $,
+            ($) => ['dictionary', p_.from.dictionary($,
             ).map(
                 ($, id) => Targets(
                     $,
@@ -119,8 +114,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "annotations": p_change_context(
             $['annotations'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -131,8 +125,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
     },
 )]]
 
-export const Targets: t_signatures.Targets = ($) => ['list', p_.from.list(
-    $,
+export const Targets: t_signatures.Targets = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['group', ['verbose', p_.literal.dictionary(
         {

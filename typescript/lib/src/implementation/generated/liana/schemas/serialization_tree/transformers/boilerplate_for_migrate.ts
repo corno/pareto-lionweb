@@ -16,8 +16,7 @@ export const Serialization_Tree: t_signatures.Serialization_Tree = ($) => ({
     ),
     'languages': p_change_context(
         $['languages'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => ({
                 'key': p_change_context(
@@ -56,19 +55,16 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'properties': p_change_context(
         $['properties'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => $,
         ),
     ),
     'containments': p_change_context(
         $['containments'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
-            ($, id) => p_.from.dictionary(
-                $,
+            ($, id) => p_.from.dictionary($,
             ).map(
                 ($, id) => Node(
                     $,
@@ -78,8 +74,7 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'references': p_change_context(
         $['references'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => Targets(
                 $,
@@ -88,16 +83,14 @@ export const Node: t_signatures.Node = ($) => ({
     ),
     'annotations': p_change_context(
         $['annotations'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => $,
         ),
     ),
 })
 
-export const Targets: t_signatures.Targets = ($) => p_.from.list(
-    $,
+export const Targets: t_signatures.Targets = ($) => p_.from.list($,
 ).map(
     ($) => ({
         'resolveInfo': p_change_context(
@@ -106,8 +99,7 @@ export const Targets: t_signatures.Targets = ($) => p_.from.list(
         ),
         'reference': p_change_context(
             $['reference'],
-            ($) => p_.from.optional(
-                $,
+            ($) => p_.from.optional($,
             ).map(
                 ($) => $,
             ),

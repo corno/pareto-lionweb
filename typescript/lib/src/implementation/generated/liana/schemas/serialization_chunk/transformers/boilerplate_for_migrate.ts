@@ -17,8 +17,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
     'languages': p_change_context(
         $['languages'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => ({
                 'key': p_change_context(
@@ -34,8 +33,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
     'nodes': p_change_context(
         $['nodes'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => ({
                 'id': p_change_context(
@@ -50,8 +48,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'parent': p_change_context(
                     $['parent'],
-                    ($) => p_.from.optional(
-                        $,
+                    ($) => p_.from.optional($,
                     ).map(
                         ($) => $,
                     ),
@@ -64,8 +61,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'properties': p_change_context(
                     $['properties'],
-                    ($) => p_.from.list(
-                        $,
+                    ($) => p_.from.list($,
                     ).map(
                         ($) => ({
                             'property': p_change_context(
@@ -83,8 +79,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'references': p_change_context(
                     $['references'],
-                    ($) => p_.from.list(
-                        $,
+                    ($) => p_.from.list($,
                     ).map(
                         ($) => ({
                             'reference': p_change_context(
@@ -104,8 +99,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'containments': p_change_context(
                     $['containments'],
-                    ($) => p_.from.list(
-                        $,
+                    ($) => p_.from.list($,
                     ).map(
                         ($) => ({
                             'containment': p_change_context(
@@ -116,8 +110,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                             ),
                             'children': p_change_context(
                                 $['children'],
-                                ($) => p_.from.list(
-                                    $,
+                                ($) => p_.from.list($,
                                 ).map(
                                     ($) => $,
                                 ),
@@ -127,8 +120,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
                 ),
                 'annotations': p_change_context(
                     $['annotations'],
-                    ($) => p_.from.list(
-                        $,
+                    ($) => p_.from.list($,
                     ).map(
                         ($) => $,
                     ),
@@ -138,8 +130,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($) => ({
     ),
 })
 
-export const Targets: t_signatures.Targets = ($) => p_.from.list(
-    $,
+export const Targets: t_signatures.Targets = ($) => p_.from.list($,
 ).map(
     ($) => ({
         'resolveInfo': p_change_context(
@@ -148,8 +139,7 @@ export const Targets: t_signatures.Targets = ($) => p_.from.list(
         ),
         'reference': p_change_context(
             $['reference'],
-            ($) => p_.from.optional(
-                $,
+            ($) => p_.from.optional($,
             ).map(
                 ($) => $,
             ),

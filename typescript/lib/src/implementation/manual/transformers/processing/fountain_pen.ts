@@ -28,10 +28,11 @@ export const Unexpected_Content = (
                 sh.sentence([
                     sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
                     sh.ph.indent(
-                        sh.pg.sentences(p_.from.dictionary($).convert_to_list(($, id) => sh.sentence([
-                            sh.ph.literal("- "),
-                            sh.ph.literal(id),
-                        ]))),
+                        sh.pg.sentences(p_.from.dictionary($).convert_to_list(
+                            ($, id) => sh.sentence([
+                                sh.ph.literal("- "),
+                                sh.ph.literal(id),
+                            ]))),
                     )
                 ])
             ]),
@@ -39,7 +40,8 @@ export const Unexpected_Content = (
             //     sh.sentence([
             //         sh.ph.literal(":"),
             //         sh.ph.indent(
-            //             sh.pg.sentences($.expected.__to_list(($, id) => sh.sentence([
+            //             sh.pg.sentences($.expected.__to_list(
+            // ($, id) => sh.sentence([
             //                 sh.ph.literal("- "),
             //                 sh.ph.literal(id),
             //             ]))),
@@ -52,81 +54,87 @@ export const Unexpected_Content = (
 
 )
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(($) => {
-            switch ($[0]) {
-                case 'tree from chunk': return p_.ss($, ($) => p_.from.state($.type).decide(($) => {
+export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(
+                ($) => {
                     switch ($[0]) {
-                        case 'could not determine root node': return p_.ss($, ($) => sh.ph.literal("could not determine root node"))
-                        case 'node': return p_.ss($, ($) => sh.ph.composed([
-                            p_.from.state($.type).decide(($) => {
+                        case 'tree from chunk': return p_.ss($, ($) => p_.from.state($.type).decide(
+                            ($) => {
                                 switch ($[0]) {
-                                    case 'clashing node IDs': return p_.ss($, ($) => sh.ph.literal("clashing node IDs"))
-                                    case 'clashing child node IDs': return p_.ss($, ($) => sh.ph.literal("clashing child node IDs"))
-                                    case 'clashing property keys': return p_.ss($, ($) => sh.ph.literal("clashing property keys"))
-                                    case 'child node not found': return p_.ss($, ($) => sh.ph.literal("child node not found"))
-                                    case 'clashing containment keys': return p_.ss($, ($) => sh.ph.literal("clashing containment keys"))
-                                    case 'clashing reference keys': return p_.ss($, ($) => sh.ph.literal("clashing reference keys"))
+                                    case 'could not determine root node': return p_.ss($, ($) => sh.ph.literal("could not determine root node"))
+                                    case 'node': return p_.ss($, ($) => sh.ph.composed([
+                                        p_.from.state($.type).decide(
+                                            ($) => {
+                                                switch ($[0]) {
+                                                    case 'clashing node IDs': return p_.ss($, ($) => sh.ph.literal("clashing node IDs"))
+                                                    case 'clashing child node IDs': return p_.ss($, ($) => sh.ph.literal("clashing child node IDs"))
+                                                    case 'clashing property keys': return p_.ss($, ($) => sh.ph.literal("clashing property keys"))
+                                                    case 'child node not found': return p_.ss($, ($) => sh.ph.literal("child node not found"))
+                                                    case 'clashing containment keys': return p_.ss($, ($) => sh.ph.literal("clashing containment keys"))
+                                                    case 'clashing reference keys': return p_.ss($, ($) => sh.ph.literal("clashing reference keys"))
+                                                    default: return p_.au($[0])
+                                                }
+                                            })
+                                    ]))
                                     default: return p_.au($[0])
                                 }
-                            })
-                        ]))
+                            }))
+                        case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.from.state($).decide(
+                            ($) => {
+                                switch ($[0]) {
+                                    case 'deserialize': return p_.ss($, ($) => t_json_from_list_of_characters.Error($))
+                                    case 'unmarshall': return p_.ss($, ($) => t_unmarshall_json.Error($))
+                                    default: return p_.au($[0])
+                                }
+                            }))
                         default: return p_.au($[0])
                     }
                 }))
-                case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.from.state($).decide(($) => {
-                    switch ($[0]) {
-                        case 'deserialize': return p_.ss($, ($) => t_json_from_list_of_characters.Error($))
-                        case 'unmarshall': return p_.ss($, ($) => t_unmarshall_json.Error($))
-                        default: return p_.au($[0])
-                    }
-                }))
-                default: return p_.au($[0])
-            }
-        }))
-        case 'lioncore': return p_.ss($, ($) => {
-            const node = $.node
-            return sh.ph.composed([
-                p_.from.state($.type).decide(($) => {
-                    switch ($[0]) {
-                        case 'missing content': return p_.ss($, ($) => sh.ph.literal("missing content"))
-                        case 'unexpected content': return p_.ss($, ($) => sh.ph.composed([
-                            sh.ph.literal("unexpected content:"),
-                            sh.ph.indent(
-                                sh.pg.composed([
-                                    sh.pg.sentences([
-                                        sh.sentence([
-                                            sh.ph.literal("containments:"),
-                                            Unexpected_Content($.containments, { 'classifier': node.classifier })
-                                        ])
-                                    ]),
+            case 'lioncore': return p_.ss($, ($) => {
+                const node = $.node
+                return sh.ph.composed([
+                    p_.from.state($.type).decide(
+                        ($) => {
+                            switch ($[0]) {
+                                case 'missing content': return p_.ss($, ($) => sh.ph.literal("missing content"))
+                                case 'unexpected content': return p_.ss($, ($) => sh.ph.composed([
+                                    sh.ph.literal("unexpected content:"),
+                                    sh.ph.indent(
+                                        sh.pg.composed([
+                                            sh.pg.sentences([
+                                                sh.sentence([
+                                                    sh.ph.literal("containments:"),
+                                                    Unexpected_Content($.containments, { 'classifier': node.classifier })
+                                                ])
+                                            ]),
 
 
-                                    sh.pg.sentences([
-                                        sh.sentence([
-                                            sh.ph.literal("properties:"),
-                                            Unexpected_Content($.properties, { 'classifier': node.classifier })
+                                            sh.pg.sentences([
+                                                sh.sentence([
+                                                    sh.ph.literal("properties:"),
+                                                    Unexpected_Content($.properties, { 'classifier': node.classifier })
+                                                ])
+                                            ]),
+                                            sh.pg.sentences([
+                                                sh.sentence([
+                                                    sh.ph.literal("references:"),
+                                                    Unexpected_Content($.references, { 'classifier': node.classifier })
+                                                ])
+                                            ]),
                                         ])
-                                    ]),
-                                    sh.pg.sentences([
-                                        sh.sentence([
-                                            sh.ph.literal("references:"),
-                                            Unexpected_Content($.references, { 'classifier': node.classifier })
-                                        ])
-                                    ]),
-                                ])
-                            )
-                        ]))
-                        case 'too many feature elements': return p_.ss($, ($) => sh.ph.literal("too many feature elements"))
-                        case 'missing feature element': return p_.ss($, ($) => sh.ph.literal("missing feature element"))
-                        case 'unknown option': return p_.ss($, ($) => sh.ph.literal("unknown option"))
-                        case 'expected single element': return p_.ss($, ($) => sh.ph.literal("expected single element"))
-                        default: return p_.au($[0])
-                    }
-                })
-            ])
-        })
-        default: return p_.au($[0])
-    }
-})
+                                    )
+                                ]))
+                                case 'too many feature elements': return p_.ss($, ($) => sh.ph.literal("too many feature elements"))
+                                case 'missing feature element': return p_.ss($, ($) => sh.ph.literal("missing feature element"))
+                                case 'unknown option': return p_.ss($, ($) => sh.ph.literal("unknown option"))
+                                case 'expected single element': return p_.ss($, ($) => sh.ph.literal("expected single element"))
+                                default: return p_.au($[0])
+                            }
+                        })
+                ])
+            })
+            default: return p_.au($[0])
+        }
+    })

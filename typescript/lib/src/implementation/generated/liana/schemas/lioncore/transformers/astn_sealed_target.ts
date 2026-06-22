@@ -58,8 +58,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                 {
                     "entities": p_change_context(
                         $['entities'],
-                        ($) => ['dictionary', p_.from.dictionary(
-                            $,
+                        ($) => ['dictionary', p_.from.dictionary($,
                         ).map(
                             ($, id) => ['group', ['verbose', p_.literal.dictionary(
                                 {
@@ -177,8 +176,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                 {
                                                                                     "features": p_change_context(
                                                                                         $['features'],
-                                                                                        ($) => ['dictionary', p_.from.dictionary(
-                                                                                            $,
+                                                                                        ($) => ['dictionary', p_.from.dictionary($,
                                                                                         ).map(
                                                                                             ($, id) => ['group', ['verbose', p_.literal.dictionary(
                                                                                                 {
@@ -333,8 +331,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                     $,
                                                                                     ($) => ({
                                                                                         'option': 'Enumeration',
-                                                                                        'value': ['dictionary', p_.from.dictionary(
-                                                                                            $,
+                                                                                        'value': ['dictionary', p_.from.dictionary($,
                                                                                         ).map(
                                                                                             ($, id) => ['group', ['verbose', p_.literal.dictionary(
                                                                                                 {

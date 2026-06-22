@@ -53,8 +53,7 @@ export const Serialization_Chunk: p_i.Refiner<
                     ).value,
                     abort,
                 ).token.value,
-                'languages': p_.from.list(
-                    r_json_x_from_json.Array(
+                'languages': p_.from.list(r_json_x_from_json.Array(
                         r_json_x_from_json.Property(
                             $,
                             abort,
@@ -150,8 +149,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                     ).value,
                                     abort,
                                 ),
-                                'parent': p_.from.optional(
-                                    r_json_x_from_json.Nullable_Value(
+                                'parent': p_.from.optional(r_json_x_from_json.Nullable_Value(
                                         r_json_x_from_json.Property(
                                             $,
                                             abort,
@@ -166,8 +164,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                         abort,
                                     ).token.value
                                 ),
-                                'properties': p_.from.list(
-                                    r_json_x_from_json.Array(
+                                'properties': p_.from.list(r_json_x_from_json.Array(
                                         r_json_x_from_json.Property(
                                             $,
                                             abort,
@@ -213,8 +210,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                         })
                                     )
                                 ),
-                                'containments': p_.from.list(
-                                    r_json_x_from_json.Array(
+                                'containments': p_.from.list(r_json_x_from_json.Array(
                                         r_json_x_from_json.Property(
                                             $,
                                             abort,
@@ -247,8 +243,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                                 ).value,
                                                 abort,
                                             ),
-                                            'children': p_.from.list(
-                                                r_json_x_from_json.Array(
+                                            'children': p_.from.list(r_json_x_from_json.Array(
                                                     r_json_x_from_json.Property(
                                                         $,
                                                         abort,
@@ -264,8 +259,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                         })
                                     ),
                                 ),
-                                'references': p_.from.list(
-                                    r_json_x_from_json.Array(
+                                'references': p_.from.list(r_json_x_from_json.Array(
                                         r_json_x_from_json.Property(
                                             $,
                                             abort,
@@ -298,8 +292,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                                 ).value,
                                                 abort,
                                             ),
-                                            'targets': p_.from.list(
-                                                r_json_x_from_json.Array(
+                                            'targets': p_.from.list(r_json_x_from_json.Array(
                                                     r_json_x_from_json.Property(
                                                         $,
                                                         abort, {
@@ -331,8 +324,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                                             ).value,
                                                             abort,
                                                         ).token.value,
-                                                        'reference': p_.from.optional(
-                                                            r_json_x_from_json.Nullable_Value(
+                                                        'reference': p_.from.optional(r_json_x_from_json.Nullable_Value(
                                                                 r_json_x_from_json.Property(
                                                                     $,
                                                                     abort,
@@ -350,8 +342,7 @@ export const Serialization_Chunk: p_i.Refiner<
                                         })
                                     ),
                                 ),
-                                'annotations': p_.from.list(
-                                    r_json_x_from_json.Array(
+                                'annotations': p_.from.list(r_json_x_from_json.Array(
                                         r_json_x_from_json.Property(
                                             $,
                                             abort,

@@ -36,39 +36,46 @@ export const Meta_Pointer: interface_.Meta_Pointer = ($) => sh.v.object({
 
 export const Serialization_Chunk: interface_.Serialization_Chunk = ($) => sh.v.object({
     "serializationFormatVersion": sh.v.string($.serializationFormatVersion),
-    "languages": sh.v.array(p_.from.list($.languages).map(($) => sh.v.object({
-        "key": sh.v.string($.key),
-        "version": sh.v.string($.version),
-    }))),
-    "nodes": sh.v.array(p_.from.list($.nodes).map(($) => sh.v.object({
-        "id": sh.v.string($.id),
-        "parent": p_.from.optional($.parent).decide(
+    "languages": sh.v.array(p_.from.list($.languages).map(
+        ($) => sh.v.object({
+            "key": sh.v.string($.key),
+            "version": sh.v.string($.version),
+        }))),
+    "nodes": sh.v.array(p_.from.list($.nodes).map(
+        ($) => sh.v.object({
+            "id": sh.v.string($.id),
+            "parent": p_.from.optional($.parent).decide(
+                ($) => sh.v.string($),
+                () => sh.v.null_()
+            ),
+            "annotations": sh.v.array(p_.from.list($.annotations).map(
+                ($) => sh.v.string($))),
+            "classifier": Meta_Pointer($['classifier']),
+            "containments": sh.v.array(p_.from.list($.containments).map(
+                ($) => sh.v.object({
+                    "containment": Meta_Pointer($.containment),
+                    "children": sh.v.array(p_.from.list($.children).map(
+                        ($) => sh.v.string($))),
+                }))),
+            "properties": sh.v.array(p_.from.list($.properties).map(
+                ($) => sh.v.object({
+                    "value": sh.v.string($.value),
+                    "property": Meta_Pointer($.property),
+                }))),
+            "references": sh.v.array(p_.from.list($.references).map(
+                ($) => sh.v.object({
+                    "targets": Targets($.targets),
+                    "reference": Meta_Pointer($.reference),
+                }))),
+        }))),
+})
+
+export const Targets: interface_.Targets = ($) => sh.v.array(p_.from.list($).map(
+    ($) => sh.v.object({
+        "reference": p_.from.optional($.reference,
+        ).decide(
             ($) => sh.v.string($),
             () => sh.v.null_()
         ),
-        "annotations": sh.v.array(p_.from.list($.annotations).map(($) => sh.v.string($))),
-        "classifier": Meta_Pointer($['classifier']),
-        "containments": sh.v.array(p_.from.list($.containments).map(($) => sh.v.object({
-            "containment": Meta_Pointer($.containment),
-            "children": sh.v.array(p_.from.list($.children).map(($) => sh.v.string($))),
-        }))),
-        "properties": sh.v.array(p_.from.list($.properties).map(($) => sh.v.object({
-            "value": sh.v.string($.value),
-            "property": Meta_Pointer($.property),
-        }))),
-        "references": sh.v.array(p_.from.list($.references).map(($) => sh.v.object({
-            "targets": Targets($.targets),
-            "reference": Meta_Pointer($.reference),
-        }))),
-    }))),
-})
-
-export const Targets: interface_.Targets = ($) => sh.v.array(p_.from.list($).map(($) => sh.v.object({
-    "reference": p_.from.optional(
-        $.reference,
-    ).decide(
-        ($) => sh.v.string($),
-        () => sh.v.null_()
-    ),
-    "resolveInfo": sh.v.string($.resolveInfo),
-})))
+        "resolveInfo": sh.v.string($.resolveInfo),
+    })))

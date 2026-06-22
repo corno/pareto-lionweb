@@ -71,8 +71,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -161,8 +160,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -250,8 +248,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                         'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => p_.from.optional(
-                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -295,8 +292,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                         'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => p_.from.list(
-                                                    v_unmarshalled_from_parse_tree.List(
+                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -385,8 +381,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                         'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => p_.from.list(
-                                                    v_unmarshalled_from_parse_tree.List(
+                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -475,8 +470,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                         'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => p_.from.list(
-                                                    v_unmarshalled_from_parse_tree.List(
+                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -540,8 +534,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                                                     'subdocument context': p_.literal.not_set(),
                                                                                 },
                                                                             ),
-                                                                            ($) => p_.from.list(
-                                                                                v_unmarshalled_from_parse_tree.List(
+                                                                            ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                                                     $,
                                                                                     ($) => abort(
                                                                                         $,
@@ -580,8 +573,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
                                                         'subdocument context': p_.literal.not_set(),
                                                     },
                                                 ),
-                                                ($) => p_.from.list(
-                                                    v_unmarshalled_from_parse_tree.List(
+                                                ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -614,8 +606,7 @@ export const Serialization_Chunk: t_signatures.Serialization_Chunk = ($, abort) 
     ),
 )
 
-export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -679,8 +670,7 @@ export const Targets: t_signatures.Targets = ($, abort) => p_.from.list(
                                     'subdocument context': p_.literal.not_set(),
                                 },
                             ),
-                            ($) => p_.from.optional(
-                                v_unmarshalled_from_parse_tree.Optional(
+                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                     $,
                                     ($) => abort(
                                         $,

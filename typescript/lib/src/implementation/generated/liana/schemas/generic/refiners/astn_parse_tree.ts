@@ -91,8 +91,7 @@ export const ID: t_signatures.ID = ($, abort) => p_change_context(
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.optional(
-                        v_unmarshalled_from_parse_tree.Optional(
+                    ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                             $,
                             ($) => abort(
                                 $,
@@ -167,8 +166,7 @@ export const Raw_Reference: t_signatures.Raw_Reference = ($, abort) => p_change_
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.optional(
-                        v_unmarshalled_from_parse_tree.Optional(
+                    ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                             $,
                             ($) => abort(
                                 $,
@@ -195,8 +193,7 @@ export const Singular_Reference: t_signatures.Singular_Reference = ($, abort) =>
     ),
 )
 
-export const References: t_signatures.References = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const References: t_signatures.References = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -217,8 +214,7 @@ export const References: t_signatures.References = ($, abort) => p_.from.list(
     ),
 )
 
-export const Optional_Reference: t_signatures.Optional_Reference = ($, abort) => p_.from.optional(
-    v_unmarshalled_from_parse_tree.Optional(
+export const Optional_Reference: t_signatures.Optional_Reference = ($, abort) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
         $,
         ($) => abort(
             $,
