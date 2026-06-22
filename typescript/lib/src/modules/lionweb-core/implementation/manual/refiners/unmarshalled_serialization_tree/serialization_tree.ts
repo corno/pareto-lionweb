@@ -78,13 +78,11 @@ export type Multiple_References = p_i.Refiner_With_Parameter<
 //implementations
 
 export const Multiple_Containments: Multiple_Containments = ($, abort, $p) => {
-    const node = $
-    return p_.select.entry(
-        $.containments,
+    return p_.from.dictionary($.containments).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort({
-                'node': node,
+            no_such_entry: () => abort({
+                'node': $,
                 'type': ['missing content', {
                     'type': ['containment', null],
                     'id': $p.id
@@ -95,13 +93,11 @@ export const Multiple_Containments: Multiple_Containments = ($, abort, $p) => {
 }
 
 export const Property: Property = ($, abort, $p) => {
-    const node = $
-    return p_.select.entry(
-        $.properties,
+    return p_.from.dictionary($.properties).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort({
-                'node': node,
+            no_such_entry: () => abort({
+                'node': $,
                 'type': ['missing content', {
                     'type': ['property', null],
                     'id': $p.id
@@ -113,20 +109,17 @@ export const Property: Property = ($, abort, $p) => {
 
 export const Optional_Property: Optional_Property = ($, abort, $p) => {
     const node = $
-    return p_temp.select.possible_entry( //implement in pareto-core
-        $.properties,
+    return p_.from.dictionary($.properties).get_possible_entry( //implement in pareto-core
         $p.id,
     )
 }
 
 export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
-    const node = $
-    const result = p_.select.entry(
-        $.references,
+    const result = p_.from.dictionary($.references).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort({
-                'node': node,
+            no_such_entry: () => abort({
+                'node': $,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id
@@ -136,7 +129,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
     )
     return  p_temp.from.list(result).amount_of_items() > 1
         ? abort({
-            'node': node,
+            'node': $,
             'type': ['too many feature elements', null]
         })
         : result.__deprecated_get_possible_item_at(
@@ -146,13 +139,11 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
 }
 
 export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
-    const node = $
-    const result = p_.select.entry(
-        $.references,
+    const result = p_.from.dictionary($.references).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort({
-                'node': node,
+            no_such_entry: () => abort({
+                'node': $,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id
@@ -162,14 +153,14 @@ export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
     )
     return  p_temp.from.list(result).amount_of_items() > 1
         ? abort({
-            'node': node,
+            'node': $,
             'type': ['too many feature elements', null]
         })
         : result.__deprecated_get_item_at(
             0,
             {
-                out_of_bounds: ($) => abort({
-                    'node': node,
+                out_of_bounds: () => abort({
+                    'node': $,
                     'type': ['missing feature element', null]
                 })
             }
@@ -178,13 +169,11 @@ export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
 }
 
 export const Multiple_References: Multiple_References = ($, abort, $p) => {
-    const node = $
-    return p_.select.entry(
-        $.references,
+    return p_.from.dictionary($.references).get_entry(
         $p.id,
         {
-            no_such_entry: ($) => abort({
-                'node': node,
+            no_such_entry: () => abort({
+                'node': $,
                 'type': ['missing content', {
                     'type': ['reference', null],
                     'id': $p.id

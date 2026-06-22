@@ -159,13 +159,13 @@ export const M3: p_i.Refiner_With_Parameter<
                                             'write source': $p['write source']
                                         }
                                     ),
-                                    'classifier': p_.from.text($.classifier).state($, ($, text): d_out.M3.containments.entities.D.classifier => {
+                                    'classifier': p_.from.text($.classifier).to_state($, ($, text): d_out.M3.containments.entities.D.classifier => {
                                         switch (text) {
                                             case "LionCore-M3:2024.1:Concept":
                                             case "LionCore-M3:2024.1:Interface":
                                                 {
                                                     return ['Classifier', {
-                                                        'classifier': p_.from.text($.classifier).state($, ($, text): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                        'classifier': p_.from.text($.classifier).to_state($, ($, text): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                             switch (text) {
                                                                 case "LionCore-M3:2024.1:Concept": {
                                                                     return ['Concept', {
