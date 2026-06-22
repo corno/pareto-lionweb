@@ -281,7 +281,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                             }
                                                                         ),
                                                                         'classifier': p_temp.from.optional(
-                                                                            p_temp.from.dictionary($.references).get_possible_entry(
+                                                                            p_.from.dictionary($.references).get_possible_entry(
                                                                                 "LionCore-M3:2024.1:Link-type",
                                                                             )
                                                                         ).decide(
