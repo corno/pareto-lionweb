@@ -18,7 +18,7 @@ export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Paramet
 
 export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpected_Content = ($, $p) => {
 
-    const unexpected_containments = p_.from.dictionary(
+    const $p_unexpected_containments = p_.from.dictionary(
         p_.from.dictionary(
             $.containments,
         ).join(
@@ -33,7 +33,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     ).map_optionally(
         ($) => $
     )
-    const unexpected_properties = p_.from.dictionary(
+    const $p_unexpected_properties = p_.from.dictionary(
         p_.from.dictionary(
             $.properties,
         ).join(
@@ -48,7 +48,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     ).map_optionally(
         ($) => $
     )
-    const unexpected_references = p_.from.dictionary(
+    const $p_unexpected_references = p_.from.dictionary(
         p_.from.dictionary(
             $.references,
         ).join(
@@ -65,26 +65,26 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     )
 
     if (
-        p_.from.dictionary(unexpected_containments).amount_of_entries() === 0
+        p_.from.dictionary($p_unexpected_containments).amount_of_entries() === 0
         &&
-        p_.from.dictionary(unexpected_properties).amount_of_entries() === 0
+        p_.from.dictionary($p_unexpected_properties).amount_of_entries() === 0
         &&
-        p_.from.dictionary(unexpected_references).amount_of_entries() === 0
+        p_.from.dictionary($p_unexpected_references).amount_of_entries() === 0
     ) {
         return p_.literal.not_set()
     }
     return p_.literal.set<d_out.Error>({
         'type': ['unexpected content', {
             'containments': {
-                'unexpected': unexpected_containments,
+                'unexpected': $p_unexpected_containments,
                 'expected': $p['expected containments'],
             },
             'properties': {
-                'unexpected': unexpected_properties,
+                'unexpected': $p_unexpected_properties,
                 'expected': $p['expected properties'],
             },
             'references': {
-                'unexpected': unexpected_references,
+                'unexpected': $p_unexpected_references,
                 'expected': $p['expected references'],
             },
         }],
