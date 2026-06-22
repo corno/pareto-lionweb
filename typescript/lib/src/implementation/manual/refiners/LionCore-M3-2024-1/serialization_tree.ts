@@ -90,13 +90,15 @@ export const M3: p_i.Refiner_With_Parameter<
                     ),
                 },
                 'references': {
-                    'dependencies': r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
-                        $['node tree'],
-                        abort,
-                        {
-                            'id': "LionCore-M3:2024.1:Language-dependsOn",
-                        },
-                    ).__l_map_deprecated(($) => ({
+                    'dependencies': p_.from.list(
+                        r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_References(
+                            $['node tree'],
+                            abort,
+                            {
+                                'id': "LionCore-M3:2024.1:Language-dependsOn",
+                            },
+                        )
+                    ).map(($) => ({
                         'resolveInfo': $.resolveInfo,
                         'reference': $.reference
                     })),
@@ -279,7 +281,7 @@ export const M3: p_i.Refiner_With_Parameter<
                                                                             }
                                                                         ),
                                                                         'classifier': p_temp.from.optional(
-                                                                            $.references.__get_possible_entry_deprecated(
+                                                                            p_temp.from.dictionary($.references).get_possible_entry(
                                                                                 "LionCore-M3:2024.1:Link-type",
                                                                             )
                                                                         ).decide(

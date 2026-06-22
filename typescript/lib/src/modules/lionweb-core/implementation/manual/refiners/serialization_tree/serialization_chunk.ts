@@ -115,7 +115,7 @@ const Node: p_i.Refiner_With_Parameter<
                 ).convert_to_dictionary(
                     ($) => $,
                     ($) => Node(
-                        $p.nodes.__get_entry_deprecated(
+                        p_.from.dictionary($p.nodes).get_entry(
                             $,
                             {
                                 no_such_entry: () => abort({
