@@ -22,10 +22,8 @@ export const Serialization_Tree: p_i.Refiner<
     abort
 ) => {
         const chunk = $
-        const nodes_without_parent = p_temp.from.list($.nodes,
-        ).map_optionally(
-            ($) => p_temp.from.optional($.parent,
-            ).decide(
+        const nodes_without_parent = p_temp.from.list($.nodes).map_optionally(
+            ($) => p_temp.from.optional($.parent).decide(
                 () => p_.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
                 () => p_.literal.set($)
             )
@@ -53,8 +51,7 @@ export const Serialization_Tree: p_i.Refiner<
                     $,
                     abort,
                     {
-                        'nodes': p_.from.list(chunk.nodes,
-                        ).convert_to_dictionary(
+                        'nodes': p_.from.list(chunk.nodes).convert_to_dictionary(
                             ($) => $.id,
                             ($) => $,
                             {
@@ -88,8 +85,7 @@ const Node: p_i.Refiner_With_Parameter<
         return {
             'range': $.range,
             'classifier': Meta_Pointer($.classifier),
-            'properties': p_.from.list($.properties,
-            ).convert_to_dictionary(
+            'properties': p_.from.list($.properties).convert_to_dictionary(
                 ($) => Meta_Pointer($.property),
                 ($) => $.value,
                 {
@@ -102,11 +98,9 @@ const Node: p_i.Refiner_With_Parameter<
                     })
                 },
             ),
-            'containments': p_.from.list($.containments,
-            ).convert_to_dictionary(
+            'containments': p_.from.list($.containments).convert_to_dictionary(
                 ($) => Meta_Pointer($.containment),
-                ($) => p_.from.list($.children,
-                ).convert_to_dictionary(
+                ($) => p_.from.list($.children).convert_to_dictionary(
                     ($) => $,
                     ($) => Node(
                         p_.from.dictionary($p.nodes).get_entry(
@@ -147,8 +141,7 @@ const Node: p_i.Refiner_With_Parameter<
                     })
                 },
             ),
-            'references': p_.from.list($.references,
-            ).convert_to_dictionary(
+            'references': p_.from.list($.references).convert_to_dictionary(
                 ($) => Meta_Pointer($.reference),
                 ($) => $.targets,
                 {

@@ -72,8 +72,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($) => sh.v.o
 
 export const Targets: interface_.Targets = ($) => sh.v.array(p_.from.list($).map(
     ($) => sh.v.object({
-        "reference": p_.from.optional($.reference,
-        ).decide(
+        "reference": p_.from.optional($.reference).decide(
             ($) => sh.v.string($),
             () => sh.v.null_()
         ),

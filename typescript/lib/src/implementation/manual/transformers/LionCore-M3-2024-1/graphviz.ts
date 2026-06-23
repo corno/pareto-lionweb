@@ -14,10 +14,12 @@ export type M3 = p_i.Transformer<d_in.M3, d_out.Graph>
 
 export const M3: M3 = ($) => sh.Graph(
     [],
-    p_.from.dictionary(p_.from.dictionary($.containments.entities).map(
+    p_.from.dictionary(
+p_.from.dictionary($.containments.entities).map(
         ($, id) => sh.node([
             ['label', id],
-            ['shape', p_.from.state($.classifier).decide(($): d_out_attributes.Attributes.L.shape => {
+            ['shape', p_.from.state($.classifier).decide(
+                ($): d_out_attributes.Attributes.L.shape => {
                 switch ($[0]) {
                     case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(
                         ($) => {
@@ -44,8 +46,7 @@ export const M3: M3 = ($) => sh.Graph(
             duplicate_id: () => p_unreachable_code_path("id's should be unique")
         }
     ),
-    p_.from.dictionary($.containments.entities
-    ).flatten_to_list(
+    p_.from.dictionary($.containments.entities).flatten_to_list(
         ($, id) => p_.from.state($.classifier).decide(
             ($): d_out.Graph.edges => {
                 switch ($[0]) {
@@ -77,8 +78,7 @@ export const M3: M3 = ($) => sh.Graph(
                                         // ),
                                         () => p_.literal.list([])
                                     ),
-                                    p_.from.list($.references.implements
-                                    ).flatten(
+                                    p_.from.list($.references.implements).flatten(
                                         ($) => p_.literal.list([
                                             sh.edge(
                                                 "LionWeb.LionCore_M3." + id,
@@ -102,8 +102,7 @@ export const M3: M3 = ($) => sh.Graph(
                                         // )
                                     )
                                 ]))
-                                case 'Interface': return p_.ss($, ($) => p_.from.list($.references.extends
-                                ).flatten(
+                                case 'Interface': return p_.ss($, ($) => p_.from.list($.references.extends).flatten(
                                     ($) => p_.literal.list([
                                         sh.edge(
                                             "LionWeb.LionCore_M3." + id,

@@ -18,11 +18,10 @@ export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Paramet
 
 export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpected_Content = ($, $p) => {
 
-    const $p_unexpected_containments = p_.from.dictionary(p_.from.dictionary($.containments,
-        ).join(
+    const $p_unexpected_containments = p_.from.dictionary(
+        p_.from.dictionary($.containments).join(
             $p['expected containments'],
-            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other,
-            ).decide(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other).decide(
                 ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
@@ -30,11 +29,10 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     ).map_optionally(
         ($) => $
     )
-    const $p_unexpected_properties = p_.from.dictionary(p_.from.dictionary($.properties,
-        ).join(
+    const $p_unexpected_properties = p_.from.dictionary(
+        p_.from.dictionary($.properties).join(
             $p['expected properties'],
-            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other,
-            ).decide(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other).decide(
                 ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
@@ -42,11 +40,10 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     ).map_optionally(
         ($) => $
     )
-    const $p_unexpected_references = p_.from.dictionary(p_.from.dictionary($.references,
-        ).join(
+    const $p_unexpected_references = p_.from.dictionary(
+        p_.from.dictionary($.references).join(
             $p['expected references'],
-            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other,
-            ).decide(
+            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other).decide(
                 ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )
