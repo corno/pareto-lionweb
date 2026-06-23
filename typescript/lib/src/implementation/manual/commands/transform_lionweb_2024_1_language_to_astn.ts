@@ -66,7 +66,8 @@ export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn =
                     )).refine(
                         ($, abort) => r_2024_1(
                             $,
-                            ($) => abort(sh.ph.composed([
+                            ($) => abort(
+sh.ph.composed([
                                 sh.ph.literal("error during processing: "),
                                 sh.ph.literal(t_path_to_text.Node_Path(
                                     t_path_to_path.create_node_path(
