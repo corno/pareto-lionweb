@@ -12,7 +12,7 @@ import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/trans
 import * as t_json_from_list_of_characters from "pareto-json/dist/implementation/manual/transformers/json_from_list_of_characters/fountain_pen"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 
 

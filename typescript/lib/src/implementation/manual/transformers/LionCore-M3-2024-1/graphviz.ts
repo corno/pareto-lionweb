@@ -8,40 +8,42 @@ import * as d_out from "pareto-graphviz/dist/interface/generated/liana/schemas/h
 import * as d_out_attributes from "pareto-graphviz/dist/interface/generated/liana/schemas/attributes/data"
 
 //shorthands
-import * as sh from "pareto-graphviz/dist/shorthands/high_level_simple"
+import * as sh from "pareto-graphviz/dist/shorthands/high_level_simple/target"
 
 export type M3 = p_i.Transformer<
-d_in.M3, d_out.Graph
+    d_in.M3, d_out.Graph
 >
 
 export const M3: M3 = ($) => sh.Graph(
-    [],
+    p_.literal.list([]),
     p_.from.dictionary(
-p_.from.dictionary($.containments.entities).map(
-        ($, id) => sh.node([
-            ['label', id],
-            ['shape', p_.from.state($.classifier).decide(
-                ($): d_out_attributes.Attributes.L.shape => {
-                switch ($[0]) {
-                    case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(
-                        ($) => {
+        p_.from.dictionary($.containments.entities).map(
+            ($, id) => sh.node(
+                p_.literal.list([
+                    ['label', id],
+                    ['shape', p_.from.state($.classifier).decide(
+                        ($): d_out_attributes.Attributes.L.shape => {
                             switch ($[0]) {
-                                case 'Concept': return p_.ss($, ($) => ['pentagon', null])
-                                case 'Interface': return p_.ss($, ($) => ['ellipse', null])
+                                case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'Concept': return p_.ss($, ($) => ['pentagon', null])
+                                            case 'Interface': return p_.ss($, ($) => ['ellipse', null])
+                                            default: return p_.au($[0])
+                                        }
+                                    }))
+                                case 'Datatype': return p_.ss($, ($) => p_.from.state($).decide(
+                                    ($) => {
+                                        switch ($[0]) {
+                                            case 'Enumeration': return p_.ss($, ($) => ['diamond', null])
+                                            default: return p_.au($[0])
+                                        }
+                                    }))
                                 default: return p_.au($[0])
                             }
-                        }))
-                    case 'Datatype': return p_.ss($, ($) => p_.from.state($).decide(
-                        ($) => {
-                            switch ($[0]) {
-                                case 'Enumeration': return p_.ss($, ($) => ['diamond', null])
-                                default: return p_.au($[0])
-                            }
-                        }))
-                    default: return p_.au($[0])
-                }
-            })]
-        ]))
+                        })]
+                ])
+            ))
     ).re_id(
         ($, id): string => "LionWeb.LionCore_M3." + id,
         {
@@ -61,9 +63,9 @@ p_.from.dictionary($.containments.entities).map(
                                             sh.edge(
                                                 "LionWeb.LionCore_M3." + id,
                                                 $.resolveInfo,
-                                                [
+                                                p_.literal.list([
                                                     ['style', ['dashed', null]],
-                                                ]
+                                                ])
                                             )
                                         ]),
                                         // ($) => p_.from.optional($.reference).decide(
@@ -85,9 +87,9 @@ p_.from.dictionary($.containments.entities).map(
                                             sh.edge(
                                                 "LionWeb.LionCore_M3." + id,
                                                 $.resolveInfo,
-                                                [
+                                                p_.literal.list([
                                                     ['style', ['dotted', null]],
-                                                ]
+                                                ])
                                             )
                                         ]),
                                         // ($) => p_.from.optional($.reference).decide(
@@ -109,9 +111,9 @@ p_.from.dictionary($.containments.entities).map(
                                         sh.edge(
                                             "LionWeb.LionCore_M3." + id,
                                             $.resolveInfo,
-                                            [
+                                            p_.literal.list([
                                                 ['style', ['solid', null]],
-                                            ]
+                                            ])
                                         )
                                     ]),
                                     // ($) => $.reference.__ decide(

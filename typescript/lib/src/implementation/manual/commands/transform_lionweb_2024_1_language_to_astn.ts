@@ -49,7 +49,7 @@ import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementati
 import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn = p_.command_procedure(
     ($d, $s, $q, $c) => [
