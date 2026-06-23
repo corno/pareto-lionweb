@@ -1,9 +1,9 @@
 
 import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
-const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
-const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
+const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>, assign: ($: OV) => B, otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
+const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
@@ -83,9 +83,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "properties": p_change_context(
             $['properties'],
-            ($) => ['dictionary', p_.from.dictionary($,
-            ).map(
-                ($, id) => ['text', {
+            ($) => ['dictionary', p_.from.dictionary($).map(
+                ($, id): t_out.Value => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
@@ -93,10 +92,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "containments": p_change_context(
             $['containments'],
-            ($) => ['dictionary', p_.from.dictionary($,
-            ).map(
-                ($, id) => ['dictionary', p_.from.dictionary($,
-                ).map(
+            ($) => ['dictionary', p_.from.dictionary($,).map(
+                ($, id): t_out.Value => ['dictionary', p_.from.dictionary($).map(
                     ($, id) => Node(
                         $,
                     ),
@@ -105,8 +102,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
         ),
         "references": p_change_context(
             $['references'],
-            ($) => ['dictionary', p_.from.dictionary($,
-            ).map(
+            ($) => ['dictionary', p_.from.dictionary($).map(
                 ($, id) => Targets(
                     $,
                 ),

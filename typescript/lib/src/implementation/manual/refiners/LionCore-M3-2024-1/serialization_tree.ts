@@ -104,28 +104,30 @@ export const M3: p_i.Refiner_With_Parameter<
                         })),
                 },
                 'containments': {
-                    'entities': p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
-                        $['node tree'],
-                        abort,
-                        {
-                            'id': "LionCore-M3:2024.1:Language-entities",
-                        }
-                    )
-                    ).re_id(
-                        ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
-                            $,
+                    'entities': p_temp.from.dictionary(
+                        p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                            $['node tree'],
                             abort,
                             {
-                                'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                                'id': "LionCore-M3:2024.1:Language-entities",
                             }
-                        ),
-                        {
-                            duplicate_id: ($, id) => abort({
-                                'node': $,
-                                'type': ['expected single element', id]
-                            })
-                        },
-                    ).__d_map_deprecated(
+                        )
+                        ).re_id(
+                            ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                $,
+                                abort,
+                                {
+                                    'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                                }
+                            ),
+                            {
+                                duplicate_id: ($, id) => abort({
+                                    'node': $,
+                                    'type': ['expected single element', id]
+                                })
+                            },
+                        )
+                    ).map(
                         ($, id) => {
                             return p_assert(
                                 abort,
@@ -225,28 +227,30 @@ export const M3: p_i.Refiner_With_Parameter<
                                                             }
                                                         }),
                                                         'containments': {
-                                                            'features': p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
-                                                                $,
-                                                                abort,
-                                                                {
-                                                                    'id': "LionCore-M3:2024.1:Classifier-features",
-                                                                }
-                                                            )
-                                                            ).re_id(
-                                                                ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                            'features': p_temp.from.dictionary(
+                                                                p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                                     $,
                                                                     abort,
                                                                     {
-                                                                        'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                                                                        'id': "LionCore-M3:2024.1:Classifier-features",
                                                                     }
-                                                                ),
-                                                                {
-                                                                    duplicate_id: ($, id) => abort({
-                                                                        'node': $,
-                                                                        'type': ['expected single element', id]
-                                                                    })
-                                                                },
-                                                            ).__d_map_deprecated(
+                                                                )
+                                                                ).re_id(
+                                                                    ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                                        $,
+                                                                        abort,
+                                                                        {
+                                                                            'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
+                                                                        }
+                                                                    ),
+                                                                    {
+                                                                        duplicate_id: ($, id) => abort({
+                                                                            'node': $,
+                                                                            'type': ['expected single element', id]
+                                                                        })
+                                                                    },
+                                                                )
+                                                            ).map(
                                                                 ($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
                                                                     const node = $
 
@@ -347,28 +351,29 @@ export const M3: p_i.Refiner_With_Parameter<
                                                         },
                                                     }]
                                                 }
-                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
-                                                $,
-                                                abort,
-                                                {
-                                                    'id': "LionCore-M3:2024.1:Enumeration-literals"
-                                                }
-                                            )
-                                            ).re_id(
-                                                ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                            case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.from.dictionary(
+                                                p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                     $,
                                                     abort,
                                                     {
-                                                        'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name"
+                                                        'id': "LionCore-M3:2024.1:Enumeration-literals"
                                                     }
-                                                ),
-                                                {
-                                                    'duplicate_id': ($, id) => abort({
-                                                        'node': $,
-                                                        'type': ['expected single element', id]
-                                                    })
-                                                }
-                                            ).__d_map_deprecated(
+                                                )).re_id(
+                                                    ($, id) => r_unmarshalled_serialization_tree_from_serialization_tree.Property(
+                                                        $,
+                                                        abort,
+                                                        {
+                                                            'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name"
+                                                        }
+                                                    ),
+                                                    {
+                                                        'duplicate_id': ($, id) => abort({
+                                                            'node': $,
+                                                            'type': ['expected single element', id]
+                                                        })
+                                                    }
+                                                )
+                                            ).map(
                                                 ($, id) => {
                                                     return p_assert(
                                                         abort,
