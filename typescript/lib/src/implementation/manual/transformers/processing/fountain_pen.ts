@@ -54,7 +54,9 @@ export const Unexpected_Content = (
 
 )
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Phrase> = ($) => p_.from.state($).decide(
+export const Error: p_i.Transformer<
+d_in.Error, d_out.Phrase
+> = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(

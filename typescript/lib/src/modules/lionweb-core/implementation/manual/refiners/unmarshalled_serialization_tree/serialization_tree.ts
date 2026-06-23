@@ -127,7 +127,7 @@ export const Optional_Reference: Optional_Reference = ($, abort, $p) => {
             })
         }
     )
-    return  p_temp.from.list(result).amount_of_items() > 1
+    return p_temp.from.list(result).amount_of_items() > 1
         ? abort({
             'node': $,
             'type': ['too many feature elements', null]
@@ -151,20 +151,17 @@ export const Singular_Reference: Singular_Reference = ($, abort, $p) => {
             })
         }
     )
-    return  p_temp.from.list(result).amount_of_items() > 1
-        ? abort({
+    return p_temp.from.list(result).on_has_single_item(
+        ($) => $,
+        () => abort({
             'node': $,
             'type': ['too many feature elements', null]
+        }),
+        () => abort({
+            'node': $,
+            'type': ['missing feature element', null]
         })
-        : result.__deprecated_get_item_at(
-            0,
-            {
-                out_of_bounds: () => abort({
-                    'node': $,
-                    'type': ['missing feature element', null]
-                })
-            }
-        )
+    )
 
 }
 

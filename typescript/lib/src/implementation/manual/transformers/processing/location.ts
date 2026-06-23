@@ -9,7 +9,9 @@ import * as d_out from "astn-core/dist/interface/generated/liana/schemas/locatio
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/deserialize_parse_tree/location"
 
-export const Error: p_i.Transformer<d_in.Error, d_out.Possible_Range> = ($) => p_.from.state($).decide(
+export const Error: p_i.Transformer<
+d_in.Error, d_out.Possible_Range
+> = ($) => p_.from.state($).decide(
     ($): d_out.Possible_Range => {
         switch ($[0]) {
             case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(
