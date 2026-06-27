@@ -25,7 +25,7 @@ namespace interface_ {
 }
 
 //shorthands
-import * as sh from "pareto-json/dist/shorthands/json_with_guaranteed_unique_keys"
+import * as sh from "pareto-json/dist/shorthands/json_with_guaranteed_unique_keys/target"
 
 
 export const Meta_Pointer: interface_.Meta_Pointer = ($) => sh.v.object(
