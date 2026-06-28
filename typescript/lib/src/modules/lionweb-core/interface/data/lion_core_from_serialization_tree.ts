@@ -1,6 +1,5 @@
 import * as p_ from 'pareto-core/dist/interface/data'
 
-import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
 import * as d_serialization_tree from "../../../../interface/generated/liana/schemas/serialization_tree/data"
 
 export type Error = {

@@ -36,18 +36,6 @@ export const Unexpected_Content = (
                     )
                 ])
             ]),
-            // sh.pg.sentences([
-            //     sh.sentence([
-            //         sh.ph.literal(":"),
-            //         sh.ph.indent(
-            //             sh.pg.sentences($.expected.__to_list(
-            // ($, id) => sh.sentence([
-            //                 sh.ph.literal("- "),
-            //                 sh.ph.literal(id),
-            //             ]))),
-            //         )
-            //     ])
-            // ]),
         ])
     ),
     () => sh.ph.nothing()

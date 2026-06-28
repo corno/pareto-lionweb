@@ -10,7 +10,6 @@ import * as d_unmarshalled_from_json from "pareto-json/dist/interface/data/unmar
 //dependencies
 // import * as r_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/refiners/unmarshalled/parse_tree"
 import * as r_json_x_from_json from "pareto-json/dist/implementation/manual/refiners/json_x/json_with_parse_info"
-import * as r_json_y_from_json from "pareto-json/dist/implementation/manual/refiners/json_y/json_with_parse_info"
 
 
 
@@ -22,7 +21,6 @@ export const Serialization_Chunk: p_i.Refiner<
     $,
     abort
 ) => {
-        const value = $
         /**
          * this transformation should eventually not be handwritten, but be done by json-to-astn;
          * a mapping has to be written. with that mapping, json-to-astn will need to do 2 things:

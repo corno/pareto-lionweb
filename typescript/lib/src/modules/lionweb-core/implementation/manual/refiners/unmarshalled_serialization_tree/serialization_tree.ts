@@ -108,7 +108,6 @@ export const Property: Property = ($, abort, $p) => {
 }
 
 export const Optional_Property: Optional_Property = ($, abort, $p) => {
-    const node = $
     return p_.from.dictionary($.properties).get_possible_entry( //implement in pareto-core
         $p.id,
     )
