@@ -21,7 +21,7 @@ export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpecte
     const $p_unexpected_containments = p_.from.dictionary(
         p_.from.dictionary($.containments).join(
             $p['expected containments'],
-            ($, other, id): p_di.Optional_Value<null> => p_.from.optional(other).decide(
+            ($, $_other, id): p_di.Optional_Value<null> => p_.from.optional($_other).decide(
                 ($) => p_.literal.not_set(),
                 () => p_.literal.set(null)
             )

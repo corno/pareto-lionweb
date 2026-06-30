@@ -74,7 +74,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                             ($): t_out.Value.state => {
                                                 switch ($[0]) {
                                                     case 'Classifier':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Classifier',
@@ -87,7 +87,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                 ($): t_out.Value.state => {
                                                                                     switch ($[0]) {
                                                                                         case 'Concept':
-                                                                                            return p_.ss(
+                                                                                            return p_.option(
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Concept',
@@ -138,7 +138,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                 }),
                                                                                             )
                                                                                         case 'Interface':
-                                                                                            return p_.ss(
+                                                                                            return p_.option(
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Interface',
@@ -191,7 +191,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                             ($): t_out.Value.state => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Property':
-                                                                                                                        return p_.ss(
+                                                                                                                        return p_.option(
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Property',
@@ -215,7 +215,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                                             }),
                                                                                                                         )
                                                                                                                     case 'Link':
-                                                                                                                        return p_.ss(
+                                                                                                                        return p_.option(
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Link',
@@ -228,7 +228,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                                                                 ($): t_out.Value.state => {
                                                                                                                                                     switch ($[0]) {
                                                                                                                                                         case 'Containment':
-                                                                                                                                                            return p_.ss(
+                                                                                                                                                            return p_.option(
                                                                                                                                                                 $,
                                                                                                                                                                 ($) => ({
                                                                                                                                                                     'option': 'Containment',
@@ -236,7 +236,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                                                                                 }),
                                                                                                                                                             )
                                                                                                                                                         case 'Reference':
-                                                                                                                                                            return p_.ss(
+                                                                                                                                                            return p_.option(
                                                                                                                                                                 $,
                                                                                                                                                                 ($) => ({
                                                                                                                                                                     'option': 'Reference',
@@ -316,7 +316,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                             }),
                                                         )
                                                     case 'Datatype':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Datatype',
@@ -325,7 +325,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                     ($): t_out.Value.state => {
                                                                         switch ($[0]) {
                                                                             case 'Enumeration':
-                                                                                return p_.ss(
+                                                                                return p_.option(
                                                                                     $,
                                                                                     ($) => ({
                                                                                         'option': 'Enumeration',

@@ -24,18 +24,18 @@ export const M3: M3 = ($) => sh.Graph(
                     ['shape', p_.from.state($.classifier).decide(
                         ($): d_out_attributes.Attributes.L.shape => {
                             switch ($[0]) {
-                                case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(
+                                case 'Classifier': return p_.option($, ($) => p_.from.state($.classifier).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'Concept': return p_.ss($, ($) => ['pentagon', null])
-                                            case 'Interface': return p_.ss($, ($) => ['ellipse', null])
+                                            case 'Concept': return p_.option($, ($) => ['pentagon', null])
+                                            case 'Interface': return p_.option($, ($) => ['ellipse', null])
                                             default: return p_.au($[0])
                                         }
                                     }))
-                                case 'Datatype': return p_.ss($, ($) => p_.from.state($).decide(
+                                case 'Datatype': return p_.option($, ($) => p_.from.state($).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'Enumeration': return p_.ss($, ($) => ['diamond', null])
+                                            case 'Enumeration': return p_.option($, ($) => ['diamond', null])
                                             default: return p_.au($[0])
                                         }
                                     }))
@@ -54,10 +54,10 @@ export const M3: M3 = ($) => sh.Graph(
         ($, id) => p_.from.state($.classifier).decide(
             ($): d_out.Graph.edges => {
                 switch ($[0]) {
-                    case 'Classifier': return p_.ss($, ($) => p_.from.state($.classifier).decide(
+                    case 'Classifier': return p_.option($, ($) => p_.from.state($.classifier).decide(
                         ($) => {
                             switch ($[0]) {
-                                case 'Concept': return p_.ss($, ($) => p_.literal.segmented_list([
+                                case 'Concept': return p_.option($, ($) => p_.literal.segmented_list([
                                     p_.from.optional($.references.extends).decide(
                                         ($) => p_.literal.list([
                                             sh.edge(
@@ -106,7 +106,7 @@ export const M3: M3 = ($) => sh.Graph(
                                         // )
                                     )
                                 ]))
-                                case 'Interface': return p_.ss($, ($) => p_.from.list($.references.extends).flatten(
+                                case 'Interface': return p_.option($, ($) => p_.from.list($.references.extends).flatten(
                                     ($) => p_.literal.list([
                                         sh.edge(
                                             "LionWeb.LionCore_M3." + id,
@@ -132,10 +132,10 @@ export const M3: M3 = ($) => sh.Graph(
                                 default: return p_.au($[0])
                             }
                         }))
-                    case 'Datatype': return p_.ss($, ($) => p_.from.state($).decide(
+                    case 'Datatype': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
                             switch ($[0]) {
-                                case 'Enumeration': return p_.ss($, ($) => p_.literal.list([]))
+                                case 'Enumeration': return p_.option($, ($) => p_.literal.list([]))
                                 default: return p_.au($[0])
                             }
                         }))

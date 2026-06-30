@@ -14,29 +14,29 @@ d_in.Error, d_out.Possible_Range
 > = ($) => p_.from.state($).decide(
     ($): d_out.Possible_Range => {
         switch ($[0]) {
-            case 'serialization tree': return p_.ss($, ($) => p_.from.state($).decide(
+            case 'serialization tree': return p_.option($, ($) => p_.from.state($).decide(
                 ($): d_out.Possible_Range => {
                     switch ($[0]) {
-                        case 'tree from chunk': return p_.ss($, ($) => ['range', $.range])
-                        case 'unmarshall serialization chunk': return p_.ss($, ($) => p_.from.state($).decide(
+                        case 'tree from chunk': return p_.option($, ($) => ['range', $.range])
+                        case 'unmarshall serialization chunk': return p_.option($, ($) => p_.from.state($).decide(
                             ($): d_out.Possible_Range => {
                                 switch ($[0]) {
-                                    case 'deserialize': return p_.ss($, ($) => p_.from.state($).decide(
+                                    case 'deserialize': return p_.option($, ($) => p_.from.state($).decide(
                                         ($) => {
                                             switch ($[0]) {
-                                                case 'deserialize astn parse tree': return p_.ss($, ($) => t_deserialize_parse_tree_to_location.Error($))
-                                                case 'jsonify': return p_.ss($, ($) => ['range', $.range])
+                                                case 'deserialize astn parse tree': return p_.option($, ($) => t_deserialize_parse_tree_to_location.Error($))
+                                                case 'jsonify': return p_.option($, ($) => ['range', $.range])
                                                 default: return p_.au($[0])
                                             }
                                         }))
-                                    case 'unmarshall': return p_.ss($, ($) => ['range', $.range])
+                                    case 'unmarshall': return p_.option($, ($) => ['range', $.range])
                                     default: return p_.au($[0])
                                 }
                             }))
                         default: return p_.au($[0])
                     }
                 }))
-            case 'lioncore': return p_.ss($, ($) => ['range', $.node.range])
+            case 'lioncore': return p_.option($, ($) => ['range', $.node.range])
             default: return p_.au($[0])
         }
     })
