@@ -40,13 +40,13 @@ import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementa
 import * as t_graphviz_to_fp from "pareto-graphviz/dist/implementation/manual/transformers/high_level_simple/fountain_pen"
 import * as t_lioncore_to_fp from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
 import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz"
-import * as t_location_to_fountain_pen from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
+import * as t_location_to_prose from "astn-core/dist/implementation/manual/transformers/location/fountain_pen"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/unrestricted_path"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
-import * as t_processing_to_fountain_pen from "../transformers/processing/prose"
+import * as t_processing_to_prose from "../transformers/processing/prose"
 import * as t_processing_to_location from "../transformers/processing/location"
-import * as t_read_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
-import * as t_write_file_to_fountain_pen from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
+import * as t_read_file_to_prose from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
+import * as t_write_file_to_prose from "pareto-resources/dist/implementation/manual/transformers/write_file/fountain_pen"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
@@ -62,7 +62,7 @@ export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn =
                             r_path_from_text.Context_Path(settings['in']['dir']),
                             { 'node': settings['in']['file'] }
                         ),
-                        ($): d_fp.Phrase => t_read_file_to_fountain_pen.Error($)
+                        ($): d_fp.Phrase => t_read_file_to_prose.Error($)
                     )).refine(
                         ($, abort) => r_2024_1(
                             $,
@@ -76,13 +76,13 @@ sh.ph.composed([
                                     )
                                 )),
                                 sh.ph.literal(":"),
-                                t_location_to_fountain_pen.Possible_Range(
+                                t_location_to_prose.Possible_Range(
                                     t_processing_to_location.Error($),
                                     {
                                         'character location reporting': ['one based', null],
                                     }
                                 ),
-                                t_processing_to_fountain_pen.Error(
+                                t_processing_to_prose.Error(
                                     $,
                                 ),
                             ])),
@@ -111,7 +111,7 @@ sh.ph.composed([
                             ($) => sh.ph.composed([
                                 sh.ph.literal("failed to write converted dataset to "),
                                 sh.ph.literal(settings['out']['file']),
-                                t_write_file_to_fountain_pen.Error($),
+                                t_write_file_to_prose.Error($),
                             ]),
 
                         ),
@@ -134,7 +134,7 @@ sh.ph.composed([
                             ($) => sh.ph.composed([
                                 sh.ph.literal("failed to write converted dataset to "),
                                 sh.ph.literal(settings['out']['graphviz file']),
-                                t_write_file_to_fountain_pen.Error($),
+                                t_write_file_to_prose.Error($),
                             ]),
 
                         )
