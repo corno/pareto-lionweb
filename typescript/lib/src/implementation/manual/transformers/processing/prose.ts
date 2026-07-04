@@ -43,7 +43,8 @@ export const Unexpected_Content = (
 )
 
 export const Error: p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error,
+    d_out.Phrase
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
