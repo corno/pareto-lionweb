@@ -7,6 +7,13 @@ import * as d_in from "../../../../interface/data/processing"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree"
 
+export namespace interface_ {
+    export type Error = p_i.Transformer<
+        d_in.Error,
+        d_out.Phrase
+    >
+}
+
 //dependencies
 import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/transformers/unmarshalled_from_json/fountain_pen"
 import * as t_json_from_list_of_characters from "pareto-json/dist/implementation/manual/transformers/json_from_list_of_characters/fountain_pen"
@@ -42,10 +49,7 @@ export const Unexpected_Content = (
 
 )
 
-export const Error: p_i.Transformer<
-    d_in.Error,
-    d_out.Phrase
-> = ($) => p_.from.state($).decide(
+export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'serialization tree': return p_.option($, ($) => p_.from.state($).decide(

@@ -7,14 +7,18 @@ import * as d_in from "../../../../interface/generated/liana/schemas/lioncore/da
 import * as d_out from "pareto-graphviz/dist/interface/generated/liana/schemas/high_level_simple/data"
 import * as d_out_attributes from "pareto-graphviz/dist/interface/generated/liana/schemas/attributes/data"
 
+export namespace interface_ {
+    export type M3 = p_i.Transformer<
+        d_in.M3,
+        d_out.Graph
+    >
+}
+
 //shorthands
 import * as sh from "pareto-graphviz/dist/shorthands/high_level_simple/target"
 
-export type M3 = p_i.Transformer<
-    d_in.M3, d_out.Graph
->
 
-export const M3: M3 = ($) => sh.Graph(
+export const M3: interface_.M3 = ($) => sh.Graph(
     p_.literal.list([]),
     p_.from.dictionary(
         p_.from.dictionary($.containments.entities).map(
@@ -141,6 +145,7 @@ export const M3: M3 = ($) => sh.Graph(
                         }))
                     default: return p_.au($[0])
                 }
-            })
+            }
+        )
     )
 )
