@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/interface/data'
 
-import * as d_chunk from "../../../../interface/generated/liana/schemas/serialization_chunk/data"
-import * as d_location from "astn-core/dist/interface/generated/liana/schemas/location/data"
+import * as d_chunk from "../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
+import * as d_location from "astn-core/interface/generated/liana/schemas/location/data"
 
 export type Error = {
     'range': d_location.Range

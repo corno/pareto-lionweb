@@ -1,14 +1,14 @@
-import * as p_ri from 'pareto-core/dist/interface/refiner'
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import * as p_ri from 'pareto-core/interface/refiner'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //data types
-import * as d_loc from "pareto-resources/dist/interface/generated/liana/schemas/list_of_characters/data"
-import * as d_function from "../../../interface/data/processing"
-import * as d_out from "../../../interface/generated/liana/schemas/lioncore/data"
+import * as d_loc from "pareto-resources/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_function from "../../../interface/data/processing.js"
+import * as d_out from "../../../interface/generated/liana/schemas/lioncore/data.js"
 
 //dependencies
-import * as r_serialization_tree_from_list_of_characters from "../../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters"
-import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree"
+import * as r_serialization_tree_from_list_of_characters from "../../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters.js"
+import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 
 export type Signature = p_ri.Refiner_With_Parameter<

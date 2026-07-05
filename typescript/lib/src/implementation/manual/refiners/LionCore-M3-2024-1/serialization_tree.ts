@@ -1,14 +1,14 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_temp from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_assert from 'pareto-core/dist/implementation/refiner/specials/assert'
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_temp from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/refiner'
+import p_assert from 'pareto-core/implementation/refiner/specials/assert'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //data types
-import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data"
-import * as d_out from "../../../../interface/generated/liana/schemas/lioncore/data"
-import * as d_out_generic from "../../../../interface/generated/liana/schemas/generic/data"
-import * as d_function from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree"
+import * as d_in from "../../../../interface/generated/liana/schemas/serialization_tree/data.js"
+import * as d_out from "../../../../interface/generated/liana/schemas/lioncore/data.js"
+import * as d_out_generic from "../../../../interface/generated/liana/schemas/generic/data.js"
+import * as d_function from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
 
 export namespace interface_ {
     export type ID = p_i.Refiner_With_Parameter<
@@ -32,8 +32,8 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree"
-import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../../modules/lionweb-core/implementation/manual/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree"
+import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree.js"
+import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../../modules/lionweb-core/implementation/manual/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
 
 export const ID: interface_.ID = ($, abort, $p) => ({
     'key': r_unmarshalled_serialization_tree_from_serialization_tree.Property(

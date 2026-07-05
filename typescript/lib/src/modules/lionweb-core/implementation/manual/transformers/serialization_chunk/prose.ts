@@ -1,9 +1,9 @@
-import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
+import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 //dependencies
-import * as t_json_to_prose_block from "pareto-json/dist/implementation/manual/transformers/json_with_guaranteed_unique_keys/prose"
-import * as t_lionweb_to_json from "./json"
+import * as t_json_to_prose_block from "pareto-json/implementation/manual/transformers/json_with_guaranteed_unique_keys/prose"
+import * as t_lionweb_to_json from "./json.js"
 
 
 export const Serialization_Chunk = ($: d_in.Serialization_Chunk): d_out.Paragraph => t_json_to_prose_block.Document(t_lionweb_to_json.Serialization_Chunk($))

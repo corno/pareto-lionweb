@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core/dist/implementation/command'
-import p_super_query_result from 'pareto-core/dist/implementation/query/super_query_result'
+import * as p_ from 'pareto-core/implementation/command'
+import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
 
-import * as commands from "../../../interface/commands"
+import * as commands from "../../../interface/commands.js"
 
 //data
 
@@ -30,26 +30,26 @@ const settings = {
 
 //interface
 
-import * as d_prose from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
+import * as d_prose from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 
 //dependencies
-import { $$x as r_2024_1 } from "../text_to_text/temp_2024_1"
-import * as r_path_from_text from "pareto-resources/dist/implementation/manual/refiners/path_unrestricted/text"
-import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
-import * as t_graphviz_to_prose from "pareto-graphviz/dist/implementation/manual/transformers/high_level_simple/prose"
-import * as t_lioncore_to_prose from "../../generated/liana/schemas/lioncore/transformers/fountain_pen"
-import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz"
-import * as t_location_to_prose from "astn-core/dist/implementation/manual/transformers/location/prose"
-import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/unrestricted_path"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
-import * as t_processing_to_prose from "../transformers/processing/prose"
-import * as t_processing_to_location from "../transformers/processing/location"
-import * as t_read_file_to_prose from "pareto-resources/dist/implementation/manual/transformers/read_file/prose"
-import * as t_write_file_to_prose from "pareto-resources/dist/implementation/manual/transformers/write_file/prose"
+import { $$x as r_2024_1 } from "../text_to_text/temp_2024_1.js"
+import * as r_path_from_text from "pareto-resources/implementation/manual/refiners/path_unrestricted/text"
+import * as t_fp_to_list_of_characters from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
+import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level_simple/prose"
+import * as t_lioncore_to_prose from "../../generated/liana/schemas/lioncore/transformers/fountain_pen.js"
+import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz.js"
+import * as t_location_to_prose from "astn-core/implementation/manual/transformers/location/prose"
+import * as t_path_to_path from "pareto-resources/implementation/manual/transformers/unrestricted_path/unrestricted_path"
+import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
+import * as t_processing_to_prose from "../transformers/processing/prose.js"
+import * as t_processing_to_location from "../transformers/processing/location.js"
+import * as t_read_file_to_prose from "pareto-resources/implementation/manual/transformers/read_file/prose"
+import * as t_write_file_to_prose from "pareto-resources/implementation/manual/transformers/write_file/prose"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn = p_.command_procedure(
     ($d, $s, $q, $c) => [

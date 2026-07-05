@@ -1,11 +1,11 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/dist/interface/data/unmarshall"
+import * as i_generic from "liana-core/interface/data/unmarshall"
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+import * as i_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
 
 export namespace Serialization_Tree_ {
     
@@ -64,7 +64,7 @@ export type Targets_ = (
     abort: p_i.Abort<Targets_.E>,
 ) => Targets_.O
 
-export { 
+export type { 
     Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 

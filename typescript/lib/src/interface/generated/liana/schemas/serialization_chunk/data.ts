@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_location from "../location/data"
+import * as i_imports_location from "../location/data.js"
 
 export namespace Serialization_Chunk_ {
     
@@ -183,7 +183,7 @@ export type Meta_Pointer_ = {
     readonly 'version': Meta_Pointer_.version
 }
 
-export { 
+export type { 
     Serialization_Chunk_ as Serialization_Chunk, 
     Targets_ as Targets, 
     Meta_Pointer_ as Meta_Pointer, 

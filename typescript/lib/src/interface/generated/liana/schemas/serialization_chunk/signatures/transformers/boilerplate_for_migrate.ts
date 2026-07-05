@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "../../data"
+import * as i_in from "../../data.js"
 
 export namespace Serialization_Chunk_ {
     
@@ -53,7 +53,7 @@ export type Meta_Pointer_ = (
     context: Meta_Pointer_.I,
 ) => Meta_Pointer_.O
 
-export { 
+export type { 
     Serialization_Chunk_ as Serialization_Chunk, 
     Targets_ as Targets, 
     Meta_Pointer_ as Meta_Pointer, 

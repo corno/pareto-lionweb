@@ -1,10 +1,10 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_i from 'pareto-core/dist/interface/refiner'
-import * as p_temp from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_i from 'pareto-core/interface/refiner'
+import * as p_temp from 'pareto-core/implementation/transformer'
 
-import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_tree/data"
-import * as d_out from "../../../../interface/data/unmarshalled_serialization_tree"
-import * as d_function from "../../../../interface/data/lion_core_from_serialization_tree"
+import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_tree/data.js"
+import * as d_out from "../../../../interface/data/unmarshalled_serialization_tree.js"
+import * as d_function from "../../../../interface/data/lion_core_from_serialization_tree.js"
 
 
 export type Property = p_i.Refiner_With_Parameter<

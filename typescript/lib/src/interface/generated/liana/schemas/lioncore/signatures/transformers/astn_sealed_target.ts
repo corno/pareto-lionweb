@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+import * as i_out from "astn-core/interface/generated/liana/schemas/sealed_target/data"
 
-import * as i_in from "../../data"
+import * as i_in from "../../data.js"
 
 export namespace M3_ {
     
@@ -21,6 +21,6 @@ export type M3_ = (
     context: M3_.I,
 ) => M3_.O
 
-export { 
+export type { 
     M3_ as M3, 
 }

@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "../../data"
+import * as i_in from "../../data.js"
 
 export namespace Serialization_Tree_ {
     
@@ -53,7 +53,7 @@ export type Targets_ = (
     context: Targets_.I,
 ) => Targets_.O
 
-export { 
+export type { 
     Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 

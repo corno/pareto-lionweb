@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_location from "../location/data"
+import * as i_imports_location from "../location/data.js"
 
 export namespace Serialization_Tree_ {
     
@@ -120,7 +120,7 @@ export namespace Targets_ {
 
 export type Targets_ = p_di.List<Targets_.L>
 
-export { 
+export type { 
     Serialization_Tree_ as Serialization_Tree, 
     Node_ as Node, 
     Targets_ as Targets, 

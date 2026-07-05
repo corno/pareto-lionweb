@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data  types
-import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data"
-import * as d_out from "pareto-json/dist/interface/generated/liana/schemas/json_with_guaranteed_unique_keys/data"
+import * as d_in from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
+import * as d_out from "pareto-json/interface/generated/liana/schemas/json_with_guaranteed_unique_keys/data"
 
 namespace interface_ {
 
@@ -25,7 +25,7 @@ namespace interface_ {
 }
 
 //shorthands
-import * as sh from "pareto-json/dist/shorthands/json_with_guaranteed_unique_keys/target"
+import * as sh from "pareto-json/shorthands/json_with_guaranteed_unique_keys/target"
 
 
 export const Meta_Pointer: interface_.Meta_Pointer = ($) => sh.v.object(

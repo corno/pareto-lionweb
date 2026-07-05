@@ -1,11 +1,11 @@
 
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/data/processing"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
-import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree"
+import * as d_in from "../../../../interface/data/processing.js"
+import * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
+import * as d_unmarshall_serialization_tree from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
 
 export namespace interface_ {
     export type Error = p_i.Transformer<
@@ -15,11 +15,11 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/transformers/unmarshalled_from_json/prose"
-import * as t_json_from_list_of_characters from "pareto-json/dist/implementation/manual/transformers/json_from_list_of_characters_refiner/prose"
+import * as t_unmarshall_json from "pareto-json/implementation/manual/transformers/unmarshalled_from_json/prose"
+import * as t_json_from_list_of_characters from "pareto-json/implementation/manual/transformers/json_from_list_of_characters_refiner/prose"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 

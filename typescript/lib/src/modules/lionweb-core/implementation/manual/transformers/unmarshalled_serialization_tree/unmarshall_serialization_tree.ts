@@ -1,9 +1,9 @@
-import * as p_i from 'pareto-core/dist/interface/transformer'
-import * as p_di from 'pareto-core/dist/interface/data'
-import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
+import * as p_di from 'pareto-core/interface/data'
+import * as p_ from 'pareto-core/implementation/transformer'
 
-import * as d_in from "../../../../interface/data/unmarshalled_serialization_tree"
-import * as d_out from "../../../../interface/data/lion_core_from_serialization_tree"
+import * as d_in from "../../../../interface/data/unmarshalled_serialization_tree.js"
+import * as d_out from "../../../../interface/data/lion_core_from_serialization_tree.js"
 
 
 export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Parameter<

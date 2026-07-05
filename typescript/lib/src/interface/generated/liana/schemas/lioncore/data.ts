@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_generic from "../generic/data"
+import * as i_imports_generic from "../generic/data.js"
 
 export namespace M3_ {
     
@@ -267,6 +267,6 @@ export type M3_ = {
     readonly 'containments': M3_.containments
 }
 
-export { 
+export type { 
     M3_ as M3, 
 }

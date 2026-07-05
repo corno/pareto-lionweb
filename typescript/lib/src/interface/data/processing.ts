@@ -1,7 +1,7 @@
 
 //data types
-import * as d_lion_core_from_serialization_tree from "../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree"
-import * as d_deserialize_serialization_tree from "../../modules/lionweb-core/interface/data/deserialize_serialization_tree"
+import * as d_lion_core_from_serialization_tree from "../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
+import * as d_deserialize_serialization_tree from "../../modules/lionweb-core/interface/data/deserialize_serialization_tree.js"
 
 
 export type Error =
