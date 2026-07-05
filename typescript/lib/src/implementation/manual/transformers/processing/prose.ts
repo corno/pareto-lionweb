@@ -15,8 +15,8 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/transformers/unmarshalled_from_json/fountain_pen"
-import * as t_json_from_list_of_characters from "pareto-json/dist/implementation/manual/transformers/json_from_list_of_characters/fountain_pen"
+import * as t_unmarshall_json from "pareto-json/dist/implementation/manual/transformers/unmarshalled_from_json/prose"
+import * as t_json_from_list_of_characters from "pareto-json/dist/implementation/manual/transformers/json_from_list_of_characters_refiner/prose"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
