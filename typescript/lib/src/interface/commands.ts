@@ -7,7 +7,7 @@ import * as command_actions_pareto_application_api from "pareto-application-api/
 
 export namespace procedures {
 
-    export type transform_lionweb_2024_1_language_to_astn = p_i.Command_Procedure<
+    export type transform_lionweb_2024_1_language_to_astn = p_i.Command<
         command_actions_pareto_application_api.main,
         null,
         {
