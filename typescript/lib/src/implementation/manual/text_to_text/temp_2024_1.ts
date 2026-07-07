@@ -2,7 +2,7 @@ import * as p_ri from 'pareto-core/interface/refiner'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //data types
-import * as d_loc from "pareto-resources/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 import * as d_function from "../../../interface/data/processing.js"
 import * as d_out from "../../../interface/generated/liana/schemas/lioncore/data.js"
 
