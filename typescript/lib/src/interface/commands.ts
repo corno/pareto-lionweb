@@ -1,7 +1,7 @@
 import * as p_i from 'pareto-core/interface/command'
 
 import * as resources_pareto from "pareto-resources/interface/resources"
-import * as resources_pareto_stream from "pareto-stream/interface/commands"
+import * as resources_pareto_stream from "pareto-stream-api/interface/commands"
 
 export namespace procedures {
 
