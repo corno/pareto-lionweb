@@ -33,17 +33,17 @@ export const M3: interface_.M3 = ($) => sh.Graph(
                                         switch ($[0]) {
                                             case 'Concept': return p_.option($, ($) => ['pentagon', null])
                                             case 'Interface': return p_.option($, ($) => ['ellipse', null])
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }))
                                 case 'Datatype': return p_.option($, ($) => p_.from.state($).decide(
                                     ($) => {
                                         switch ($[0]) {
                                             case 'Enumeration': return p_.option($, ($) => ['diamond', null])
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })]
                 ])
@@ -133,17 +133,17 @@ export const M3: interface_.M3 = ($) => sh.Graph(
                                     //     () => p_.literal.list([])
                                     // )
                                 ))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
                     case 'Datatype': return p_.option($, ($) => p_.from.state($).decide(
                         ($) => {
                             switch ($[0]) {
                                 case 'Enumeration': return p_.option($, ($) => p_.literal.list([]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             }
         )

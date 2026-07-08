@@ -34,7 +34,6 @@ import * as d_prose from "pareto-fountain-pen/interface/generated/liana/schemas/
 
 
 //dependencies
-import { $$x as r_2024_1 } from "../text_to_text/temp_2024_1.js"
 import * as r_path_from_text from "pareto-filesystem-unrestricted-api/implementation/manual/refiners/path_unrestricted/text"
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
 import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level_simple/prose"
@@ -47,6 +46,8 @@ import * as t_processing_to_prose from "../transformers/processing/prose.js"
 import * as t_processing_to_location from "../transformers/processing/location.js"
 import * as t_read_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/read_file/prose"
 import * as t_write_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/write_file/prose"
+import * as r_serialization_tree_from_list_of_characters from "../../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters.js"
+import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
@@ -64,32 +65,62 @@ export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn =
                         ),
                         ($): d_prose.Phrase => t_read_file_to_prose.Error($)
                     )).refine(
-                        ($, abort) => r_2024_1(
-                            $,
-                            ($) => abort(
-sh.ph.composed([
-                                sh.ph.literal("error during processing: "),
-                                sh.ph.literal(t_path_to_text.Node_Path(
-                                    t_path_to_path.create_node_path(
-                                        r_path_from_text.Context_Path(settings['in']['dir']),
-                                        { 'node': settings['in']['file'] }
-                                    )
-                                )),
-                                sh.ph.literal(":"),
-                                t_location_to_prose.Possible_Range(
-                                    t_processing_to_location.Error($),
+                        ($, abort) => {
+
+                            return r_lion_core_from_serialization_tree.M3(
+                                r_serialization_tree_from_list_of_characters.Serialization_Tree(
+                                    $,
+                                    ($) => abort(
+                                        sh.ph.composed([
+                                            sh.ph.literal("error during processing: "),
+                                            sh.ph.literal(t_path_to_text.Node_Path(
+                                                t_path_to_path.create_node_path(
+                                                    r_path_from_text.Context_Path(settings['in']['dir']),
+                                                    { 'node': settings['in']['file'] }
+                                                )
+                                            )),
+                                            sh.ph.literal(":"),
+                                            t_location_to_prose.Possible_Range(
+                                                t_processing_to_location.Error(['serialization tree', $]),
+                                                {
+                                                    'character location reporting': ['one based', null],
+                                                }
+                                            ),
+                                            t_processing_to_prose.Error(
+                                                ['serialization tree', $],
+                                            ),
+                                        ])
+                                    ),
                                     {
-                                        'character location reporting': ['one based', null],
+                                        'tab size': 4,
                                     }
                                 ),
-                                t_processing_to_prose.Error(
-                                    $,
-                                ),
-                            ])),
-                            {
-                                'tab size': 4,
-                            }
-                        )
+                                ($) => abort(
+                                        sh.ph.composed([
+                                            sh.ph.literal("error during processing: "),
+                                            sh.ph.literal(t_path_to_text.Node_Path(
+                                                t_path_to_path.create_node_path(
+                                                    r_path_from_text.Context_Path(settings['in']['dir']),
+                                                    { 'node': settings['in']['file'] }
+                                                )
+                                            )),
+                                            sh.ph.literal(":"),
+                                            t_location_to_prose.Possible_Range(
+                                                t_processing_to_location.Error(['lioncore', $]),
+                                                {
+                                                    'character location reporting': ['one based', null],
+                                                }
+                                            ),
+                                            t_processing_to_prose.Error(
+                                                ['lioncore', $],
+                                            ),
+                                        ])
+                                    ),
+                                {
+                                    'write source': false
+                                },
+                            )
+                        }
                     ),
                     ($v) => [
                         $c['write file'].execute(

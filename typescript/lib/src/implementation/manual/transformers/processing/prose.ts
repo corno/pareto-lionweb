@@ -69,11 +69,11 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                                                     case 'child node not found': return p_.option($, ($) => sh.ph.literal("child node not found"))
                                                     case 'clashing containment keys': return p_.option($, ($) => sh.ph.literal("clashing containment keys"))
                                                     case 'clashing reference keys': return p_.option($, ($) => sh.ph.literal("clashing reference keys"))
-                                                    default: return p_.au($[0])
+                                                    default: return p_.exhaustive($[0])
                                                 }
                                             })
                                     ]))
-                                    default: return p_.au($[0])
+                                    default: return p_.exhaustive($[0])
                                 }
                             }))
                         case 'unmarshall serialization chunk': return p_.option($, ($) => p_.from.state($).decide(
@@ -81,10 +81,10 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                                 switch ($[0]) {
                                     case 'deserialize': return p_.option($, ($) => t_json_from_list_of_characters.Error($))
                                     case 'unmarshall': return p_.option($, ($) => t_unmarshall_json.Error($))
-                                    default: return p_.au($[0])
+                                    default: return p_.exhaustive($[0])
                                 }
                             }))
-                        default: return p_.au($[0])
+                        default: return p_.exhaustive($[0])
                     }
                 }))
             case 'lioncore': return p_.option($, ($) => {
@@ -125,11 +125,11 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                                 case 'missing feature element': return p_.option($, ($) => sh.ph.literal("missing feature element"))
                                 case 'unknown option': return p_.option($, ($) => sh.ph.literal("unknown option"))
                                 case 'expected single element': return p_.option($, ($) => sh.ph.literal("expected single element"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })
                 ])
             })
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
