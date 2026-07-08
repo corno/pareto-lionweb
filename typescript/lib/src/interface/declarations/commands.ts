@@ -1,9 +1,9 @@
 import * as p_i from 'pareto-core/interface/command'
 
-import * as actions_queries_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/query_actions"
-import * as actions_commands_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/command_actions"
-import * as actions_commands_pareto_stream from "pareto-stream-api/interface/command_actions"
-import * as actions_commands_pareto_application_api from "pareto-application-api/interface/command_actions"
+import type * as actions_queries_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/query_actions"
+import type * as actions_commands_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/command_actions"
+import type * as actions_commands_pareto_stream from "pareto-stream-api/interface/command_actions"
+import type * as actions_commands_pareto_application_api from "pareto-application-api/interface/command_actions"
 
 export namespace procedures {
 
