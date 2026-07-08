@@ -1,22 +1,24 @@
-import * as p_i from 'pareto-core/interface/transformer'
-import * as p_di from 'pareto-core/interface/data'
+import type * as p_i from 'pareto-core/interface/transformer'
+import type * as p_di from 'pareto-core/interface/data'
 import * as p_ from 'pareto-core/implementation/transformer'
 
+//data types
 import type * as d_in from "../../../../interface/data/unmarshalled_serialization_tree.js"
 import type * as d_out from "../../../../interface/data/lion_core_from_serialization_tree.js"
 
+export namespace interface_ {
+    export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Parameter<
+        d_in.Node_With_Possibly_Unexpected_References,
+        d_out.Optional_Error,
+        {
+            'expected containments': p_di.Dictionary<null>
+            'expected properties': p_di.Dictionary<null>
+            'expected references': p_di.Dictionary<null>
+        }
+    >
+}
 
-export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Parameter<
-    d_in.Node_With_Possibly_Unexpected_References,
-    d_out.Optional_Error,
-    {
-        'expected containments': p_di.Dictionary<null>
-        'expected properties': p_di.Dictionary<null>
-        'expected references': p_di.Dictionary<null>
-    }
->
-
-export const Node_With_Possibly_Unexpected_Content: Node_With_Possibly_Unexpected_Content = ($, $p) => {
+export const Node_With_Possibly_Unexpected_Content: interface_.Node_With_Possibly_Unexpected_Content = ($, $p) => {
 
     const $p_unexpected_containments = p_.from.dictionary(
         p_.from.dictionary($.containments).join(

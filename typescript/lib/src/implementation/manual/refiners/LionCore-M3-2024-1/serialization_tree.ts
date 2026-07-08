@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/refiner'
 import * as p_temp from 'pareto-core/implementation/transformer'
-import * as p_i from 'pareto-core/interface/refiner'
+import type * as p_i from 'pareto-core/interface/refiner'
 import p_assert from 'pareto-core/implementation/refiner/specials/assert'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 

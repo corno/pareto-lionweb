@@ -1,4 +1,4 @@
-import * as p_i from 'pareto-core/interface/refiner'
+import type * as p_i from 'pareto-core/interface/refiner'
 
 
 //data types
