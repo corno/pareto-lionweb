@@ -1,4 +1,4 @@
-import type * as p_i from 'pareto-core/interface/transformer'
+import type * as p_ from 'pareto-core/interface/transformer'
 
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
@@ -8,7 +8,7 @@ import type * as d_out from "pareto-graphviz/interface/generated/liana/schemas/h
 import type * as d_out_attributes from "pareto-graphviz/interface/generated/liana/schemas/attributes/data"
 
 
-    export type M3 = p_i.Transformer<
+    export type M3 = p_.Transformer<
         d_in.M3,
         d_out.Graph
     >
