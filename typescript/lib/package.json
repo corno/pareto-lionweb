@@ -31,9 +31,12 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
+    "astn-core": "^0.5.0",
     "liana-core": "^0.1.0",
     "pareto-application-api": "^0.1.0",
+    "pareto-core": "^0.1.0",
     "pareto-filesystem-unrestricted-api": "^0.1.0",
+    "pareto-fountain-pen": "^0.4.0",
     "pareto-graphviz": "^0.2.0",
     "pareto-json": "^0.3.0",
     "pareto-stream-api": "^0.1.0"
