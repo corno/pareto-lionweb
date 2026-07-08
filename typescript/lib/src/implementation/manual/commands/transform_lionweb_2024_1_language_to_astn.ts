@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/command'
 import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
 
-import * as commands from "../../../interface/commands.js"
+import * as commands from "../../../interface/declarations/commands.js"
 
 //data
 
