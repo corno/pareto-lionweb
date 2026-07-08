@@ -1,9 +1,9 @@
 import * as p_i from 'pareto-core/interface/refiner'
 
 //data types
-import * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data.js"
-import * as d_function from "../../../../interface/data/deserialize_serialization_tree.js"
-import * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
+import type * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_tree/data.js"
+import type * as d_function from "../../../../interface/data/deserialize_serialization_tree.js"
+import type * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
 import * as r_serialization_tree_from_serialization_chunk from "./serialization_chunk.js"
