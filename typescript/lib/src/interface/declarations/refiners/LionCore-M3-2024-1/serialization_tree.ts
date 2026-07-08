@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/refiner'
+
 import * as p_temp from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/refiner'
 import p_assert from 'pareto-core/implementation/refiner/specials/assert'
@@ -10,7 +10,7 @@ import type * as d_out from "../../../generated/liana/schemas/lioncore/data.js"
 import type * as d_out_generic from "../../../generated/liana/schemas/generic/data.js"
 import type * as d_function from "../../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
 
-export namespace interface_ {
+
     export type ID = p_i.Refiner_With_Parameter<
         d_out_generic.ID,
         d_function.Error,
@@ -29,4 +29,4 @@ export namespace interface_ {
             'write source': boolean
         }
     >
-}
+
