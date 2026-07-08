@@ -30,6 +30,7 @@ export namespace interface_ {
         }
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //dependencies
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree.js"

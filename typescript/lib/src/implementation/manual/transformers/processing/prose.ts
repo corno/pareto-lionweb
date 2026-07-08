@@ -13,6 +13,7 @@ export namespace interface_ {
         d_out.Phrase
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/processing/prose.js"
 
 //dependencies
 import * as t_unmarshall_json from "pareto-json/implementation/manual/transformers/unmarshalled_from_json/prose"

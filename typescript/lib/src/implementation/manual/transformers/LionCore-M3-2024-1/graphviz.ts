@@ -13,6 +13,7 @@ export namespace interface_ {
         d_out.Graph
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/LionCore-M3-2024-1/graphviz.js"
 
 //shorthands
 import * as sh from "pareto-graphviz/shorthands/high_level_simple/target"

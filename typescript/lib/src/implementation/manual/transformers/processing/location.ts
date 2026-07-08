@@ -12,6 +12,7 @@ export namespace interface_ {
         d_out.Possible_Range
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/processing/location.js"
 
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/implementation/manual/transformers/deserialize_parse_tree/location"
