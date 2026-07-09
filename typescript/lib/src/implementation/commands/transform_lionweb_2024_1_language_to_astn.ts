@@ -46,7 +46,7 @@ import * as t_processing_to_prose from "../transformers/processing/prose.js"
 import * as t_processing_to_location from "../transformers/processing/location.js"
 import * as t_read_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/read_file/prose"
 import * as t_write_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/write_file/prose"
-import * as r_serialization_tree_from_list_of_characters from "../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters.js"
+import * as r_serialization_tree_from_list_of_characters from "../../modules/lionweb-core/implementation/refiners/serialization_tree/list_of_characters.js"
 import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //shorthands

@@ -9,8 +9,8 @@ import type * as interface_ from "../../../declarations/refiners/LionCore-M3-202
 import type * as d_out from "../../../interface/generated/liana/schemas/lioncore/data.js"
 
 //dependencies
-import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../modules/lionweb-core/implementation/manual/refiners/unmarshalled_serialization_tree/serialization_tree.js"
-import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../modules/lionweb-core/implementation/manual/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
+import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../modules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"
+import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../modules/lionweb-core/implementation/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
 
 export const ID: interface_.ID = ($, abort, $p) => ({
     'key': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
