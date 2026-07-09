@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/command'
 import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
 
-import * as commands from "../../../declarations/commands.js"
+import * as commands from "../../declarations/commands.js"
 
 //data
 
@@ -37,7 +37,7 @@ import type * as d_prose from "pareto-fountain-pen/interface/generated/liana/sch
 import * as r_path_from_text from "pareto-filesystem-unrestricted-api/implementation/manual/refiners/path_unrestricted/text"
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
 import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level_simple/prose"
-import * as t_lioncore_to_prose from "../../generated/liana/schemas/lioncore/transformers/fountain_pen.js"
+import * as t_lioncore_to_prose from "../generated/liana/schemas/lioncore/transformers/fountain_pen.js"
 import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz.js"
 import * as t_location_to_prose from "astn-core/implementation/manual/transformers/location/prose"
 import * as t_path_to_path from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/unrestricted_path/unrestricted_path"
@@ -46,7 +46,7 @@ import * as t_processing_to_prose from "../transformers/processing/prose.js"
 import * as t_processing_to_location from "../transformers/processing/location.js"
 import * as t_read_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/read_file/prose"
 import * as t_write_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/manual/transformers/write_file/prose"
-import * as r_serialization_tree_from_list_of_characters from "../../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters.js"
+import * as r_serialization_tree_from_list_of_characters from "../../modules/lionweb-core/implementation/manual/refiners/serialization_tree/list_of_characters.js"
 import * as r_lion_core_from_serialization_tree from "../refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //shorthands

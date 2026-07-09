@@ -1,7 +1,7 @@
 
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../declarations/transformers/processing/location.js"
+import type * as interface_ from "../../../declarations/transformers/processing/location.js"
 
 
 //data types
