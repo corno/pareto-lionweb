@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/LionCore-M3-2024-1/graphviz.js"
+import type * as interface_ from "../../../../declarations/transformers/LionCore-M3-2024-1/graphviz.js"
 
 //data types
 import type * as d_out from "pareto-graphviz/interface/generated/liana/schemas/high_level_simple/data"

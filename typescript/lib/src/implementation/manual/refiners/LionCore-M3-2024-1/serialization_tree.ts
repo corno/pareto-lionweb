@@ -3,7 +3,7 @@ import * as p_temp from 'pareto-core/implementation/transformer'
 import p_assert from 'pareto-core/implementation/refiner/specials/assert'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import type * as interface_ from "../../../../interface/declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
+import type * as interface_ from "../../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //data types
 import type * as d_out from "../../../../interface/generated/liana/schemas/lioncore/data.js"
