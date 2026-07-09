@@ -8,8 +8,8 @@ import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schem
 import type * as d_unmarshall_serialization_tree from "../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
 
 //dependencies
-import * as t_unmarshall_json from "pareto-json/implementation/manual/transformers/unmarshalled_from_json/prose"
-import * as t_json_from_list_of_characters from "pareto-json/implementation/manual/transformers/json_from_list_of_characters_refiner/prose"
+import * as t_unmarshall_json from "pareto-json/implementation/transformers/unmarshalled_from_json/prose"
+import * as t_json_from_list_of_characters from "pareto-json/implementation/transformers/json_from_list_of_characters_refiner/prose"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"

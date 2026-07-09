@@ -21,7 +21,7 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as r_json_x_from_json from "pareto-json/implementation/manual/refiners/json_x/json_with_parse_info"
+import * as r_json_x_from_json from "pareto-json/implementation/refiners/json_x/json_with_parse_info"
 
 export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) => {
     /**

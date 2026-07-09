@@ -2,7 +2,7 @@ import type * as d_in from "../../../../../interface/generated/liana/schemas/ser
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 //dependencies
-import * as t_json_to_prose_block from "pareto-json/implementation/manual/transformers/json_with_guaranteed_unique_keys/prose"
+import * as t_json_to_prose_block from "pareto-json/implementation/transformers/json_with_guaranteed_unique_keys/prose"
 import * as t_lionweb_to_json from "./json.js"
 
 

@@ -8,7 +8,7 @@ import type * as interface_ from "../../../declarations/transformers/processing/
 import type * as d_out from "astn-core/interface/generated/liana/schemas/location/data"
 
 //dependencies
-import * as t_deserialize_parse_tree_to_location from "astn-core/implementation/manual/transformers/deserialize_parse_tree/location"
+import * as t_deserialize_parse_tree_to_location from "astn-core/implementation/transformers/deserialize_parse_tree/location"
 
 export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($): d_out.Possible_Range => {
