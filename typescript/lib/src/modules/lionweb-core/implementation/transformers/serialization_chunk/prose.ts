@@ -1,4 +1,4 @@
-import type * as d_in from "../../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
+import type * as d_in from "../../../../../interface/data/serialization_chunk.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 //dependencies

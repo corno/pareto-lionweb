@@ -2,7 +2,7 @@ import type * as p_i from 'pareto-core/interface/refiner'
 
 
 //data types
-import type * as d_out from "../../../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
+import type * as d_out from "../../../../../../interface/data/serialization_chunk.js"
 import type * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 import type * as d_function from "pareto-json/interface/data/unmarshall_json"
 import type * as d_function2 from "astn-core/interface/generated/liana/schemas/deserialize_parse_tree/data"

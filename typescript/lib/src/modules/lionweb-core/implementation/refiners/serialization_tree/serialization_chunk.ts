@@ -3,8 +3,8 @@ import * as p_temp from 'pareto-core/implementation/transformer'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 import type * as p_i from 'pareto-core/interface/refiner'
 
-import type * as d_in from "../../../../../interface/generated/liana/schemas/serialization_chunk/data.js"
-import type * as d_out from "../../../../../interface/generated/liana/schemas/serialization_tree/data.js"
+import type * as d_in from "../../../../../interface/data/serialization_chunk.js"
+import type * as d_out from "../../../../../interface/data/serialization_tree.js"
 import type * as d_function from "../../../interface/data/tree_from_chunk.js"
 
 

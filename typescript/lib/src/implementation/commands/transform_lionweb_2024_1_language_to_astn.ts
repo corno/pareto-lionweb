@@ -40,7 +40,7 @@ import * as r_serialization_tree_from_list_of_characters from "../../modules/lio
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/implementation/transformers/prose/list_of_characters"
 import * as t_graphviz_to_prose from "pareto-graphviz/implementation/transformers/high_level_simple/prose"
 import * as t_lioncore_to_graphviz from "../transformers/LionCore-M3-2024-1/graphviz.js"
-import * as t_lioncore_to_prose from "../generated/liana/schemas/lioncore/transformers/fountain_pen.js"
+import * as t_lioncore_to_prose from "../../modules/lioncore/implementation/transformers/unconstrained/fountain_pen.js"
 import * as t_location_to_prose from "astn-core/implementation/transformers/location/prose"
 import * as t_path_to_path from "pareto-filesystem-unrestricted-api/implementation/transformers/unrestricted_path/unrestricted_path"
 import * as t_path_to_text from "pareto-filesystem-unrestricted-api/implementation/transformers/unrestricted_path/text"

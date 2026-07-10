@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/data'
 
-import type * as d_serialization_tree from "../../../../interface/generated/liana/schemas/serialization_tree/data.js"
+import type * as d_serialization_tree from "../../../../interface/data/serialization_tree.js"
 
 export type Error = {
     'node': d_serialization_tree.Node
