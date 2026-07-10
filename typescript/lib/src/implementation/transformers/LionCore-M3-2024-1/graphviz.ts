@@ -1,4 +1,5 @@
 import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_r from 'pareto-core/implementation/refiner'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 import type * as interface_ from "../../../declarations/transformers/LionCore-M3-2024-1/graphviz.js"
@@ -13,7 +14,7 @@ import * as sh from "pareto-graphviz/shorthands/high_level_simple/target"
 
 export const M3: interface_.M3 = ($) => sh.Graph(
     p_.literal.list([]),
-    p_.from.dictionary(
+    p_r.from.dictionary(
         p_.from.dictionary($.containments.entities).map(
             ($, id) => sh.node(
                 p_.literal.list([
@@ -43,9 +44,7 @@ export const M3: interface_.M3 = ($) => sh.Graph(
             ))
     ).re_id(
         ($, id): string => "LionWeb.LionCore_M3." + id,
-        {
-            duplicate_id: () => p_unreachable_code_path("id's should be unique")
-        }
+        () => p_unreachable_code_path("id's should be unique")
     ),
     p_.from.dictionary($.containments.entities).flatten_to_list(
         ($, id) => p_.from.state($.classifier).decide(

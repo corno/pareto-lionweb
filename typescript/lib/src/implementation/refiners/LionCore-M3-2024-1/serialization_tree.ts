@@ -78,7 +78,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
         },
         'containments': {
             'entities': p_temp.from.dictionary(
-                p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                p_.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                     $['node tree'],
                     abort,
                     {
@@ -93,12 +93,10 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                             'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
                         }
                     ),
-                    {
-                        duplicate_id: ($, id) => abort({
-                            'node': $,
-                            'type': ['expected single element', id]
-                        })
-                    },
+                    ($, id) => abort({
+                        'node': $,
+                        'type': ['expected single element', id]
+                    }),
                 )
             ).map(
                 ($, id) => {
@@ -205,7 +203,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                         }),
                                                     'containments': {
                                                         'features': p_temp.from.dictionary(
-                                                            p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                                                            p_.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                                 $,
                                                                 abort,
                                                                 {
@@ -220,12 +218,10 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                                         'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name",
                                                                     }
                                                                 ),
-                                                                {
-                                                                    duplicate_id: ($, id) => abort({
-                                                                        'node': $,
-                                                                        'type': ['expected single element', id]
-                                                                    })
-                                                                },
+                                                                ($, id) => abort({
+                                                                    'node': $,
+                                                                    'type': ['expected single element', id]
+                                                                }),
                                                             )
                                                         ).map(
                                                             ($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
@@ -329,7 +325,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                 }]
                                             }
                                         case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.from.dictionary(
-                                            p_temp.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
+                                            p_.from.dictionary(r_unmarshalled_serialization_tree_from_serialization_tree.Multiple_Containments(
                                                 $,
                                                 abort,
                                                 {
@@ -343,12 +339,10 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                         'id': "LionCore-builtins:2024.1:LionCore-builtins-INamed-name"
                                                     }
                                                 ),
-                                                {
-                                                    'duplicate_id': ($, id) => abort({
-                                                        'node': $,
-                                                        'type': ['expected single element', id]
-                                                    })
-                                                }
+                                                ($, id) => abort({
+                                                    'node': $,
+                                                    'type': ['expected single element', id]
+                                                })
                                             )
                                         ).map(
                                             ($, id) => {
