@@ -30,7 +30,7 @@ const settings = {
 
 //interface
 
-import type * as d_prose from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
+import type * as d_prose from "pareto-fountain-pen/interface/data/prose"
 
 
 //dependencies

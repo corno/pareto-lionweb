@@ -1,5 +1,5 @@
 import type * as d_in from "../../../../../interface/data/serialization_chunk.js"
-import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
+import type * as d_out from "pareto-fountain-pen/interface/data/prose"
 
 //dependencies
 import * as t_json_to_prose_block from "pareto-json/implementation/transformers/json_with_guaranteed_unique_keys/prose"

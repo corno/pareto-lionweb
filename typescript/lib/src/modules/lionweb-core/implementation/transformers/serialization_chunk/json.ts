@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 
 //data  types
 import type * as d_in from "../../../../../interface/data/serialization_chunk.js"
-import type * as d_out from "pareto-json/interface/generated/liana/schemas/json_with_guaranteed_unique_keys/data"
+import type * as d_out from "pareto-json/interface/data/json_with_guaranteed_unique_keys"
 
 namespace interface_ {
 

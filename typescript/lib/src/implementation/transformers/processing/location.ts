@@ -5,7 +5,7 @@ import type * as interface_ from "../../../declarations/transformers/processing/
 
 
 //data types
-import type * as d_out from "astn-core/interface/generated/liana/schemas/location/data"
+import type * as d_out from "astn-core/interface/data/location"
 
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/implementation/transformers/deserialize_parse_tree/location"
