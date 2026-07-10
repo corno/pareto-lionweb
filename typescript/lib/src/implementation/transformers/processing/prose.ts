@@ -23,7 +23,7 @@ export const Unexpected_Content = (
     }
 ): d_out.Phrase => p_.from.dictionary($.unexpected).on_has_entries(
     ($) => sh.ph.indent(
-        sh.pg.composed([
+        sh.pg.deprecated_composed([
             sh.pg.sentences([
                 sh.sentence([
                     sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
@@ -90,7 +90,7 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                                 case 'unexpected content': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("unexpected content:"),
                                     sh.ph.indent(
-                                        sh.pg.composed([
+                                        sh.pg.deprecated_composed([
                                             sh.pg.sentences([
                                                 sh.sentence([
                                                     sh.ph.literal("containments:"),
