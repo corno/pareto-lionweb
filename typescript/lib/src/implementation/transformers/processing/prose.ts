@@ -23,20 +23,18 @@ export const Unexpected_Content = (
     }
 ): d_out.Phrase => p_.from.dictionary($.unexpected).on_has_entries(
     ($) => sh.ph.indent(
-        sh.pg.deprecated_composed([
-            sh.pg.sentences([
-                sh.sentence([
-                    sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
-                    sh.ph.indent(
-                        sh.pg.sentences(p_.from.dictionary($).convert_to_list(
-                            ($, id) => sh.sentence([
-                                sh.ph.literal("- "),
-                                sh.ph.literal(id),
-                            ]))),
-                    )
-                ])
-            ]),
-        ])
+        sh.pg.sentences([
+            sh.sentence([
+                sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
+                sh.ph.indent(
+                    sh.pg.sentences(p_.from.dictionary($).convert_to_list(
+                        ($, id) => sh.sentence([
+                            sh.ph.literal("- "),
+                            sh.ph.literal(id),
+                        ]))),
+                )
+            ])
+        ]),
     ),
     () => sh.ph.nothing()
 
@@ -90,26 +88,18 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                                 case 'unexpected content': return p_.option($, ($) => sh.ph.composed([
                                     sh.ph.literal("unexpected content:"),
                                     sh.ph.indent(
-                                        sh.pg.deprecated_composed([
-                                            sh.pg.sentences([
-                                                sh.sentence([
-                                                    sh.ph.literal("containments:"),
-                                                    Unexpected_Content($.containments, { 'classifier': node.classifier })
-                                                ])
+                                        sh.pg.sentences([
+                                            sh.sentence([
+                                                sh.ph.literal("containments:"),
+                                                Unexpected_Content($.containments, { 'classifier': node.classifier })
                                             ]),
-
-
-                                            sh.pg.sentences([
-                                                sh.sentence([
-                                                    sh.ph.literal("properties:"),
-                                                    Unexpected_Content($.properties, { 'classifier': node.classifier })
-                                                ])
+                                            sh.sentence([
+                                                sh.ph.literal("properties:"),
+                                                Unexpected_Content($.properties, { 'classifier': node.classifier })
                                             ]),
-                                            sh.pg.sentences([
-                                                sh.sentence([
-                                                    sh.ph.literal("references:"),
-                                                    Unexpected_Content($.references, { 'classifier': node.classifier })
-                                                ])
+                                            sh.sentence([
+                                                sh.ph.literal("references:"),
+                                                Unexpected_Content($.references, { 'classifier': node.classifier })
                                             ]),
                                         ])
                                     )
