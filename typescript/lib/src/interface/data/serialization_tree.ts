@@ -1,0 +1,127 @@
+
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
+
+import * as i_imports_location from "./location.js"
+
+export namespace Serialization_Tree_ {
+    
+    export type serializationFormatVersion = string
+    
+    export namespace languages {
+        
+        export namespace L {
+            
+            export type key = string
+            
+            export type version = string
+            
+        }
+        
+        export type L = {
+            readonly 'key': L.key
+            readonly 'version': L.version
+        }
+        
+    }
+    
+    export type languages = p_di.List<languages.L>
+    
+    export type root_node_id = string
+    
+    export type node_tree = Node_
+    
+}
+
+export type Serialization_Tree_ = {
+    readonly 'serializationFormatVersion': Serialization_Tree_.serializationFormatVersion
+    readonly 'languages': Serialization_Tree_.languages
+    readonly 'root node id': Serialization_Tree_.root_node_id
+    readonly 'node tree': Serialization_Tree_.node_tree
+}
+
+export namespace Node_ {
+    
+    export type range = i_imports_location.Range
+    
+    export type classifier = string
+    
+    export namespace properties {
+        
+        export type D = string
+        
+    }
+    
+    export type properties = p_di.Dictionary<properties.D>
+    
+    export namespace containments {
+        
+        export namespace D {
+            
+            export type D = Node_
+            
+        }
+        
+        export type D = p_di.Dictionary<D.D>
+        
+    }
+    
+    export type containments = p_di.Dictionary<containments.D>
+    
+    export namespace references {
+        
+        export type D = Targets_
+        
+    }
+    
+    export type references = p_di.Dictionary<references.D>
+    
+    export namespace annotations {
+        
+        export type L = string
+        
+    }
+    
+    export type annotations = p_di.List<annotations.L>
+    
+}
+
+export type Node_ = {
+    readonly 'range': Node_.range
+    readonly 'classifier': Node_.classifier
+    readonly 'properties': Node_.properties
+    readonly 'containments': Node_.containments
+    readonly 'references': Node_.references
+    readonly 'annotations': Node_.annotations
+}
+
+export namespace Targets_ {
+    
+    export namespace L {
+        
+        export type resolveInfo = string
+        
+        export namespace reference {
+            
+            export type O = string
+            
+        }
+        
+        export type reference = p_di.Optional_Value<reference.O>
+        
+    }
+    
+    export type L = {
+        readonly 'resolveInfo': L.resolveInfo
+        readonly 'reference': L.reference
+    }
+    
+}
+
+export type Targets_ = p_di.List<Targets_.L>
+
+export type { 
+    Serialization_Tree_ as Serialization_Tree, 
+    Node_ as Node, 
+    Targets_ as Targets, 
+}
