@@ -3,7 +3,7 @@ import type * as p_ from 'pareto-core/interface/refiner'
 
 //data types
 import type * as d_in from "../../../interface/generated/liana/schemas/serialization_tree/data.js"
-import type * as d_out from "../../../interface/generated/liana/schemas/lioncore/data.js"
+import type * as d_out from "../../../modules/lioncore/interface/data/unconstrained.js"
 import type * as d_out_generic from "../../../interface/generated/liana/schemas/generic/data.js"
 import type * as d_function from "../../../modules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
 

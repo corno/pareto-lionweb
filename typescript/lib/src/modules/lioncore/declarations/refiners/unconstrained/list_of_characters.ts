@@ -5,7 +5,7 @@ import * as i_generic from "liana-core/interface/data/deserialize"
 
 import * as i_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
-import * as i_out from "../../data.js"
+import * as i_out from "../../../interface/data/unconstrained.js"
 
 export namespace M3_ {
     

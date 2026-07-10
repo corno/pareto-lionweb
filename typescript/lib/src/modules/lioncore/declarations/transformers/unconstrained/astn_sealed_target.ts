@@ -3,7 +3,7 @@ import * as p_i from 'pareto-core/interface/__internal/Abort'
 
 import * as i_out from "astn-core/interface/generated/liana/schemas/sealed_target/data"
 
-import * as i_in from "../../data.js"
+import * as i_in from "../../../interface/data/unconstrained.js"
 
 export namespace M3_ {
     

@@ -1,7 +1,7 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "../../../interface/generated/liana/schemas/lioncore/data.js"
+import type * as d_in from "../../../modules/lioncore/interface/data/unconstrained.js"
 import type * as d_out from "pareto-graphviz/interface/generated/liana/schemas/high_level_simple/data"
 
 

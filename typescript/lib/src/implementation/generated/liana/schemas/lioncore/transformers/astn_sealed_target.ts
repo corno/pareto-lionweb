@@ -9,7 +9,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 
 import _p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/lioncore/signatures/transformers/astn_sealed_target.js"
+import * as t_signatures from "../../../../../../modules/lioncore/declarations/transformers/unconstrained/astn_sealed_target.js"
 
 import * as t_out from "astn-core/interface/generated/liana/schemas/sealed_target/data"
 

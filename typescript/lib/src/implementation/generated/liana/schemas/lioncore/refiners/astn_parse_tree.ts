@@ -11,9 +11,9 @@ import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_f
 
 import p_variables from 'pareto-core/implementation/refiner/specials/variables'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/lioncore/signatures/refiners/astn_parse_tree.js"
+import * as t_signatures from "../../../../../../modules/lioncore/declarations/refiners/unconstrained/astn_parse_tree.js"
 
-import * as t_out from "../../../../../../interface/generated/liana/schemas/lioncore/data.js"
+import * as t_out from "../../../../../../modules/lioncore/interface/data/unconstrained.js"
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/implementation/refiners/unmarshalled/astn_parse_tree"
 
