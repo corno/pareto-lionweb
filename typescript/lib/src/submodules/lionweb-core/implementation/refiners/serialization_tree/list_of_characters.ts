@@ -1,16 +1,16 @@
 import type * as p_i from 'pareto-core/interface/refiner'
 
 //data types
-import type * as d_out from "../../../../../interface/schemas/serialization_tree.js"
-import type * as d_function from "../../../interface/schemas/deserialize_serialization_tree.js"
-import type * as d_in from "pareto-fountain-pen/interface/data/list_of_characters"
+import type * as s_out from "../../../../../interface/schemas/serialization_tree.js"
+import type * as s_function from "../../../interface/schemas/deserialize_serialization_tree.js"
+import type * as s_in from "pareto-fountain-pen/interface/data/list_of_characters"
 
 export namespace interface_ {
     export type Serialization_Tree = p_i.Refiner_With_Parameter<
-        d_out.Serialization_Tree,
-        d_function.Error,
-        d_in.List_of_Characters,
-        d_function.Parameter
+        s_out.Serialization_Tree,
+        s_function.Error,
+        s_in.List_of_Characters,
+        s_function.Parameter
     >
 }
 

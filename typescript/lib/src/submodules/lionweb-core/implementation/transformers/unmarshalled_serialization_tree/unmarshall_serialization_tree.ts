@@ -3,13 +3,13 @@ import type * as p_di from 'pareto-core/interface/data'
 import * as p_ from 'pareto-core/implementation/transformer'
 
 //data types
-import type * as d_in from "../../../interface/schemas/unmarshalled_serialization_tree.js"
-import type * as d_out from "../../../interface/schemas/lion_core_from_serialization_tree.js"
+import type * as s_in from "../../../interface/schemas/unmarshalled_serialization_tree.js"
+import type * as s_out from "../../../interface/schemas/lion_core_from_serialization_tree.js"
 
 export namespace interface_ {
     export type Node_With_Possibly_Unexpected_Content = p_i.Transformer_With_Parameter<
-        d_in.Node_With_Possibly_Unexpected_References,
-        d_out.Optional_Error,
+        s_in.Node_With_Possibly_Unexpected_References,
+        s_out.Optional_Error,
         {
             'expected containments': p_di.Dictionary<null>
             'expected properties': p_di.Dictionary<null>
@@ -63,7 +63,7 @@ export const Node_With_Possibly_Unexpected_Content: interface_.Node_With_Possibl
     ) {
         return p_.literal.not_set()
     }
-    return p_.literal.set<d_out.Error>({
+    return p_.literal.set<s_out.Error>({
         'type': ['unexpected content', {
             'containments': {
                 'unexpected': $p_unexpected_containments,

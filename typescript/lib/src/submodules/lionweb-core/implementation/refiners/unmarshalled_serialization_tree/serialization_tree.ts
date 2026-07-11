@@ -2,74 +2,74 @@ import * as p_ from 'pareto-core/implementation/refiner'
 import type * as p_i from 'pareto-core/interface/refiner'
 import * as p_temp from 'pareto-core/implementation/transformer'
 
-import type * as d_in from "../../../../../interface/schemas/serialization_tree.js"
-import type * as d_out from "../../../interface/schemas/unmarshalled_serialization_tree.js"
-import type * as d_function from "../../../interface/schemas/lion_core_from_serialization_tree.js"
+import type * as s_in from "../../../../../interface/schemas/serialization_tree.js"
+import type * as s_out from "../../../interface/schemas/unmarshalled_serialization_tree.js"
+import type * as s_function from "../../../interface/schemas/lion_core_from_serialization_tree.js"
 
 export namespace interface_ {
     export type Property = p_i.Refiner_With_Parameter<
-        d_out.Property,
-        d_function.Error,
-        d_in.Node,
+        s_out.Property,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
     export type Optional_Property = p_i.Refiner_With_Parameter<
-        d_out.Optional_Property,
-        d_function.Error,
-        d_in.Node,
+        s_out.Optional_Property,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
     export type Singular_Containment = p_i.Refiner_With_Parameter<
-        d_out.Singular_Containment,
-        d_function.Error,
-        d_in.Node,
+        s_out.Singular_Containment,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
     export type Optional_Containment = p_i.Refiner_With_Parameter<
-        d_out.Optional_Containment,
-        d_function.Error,
-        d_in.Node,
+        s_out.Optional_Containment,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
     export type Multiple_Containments = p_i.Refiner_With_Parameter<
-        d_out.Multiple_Containments,
-        d_function.Error,
-        d_in.Node,
+        s_out.Multiple_Containments,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
 
     export type Optional_Reference = p_i.Refiner_With_Parameter<
-        d_out.Optional_Reference,
-        d_function.Error,
-        d_in.Node,
+        s_out.Optional_Reference,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
 
     export type Singular_Reference = p_i.Refiner_With_Parameter<
-        d_out.Singular_Reference,
-        d_function.Error,
-        d_in.Node,
+        s_out.Singular_Reference,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }
     >
 
     export type Multiple_References = p_i.Refiner_With_Parameter<
-        d_out.Multiple_References,
-        d_function.Error,
-        d_in.Node,
+        s_out.Multiple_References,
+        s_function.Error,
+        s_in.Node,
         {
             'id': string
         }

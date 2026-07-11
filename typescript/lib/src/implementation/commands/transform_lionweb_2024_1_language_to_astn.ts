@@ -30,7 +30,7 @@ const settings = {
 
 //interface
 
-import type * as d_prose from "pareto-fountain-pen/interface/data/prose"
+import type * as s_prose from "pareto-fountain-pen/interface/data/prose"
 
 
 //dependencies
@@ -63,7 +63,7 @@ export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn =
                             r_path_from_text.Context_Path(settings['in']['dir']),
                             { 'node': settings['in']['file'] }
                         ),
-                        ($): d_prose.Phrase => t_read_file_to_prose.Error($)
+                        ($): s_prose.Phrase => t_read_file_to_prose.Error($)
                     )).refine(
                         ($, abort) => {
 

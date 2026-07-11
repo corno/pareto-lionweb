@@ -1,9 +1,9 @@
 import * as p_ from 'pareto-core/interface/data'
 
-import type * as d_serialization_tree from "../../../../interface/schemas/serialization_tree.js"
+import type * as s_serialization_tree from "../../../../interface/schemas/serialization_tree.js"
 
 export type Error = {
-    'node': d_serialization_tree.Node
+    'node': s_serialization_tree.Node
     'type':
     | ['missing content', {
         'type':

@@ -6,7 +6,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 import type * as interface_ from "../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //data types
-import type * as d_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
+import type * as s_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
 
 //dependencies
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../submodules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"
@@ -133,7 +133,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                             ),
                             'classifier': p_.from.text($.classifier).to_state(
                                 $,
-                                ($, text): d_out.M3.containments.entities.D.classifier => {
+                                ($, text): s_out.M3.containments.entities.D.classifier => {
                                     switch (text) {
                                         case "LionCore-M3:2024.1:Concept":
                                         case "LionCore-M3:2024.1:Interface":
@@ -141,7 +141,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                 return ['Classifier', {
                                                     'classifier': p_.from.text($.classifier).to_state(
                                                         $,
-                                                        ($, text): d_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                        ($, text): s_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                             switch (text) {
                                                                 case "LionCore-M3:2024.1:Concept": {
                                                                     return ['Concept', {
@@ -224,7 +224,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                                 }),
                                                             )
                                                         ).map(
-                                                            ($, id): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
+                                                            ($, id): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D => {
                                                                 const node = $
 
                                                                 return p_assert(
@@ -260,7 +260,7 @@ export const M3: interface_.M3 = ($, abort, $p) => p_assert(
                                                                             "LionCore-M3:2024.1:Link-type",
                                                                         )
                                                                         ).decide(
-                                                                            (): d_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => ['Link', {
+                                                                            (): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => ['Link', {
                                                                                 'classifier': p_change_context($.classifier, ($) => {
                                                                                     switch ($) {
                                                                                         case "LionCore-M3:2024.1:Reference":

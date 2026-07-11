@@ -4,8 +4,8 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/processing/prose.js"
 
 //data types
-import type * as d_out from "pareto-fountain-pen/interface/data/prose"
-import type * as d_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
+import type * as s_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 
 //dependencies
 import * as t_unmarshall_json from "pareto-json/implementation/transformers/unmarshalled_from_json/prose"
@@ -17,11 +17,11 @@ import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 export const Unexpected_Content = (
-    $: d_unmarshall_serialization_tree.Unexpected_Content,
+    $: s_unmarshall_serialization_tree.Unexpected_Content,
     $p: {
         'classifier': string
     }
-): d_out.Phrase => p_.from.dictionary($.unexpected).on_has_entries(
+): s_out.Phrase => p_.from.dictionary($.unexpected).on_has_entries(
     ($) => sh.ph.indent(
         sh.pg.sentences([
             sh.sentence([

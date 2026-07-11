@@ -2,24 +2,24 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //data  types
-import type * as d_in from "../../../../../interface/schemas/serialization_chunk.js"
-import type * as d_out from "pareto-json/interface/data/json_with_guaranteed_unique_keys"
+import type * as s_in from "../../../../../interface/schemas/serialization_chunk.js"
+import type * as s_out from "pareto-json/interface/data/json_with_guaranteed_unique_keys"
 
 namespace interface_ {
 
     export type Meta_Pointer = p_i.Transformer<
-        d_in.Meta_Pointer,
-        d_out.Value
+        s_in.Meta_Pointer,
+        s_out.Value
     >
 
     export type Serialization_Chunk = p_i.Transformer<
-        d_in.Serialization_Chunk,
-        d_out.Document
+        s_in.Serialization_Chunk,
+        s_out.Document
     >
 
     export type Targets = p_i.Transformer<
-        d_in.Targets,
-        d_out.Value
+        s_in.Targets,
+        s_out.Value
     >
 
 }

@@ -3,20 +3,20 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //data types
-import type * as d_out from "../../../../../../interface/schemas/serialization_chunk.js"
-import type * as d_in from "pareto-json/interface/data/json_with_parse_info"
-import type * as d_function from "pareto-json/interface/data/unmarshalled_from_json"
+import type * as s_out from "../../../../../../interface/schemas/serialization_chunk.js"
+import type * as s_in from "pareto-json/interface/data/json_with_parse_info"
+import type * as s_function from "pareto-json/interface/data/unmarshalled_from_json"
 
 export namespace interface_ {
     export type Serialization_Chunk = p_i.Refiner<
-        d_out.Serialization_Chunk,
-        d_function.Error,
-        d_in.Value
+        s_out.Serialization_Chunk,
+        s_function.Error,
+        s_in.Value
     >
     export type Meta_Pointer = p_i.Refiner<
-        d_out.Meta_Pointer,
-        d_function.Error,
-        d_in.Value
+        s_out.Meta_Pointer,
+        s_function.Error,
+        s_in.Value
     >
 }
 
@@ -42,7 +42,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
                 })
             },
         ),
-        ($): d_out.Serialization_Chunk => ({
+        ($): s_out.Serialization_Chunk => ({
             'range': $.range,
             'serializationFormatVersion': r_json_x_from_json.String(
                 r_json_x_from_json.Property(
@@ -111,7 +111,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
                     ).value,
                     abort,
                 ),
-                ($): d_out.Serialization_Chunk.nodes => p_.from.list($.items).map(
+                ($): s_out.Serialization_Chunk.nodes => p_.from.list($.items).map(
                     ($) => p_change_context(
                         r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                             $,
@@ -128,7 +128,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
                                 }),
                             }
                         ),
-                        ($): d_out.Serialization_Chunk.nodes.L => ({
+                        ($): s_out.Serialization_Chunk.nodes.L => ({
                             'range': $.range,
                             'id': r_json_x_from_json.String(
                                 r_json_x_from_json.Property(
@@ -271,7 +271,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
                                 abort,
                             ).items
                             ).map(
-                                ($): d_out.Serialization_Chunk.nodes.L.references.L => p_change_context(
+                                ($): s_out.Serialization_Chunk.nodes.L.references.L => p_change_context(
                                     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
                                         $,
                                         abort,
@@ -282,7 +282,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
                                             })
                                         }
                                     ),
-                                    ($): d_out.Serialization_Chunk.nodes.L.references.L => ({
+                                    ($): s_out.Serialization_Chunk.nodes.L.references.L => ({
                                         'reference': Meta_Pointer(
                                             r_json_x_from_json.Property(
                                                 $,

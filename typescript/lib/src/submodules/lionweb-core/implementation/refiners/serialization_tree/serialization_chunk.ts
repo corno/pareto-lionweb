@@ -3,20 +3,20 @@ import * as p_temp from 'pareto-core/implementation/transformer'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 import type * as p_i from 'pareto-core/interface/refiner'
 
-import type * as d_in from "../../../../../interface/schemas/serialization_chunk.js"
-import type * as d_out from "../../../../../interface/schemas/serialization_tree.js"
-import type * as d_function from "../../../interface/schemas/tree_from_chunk.js"
+import type * as s_in from "../../../../../interface/schemas/serialization_chunk.js"
+import type * as s_out from "../../../../../interface/schemas/serialization_tree.js"
+import type * as s_function from "../../../interface/schemas/tree_from_chunk.js"
 
 
-export const Meta_Pointer = ($: d_in.Meta_Pointer): string => {
+export const Meta_Pointer = ($: s_in.Meta_Pointer): string => {
     return `${$.language}:${$.version}:${$.key}`
 }
 
 
 export const Serialization_Tree: p_i.Refiner<
-    d_out.Serialization_Tree,
-    d_function.Error,
-    d_in.Serialization_Chunk
+    s_out.Serialization_Tree,
+    s_function.Error,
+    s_in.Serialization_Chunk
 > = (
     $,
     abort
@@ -24,7 +24,7 @@ export const Serialization_Tree: p_i.Refiner<
         const chunk = $
         const nodes_without_parent = p_temp.from.list($.nodes).map_optionally(
             ($) => p_temp.from.optional($.parent).decide(
-                () => p_.literal.not_set<d_in.Serialization_Chunk.nodes.L>(),
+                () => p_.literal.not_set<s_in.Serialization_Chunk.nodes.L>(),
                 () => p_.literal.set($)
             )
 
@@ -37,7 +37,7 @@ export const Serialization_Tree: p_i.Refiner<
         }
         return p_change_context(
             p_.from.optional(nodes_without_parent.__deprecated_get_possible_item_at(0)).decide(
-                ($): d_in.Serialization_Chunk.nodes.L => $,
+                ($): s_in.Serialization_Chunk.nodes.L => $,
                 () => abort({
                     'range': chunk.range,
                     'type': ['could not determine root node', null]
@@ -72,15 +72,15 @@ export const Serialization_Tree: p_i.Refiner<
     }
 
 const Node: p_i.Refiner_With_Parameter<
-    d_out.Node,
-    d_function.Error,
-    d_in.Serialization_Chunk.nodes.L,
-    d_function.Node_Parameters
+    s_out.Node,
+    s_function.Error,
+    s_in.Serialization_Chunk.nodes.L,
+    s_function.Node_Parameters
 > = (
     $,
     abort,
     $p,
-): d_out.Node => {
+): s_out.Node => {
         const node = $
         return {
             'range': $.range,

@@ -5,8 +5,8 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 import type * as interface_ from "../../../declarations/transformers/LionCore-M3-2024-1/graphviz.js"
 
 //data types
-import type * as d_out from "pareto-graphviz/interface/data/high_level_simple"
-import type * as d_out_attributes from "pareto-graphviz/interface/data/attributes"
+import type * as s_out from "pareto-graphviz/interface/data/high_level_simple"
+import type * as s_out_attributes from "pareto-graphviz/interface/data/attributes"
 
 //shorthands
 import * as sh from "pareto-graphviz/shorthands/high_level_simple/target"
@@ -20,7 +20,7 @@ export const M3: interface_.M3 = ($) => sh.Graph(
                 p_.literal.list([
                     ['label', id],
                     ['shape', p_.from.state($.classifier).decide(
-                        ($): d_out_attributes.Attributes.L.shape => {
+                        ($): s_out_attributes.Attributes.L.shape => {
                             switch ($[0]) {
                                 case 'Classifier': return p_.option($, ($) => p_.from.state($.classifier).decide(
                                     ($) => {
@@ -48,7 +48,7 @@ export const M3: interface_.M3 = ($) => sh.Graph(
     ),
     p_.from.dictionary($.containments.entities).flatten_to_list(
         ($, id) => p_.from.state($.classifier).decide(
-            ($): d_out.Graph.edges => {
+            ($): s_out.Graph.edges => {
                 switch ($[0]) {
                     case 'Classifier': return p_.option($, ($) => p_.from.state($.classifier).decide(
                         ($) => {
