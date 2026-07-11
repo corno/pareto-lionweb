@@ -6,11 +6,11 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 import type * as interface_ from "../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //data types
-import type * as d_out from "../../../modules/lioncore/interface/data/unconstrained.js"
+import type * as d_out from "../../../submodules/lioncore/interface/data/unconstrained.js"
 
 //dependencies
-import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../modules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"
-import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../modules/lionweb-core/implementation/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
+import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../submodules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"
+import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../submodules/lionweb-core/implementation/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
 
 export const ID: interface_.ID = ($, abort, $p) => ({
     'key': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
