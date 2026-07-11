@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/data'
 
-import type * as d_chunk from "../../../../interface/data/serialization_chunk.js"
+import type * as d_chunk from "../../../../interface/schemas/serialization_chunk.js"
 import type * as d_location from "astn-core/interface/data/location"
 
 export type Error = {

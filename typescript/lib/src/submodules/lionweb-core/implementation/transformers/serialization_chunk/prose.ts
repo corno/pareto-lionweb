@@ -1,4 +1,4 @@
-import type * as d_in from "../../../../../interface/data/serialization_chunk.js"
+import type * as d_in from "../../../../../interface/schemas/serialization_chunk.js"
 import type * as d_out from "pareto-fountain-pen/interface/data/prose"
 
 //dependencies

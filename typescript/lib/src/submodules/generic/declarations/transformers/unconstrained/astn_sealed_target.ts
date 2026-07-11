@@ -3,7 +3,7 @@ import * as p_i from 'pareto-core/interface/__internal/Abort'
 
 import * as i_out from "astn-core/interface/data/sealed_target"
 
-import * as i_in from "../../../interface/data/unconstrained.js"
+import * as i_in from "../../../interface/schemas/unconstrained.js"
 
 export namespace ID_ {
     

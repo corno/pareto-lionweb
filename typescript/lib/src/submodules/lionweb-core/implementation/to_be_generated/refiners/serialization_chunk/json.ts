@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //data types
-import type * as d_out from "../../../../../../interface/data/serialization_chunk.js"
+import type * as d_out from "../../../../../../interface/schemas/serialization_chunk.js"
 import type * as d_in from "pareto-json/interface/data/json_with_parse_info"
 import type * as d_function from "pareto-json/interface/data/unmarshalled_from_json"
 

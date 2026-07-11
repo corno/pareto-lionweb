@@ -5,7 +5,7 @@ import type * as interface_ from "../../../declarations/transformers/processing/
 
 //data types
 import type * as d_out from "pareto-fountain-pen/interface/data/prose"
-import type * as d_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/data/lion_core_from_serialization_tree.js"
+import type * as d_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 
 //dependencies
 import * as t_unmarshall_json from "pareto-json/implementation/transformers/unmarshalled_from_json/prose"

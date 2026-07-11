@@ -5,7 +5,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 
 import * as t_signatures from "../../../declarations/transformers/unconstrained/boilerplate_for_migrate.js"
 
-import * as t_out from "../../../interface/data/unconstrained.js"
+import * as t_out from "../../../interface/schemas/unconstrained.js"
 
 // import * as v_location from "../../location/transformers/boilerplate_for_migrate.js"
 

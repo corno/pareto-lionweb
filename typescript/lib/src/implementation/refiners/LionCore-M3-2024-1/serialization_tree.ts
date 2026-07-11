@@ -6,7 +6,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 import type * as interface_ from "../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
 //data types
-import type * as d_out from "../../../submodules/lioncore/interface/data/unconstrained.js"
+import type * as d_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
 
 //dependencies
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../submodules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"

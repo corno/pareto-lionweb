@@ -13,7 +13,7 @@ import p_variables from 'pareto-core/implementation/refiner/specials/variables'
 
 import * as t_signatures from "../../../declarations/refiners/unconstrained/astn_parse_tree.js"
 
-import * as t_out from "../../../interface/data/unconstrained.js"
+import * as t_out from "../../../interface/schemas/unconstrained.js"
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/implementation/refiners/unmarshalled/astn_parse_tree"
 

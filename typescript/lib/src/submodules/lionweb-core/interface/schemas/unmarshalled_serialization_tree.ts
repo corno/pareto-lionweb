@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/data'
 
-import type * as d_serialization_tree from "../../../../interface/data/serialization_tree.js"
+import type * as d_serialization_tree from "../../../../interface/schemas/serialization_tree.js"
 
 export type Singular_Containment = d_serialization_tree.Node.containments.D.D
 export type Optional_Containment = p_.Optional_Value<d_serialization_tree.Node.containments.D.D>
