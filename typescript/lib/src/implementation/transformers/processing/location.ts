@@ -4,7 +4,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/processing/location.js"
 
 
-//data types
+//schemas
 import type * as s_out from "astn-core/interface/data/location"
 
 //dependencies

@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 
 import type * as interface_ from "../../../declarations/transformers/processing/prose.js"
 
-//data types
+//schemas
 import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 import type * as s_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 

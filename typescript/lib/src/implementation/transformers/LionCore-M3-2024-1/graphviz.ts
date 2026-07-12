@@ -4,7 +4,7 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 
 import type * as interface_ from "../../../declarations/transformers/LionCore-M3-2024-1/graphviz.js"
 
-//data types
+//schemas
 import type * as s_out from "pareto-graphviz/interface/data/high_level_simple"
 import type * as s_out_attributes from "pareto-graphviz/interface/data/attributes"
 

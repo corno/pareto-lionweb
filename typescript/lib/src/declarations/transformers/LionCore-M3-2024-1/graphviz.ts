@@ -1,6 +1,6 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
-//data types
+//schemas
 import type * as s_in from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
 import type * as s_out from "pareto-graphviz/interface/data/high_level_simple"
 

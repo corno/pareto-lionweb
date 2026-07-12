@@ -1,7 +1,7 @@
 
 import type * as p_ from 'pareto-core/interface/refiner'
 
-//data types
+//schemas
 import type * as s_in from "../../../interface/schemas/serialization_tree.js"
 import type * as s_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
 import type * as s_out_generic from "../../../submodules/generic/interface/schemas/unconstrained.js"

@@ -5,7 +5,7 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 
 import type * as interface_ from "../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
 
-//data types
+//schemas
 import type * as s_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
 
 //dependencies

@@ -1,5 +1,5 @@
 
-//data types
+//schemas
 import type * as s_lion_core_from_serialization_tree from "../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 import type * as s_deserialize_serialization_tree from "../../submodules/lionweb-core/interface/schemas/deserialize_serialization_tree.js"
 
