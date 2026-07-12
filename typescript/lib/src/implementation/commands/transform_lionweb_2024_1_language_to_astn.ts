@@ -1,7 +1,11 @@
 import * as p_ from 'pareto-core/implementation/command'
 import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
 
-import * as commands from "../../declarations/commands.js"
+//interface dependencies
+import type * as query_interfaces_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/queries"
+import type * as command_interfaces_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/interface/commands"
+import type * as command_interfaces_pareto_stream from "pareto-stream-api/interface/commands"
+import type * as command_interfaces_pareto_application_api from "pareto-application-api/interface/commands"
 
 //data
 
@@ -52,7 +56,17 @@ import * as t_write_file_to_prose from "pareto-filesystem-unrestricted-api/imple
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export const $$: commands.procedures.transform_lionweb_2024_1_language_to_astn = p_.command(
+export const $$: p_.Command_Implementation<
+        command_interfaces_pareto_application_api.main,
+        null,
+        {
+            'read file': query_interfaces_pareto_filesystem_unrestricted_api.read_file
+        },
+        {
+            'write file': command_interfaces_pareto_filesystem_unrestricted_api.write_file
+            'log error': command_interfaces_pareto_stream.log_error
+        }
+    > = p_.command(
     ($d, $s, $q, $c) => [
 
         p_.s.handle_error(
