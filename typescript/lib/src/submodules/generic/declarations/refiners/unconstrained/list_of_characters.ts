@@ -1,15 +1,15 @@
 
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/interface/data/deserialize"
+import * as i_generic from "../../../interface/schemas/deserialize.js"
 
-import * as i_in from "pareto-fountain-pen/interface/data/list_of_characters"
+import * as i_in from "../../../interface/schemas/list_of_characters.js"
 
 import * as i_out from "../../../interface/schemas/unconstrained.js"
 
 export namespace ID_ {
     
-    export type I = i_in.List_of_Characters
+    export type I = i_in.List_Of_Characters
     
     export type O = i_out.ID
     
@@ -33,7 +33,7 @@ export type ID_ = (
 
 export namespace Raw_Reference_ {
     
-    export type I = i_in.List_of_Characters
+    export type I = i_in.List_Of_Characters
     
     export type O = i_out.Raw_Reference
     
@@ -57,7 +57,7 @@ export type Raw_Reference_ = (
 
 export namespace Singular_Reference_ {
     
-    export type I = i_in.List_of_Characters
+    export type I = i_in.List_Of_Characters
     
     export type O = i_out.Singular_Reference
     
@@ -81,7 +81,7 @@ export type Singular_Reference_ = (
 
 export namespace References_ {
     
-    export type I = i_in.List_of_Characters
+    export type I = i_in.List_Of_Characters
     
     export type O = i_out.References
     
@@ -105,7 +105,7 @@ export type References_ = (
 
 export namespace Optional_Reference_ {
     
-    export type I = i_in.List_of_Characters
+    export type I = i_in.List_Of_Characters
     
     export type O = i_out.Optional_Reference
     

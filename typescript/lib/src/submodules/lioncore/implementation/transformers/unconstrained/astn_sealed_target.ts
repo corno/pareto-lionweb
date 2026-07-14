@@ -1,6 +1,6 @@
 
 import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_di from 'pareto-core/interface/data'
+import * as p_di from 'pareto-core/interface/schema'
 const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>, assign: ($: OV) => B, otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
 const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
@@ -9,11 +9,15 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 
 import _p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
-import * as t_signatures from "../../../declarations/transformers/unconstrained/astn_sealed_target.js"
+import type * as s_in from "../../../interface/schemas/unconstrained.js"
+namespace t_signatures {
+    export type M3 = p_.Transformer<
+        s_in.M3,
+        s_out.Value
+    >
+}
 
-import * as t_out from "astn-core/interface/data/sealed_target"
-
-import * as v_primitives_to_text from "liana-core/implementation/transformers/primitives/text"
+import * as s_out from "../../../interface/schemas/sealed_target.js"
 
 import * as v_external_generic from "../../../../generic/implementation/transformers/unconstrained/astn_sealed_target.js"
 
@@ -59,7 +63,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                     "entities": p_change_context(
                         $['entities'],
                         ($) => ['dictionary', p_.from.dictionary($).map(
-                            ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
+                            ($, id): s_out.Value => ['group', ['verbose', p_.literal.dictionary(
                                 {
                                     "id": p_change_context(
                                         $['id'],
@@ -71,7 +75,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                         $['classifier'],
                                         ($) => ['state', p_decide_state(
                                             $,
-                                            ($): t_out.Value.state => {
+                                            ($): s_out.Value.state => {
                                                 switch ($[0]) {
                                                     case 'Classifier':
                                                         return p_.option(
@@ -84,7 +88,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                             $['classifier'],
                                                                             ($) => ['state', p_decide_state(
                                                                                 $,
-                                                                                ($): t_out.Value.state => {
+                                                                                ($): s_out.Value.state => {
                                                                                     switch ($[0]) {
                                                                                         case 'Concept':
                                                                                             return p_.option(
@@ -176,7 +180,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                     "features": p_change_context(
                                                                                         $['features'],
                                                                                         ($) => ['dictionary', p_.from.dictionary($).map(
-                                                                                            ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
+                                                                                            ($, id): s_out.Value => ['group', ['verbose', p_.literal.dictionary(
                                                                                                 {
                                                                                                     "id": p_change_context(
                                                                                                         $['id'],
@@ -188,7 +192,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                         $['classifier'],
                                                                                                         ($) => ['state', p_decide_state(
                                                                                                             $,
-                                                                                                            ($): t_out.Value.state => {
+                                                                                                            ($): s_out.Value.state => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Property':
                                                                                                                         return p_.option(
@@ -225,7 +229,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                                                                             $['classifier'],
                                                                                                                                             ($) => ['state', p_decide_state(
                                                                                                                                                 $,
-                                                                                                                                                ($): t_out.Value.state => {
+                                                                                                                                                ($): s_out.Value.state => {
                                                                                                                                                     switch ($[0]) {
                                                                                                                                                         case 'Containment':
                                                                                                                                                             return p_.option(
@@ -322,7 +326,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                 'option': 'Datatype',
                                                                 'value': ['state', p_decide_state(
                                                                     $,
-                                                                    ($): t_out.Value.state => {
+                                                                    ($): s_out.Value.state => {
                                                                         switch ($[0]) {
                                                                             case 'Enumeration':
                                                                                 return p_.option(
@@ -330,7 +334,7 @@ export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dicti
                                                                                     ($) => ({
                                                                                         'option': 'Enumeration',
                                                                                         'value': ['dictionary', p_.from.dictionary($).map(
-                                                                                            ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
+                                                                                            ($, id): s_out.Value => ['group', ['verbose', p_.literal.dictionary(
                                                                                                 {
                                                                                                     "id": p_change_context(
                                                                                                         $['id'],

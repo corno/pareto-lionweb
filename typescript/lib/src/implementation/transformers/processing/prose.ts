@@ -1,10 +1,16 @@
 
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/processing/prose.js"
+import type * as s_in from "../../../interface/schemas/processing.js"
+import type * as s_out from "../../../interface/schemas/prose.js"
+namespace declarations {
+    export type Error = p_.Transformer<
+        s_in.Error,
+        s_out.Phrase
+    >
+}
 
 //schemas
-import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 import type * as s_unmarshall_serialization_tree from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 
 //dependencies
@@ -40,7 +46,7 @@ export const Unexpected_Content = (
 
 )
 
-export const Error: interface_.Error = ($) => p_.from.state($).decide(
+export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'serialization tree': return p_.option($, ($) => p_.from.state($).decide(

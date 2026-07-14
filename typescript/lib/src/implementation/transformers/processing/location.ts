@@ -1,16 +1,24 @@
 
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/processing/location.js"
+//schemas
+import type * as s_in from "../../../interface/schemas/processing.js"
+import type * as s_out from "../../../interface/schemas/location.js"
+
+namespace declarations {
+    export type Error = p_.Transformer<
+        s_in.Error,
+        s_out.Possible_Range
+    >
+}
 
 
 //schemas
-import type * as s_out from "astn-core/interface/data/location"
 
 //dependencies
 import * as t_deserialize_parse_tree_to_location from "astn-core/implementation/transformers/deserialize_parse_tree/location"
 
-export const Error: interface_.Error = ($) => p_.from.state($).decide(
+export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($): s_out.Possible_Range => {
         switch ($[0]) {
             case 'serialization tree': return p_.option($, ($) => p_.from.state($).decide(

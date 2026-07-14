@@ -2,17 +2,24 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import * as p_r from 'pareto-core/implementation/refiner'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import type * as interface_ from "../../../declarations/transformers/LionCore-M3-2024-1/graphviz.js"
 
 //schemas
-import type * as s_out from "pareto-graphviz/interface/data/high_level_simple"
-import type * as s_out_attributes from "pareto-graphviz/interface/data/attributes"
+import type * as s_out_attributes from "../../../interface/schemas/graphviz_attributes.js"
+import type * as s_in from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
+import type * as s_out from "../../../interface/schemas/graphviz.js"
+
+namespace declarations {
+    export type M3 = p_.Transformer<
+        s_in.M3,
+        s_out.Graph
+    >
+}
 
 //shorthands
 import * as sh from "pareto-graphviz/shorthands/high_level_simple/target"
 
 
-export const M3: interface_.M3 = ($) => sh.Graph(
+export const M3: declarations.M3 = ($) => sh.Graph(
     p_.literal.list([]),
     p_r.from.dictionary(
         p_.from.dictionary($.containments.entities).map(

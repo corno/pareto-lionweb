@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core/interface/data'
+import * as p_ from 'pareto-core/interface/schema'
 
 import type * as s_chunk from "../../../../interface/schemas/serialization_chunk.js"
-import type * as s_location from "astn-core/interface/data/location"
+import type * as s_location from "./location.js"
 
 export type Error = {
     'range': s_location.Range

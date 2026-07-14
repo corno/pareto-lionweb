@@ -3,11 +3,11 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //schemas
-import type * as s_out from "../../../../../../interface/schemas/serialization_chunk.js"
-import type * as s_in from "pareto-json/interface/data/json_with_parse_info"
-import type * as s_function from "pareto-json/interface/data/unmarshalled_from_json"
+import type * as s_in from "./json_with_parse_info.js"
+import type * as s_function from "./unmarshalled_from_json.js"
 
-export namespace interface_ {
+import type * as s_out from "../../../../../../../interface/schemas/serialization_chunk.js"
+namespace interface_ {
     export type Serialization_Chunk = p_i.Refiner<
         s_out.Serialization_Chunk,
         s_function.Error,

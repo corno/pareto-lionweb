@@ -1,15 +1,21 @@
 
 import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_di from 'pareto-core/interface/data'
+import * as p_di from 'pareto-core/interface/schema'
 const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
 const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import * as t_signatures from "../../../declarations/transformers/unconstrained/boilerplate_for_migrate.js"
+import type * as s_in from "../../../interface/schemas/unconstrained.js"
+namespace t_signatures {
+    export type M3 = p_.Transformer<
+        s_in.M3,
+        s_out.M3
+    >
+}
 
-import * as t_out from "../../../interface/schemas/unconstrained.js"
+import * as s_out from "../../../interface/schemas/unconstrained.js"
 
 import * as v_generic from "../../../../generic/implementation/transformers/unconstrained/boilerplate_for_migrate.js"
 
@@ -58,7 +64,7 @@ export const M3: t_signatures.M3 = ($) => ({
                             $['classifier'],
                             ($) => p_decide_state(
                                 $,
-                                ($): t_out.M3.containments.entities.D.classifier => {
+                                ($): s_out.M3.containments.entities.D.classifier => {
                                     switch ($[0]) {
                                         case 'Classifier':
                                             return p_.option(
@@ -68,7 +74,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                         $['classifier'],
                                                         ($) => p_decide_state(
                                                             $,
-                                                            ($): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                            ($): s_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                 switch ($[0]) {
                                                                     case 'Concept':
                                                                         return p_.option(
@@ -149,7 +155,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                             $['classifier'],
                                                                             ($) => p_decide_state(
                                                                                 $,
-                                                                                ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
+                                                                                ($): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                     switch ($[0]) {
                                                                                         case 'Property':
                                                                                             return p_.option(
@@ -176,7 +182,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                                                                         $['classifier'],
                                                                                                         ($) => p_decide_state(
                                                                                                             $,
-                                                                                                            ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
+                                                                                                            ($): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Containment':
                                                                                                                         return p_.option(
@@ -247,7 +253,7 @@ export const M3: t_signatures.M3 = ($) => ({
                                                 $,
                                                 ($) => ['Datatype', p_decide_state(
                                                     $,
-                                                    ($): t_out.M3.containments.entities.D.classifier.Datatype => {
+                                                    ($): s_out.M3.containments.entities.D.classifier.Datatype => {
                                                         switch ($[0]) {
                                                             case 'Enumeration':
                                                                 return p_.option(

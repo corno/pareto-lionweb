@@ -4,9 +4,8 @@ import p_change_context from 'pareto-core/implementation/refiner/specials/change
 import type * as p_i from 'pareto-core/interface/refiner'
 
 import type * as s_in from "../../../../../interface/schemas/serialization_chunk.js"
-import type * as s_out from "../../../../../interface/schemas/serialization_tree.js"
 import type * as s_function from "../../../interface/schemas/tree_from_chunk.js"
-
+import type * as s_out from "../../../../../interface/schemas/serialization_tree.js"
 
 export const Meta_Pointer = ($: s_in.Meta_Pointer): string => {
     return `${$.language}:${$.version}:${$.key}`

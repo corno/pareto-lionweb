@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/interface/data'
+import * as p_ from 'pareto-core/interface/schema'
 
 import type * as s_serialization_tree from "../../../../interface/schemas/serialization_tree.js"
 

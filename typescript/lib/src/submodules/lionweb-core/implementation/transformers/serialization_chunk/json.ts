@@ -3,9 +3,9 @@ import type * as p_i from 'pareto-core/interface/transformer'
 
 //data  types
 import type * as s_in from "../../../../../interface/schemas/serialization_chunk.js"
-import type * as s_out from "pareto-json/interface/data/json_with_guaranteed_unique_keys"
 
-namespace interface_ {
+import type * as s_out from "../../../interface/schemas/json_with_guaranteed_unique_keys.js"
+namespace declarations {
 
     export type Meta_Pointer = p_i.Transformer<
         s_in.Meta_Pointer,
@@ -28,7 +28,7 @@ namespace interface_ {
 import * as sh from "pareto-json/shorthands/json_with_guaranteed_unique_keys/target"
 
 
-export const Meta_Pointer: interface_.Meta_Pointer = ($) => sh.v.object(
+export const Meta_Pointer: declarations.Meta_Pointer = ($) => sh.v.object(
     p_.literal.dictionary({
         "key": sh.v.string($.key),
         "version": sh.v.string($.version),
@@ -36,7 +36,7 @@ export const Meta_Pointer: interface_.Meta_Pointer = ($) => sh.v.object(
     })
 )
 
-export const Serialization_Chunk: interface_.Serialization_Chunk = ($) => sh.v.object(
+export const Serialization_Chunk: declarations.Serialization_Chunk = ($) => sh.v.object(
     p_.literal.dictionary({
         "serializationFormatVersion": sh.v.string($.serializationFormatVersion),
         "languages": sh.v.array(p_.from.list($.languages).map(
@@ -90,7 +90,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($) => sh.v.o
     })
 )
 
-export const Targets: interface_.Targets = ($) => sh.v.array(
+export const Targets: declarations.Targets = ($) => sh.v.array(
     p_.from.list($).map(
         ($) => sh.v.object(p_.literal.dictionary({
             "reference": p_.from.optional($.reference).decide(

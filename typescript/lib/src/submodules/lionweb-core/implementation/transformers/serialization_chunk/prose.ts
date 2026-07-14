@@ -1,5 +1,7 @@
+
+//schemas
 import type * as s_in from "../../../../../interface/schemas/serialization_chunk.js"
-import type * as s_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_out from "../../../../../interface/schemas/prose.js"
 
 //dependencies
 import * as t_json_to_prose_block from "pareto-json/implementation/transformers/json_with_guaranteed_unique_keys/prose"

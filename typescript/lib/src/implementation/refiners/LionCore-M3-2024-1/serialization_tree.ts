@@ -3,16 +3,41 @@ import * as p_temp from 'pareto-core/implementation/transformer'
 import p_assert from 'pareto-core/implementation/refiner/specials/assert'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import type * as interface_ from "../../../declarations/refiners/LionCore-M3-2024-1/serialization_tree.js"
-
 //schemas
+import type * as s_in from "../../../interface/schemas/serialization_tree.js"
+import type * as s_out_generic from "../../../submodules/generic/interface/schemas/unconstrained.js"
+import type * as s_function from "../../../submodules/lionweb-core/interface/schemas/lion_core_from_serialization_tree.js"
 import type * as s_out from "../../../submodules/lioncore/interface/schemas/unconstrained.js"
+
+namespace declarations {
+    export type ID = p_.Refiner_With_Parameter<
+        s_out_generic.ID,
+        s_function.Error,
+        s_in.Node,
+        {
+            'id': string,
+            'write source': boolean,
+        }
+    >
+
+    export type M3 = p_.Refiner_With_Parameter<
+        s_out.M3,
+        s_function.Error,
+        s_in.Serialization_Tree,
+        {
+            'write source': boolean
+        }
+    >
+
+
+}
+
 
 //dependencies
 import * as r_unmarshalled_serialization_tree_from_serialization_tree from "../../../submodules/lionweb-core/implementation/refiners/unmarshalled_serialization_tree/serialization_tree.js"
 import * as t_unmarshalled_serialization_tree_to_optional_error from "../../../submodules/lionweb-core/implementation/transformers/unmarshalled_serialization_tree/unmarshall_serialization_tree.js"
 
-export const ID: interface_.ID = ($, abort, $p) => ({
+export const ID: declarations.ID = ($, abort, $p) => ({
     'key': r_unmarshalled_serialization_tree_from_serialization_tree.Property(
         $,
         abort,
@@ -26,7 +51,7 @@ export const ID: interface_.ID = ($, abort, $p) => ({
         : p_.literal.not_set(),
 })
 
-export const M3: interface_.M3 = ($, abort, $p) => p_assert(
+export const M3: declarations.M3 = ($, abort, $p) => p_assert(
     abort,
     () => t_unmarshalled_serialization_tree_to_optional_error.Node_With_Possibly_Unexpected_Content(
         $['node tree'],

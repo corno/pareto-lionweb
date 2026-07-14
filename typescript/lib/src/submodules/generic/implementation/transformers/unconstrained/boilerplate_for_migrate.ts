@@ -3,9 +3,31 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import p_implement_me from 'pareto-core-dev/implement_me'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import * as t_signatures from "../../../declarations/transformers/unconstrained/boilerplate_for_migrate.js"
+import type * as s_in from "../../../interface/schemas/unconstrained.js"
+namespace t_signatures {
+    export type ID = p_.Transformer<
+        s_in.ID,
+        s_out.ID
+    >
+    export type Raw_Reference = p_.Transformer<
+        s_in.Raw_Reference,
+        s_out.Raw_Reference
+    >
+    export type Singular_Reference = p_.Transformer<
+        s_in.Singular_Reference,
+        s_out.Singular_Reference
+    >
+    export type References = p_.Transformer<
+        s_in.References,
+        s_out.References
+    >
+    export type Optional_Reference = p_.Transformer<
+        s_in.Optional_Reference,
+        s_out.Optional_Reference
+    >
+}
 
-import * as t_out from "../../../interface/schemas/unconstrained.js"
+import * as s_out from "../../../interface/schemas/unconstrained.js"
 
 // import * as v_location from "../../location/transformers/boilerplate_for_migrate.js"
 

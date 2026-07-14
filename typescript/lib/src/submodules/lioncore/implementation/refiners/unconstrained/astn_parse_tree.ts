@@ -1,6 +1,6 @@
 
 import * as p_ from 'pareto-core/implementation/refiner'
-import * as p_di from 'pareto-core/interface/data'
+import * as p_di from 'pareto-core/interface/schema'
 const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
 const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
@@ -13,7 +13,7 @@ import p_variables from 'pareto-core/implementation/refiner/specials/variables'
 
 import * as t_signatures from "../../../declarations/refiners/unconstrained/astn_parse_tree.js"
 
-import * as t_out from "../../../interface/schemas/unconstrained.js"
+import * as s_out from "../../../interface/schemas/unconstrained.js"
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/implementation/refiners/unmarshalled/astn_parse_tree"
 
@@ -308,7 +308,7 @@ export const M3: t_signatures.M3 = ($, abort) => p_change_context(
                                                                         ),
                                                                         ($) => p_decide_text(
                                                                             $['option']['token']['value'],
-                                                                            ($t): t_out.M3.containments.entities.D.classifier => {
+                                                                            ($t): s_out.M3.containments.entities.D.classifier => {
                                                                                 switch ($t) {
                                                                                     case 'Classifier':
                                                                                         return p_change_context(
@@ -359,7 +359,7 @@ export const M3: t_signatures.M3 = ($, abort) => p_change_context(
                                                                                                                     ),
                                                                                                                     ($) => p_decide_text(
                                                                                                                         $['option']['token']['value'],
-                                                                                                                        ($t): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
+                                                                                                                        ($t): s_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                                                                             switch ($t) {
                                                                                                                                 case 'Concept':
                                                                                                                                     return p_change_context(
@@ -784,7 +784,7 @@ export const M3: t_signatures.M3 = ($, abort) => p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     ($) => p_decide_text(
                                                                                                                                                                         $['option']['token']['value'],
-                                                                                                                                                                        ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
+                                                                                                                                                                        ($t): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                                                                                                             switch ($t) {
                                                                                                                                                                                 case 'Property':
                                                                                                                                                                                     return p_change_context(
@@ -928,7 +928,7 @@ export const M3: t_signatures.M3 = ($, abort) => p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => p_decide_text(
                                                                                                                                                                                                                     $['option']['token']['value'],
-                                                                                                                                                                                                                    ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
+                                                                                                                                                                                                                    ($t): s_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                                                                                                                         switch ($t) {
                                                                                                                                                                                                                             case 'Containment':
                                                                                                                                                                                                                                 return p_change_context(
@@ -1195,7 +1195,7 @@ export const M3: t_signatures.M3 = ($, abort) => p_change_context(
                                                                                                 ),
                                                                                                 ($) => p_decide_text(
                                                                                                     $['option']['token']['value'],
-                                                                                                    ($t): t_out.M3.containments.entities.D.classifier.Datatype => {
+                                                                                                    ($t): s_out.M3.containments.entities.D.classifier.Datatype => {
                                                                                                         switch ($t) {
                                                                                                             case 'Enumeration':
                                                                                                                 return p_change_context(

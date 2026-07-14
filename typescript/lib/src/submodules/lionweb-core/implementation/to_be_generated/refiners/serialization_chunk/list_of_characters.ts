@@ -2,16 +2,16 @@ import type * as p_i from 'pareto-core/interface/refiner'
 
 
 //schemas
-import type * as s_out from "../../../../../../interface/schemas/serialization_chunk.js"
-import type * as s_in from "pareto-fountain-pen/interface/data/list_of_characters"
-import type * as s_function from "pareto-json/interface/data/unmarshall_json"
-import type * as s_function2 from "astn-core/interface/data/deserialize_parse_tree"
+import type * as s_in from "../../../interface/schemas/list_of_characters.js"
+import type * as s_function from "./unmarshall_json.js"
+import type * as s_function2 from "../../../interface/schemas/deserialize_parse_tree.js"
 
-export namespace interface_ {
+import type * as s_out from "../../../../../../../interface/schemas/serialization_chunk.js"
+namespace interface_ {
     export type Serialization_Chunk = p_i.Refiner_With_Parameter<
         s_out.Serialization_Chunk,
         s_function.Error,
-        s_in.List_of_Characters,
+        s_in.List_Of_Characters,
         s_function2.Parameters
     >
 }

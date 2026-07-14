@@ -3,10 +3,10 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import * as p_temp from 'pareto-core/implementation/transformer'
 
 import type * as s_in from "../../../../../interface/schemas/serialization_tree.js"
-import type * as s_out from "../../../interface/schemas/unmarshalled_serialization_tree.js"
 import type * as s_function from "../../../interface/schemas/lion_core_from_serialization_tree.js"
 
-export namespace interface_ {
+import type * as s_out from "../../../../../../submodules/lionweb-core/interface/schemas/unmarshalled_serialization_tree.js"
+namespace interface_ {
     export type Property = p_i.Refiner_With_Parameter<
         s_out.Property,
         s_function.Error,

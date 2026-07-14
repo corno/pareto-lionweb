@@ -34,7 +34,7 @@ const settings = {
 
 //interface
 
-import type * as s_prose from "pareto-fountain-pen/interface/data/prose"
+import type * as s_prose from "../../interface/schemas/prose.js"
 
 
 //dependencies
