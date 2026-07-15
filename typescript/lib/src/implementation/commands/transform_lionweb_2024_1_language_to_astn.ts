@@ -54,7 +54,7 @@ import * as t_read_file_to_prose from "pareto-filesystem-unrestricted-api/implem
 import * as t_write_file_to_prose from "pareto-filesystem-unrestricted-api/implementation/transformers/write_file/prose"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const $$: p_.Command_Implementation<
         command_interfaces_pareto_application_api.main,
@@ -86,14 +86,14 @@ export const $$: p_.Command_Implementation<
                                     $,
                                     ($) => abort(
                                         sh.ph.composed([
-                                            sh.ph.literal("error during processing: "),
-                                            sh.ph.literal(t_path_to_text.Node_Path(
+                                            sh.ph.text("error during processing: "),
+                                            sh.ph.text(t_path_to_text.Node_Path(
                                                 t_path_to_path.create_node_path(
                                                     r_path_from_text.Context_Path(settings['in']['dir']),
                                                     { 'node': settings['in']['file'] }
                                                 )
                                             )),
-                                            sh.ph.literal(":"),
+                                            sh.ph.text(":"),
                                             t_location_to_prose.Possible_Range(
                                                 t_processing_to_location.Error(['serialization tree', $]),
                                                 {
@@ -111,14 +111,14 @@ export const $$: p_.Command_Implementation<
                                 ),
                                 ($) => abort(
                                         sh.ph.composed([
-                                            sh.ph.literal("error during processing: "),
-                                            sh.ph.literal(t_path_to_text.Node_Path(
+                                            sh.ph.text("error during processing: "),
+                                            sh.ph.text(t_path_to_text.Node_Path(
                                                 t_path_to_path.create_node_path(
                                                     r_path_from_text.Context_Path(settings['in']['dir']),
                                                     { 'node': settings['in']['file'] }
                                                 )
                                             )),
-                                            sh.ph.literal(":"),
+                                            sh.ph.text(":"),
                                             t_location_to_prose.Possible_Range(
                                                 t_processing_to_location.Error(['lioncore', $]),
                                                 {
@@ -154,8 +154,8 @@ export const $$: p_.Command_Implementation<
                                 ),
                             }),
                             ($) => sh.ph.composed([
-                                sh.ph.literal("failed to write converted dataset to "),
-                                sh.ph.literal(settings['out']['file']),
+                                sh.ph.text("failed to write converted dataset to "),
+                                sh.ph.text(settings['out']['file']),
                                 t_write_file_to_prose.Error($),
                             ]),
 
@@ -177,8 +177,8 @@ export const $$: p_.Command_Implementation<
                                 ),
                             }),
                             ($) => sh.ph.composed([
-                                sh.ph.literal("failed to write converted dataset to "),
-                                sh.ph.literal(settings['out']['graphviz file']),
+                                sh.ph.text("failed to write converted dataset to "),
+                                sh.ph.text(settings['out']['graphviz file']),
                                 t_write_file_to_prose.Error($),
                             ]),
 

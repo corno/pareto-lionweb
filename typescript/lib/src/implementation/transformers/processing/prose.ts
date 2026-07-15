@@ -18,7 +18,7 @@ import * as t_unmarshall_json from "pareto-json/implementation/transformers/unma
 import * as t_json_from_list_of_characters from "pareto-json/implementation/transformers/json_from_list_of_characters_refiner/prose"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 
 
@@ -31,12 +31,12 @@ export const Unexpected_Content = (
     ($) => sh.ph.indent(
         sh.pg.sentences([
             sh.sentence([
-                sh.ph.literal("the following features are unexpected for '" + $p.classifier + "':"),
+                sh.ph.text("the following features are unexpected for '" + $p.classifier + "':"),
                 sh.ph.indent(
                     sh.pg.sentences(p_.from.dictionary($).convert_to_list(
                         ($, id) => sh.sentence([
-                            sh.ph.literal("- "),
-                            sh.ph.literal(id),
+                            sh.ph.text("- "),
+                            sh.ph.text(id),
                         ]))),
                 )
             ])
@@ -55,17 +55,17 @@ export const Error: declarations.Error = ($) => p_.from.state($).decide(
                         case 'tree from chunk': return p_.option($, ($) => p_.from.state($.type).decide(
                             ($) => {
                                 switch ($[0]) {
-                                    case 'could not determine root node': return p_.option($, ($) => sh.ph.literal("could not determine root node"))
+                                    case 'could not determine root node': return p_.option($, ($) => sh.ph.text("could not determine root node"))
                                     case 'node': return p_.option($, ($) => sh.ph.composed([
                                         p_.from.state($.type).decide(
                                             ($) => {
                                                 switch ($[0]) {
-                                                    case 'clashing node IDs': return p_.option($, ($) => sh.ph.literal("clashing node IDs"))
-                                                    case 'clashing child node IDs': return p_.option($, ($) => sh.ph.literal("clashing child node IDs"))
-                                                    case 'clashing property keys': return p_.option($, ($) => sh.ph.literal("clashing property keys"))
-                                                    case 'child node not found': return p_.option($, ($) => sh.ph.literal("child node not found"))
-                                                    case 'clashing containment keys': return p_.option($, ($) => sh.ph.literal("clashing containment keys"))
-                                                    case 'clashing reference keys': return p_.option($, ($) => sh.ph.literal("clashing reference keys"))
+                                                    case 'clashing node IDs': return p_.option($, ($) => sh.ph.text("clashing node IDs"))
+                                                    case 'clashing child node IDs': return p_.option($, ($) => sh.ph.text("clashing child node IDs"))
+                                                    case 'clashing property keys': return p_.option($, ($) => sh.ph.text("clashing property keys"))
+                                                    case 'child node not found': return p_.option($, ($) => sh.ph.text("child node not found"))
+                                                    case 'clashing containment keys': return p_.option($, ($) => sh.ph.text("clashing containment keys"))
+                                                    case 'clashing reference keys': return p_.option($, ($) => sh.ph.text("clashing reference keys"))
                                                     default: return p_.exhaustive($[0])
                                                 }
                                             })
@@ -90,30 +90,30 @@ export const Error: declarations.Error = ($) => p_.from.state($).decide(
                     p_.from.state($.type).decide(
                         ($) => {
                             switch ($[0]) {
-                                case 'missing content': return p_.option($, ($) => sh.ph.literal("missing content"))
+                                case 'missing content': return p_.option($, ($) => sh.ph.text("missing content"))
                                 case 'unexpected content': return p_.option($, ($) => sh.ph.composed([
-                                    sh.ph.literal("unexpected content:"),
+                                    sh.ph.text("unexpected content:"),
                                     sh.ph.indent(
                                         sh.pg.sentences([
                                             sh.sentence([
-                                                sh.ph.literal("containments:"),
+                                                sh.ph.text("containments:"),
                                                 Unexpected_Content($.containments, { 'classifier': node.classifier })
                                             ]),
                                             sh.sentence([
-                                                sh.ph.literal("properties:"),
+                                                sh.ph.text("properties:"),
                                                 Unexpected_Content($.properties, { 'classifier': node.classifier })
                                             ]),
                                             sh.sentence([
-                                                sh.ph.literal("references:"),
+                                                sh.ph.text("references:"),
                                                 Unexpected_Content($.references, { 'classifier': node.classifier })
                                             ]),
                                         ])
                                     )
                                 ]))
-                                case 'too many feature elements': return p_.option($, ($) => sh.ph.literal("too many feature elements"))
-                                case 'missing feature element': return p_.option($, ($) => sh.ph.literal("missing feature element"))
-                                case 'unknown option': return p_.option($, ($) => sh.ph.literal("unknown option"))
-                                case 'expected single element': return p_.option($, ($) => sh.ph.literal("expected single element"))
+                                case 'too many feature elements': return p_.option($, ($) => sh.ph.text("too many feature elements"))
+                                case 'missing feature element': return p_.option($, ($) => sh.ph.text("missing feature element"))
+                                case 'unknown option': return p_.option($, ($) => sh.ph.text("unknown option"))
+                                case 'expected single element': return p_.option($, ($) => sh.ph.text("expected single element"))
                                 default: return p_.exhaustive($[0])
                             }
                         })
