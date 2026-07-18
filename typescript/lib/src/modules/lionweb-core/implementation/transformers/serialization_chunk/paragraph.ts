@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
-import type * as s_in from "../../../../chunk_deserialization.to_be_generated/schemas/chunk.js"
+import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk.js"
 import type * as s_out from "../../../schemas/paragraph.js"
 
 //dependencies

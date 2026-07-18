@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/schema'
 
-import type * as s_chunk from "../../chunk_deserialization.to_be_generated/schemas/chunk.js"
+import type * as s_chunk from "../../chunk.to_be_generated/schemas/chunk.js"
 import type * as s_location from "./location.js"
 
 export type Error = {

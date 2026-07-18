@@ -3,7 +3,7 @@ import * as p_temp from 'pareto-core/implementation/transformer'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 import type * as p_i from 'pareto-core/interface/refiner'
 
-import type * as s_in from "../../../../chunk_deserialization.to_be_generated/schemas/chunk.js"
+import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk.js"
 import type * as s_function from "../../../schemas/construction_from_chunk.js"
 import type * as s_out from "../../../schemas/tree.js"
 

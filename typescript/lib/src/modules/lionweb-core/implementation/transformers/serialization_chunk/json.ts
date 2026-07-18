@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //data  types
-import type * as s_in from "../../../../chunk_deserialization.to_be_generated/schemas/chunk.js"
+import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk.js"
 
 import type * as s_out from "../../../schemas/json_with_guaranteed_unique_keys.js"
 namespace declarations {
