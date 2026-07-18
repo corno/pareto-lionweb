@@ -1,0 +1,409 @@
+import * as p_ from 'pareto-core/implementation/refiner'
+import type * as p_i from 'pareto-core/interface/refiner'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
+
+//schemas
+import type * as s_in from "../../../schemas/deserialized_json.js"
+import type * as s_error from "../../../schemas/json_value_unmarshalling.js"
+
+import type * as s_out from "../../../schemas/chunk.js"
+namespace interface_ {
+    export type Serialization_Chunk = p_i.Refiner<
+        s_out.Serialization_Chunk,
+        s_error.Error,
+        s_in.Value
+    >
+    export type Meta_Pointer = p_i.Refiner<
+        s_out.Meta_Pointer,
+        s_error.Error,
+        s_in.Value
+    >
+}
+
+//dependencies
+import * as r_json_x_from_json from "pareto-json/modules/unmarshalling/implementation/refiners/unmarshalled_json_value/deserialized_json"
+
+export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) => {
+    /**
+     * this transformation should eventually not be handwritten, but be done by json-to-astn;
+     * a mapping has to be written. with that mapping, json-to-astn will need to do 2 things:
+     * 1) generate the Serialization_Chunk schema, which is now handwritten (one time effort)
+     * 2) unmarshall from JSON to Serialization_Chunk (for every serialization chunk)
+     */
+    return p_change_context(
+        r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+            $,
+            abort,
+            {
+                'expected properties': p_.literal.dictionary({
+                    "serializationFormatVersion": null,
+                    "languages": null,
+                    "nodes": null,
+                })
+            },
+        ),
+        ($): s_out.Serialization_Chunk => ({
+            'range': $.range,
+            'serializationFormatVersion': r_json_x_from_json.String(
+                r_json_x_from_json.Property(
+                    $,
+                    abort,
+                    {
+                        'key': "serializationFormatVersion",
+                    }
+                ).value,
+                abort,
+            ).token.value,
+            'languages': p_.from.list(r_json_x_from_json.Array(
+                r_json_x_from_json.Property(
+                    $,
+                    abort,
+                    {
+                        'key': "languages",
+                    }
+                ).value,
+                abort,
+            ).items
+            ).map(
+                ($) => p_change_context(
+                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                        $,
+                        abort,
+                        {
+                            'expected properties': p_.literal.dictionary({
+                                "key": null,
+                                "version": null,
+                            })
+                        }
+                    ),
+                    ($) => ({
+                        'key': r_json_x_from_json.String(
+                            r_json_x_from_json.Property(
+                                $,
+                                abort,
+                                {
+                                    'key': "key",
+                                }
+                            ).value,
+                            abort,
+                        ).token.value,
+                        'version': r_json_x_from_json.String(
+                            r_json_x_from_json.Property(
+                                $,
+                                abort,
+                                {
+                                    'key': "version",
+                                }
+                            ).value,
+                            abort,
+                        ).token.value,
+                    })
+                ),
+            ),
+            'nodes': p_change_context(
+                r_json_x_from_json.Array(
+                    r_json_x_from_json.Property(
+                        $,
+                        abort,
+                        {
+                            'key': "nodes",
+                        }
+                    ).value,
+                    abort,
+                ),
+                ($): s_out.Serialization_Chunk.nodes => p_.from.list($.items).map(
+                    ($) => p_change_context(
+                        r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                            $,
+                            abort,
+                            {
+                                'expected properties': p_.literal.dictionary({
+                                    "id": null,
+                                    "classifier": null,
+                                    "properties": null,
+                                    "containments": null, //this one is missing
+                                    "references": null, //this one is missing
+                                    "annotations": null, //this one is missing
+                                    "parent": null,
+                                }),
+                            }
+                        ),
+                        ($): s_out.Serialization_Chunk.nodes.L => ({
+                            'range': $.range,
+                            'id': r_json_x_from_json.String(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "id",
+                                    }
+                                ).value,
+                                abort,
+                            ).token.value,
+                            'classifier': Meta_Pointer(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "classifier",
+                                    }
+                                ).value,
+                                abort,
+                            ),
+                            'parent': p_.from.optional(r_json_x_from_json.Nullable_Value(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "parent",
+                                    }
+                                ).value
+                            ),
+                            ).map(
+                                ($) => r_json_x_from_json.String(
+                                    $,
+                                    abort,
+                                ).token.value
+                            ),
+                            'properties': p_.from.list(r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "properties",
+                                    }
+                                ).value,
+                                abort,
+                            ).items
+                            ).map(
+                                ($) => p_change_context(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                                        $,
+                                        abort,
+                                        {
+                                            'expected properties': p_.literal.dictionary({
+                                                "property": null,
+                                                "value": null,
+                                            }),
+                                        }
+                                    ),
+                                    ($) => ({
+                                        'property': Meta_Pointer(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort,
+                                                {
+                                                    'key': "property",
+                                                }
+                                            ).value,
+                                            abort,
+                                        ),
+                                        'value': r_json_x_from_json.String(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort,
+                                                {
+                                                    'key': "value",
+                                                }
+                                            ).value,
+                                            abort,
+                                        ).token.value,
+                                    })
+                                )
+                            ),
+                            'containments': p_.from.list(r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "containments",
+                                    }
+                                ).value,
+                                abort,
+                            ).items
+                            ).map(
+                                ($) => p_change_context(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                                        $,
+                                        abort,
+                                        {
+                                            'expected properties': p_.literal.dictionary({
+                                                "containment": null,
+                                                "children": null,
+                                            }),
+                                        }
+                                    ),
+                                    ($) => ({
+                                        'containment': Meta_Pointer(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort,
+                                                {
+                                                    'key': "containment",
+                                                }
+                                            ).value,
+                                            abort,
+                                        ),
+                                        'children': p_.from.list(r_json_x_from_json.Array(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort,
+                                                {
+                                                    'key': "children",
+                                                }
+                                            ).value,
+                                            abort,
+                                        ).items
+                                        ).map(
+                                            ($) => r_json_x_from_json.String($, abort).token.value
+                                        ),
+                                    })
+                                ),
+                            ),
+                            'references': p_.from.list(r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "references",
+                                    }
+                                ).value,
+                                abort,
+                            ).items
+                            ).map(
+                                ($): s_out.Serialization_Chunk.nodes.L.references.L => p_change_context(
+                                    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                                        $,
+                                        abort,
+                                        {
+                                            'expected properties': p_.literal.dictionary({
+                                                "reference": null,
+                                                "targets": null,
+                                            })
+                                        }
+                                    ),
+                                    ($): s_out.Serialization_Chunk.nodes.L.references.L => ({
+                                        'reference': Meta_Pointer(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort,
+                                                {
+                                                    'key': "reference",
+                                                }
+                                            ).value,
+                                            abort,
+                                        ),
+                                        'targets': p_.from.list(r_json_x_from_json.Array(
+                                            r_json_x_from_json.Property(
+                                                $,
+                                                abort, {
+                                                'key': "targets",
+                                            }
+                                            ).value,
+                                            abort,
+                                        ).items
+                                        ).map(
+                                            ($) => p_change_context(
+                                                r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+                                                    $,
+                                                    abort,
+                                                    {
+                                                        'expected properties': p_.literal.dictionary({
+                                                            "resolveInfo": null,
+                                                            "reference": null,
+                                                        })
+                                                    }
+                                                ),
+                                                ($) => ({
+                                                    'resolveInfo': r_json_x_from_json.String(
+                                                        r_json_x_from_json.Property(
+                                                            $,
+                                                            abort,
+                                                            {
+                                                                'key': "resolveInfo",
+                                                            }
+                                                        ).value,
+                                                        abort,
+                                                    ).token.value,
+                                                    'reference': p_.from.optional(r_json_x_from_json.Nullable_Value(
+                                                        r_json_x_from_json.Property(
+                                                            $,
+                                                            abort,
+                                                            {
+                                                                'key': "reference",
+                                                            }
+                                                        ).value,
+                                                    ),
+                                                    ).map(
+                                                        ($) => r_json_x_from_json.String($, abort).token.value
+                                                    ),
+                                                })
+                                            )
+                                        ),
+                                    })
+                                ),
+                            ),
+                            'annotations': p_.from.list(r_json_x_from_json.Array(
+                                r_json_x_from_json.Property(
+                                    $,
+                                    abort,
+                                    {
+                                        'key': "annotations",
+                                    }
+                                ).value,
+                                abort,
+                            ).items
+                            ).map(
+                                ($) => r_json_x_from_json.String($, abort).token.value
+                            ),
+                        })
+                    )),
+            )
+        }))
+}
+
+export const Meta_Pointer: interface_.Meta_Pointer = ($, abort) => p_change_context(
+    r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
+        $,
+        abort,
+        {
+            'expected properties': p_.literal.dictionary({
+                "language": null,
+                "key": null,
+                "version": null,
+            })
+        },
+    ),
+    ($) => ({
+        'language': r_json_x_from_json.String(
+            r_json_x_from_json.Property(
+                $,
+                abort,
+                {
+                    'key': "language",
+                }
+            ).value,
+            abort,
+        ).token.value,
+        'key': r_json_x_from_json.String(
+            r_json_x_from_json.Property(
+                $,
+                abort,
+                {
+                    'key': "key",
+                }
+            ).value,
+            abort
+        ).token.value,
+        'version': r_json_x_from_json.String(
+            r_json_x_from_json.Property(
+                $,
+                abort,
+                {
+                    'key': "version",
+                }
+            ).value,
+            abort,
+        ).token.value,
+    })
+)
