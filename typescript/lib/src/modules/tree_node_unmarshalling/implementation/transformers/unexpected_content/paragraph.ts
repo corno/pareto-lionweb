@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import * as s_in from "../../../schemas/unexpected_content.js"
 import * as s_out from "../../../schemas/paragraph.js"
 
-import * as sh from "pareto-fountain-pen/shorthands/paragraph/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
 
 export const Error: p_.Transformer<s_in.Error, s_out.Phrase> = ($) => sh.ph.composed([
     sh.ph.text("unexpected content:"),

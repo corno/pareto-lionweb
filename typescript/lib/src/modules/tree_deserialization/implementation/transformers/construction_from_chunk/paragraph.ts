@@ -6,7 +6,7 @@ import * as s_out from "../../../schemas/paragraph.js"
 
 //shorthands
 
-import * as sh from "pareto-fountain-pen/shorthands/paragraph/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
 
 export const Error: p_.Transformer<s_in.Error, s_out.Phrase> = ($) => p_.from.state($.type).decide(
     ($) => {
