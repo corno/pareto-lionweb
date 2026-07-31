@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
 import type * as s_in from "../../../schemas/document_construction.js"
-import type * as s_out from "../../../schemas/location.js"
+import type * as s_out from "astn-core/modules/deserialization/schemas/location/schema"
 
 namespace declarations {
     export type Error = p_.Transformer<

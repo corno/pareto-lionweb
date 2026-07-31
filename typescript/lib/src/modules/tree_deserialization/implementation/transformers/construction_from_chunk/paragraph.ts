@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
 import * as s_in from "../../../schemas/construction_from_chunk.js"
-import * as s_out from "../../../schemas/paragraph.js"
+import * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 
 //shorthands

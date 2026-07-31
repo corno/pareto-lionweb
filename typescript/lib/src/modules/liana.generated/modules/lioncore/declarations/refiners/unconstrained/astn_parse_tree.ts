@@ -1,11 +1,11 @@
 
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/modules/value_unmarshalling/schemas/unmarshalling"
+import * as i_generic from "liana-core/modules/value_unmarshalling/schemas/unmarshalling/schema"
 
 import * as i_out from "../../../schemas/unconstrained.js"
 
-import * as i_in from "../../../schemas/parse_tree.js"
+import * as i_in from "astn-core/modules/deserialization/schemas/parse_tree/schema"
 
 export namespace M3_ {
     

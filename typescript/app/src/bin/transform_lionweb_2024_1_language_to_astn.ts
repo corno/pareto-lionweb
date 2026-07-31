@@ -5,7 +5,7 @@ import * as p_h from 'pareto-core-application/index'
 import * as rs_filesystem_unrestricted from "pareto-resource-filesystem-unrestricted/index"
 import * as rs_stream from "pareto-resource-stream/index"
 
-import { $$ as c_command } from "lib/modules/process_lioncore_language/implementation/commands/transform_lionweb_2024_1_language_to_astn"
+import { $$ as c_command } from "lib/modules/process_lioncore_language/commands/implementations/transform_lionweb_2024_1_language_to_astn"
 
 p_h.run_main_command(
     () => {

@@ -10,7 +10,7 @@ import _p_text_from_list from 'pareto-core/implementation/transformer/specials/t
 
 import * as t_signatures from "../../../declarations/transformers/unconstrained/astn_sealed_target.js"
 
-import * as t_out from "astn-core/modules/serialization/schemas/sealed_target"
+import * as t_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
 
 export const ID: t_signatures.ID = ($) => ['group', ['verbose', p_.literal.dictionary(
     {

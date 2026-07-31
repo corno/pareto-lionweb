@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/interface/schema'
 
 import type * as s_chunk from "../../chunk.to_be_generated/schemas/chunk.js"
-import type * as s_location from "./location.js"
+import type * as s_location from "astn-core/modules/deserialization/schemas/location/schema"
 
 export type Error = {
     'range': s_location.Range

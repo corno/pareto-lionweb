@@ -11,9 +11,9 @@ import _p_text_from_list from 'pareto-core/implementation/transformer/specials/t
 
 import * as t_signatures from "../../../declarations/transformers/unconstrained/astn_sealed_target.js"
 
-import * as t_out from "astn-core/modules/serialization/schemas/sealed_target"
+import * as t_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
 
-import * as v_external_generic from "../../../../generic_types/implementation/transformers/unconstrained/astn_sealed_target.js"
+import * as v_external_generic from "../../../../generic_types/schemas/unconstrained/transformers/astn_sealed_target.js"
 
 export const M3: t_signatures.M3 = ($) => ['group', ['verbose', p_.literal.dictionary(
     {

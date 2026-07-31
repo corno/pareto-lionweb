@@ -1,4 +1,4 @@
-import type * as s_chunk_deserialization from "../../chunk.to_be_generated/schemas/deserialization.js"
+import type * as s_chunk_deserialization from "pareto-json/modules/deserialization/schemas/deserialization/schema"
 import type * as s_construction_from_chunk from "./construction_from_chunk.js"
 
 export type Error =

@@ -3,7 +3,7 @@ import * as p_i from 'pareto-core/interface/__internal/Abort'
 
 import * as i_in from "../../../schemas/unconstrained.js"
 
-import * as i_out from "../../../schemas/paragraph.js"
+import * as i_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 export namespace ID_ {
     

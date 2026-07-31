@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/refiner'
 
 import * as t_signatures from "../../../declarations/refiners/unconstrained/list_of_characters.js"
 
-import * as v_deserialize from "astn-core/modules/deserialization/implementation/refiners/parse_tree/list_of_characters"
+import * as v_deserialize from "astn-core/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
 
 import * as v_unmarshall from "./astn_parse_tree.js"
 

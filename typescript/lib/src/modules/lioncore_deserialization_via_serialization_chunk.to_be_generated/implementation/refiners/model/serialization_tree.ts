@@ -35,7 +35,7 @@ namespace declarations {
 
 //dependencies
 import * as r_unmarshalled_tree_node_from_serialization_tree from "../../../../tree_node_unmarshalling/implementation/refiners/unmarshalled_node/serialization_tree.js"
-import * as t_unmarshalled_tree_node_to_optional_error from "../../../../tree_node_unmarshalling/implementation/transformers/unmarshalled_node/possibly_unexpected_content.js"
+import * as t_unmarshalled_tree_node_to_optional_error from "../../../../tree_node_unmarshalling/schemas/unmarshalled_node/transformers/possibly_unexpected_content.js"
 
 export const ID: declarations.ID = ($, abort, $p) => ({
     'key': r_unmarshalled_tree_node_from_serialization_tree.Property(

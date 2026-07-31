@@ -2,10 +2,10 @@ import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
 import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk.js"
-import type * as s_out from "../../../schemas/paragraph.js"
+import type * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 //dependencies
-import * as t_json_to_prose_block from "pareto-json/modules/serialization/implementation/transformers/with_guaranteed_unique_keys/paragraph"
+import * as t_json_to_prose_block from "pareto-json/modules/serialization/schemas/with_guaranteed_unique_keys/transformers/paragraph"
 import * as t_lionweb_to_json from "./json.js"
 
 

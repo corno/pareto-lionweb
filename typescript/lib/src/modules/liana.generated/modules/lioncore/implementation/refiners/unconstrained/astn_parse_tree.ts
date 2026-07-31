@@ -15,9 +15,9 @@ import * as t_signatures from "../../../declarations/refiners/unconstrained/astn
 
 import * as t_out from "../../../schemas/unconstrained.js"
 
-import * as v_unmarshalled_from_parse_tree from "liana-core/modules/value_unmarshalling/implementation/refiners/unmarshalled_value/astn_parse_tree"
+import * as v_unmarshalled_from_parse_tree from "liana-core/modules/value_unmarshalling/schemas/unmarshalled_value/refiners/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/modules/deserialization/implementation/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "astn-core/modules/deserialization/schemas/parse_tree/transformers/start_token_range"
 
 import * as v_external_generic from "../../../../generic_types/implementation/refiners/unconstrained/astn_parse_tree.js"
 

@@ -4,9 +4,9 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 
 
 //schemas
-import type * as s_out_attributes from "../../../schemas/graphviz_attributes.js"
+import type * as s_out_attributes from "pareto-graphviz/schemas/attributes/schema"
 import type * as s_in from "../../../schemas/model.js"
-import type * as s_out from "../../../schemas/graphviz.js"
+import type * as s_out from "pareto-graphviz/schemas/high_level_simple/schema"
 
 namespace declarations {
     export type M3 = p_.Transformer<
@@ -16,7 +16,7 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-graphviz/shorthands/high_level_simple/target"
+import * as sh from "pareto-graphviz/schemas/high_level_simple/shorthands/target"
 
 
 export const M3: declarations.M3 = ($) => sh.Graph(

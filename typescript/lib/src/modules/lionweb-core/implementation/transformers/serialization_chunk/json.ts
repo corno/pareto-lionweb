@@ -4,7 +4,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 //data  types
 import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk.js"
 
-import type * as s_out from "../../../schemas/json_with_guaranteed_unique_keys.js"
+import type * as s_out from "pareto-json/modules/serialization/schemas/with_guaranteed_unique_keys/schema"
 namespace declarations {
 
     export type Meta_Pointer = p_i.Transformer<
@@ -25,7 +25,7 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-json/shorthands/json_with_guaranteed_unique_keys/target"
+import * as sh from "pareto-json/modules/serialization/schemas/with_guaranteed_unique_keys/shorthands/target"
 
 
 export const Meta_Pointer: declarations.Meta_Pointer = ($) => sh.object(

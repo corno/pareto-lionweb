@@ -37,14 +37,14 @@ import type * as s_paragraph from "pareto-fountain-pen/modules/paragraph/schemas
 
 //dependencies
 import * as r_lion_core_from_list_of_characters from "../../../lioncore_deserialization_via_serialization_chunk.to_be_generated/implementation/refiners/model/list_of_characters.js"
-import * as deser_path from "pareto-filesystem-unrestricted-api/modules/unrestricted/implementation/deserializers/path"
+import * as deser_path from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/path/deserializers"
 import * as t_paragraph_to_serialized from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/transformers/serialized"
-import * as t_lioncore_to_serialized_graphviz from "../../../graphviz_visualization/implementation/transformers/model/serialized_graphviz.js"
-import * as t_lioncore_to_serialized_astn from "../../../liana.generated/modules/lioncore/implementation/transformers/unconstrained/serialized.js"
-import * as t_path_to_path from "pareto-filesystem-unrestricted-api/modules/unrestricted/implementation/transformers/path/path"
-import * as ser_read_file from "pareto-filesystem-unrestricted-api/modules/unrestricted/implementation/serializers/read_file"
+import * as t_lioncore_to_serialized_graphviz from "../../../graphviz_visualization/schemas/model/transformers/serialized_graphviz.js"
+import * as t_lioncore_to_serialized_astn from "../../../liana.generated/modules/lioncore/schemas/unconstrained/transformers/serialized.js"
+import * as t_path_to_path from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/path/transformers/path"
+import * as ser_read_file from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/read_file/serializers"
 import * as ser_write_file from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/write_file/serializers"
-import * as t_document_deserialization_to_paragraph from "../../../tree_node_unmarshalling/implementation/transformers/document_deserialization/paragraph.js"
+import * as t_document_deserialization_to_paragraph from "../../../tree_node_unmarshalling/schemas/document_deserialization/transformers/paragraph.js"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"

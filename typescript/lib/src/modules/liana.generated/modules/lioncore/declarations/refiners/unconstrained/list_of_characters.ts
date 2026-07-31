@@ -1,9 +1,9 @@
 
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/modules/unresolved_document_deserialization/schemas/unresolved_document_deserialization"
+import * as i_generic from "liana-core/modules/unresolved_document_deserialization/schemas/unresolved_document_deserialization/schema"
 
-import * as i_in from "../../../schemas/list_of_characters.js"
+import * as i_in from "astn-core/modules/deserialization/schemas/list_of_characters/schema"
 
 import * as i_out from "../../../schemas/unconstrained.js"
 

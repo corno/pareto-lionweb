@@ -1,7 +1,7 @@
 
 import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "../../../schemas/sealed_target.js"
+import * as i_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
 
 import * as i_in from "../../../schemas/unconstrained.js"
 

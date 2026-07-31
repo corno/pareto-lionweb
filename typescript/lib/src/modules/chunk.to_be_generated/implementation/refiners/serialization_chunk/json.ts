@@ -3,8 +3,8 @@ import type * as p_i from 'pareto-core/interface/refiner'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //schemas
-import type * as s_in from "../../../schemas/deserialized_json.js"
-import type * as s_error from "../../../schemas/json_value_unmarshalling.js"
+import type * as s_in from "pareto-json/modules/deserialization/schemas/deserialized_json/schema"
+import type * as s_error from "pareto-json/modules/unmarshalling/schemas/json_value_unmarshalling/schema"
 
 import type * as s_out from "../../../schemas/chunk.js"
 namespace interface_ {
@@ -21,7 +21,7 @@ namespace interface_ {
 }
 
 //dependencies
-import * as r_json_x_from_json from "pareto-json/modules/unmarshalling/implementation/refiners/unmarshalled_json_value/deserialized_json"
+import * as r_json_x_from_json from "pareto-json/modules/unmarshalling/schemas/unmarshalled_json_value/refiners/deserialized_json"
 
 export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) => {
     /**
