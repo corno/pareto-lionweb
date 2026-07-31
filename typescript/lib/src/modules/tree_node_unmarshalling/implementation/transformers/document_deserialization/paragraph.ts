@@ -21,7 +21,7 @@ import * as t_document_construction_to_paragraph from "../document_construction/
 import * as t_tree_deserialization_to_paragraph from "../../../../tree_deserialization/implementation/transformers/deserialization/paragraph.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
 
 

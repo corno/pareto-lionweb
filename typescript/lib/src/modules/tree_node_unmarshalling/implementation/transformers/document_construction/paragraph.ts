@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import * as s_in from "../../../schemas/document_construction.js"
 import * as s_out from "../../../schemas/paragraph.js"
 
-import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
 //dependencies
 import * as t_node_unmarshalling from "../node_unmarshalling/paragraph.js"
