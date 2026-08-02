@@ -7,7 +7,7 @@ import type * as s_in from "pareto-json/modules/deserialization/schemas/deserial
 import type * as s_error from "pareto-json/modules/unmarshalling/schemas/json_value_unmarshalling/schema"
 
 import type * as s_out from "../schema.js"
-namespace interface_ {
+namespace declarations_ {
     export type Serialization_Chunk = p_i.Refiner<
         s_out.Serialization_Chunk,
         s_error.Error,
@@ -23,7 +23,7 @@ namespace interface_ {
 //dependencies
 import * as r_json_x_from_json from "pareto-json/modules/unmarshalling/schemas/unmarshalled_json_value/refiners/deserialized_json"
 
-export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) => {
+export const Serialization_Chunk: declarations_.Serialization_Chunk = ($, abort) => {
     /**
      * this transformation should eventually not be handwritten, but be done by json-to-astn;
      * a mapping has to be written. with that mapping, json-to-astn will need to do 2 things:
@@ -362,7 +362,7 @@ export const Serialization_Chunk: interface_.Serialization_Chunk = ($, abort) =>
         }))
 }
 
-export const Meta_Pointer: interface_.Meta_Pointer = ($, abort) => p_change_context(
+export const Meta_Pointer: declarations_.Meta_Pointer = ($, abort) => p_change_context(
     r_json_x_from_json.Object_No_Unexpected_Properties_From_Value(
         $,
         abort,

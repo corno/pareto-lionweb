@@ -6,7 +6,7 @@ import type * as s_in from "../../tree/schema.js"
 import type * as s_function from "../../node_unmarshalling/schema.js"
 
 import type * as s_out from "../schema.js"
-namespace interface_ {
+namespace declarations_ {
     export type Property = p_i.Refiner_With_Parameter<
         s_out.Property,
         s_function.Error,
@@ -78,7 +78,7 @@ namespace interface_ {
 
 //implementations
 
-export const Multiple_Containments: interface_.Multiple_Containments = ($, abort, $p) => {
+export const Multiple_Containments: declarations_.Multiple_Containments = ($, abort, $p) => {
     return p_.from.dictionary($.containments).get_entry(
         $p.id,
         {
@@ -93,7 +93,7 @@ export const Multiple_Containments: interface_.Multiple_Containments = ($, abort
     )
 }
 
-export const Property: interface_.Property = ($, abort, $p) => {
+export const Property: declarations_.Property = ($, abort, $p) => {
     return p_.from.dictionary($.properties).get_entry(
         $p.id,
         {
@@ -108,13 +108,13 @@ export const Property: interface_.Property = ($, abort, $p) => {
     )
 }
 
-export const Optional_Property: interface_.Optional_Property = ($, abort, $p) => {
+export const Optional_Property: declarations_.Optional_Property = ($, abort, $p) => {
     return p_.from.dictionary($.properties).get_possible_entry( //implement in pareto-core
         $p.id,
     )
 }
 
-export const Optional_Reference: interface_.Optional_Reference = ($, abort, $p) => {
+export const Optional_Reference: declarations_.Optional_Reference = ($, abort, $p) => {
     const result = p_.from.dictionary($.references).get_entry(
         $p.id,
         {
@@ -138,7 +138,7 @@ export const Optional_Reference: interface_.Optional_Reference = ($, abort, $p) 
 
 }
 
-export const Singular_Reference: interface_.Singular_Reference = ($, abort, $p) => {
+export const Singular_Reference: declarations_.Singular_Reference = ($, abort, $p) => {
     const result = p_.from.dictionary($.references).get_entry(
         $p.id,
         {
@@ -165,7 +165,7 @@ export const Singular_Reference: interface_.Singular_Reference = ($, abort, $p) 
 
 }
 
-export const Multiple_References: interface_.Multiple_References = ($, abort, $p) => {
+export const Multiple_References: declarations_.Multiple_References = ($, abort, $p) => {
     return p_.from.dictionary($.references).get_entry(
         $p.id,
         {
