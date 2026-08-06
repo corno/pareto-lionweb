@@ -2,10 +2,9 @@ import * as p_ from 'pareto-core/implementation/refiner'
 import * as p_temp from 'pareto-core/implementation/transformer'
 import p_assert from 'pareto-core/implementation/refiner/specials/assert'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
-import * as p_di from 'pareto-core/interface/schema'
 
 //schemas
-import type * as s_in from "../../tree/schema.js"
+import type * as s_in from "../../../../tree_deserialization/schemas/tree/schema.js"
 import type * as s_out_generic from "../../../../generic_types.liana.generated/schemas/unconstrained/schema.js"
 import type * as s_error from "../../../../tree_node_unmarshalling/schemas/document_construction/schema.js"
 import type * as s_out from "../schema.js"
@@ -21,15 +20,12 @@ namespace declarations {
             'write source': boolean,
         }
     >
-
     export type M3 = p_.Refiner_With_Parameter<
         s_out.M3,
         s_error.Error,
         s_in.Serialization_Tree,
         s_parameters.M3_Parameters
     >
-
-
 }
 
 
