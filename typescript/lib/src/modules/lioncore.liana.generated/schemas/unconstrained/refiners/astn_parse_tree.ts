@@ -7,30 +7,29 @@ import * as i_out from "../schema.js"
 
 import * as i_in from "astn-core/modules/deserialization/schemas/parse_tree/schema"
 
-export namespace M3_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.M3
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+namespace declarations {
+    export namespace M3_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.M3
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
+
+    export type M3_ = (
+        context: M3_.I,
+        abort: p_i.Abort<M3_.E>,
+    ) => M3_.O
 }
 
-export type M3_ = (
-    context: M3_.I,
-    abort: p_i.Abort<M3_.E>,
-) => M3_.O
-
 import * as p_ from 'pareto-core/implementation/refiner'
-import * as p_di from 'pareto-core/interface/data'
-const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
-const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
+const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
@@ -44,7 +43,7 @@ import * as v_parse_tree_to_location from "astn-core/modules/deserialization/sch
 
 import * as v_external_generic from "../../../../generic_types.liana.generated/schemas/unconstrained/refiners/astn_parse_tree.js"
 
-export const M3: M3_ = ($, abort) => p_change_context(
+export const M3: declarations.M3_ = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
@@ -59,12 +58,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                     "containments": null,
                 },
             ),
-            
+
         },
     ),
     ($) => p_variables(
         () => {
-            
+
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
             )
@@ -77,7 +76,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'id',
-                            
+
                         },
                     ),
                     ($) => v_external_generic.ID(
@@ -95,7 +94,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'properties',
-                            
+
                         },
                     ),
                     ($) => p_change_context(
@@ -110,12 +109,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                         "version": null,
                                     },
                                 ),
-                                
+
                             },
                         ),
                         ($) => p_variables(
                             () => {
-                                
+
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                 )
@@ -128,7 +127,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                             ),
                                             {
                                                 'id': 'version',
-                                                
+
                                             },
                                         ),
                                         ($) => v_unmarshalled_from_parse_tree.Text(
@@ -151,7 +150,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'references',
-                            
+
                         },
                     ),
                     ($) => p_change_context(
@@ -166,12 +165,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                         "dependencies": null,
                                     },
                                 ),
-                                
+
                             },
                         ),
                         ($) => p_variables(
                             () => {
-                                
+
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                 )
@@ -184,7 +183,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                             ),
                                             {
                                                 'id': 'dependencies',
-                                                
+
                                             },
                                         ),
                                         ($) => v_external_generic.References(
@@ -207,7 +206,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'containments',
-                            
+
                         },
                     ),
                     ($) => p_change_context(
@@ -222,12 +221,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                         "entities": null,
                                     },
                                 ),
-                                
+
                             },
                         ),
                         ($) => p_variables(
                             () => {
-                                
+
                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                     $['value'],
                                 )
@@ -240,7 +239,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                             ),
                                             {
                                                 'id': 'entities',
-                                                
+
                                             },
                                         ),
                                         ($) => p_change_context(
@@ -265,12 +264,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                     "classifier": null,
                                                                 },
                                                             ),
-                                                            
+
                                                         },
                                                     ),
                                                     ($) => p_variables(
                                                         () => {
-                                                            
+
                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                 $['value'],
                                                             )
@@ -283,7 +282,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'id',
-                                                                            
+
                                                                         },
                                                                     ),
                                                                     ($) => v_external_generic.ID(
@@ -301,7 +300,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                         ),
                                                                         {
                                                                             'id': 'classifier',
-                                                                            
+
                                                                         },
                                                                     ),
                                                                     ($) => p_change_context(
@@ -331,12 +330,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                 "containments": null,
                                                                                                             },
                                                                                                         ),
-                                                                                                        
+
                                                                                                     },
                                                                                                 ),
                                                                                                 ($) => p_variables(
                                                                                                     () => {
-                                                                                                        
+
                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                             $['value'],
                                                                                                         )
@@ -349,7 +348,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'classifier',
-                                                                                                                        
+
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => p_change_context(
@@ -379,12 +378,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
-                                                                                                                                                    
+
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => p_variables(
                                                                                                                                                 () => {
-                                                                                                                                                    
+
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
                                                                                                                                                     )
@@ -397,7 +396,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'properties',
-                                                                                                                                                                    
+
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => p_change_context(
@@ -413,12 +412,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                 "partition": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                     () => {
-                                                                                                                                                                        
+
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                         )
@@ -431,7 +430,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'abstract',
-                                                                                                                                                                                        
+
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -449,7 +448,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'partition',
-                                                                                                                                                                                        
+
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -472,7 +471,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                    
+
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => p_change_context(
@@ -488,12 +487,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                 "implements": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                     () => {
-                                                                                                                                                                        
+
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                         )
@@ -506,7 +505,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
-                                                                                                                                                                                        
+
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.Optional_Reference(
@@ -524,7 +523,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'implements',
-                                                                                                                                                                                        
+
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -559,12 +558,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                             "references": null,
                                                                                                                                                         },
                                                                                                                                                     ),
-                                                                                                                                                    
+
                                                                                                                                                 },
                                                                                                                                             ),
                                                                                                                                             ($) => p_variables(
                                                                                                                                                 () => {
-                                                                                                                                                    
+
                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                         $['value'],
                                                                                                                                                     )
@@ -577,7 +576,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                 ),
                                                                                                                                                                 {
                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                    
+
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                             ($) => p_change_context(
@@ -592,12 +591,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                 "extends": null,
                                                                                                                                                                             },
                                                                                                                                                                         ),
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                     () => {
-                                                                                                                                                                        
+
                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                             $['value'],
                                                                                                                                                                         )
@@ -610,7 +609,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     ),
                                                                                                                                                                                     {
                                                                                                                                                                                         'id': 'extends',
-                                                                                                                                                                                        
+
                                                                                                                                                                                     },
                                                                                                                                                                                 ),
                                                                                                                                                                                 ($) => v_external_generic.References(
@@ -652,7 +651,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                     ),
                                                                                                                     {
                                                                                                                         'id': 'containments',
-                                                                                                                        
+
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => p_change_context(
@@ -667,12 +666,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                     "features": null,
                                                                                                                                 },
                                                                                                                             ),
-                                                                                                                            
+
                                                                                                                         },
                                                                                                                     ),
                                                                                                                     ($) => p_variables(
                                                                                                                         () => {
-                                                                                                                            
+
                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                 $['value'],
                                                                                                                             )
@@ -685,7 +684,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                         ),
                                                                                                                                         {
                                                                                                                                             'id': 'features',
-                                                                                                                                            
+
                                                                                                                                         },
                                                                                                                                     ),
                                                                                                                                     ($) => p_change_context(
@@ -711,12 +710,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                 "properties": null,
                                                                                                                                                             },
                                                                                                                                                         ),
-                                                                                                                                                        
+
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => p_variables(
                                                                                                                                                     () => {
-                                                                                                                                                        
+
                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                             $['value'],
                                                                                                                                                         )
@@ -729,7 +728,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'id',
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => v_external_generic.ID(
@@ -747,7 +746,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'classifier',
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => p_change_context(
@@ -776,12 +775,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
-                                                                                                                                                                                                    
+
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => p_variables(
                                                                                                                                                                                                 () => {
-                                                                                                                                                                                                    
+
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
                                                                                                                                                                                                     )
@@ -794,7 +793,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => p_change_context(
@@ -809,12 +808,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                                                                     () => {
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                         )
@@ -827,7 +826,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
-                                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -864,12 +863,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                             "references": null,
                                                                                                                                                                                                         },
                                                                                                                                                                                                     ),
-                                                                                                                                                                                                    
+
                                                                                                                                                                                                 },
                                                                                                                                                                                             ),
                                                                                                                                                                                             ($) => p_variables(
                                                                                                                                                                                                 () => {
-                                                                                                                                                                                                    
+
                                                                                                                                                                                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                         $['value'],
                                                                                                                                                                                                     )
@@ -882,7 +881,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'classifier',
-                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => p_change_context(
@@ -938,7 +937,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'properties',
-                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => p_change_context(
@@ -953,12 +952,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                 "multiple": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                                                                     () => {
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                         )
@@ -971,7 +970,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'multiple',
-                                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_unmarshalled_from_parse_tree.Text(
@@ -994,7 +993,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                     'id': 'references',
-                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                 },
                                                                                                                                                                                                             ),
                                                                                                                                                                                                             ($) => p_change_context(
@@ -1009,12 +1008,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                 "type": null,
                                                                                                                                                                                                                             },
                                                                                                                                                                                                                         ),
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                 ($) => p_variables(
                                                                                                                                                                                                                     () => {
-                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                                                             $['value'],
                                                                                                                                                                                                                         )
@@ -1027,7 +1026,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                         'id': 'type',
-                                                                                                                                                                                                                                        
+
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                 ),
                                                                                                                                                                                                                                 ($) => v_external_generic.Singular_Reference(
@@ -1069,7 +1068,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                     ),
                                                                                                                                                                     {
                                                                                                                                                                         'id': 'properties',
-                                                                                                                                                                        
+
                                                                                                                                                                     },
                                                                                                                                                                 ),
                                                                                                                                                                 ($) => p_change_context(
@@ -1084,12 +1083,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                     "optional": null,
                                                                                                                                                                                 },
                                                                                                                                                                             ),
-                                                                                                                                                                            
+
                                                                                                                                                                         },
                                                                                                                                                                     ),
                                                                                                                                                                     ($) => p_variables(
                                                                                                                                                                         () => {
-                                                                                                                                                                            
+
                                                                                                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                                                                 $['value'],
                                                                                                                                                                             )
@@ -1102,7 +1101,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                         ),
                                                                                                                                                                                         {
                                                                                                                                                                                             'id': 'optional',
-                                                                                                                                                                                            
+
                                                                                                                                                                                         },
                                                                                                                                                                                     ),
                                                                                                                                                                                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1172,12 +1171,12 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                 "id": null,
                                                                                                                                             },
                                                                                                                                         ),
-                                                                                                                                        
+
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => p_variables(
                                                                                                                                     () => {
-                                                                                                                                        
+
                                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                                             $['value'],
                                                                                                                                         )
@@ -1190,7 +1189,7 @@ export const M3: M3_ = ($, abort) => p_change_context(
                                                                                                                                                     ),
                                                                                                                                                     {
                                                                                                                                                         'id': 'id',
-                                                                                                                                                        
+
                                                                                                                                                     },
                                                                                                                                                 ),
                                                                                                                                                 ($) => v_external_generic.ID(

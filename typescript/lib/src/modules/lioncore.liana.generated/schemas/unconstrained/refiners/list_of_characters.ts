@@ -7,6 +7,7 @@ import * as i_in from "astn-core/modules/deserialization/schemas/list_of_charact
 
 import * as i_out from "../schema.js"
 
+namespace declarations {
 export namespace M3_ {
     
     export type I = i_in.List_Of_Characters
@@ -30,13 +31,13 @@ export type M3_ = (
         readonly 'tab size': M3_.P.tab_size
     },
 ) => M3_.O
-
+}
 
 import * as v_deserialize from "astn-core/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
 
 import * as v_unmarshall from "./astn_parse_tree.js"
 
-export const M3: M3_ = ($, abort, $p) => v_unmarshall.M3(
+export const M3: declarations.M3_ = ($, abort, $p) => v_unmarshall.M3(
     v_deserialize.Document(
         $,
         ($) => abort(

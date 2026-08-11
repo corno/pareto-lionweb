@@ -6,27 +6,25 @@ import * as i_out from "astn-core/modules/serialization/schemas/sealed_target/sc
 import * as i_in from "../schema.js"
 
 export namespace M3_ {
-    
+
     export type I = i_in.M3
-    
+
     export type O = i_out.Value
-    
+
     export namespace P {
-        
+
     }
-    
+
 }
 
-export type M3_ = (
-    context: M3_.I,
-) => M3_.O
-
+namespace declarations {
+    export type M3_ = (
+        context: M3_.I,
+    ) => M3_.O
+}
 
 import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_di from 'pareto-core/interface/data'
 const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>, assign: ($: OV) => B, otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
-const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
@@ -36,7 +34,7 @@ import * as t_out from "astn-core/modules/serialization/schemas/sealed_target/sc
 
 import * as v_external_generic from "../../../../generic_types.liana.generated/schemas/unconstrained/transformers/astn_sealed_target.js"
 
-export const M3: M3_ = ($) => ['group', ['verbose', p_.literal.dictionary(
+export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
         "id": p_change_context(
             $['id'],

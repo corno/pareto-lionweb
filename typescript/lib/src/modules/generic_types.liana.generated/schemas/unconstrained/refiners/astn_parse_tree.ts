@@ -7,101 +7,102 @@ import * as i_out from "../schema.js"
 
 import * as i_in from "astn-core/modules/deserialization/schemas/parse_tree/schema"
 
-export namespace ID_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.ID
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+namespace declarations {
+    export namespace ID_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.ID
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
-}
 
-export type ID_ = (
-    context: ID_.I,
-    abort: p_i.Abort<ID_.E>,
-) => ID_.O
+    export type ID_ = (
+        context: ID_.I,
+        abort: p_i.Abort<ID_.E>,
+    ) => ID_.O
 
-export namespace Raw_Reference_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Raw_Reference
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+    export namespace Raw_Reference_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.Raw_Reference
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
-}
 
-export type Raw_Reference_ = (
-    context: Raw_Reference_.I,
-    abort: p_i.Abort<Raw_Reference_.E>,
-) => Raw_Reference_.O
+    export type Raw_Reference_ = (
+        context: Raw_Reference_.I,
+        abort: p_i.Abort<Raw_Reference_.E>,
+    ) => Raw_Reference_.O
 
-export namespace Singular_Reference_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Singular_Reference
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+    export namespace Singular_Reference_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.Singular_Reference
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
-}
 
-export type Singular_Reference_ = (
-    context: Singular_Reference_.I,
-    abort: p_i.Abort<Singular_Reference_.E>,
-) => Singular_Reference_.O
+    export type Singular_Reference_ = (
+        context: Singular_Reference_.I,
+        abort: p_i.Abort<Singular_Reference_.E>,
+    ) => Singular_Reference_.O
 
-export namespace References_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.References
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+    export namespace References_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.References
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
-}
 
-export type References_ = (
-    context: References_.I,
-    abort: p_i.Abort<References_.E>,
-) => References_.O
+    export type References_ = (
+        context: References_.I,
+        abort: p_i.Abort<References_.E>,
+    ) => References_.O
 
-export namespace Optional_Reference_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Optional_Reference
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
+    export namespace Optional_Reference_ {
+
+        export type I = i_in.Value
+
+        export type O = i_out.Optional_Reference
+
+        export type E = i_generic.Error
+
+        export namespace P {
+
+        }
+
     }
-    
+
+    export type Optional_Reference_ = (
+        context: Optional_Reference_.I,
+        abort: p_i.Abort<Optional_Reference_.E>,
+    ) => Optional_Reference_.O
 }
-
-export type Optional_Reference_ = (
-    context: Optional_Reference_.I,
-    abort: p_i.Abort<Optional_Reference_.E>,
-) => Optional_Reference_.O
-
 
 import * as p_ from 'pareto-core/implementation/refiner'
 import p_implement_me from 'pareto-core-dev/implement_me'
@@ -116,7 +117,7 @@ import * as v_parse_tree_to_location from "astn-core/modules/deserialization/sch
 
 // import * as v_external_location from "../../location/refiners/astn_parse_tree.js"
 
-export const ID: ID_ = ($, abort) => p_change_context(
+export const ID: declarations.ID_ = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
@@ -130,12 +131,12 @@ export const ID: ID_ = ($, abort) => p_change_context(
                     "source": null,
                 },
             ),
-            
+
         },
     ),
     ($) => p_variables(
         () => {
-            
+
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
             )
@@ -148,7 +149,7 @@ export const ID: ID_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'key',
-                            
+
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -166,7 +167,7 @@ export const ID: ID_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'id',
-                            
+
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -184,15 +185,15 @@ export const ID: ID_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'source',
-                            
+
                         },
                     ),
                     ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
+                        $,
+                        ($) => abort(
                             $,
-                            ($) => abort(
-                                $,
-                            ),
-                        )['optional'],
+                        ),
+                    )['optional'],
                     ).map(
                         ($) => p_implement_me("FFDSFSFDKJ")
                         // ($) => v_external_location.Range(
@@ -208,7 +209,7 @@ export const ID: ID_ = ($, abort) => p_change_context(
     ),
 )
 
-export const Raw_Reference: Raw_Reference_ = ($, abort) => p_change_context(
+export const Raw_Reference: declarations.Raw_Reference_ = ($, abort) => p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
         ($) => abort(
@@ -221,12 +222,12 @@ export const Raw_Reference: Raw_Reference_ = ($, abort) => p_change_context(
                     "reference": null,
                 },
             ),
-            
+
         },
     ),
     ($) => p_variables(
         () => {
-            
+
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
             )
@@ -239,7 +240,7 @@ export const Raw_Reference: Raw_Reference_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'resolveInfo',
-                            
+
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -257,15 +258,15 @@ export const Raw_Reference: Raw_Reference_ = ($, abort) => p_change_context(
                         ),
                         {
                             'id': 'reference',
-                            
+
                         },
                     ),
                     ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
+                        $,
+                        ($) => abort(
                             $,
-                            ($) => abort(
-                                $,
-                            ),
-                        )['optional'],
+                        ),
+                    )['optional'],
                     ).map(
                         ($) => v_unmarshalled_from_parse_tree.Text(
                             $,
@@ -280,19 +281,19 @@ export const Raw_Reference: Raw_Reference_ = ($, abort) => p_change_context(
     ),
 )
 
-export const Singular_Reference: Singular_Reference_ = ($, abort) => Raw_Reference(
+export const Singular_Reference: declarations.Singular_Reference_ = ($, abort) => Raw_Reference(
     $,
     ($) => abort(
         $,
     ),
 )
 
-export const References: References_ = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
+export const References: declarations.References_ = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
+    $,
+    ($) => abort(
         $,
-        ($) => abort(
-            $,
-        ),
-    )['items'],
+    ),
+)['items'],
 ).map(
     ($) => p_change_context(
         $['value'],
@@ -305,12 +306,12 @@ export const References: References_ = ($, abort) => p_.from.list(v_unmarshalled
     ),
 )
 
-export const Optional_Reference: Optional_Reference_ = ($, abort) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
+export const Optional_Reference: declarations.Optional_Reference_ = ($, abort) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
+    $,
+    ($) => abort(
         $,
-        ($) => abort(
-            $,
-        ),
-    )['optional'],
+    ),
+)['optional'],
 ).map(
     ($) => Raw_Reference(
         $,

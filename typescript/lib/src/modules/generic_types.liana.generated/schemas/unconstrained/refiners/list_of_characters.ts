@@ -7,6 +7,7 @@ import * as i_in from "astn-core/modules/deserialization/schemas/list_of_charact
 
 import * as i_out from "../schema.js"
 
+namespace declarations {
 export namespace ID_ {
     
     export type I = i_in.List_Of_Characters
@@ -127,14 +128,14 @@ export type Optional_Reference_ = (
     },
 ) => Optional_Reference_.O
 
-
+}
 import * as p_ from 'pareto-core/implementation/refiner'
 
 import * as v_deserialize from "astn-core/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
 
 import * as v_unmarshall from "./astn_parse_tree.js"
 
-export const ID: ID_ = ($, abort, $p) => v_unmarshall.ID(
+export const ID: declarations.ID_ = ($, abort, $p) => v_unmarshall.ID(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -149,7 +150,7 @@ export const ID: ID_ = ($, abort, $p) => v_unmarshall.ID(
     ),
 )
 
-export const Raw_Reference: Raw_Reference_ = ($, abort, $p) => v_unmarshall.Raw_Reference(
+export const Raw_Reference: declarations.Raw_Reference_ = ($, abort, $p) => v_unmarshall.Raw_Reference(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -164,7 +165,7 @@ export const Raw_Reference: Raw_Reference_ = ($, abort, $p) => v_unmarshall.Raw_
     ),
 )
 
-export const Singular_Reference: Singular_Reference_ = ($, abort, $p) => v_unmarshall.Singular_Reference(
+export const Singular_Reference: declarations.Singular_Reference_ = ($, abort, $p) => v_unmarshall.Singular_Reference(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -179,7 +180,7 @@ export const Singular_Reference: Singular_Reference_ = ($, abort, $p) => v_unmar
     ),
 )
 
-export const References: References_ = ($, abort, $p) => v_unmarshall.References(
+export const References: declarations.References_ = ($, abort, $p) => v_unmarshall.References(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -194,7 +195,7 @@ export const References: References_ = ($, abort, $p) => v_unmarshall.References
     ),
 )
 
-export const Optional_Reference: Optional_Reference_ = ($, abort, $p) => v_unmarshall.Optional_Reference(
+export const Optional_Reference: declarations.Optional_Reference_ = ($, abort, $p) => v_unmarshall.Optional_Reference(
     v_deserialize.Document(
         $,
         ($) => abort(
