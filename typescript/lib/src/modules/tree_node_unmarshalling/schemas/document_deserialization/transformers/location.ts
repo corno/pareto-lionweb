@@ -23,11 +23,11 @@ export const Error: declarations.Error = ($) => p_.from.state($).decide(
             case 'construction from tree': return p_.option($, ($) => p_.from.state($).decide(
                 ($): s_out.Possible_Range => {
                     switch ($[0]) {
-                        case 'unknown option': return p_.ss($, ($) => ['range', $.node.range])
-                        case 'expected single element': return p_.ss($, ($) => ['range', $.node.range])
-                        case 'node unmarshalling': return p_.ss($, ($) => ['range', $.node.range])
-                        case 'unexpected content': return p_.ss($, ($) => ['range', $.node.range])
-                        default: return p_.au($[0])
+                        case 'unknown option': return p_.option($, ($) => ['range', $.node.range])
+                        case 'expected single element': return p_.option($, ($) => ['range', $.node.range])
+                        case 'node unmarshalling': return p_.option($, ($) => ['range', $.node.range])
+                        case 'unexpected content': return p_.option($, ($) => ['range', $.node.range])
+                        default: return p_.exhaustive($[0])
                     }
                 }
             ))

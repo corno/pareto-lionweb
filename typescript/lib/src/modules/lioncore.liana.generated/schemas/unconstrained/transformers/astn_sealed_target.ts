@@ -90,8 +90,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                             $,
                                             ($): t_out.Value.state => {
                                                 switch ($[0]) {
-                                                    case 'Classifier':
-                                                        return p_.option(
+                                                    case 'Classifier': return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Classifier',
@@ -103,8 +102,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                 $,
                                                                                 ($): t_out.Value.state => {
                                                                                     switch ($[0]) {
-                                                                                        case 'Concept':
-                                                                                            return p_.option(
+                                                                                        case 'Concept': return p_.option(
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Concept',
@@ -154,8 +152,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                     )]],
                                                                                                 }),
                                                                                             )
-                                                                                        case 'Interface':
-                                                                                            return p_.option(
+                                                                                        case 'Interface': return p_.option(
                                                                                                 $,
                                                                                                 ($) => ({
                                                                                                     'option': 'Interface',
@@ -178,8 +175,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                     )]],
                                                                                                 }),
                                                                                             )
-                                                                                        default:
-                                                                                            return p_.au(
+                                                                                        default: return p_.exhaustive(
                                                                                                 $[0],
                                                                                             )
                                                                                     }
@@ -207,8 +203,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                             $,
                                                                                                             ($): t_out.Value.state => {
                                                                                                                 switch ($[0]) {
-                                                                                                                    case 'Property':
-                                                                                                                        return p_.option(
+                                                                                                                    case 'Property': return p_.option(
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Property',
@@ -231,8 +226,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                                                 )]],
                                                                                                                             }),
                                                                                                                         )
-                                                                                                                    case 'Link':
-                                                                                                                        return p_.option(
+                                                                                                                    case 'Link': return p_.option(
                                                                                                                             $,
                                                                                                                             ($) => ({
                                                                                                                                 'option': 'Link',
@@ -244,24 +238,21 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                                                                 $,
                                                                                                                                                 ($): t_out.Value.state => {
                                                                                                                                                     switch ($[0]) {
-                                                                                                                                                        case 'Containment':
-                                                                                                                                                            return p_.option(
+                                                                                                                                                        case 'Containment': return p_.option(
                                                                                                                                                                 $,
                                                                                                                                                                 ($) => ({
                                                                                                                                                                     'option': 'Containment',
                                                                                                                                                                     'value': ['nothing', null],
                                                                                                                                                                 }),
                                                                                                                                                             )
-                                                                                                                                                        case 'Reference':
-                                                                                                                                                            return p_.option(
+                                                                                                                                                        case 'Reference': return p_.option(
                                                                                                                                                                 $,
                                                                                                                                                                 ($) => ({
                                                                                                                                                                     'option': 'Reference',
                                                                                                                                                                     'value': ['nothing', null],
                                                                                                                                                                 }),
                                                                                                                                                             )
-                                                                                                                                                        default:
-                                                                                                                                                            return p_.au(
+                                                                                                                                                        default: return p_.exhaustive(
                                                                                                                                                                 $[0],
                                                                                                                                                             )
                                                                                                                                                     }
@@ -299,8 +290,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                                                 )]],
                                                                                                                             }),
                                                                                                                         )
-                                                                                                                    default:
-                                                                                                                        return p_.au(
+                                                                                                                    default: return p_.exhaustive(
                                                                                                                             $[0],
                                                                                                                         )
                                                                                                                 }
@@ -332,8 +322,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                 )]],
                                                             }),
                                                         )
-                                                    case 'Datatype':
-                                                        return p_.option(
+                                                    case 'Datatype': return p_.option(
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Datatype',
@@ -341,8 +330,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                     $,
                                                                     ($): t_out.Value.state => {
                                                                         switch ($[0]) {
-                                                                            case 'Enumeration':
-                                                                                return p_.option(
+                                                                            case 'Enumeration': return p_.option(
                                                                                     $,
                                                                                     ($) => ({
                                                                                         'option': 'Enumeration',
@@ -360,8 +348,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                         )],
                                                                                     }),
                                                                                 )
-                                                                            default:
-                                                                                return p_.au(
+                                                                            default: return p_.exhaustive(
                                                                                     $[0],
                                                                                 )
                                                                         }
@@ -369,8 +356,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                 )],
                                                             }),
                                                         )
-                                                    default:
-                                                        return p_.au(
+                                                    default: return p_.exhaustive(
                                                             $[0],
                                                         )
                                                 }

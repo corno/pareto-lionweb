@@ -26,7 +26,7 @@ export const Error: p_.Transformer<s_in.Error, s_out.Phrase> = ($) => p_.from.st
                         }
                     })
             ]))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     }
 )
