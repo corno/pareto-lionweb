@@ -1,5 +1,5 @@
 
-import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_i from 'pareto-core/__internal/Abort'
 
 import * as i_generic from "liana-core/modules/unresolved_document_deserialization/schemas/unresolved_document_deserialization/schema"
 
@@ -129,7 +129,7 @@ export type Optional_Reference_ = (
 ) => Optional_Reference_.O
 
 }
-import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_ from 'pareto-core/refiner'
 
 import * as v_deserialize from "astn-core/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
 

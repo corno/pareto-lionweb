@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core/implementation/refiner'
-import type * as p_i from 'pareto-core/interface/refiner'
-import * as p_temp from 'pareto-core/implementation/transformer'
+import * as p_ from 'pareto-core/refiner'
+import type * as p_i from 'pareto-core/refiner'
+import * as p_temp from 'pareto-core/transformer'
 
 import type * as s_in from ".././../../../tree_deserialization/schemas/tree/schema.js"
 import type * as s_function from "../../node_unmarshalling/schema.js"

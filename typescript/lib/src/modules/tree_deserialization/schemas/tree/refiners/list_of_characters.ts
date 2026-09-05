@@ -1,4 +1,4 @@
-import type * as p_i from 'pareto-core/interface/refiner'
+import type * as p_i from 'pareto-core/refiner'
 
 //schemas
 import type * as s_function from "../../deserialization/schema.js"

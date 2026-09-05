@@ -1,5 +1,5 @@
 
-import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_i from 'pareto-core/__internal/Abort'
 
 import * as i_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
 
@@ -23,12 +23,12 @@ namespace declarations {
     ) => M3_.O
 }
 
-import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_ from 'pareto-core/transformer'
 const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
 
-import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
+import p_change_context from 'pareto-core/refiner/specials/change_context'
 
-import _p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
+import _p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
 
 import * as t_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
 

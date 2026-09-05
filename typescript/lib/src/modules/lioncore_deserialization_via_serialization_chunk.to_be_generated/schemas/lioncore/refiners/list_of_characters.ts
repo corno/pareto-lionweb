@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_ from 'pareto-core/refiner'
 
 //schemas
 import type * as s_in from "astn-core/modules/deserialization/schemas/list_of_characters/schema"

@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core/implementation/refiner'
-import * as p_temp from 'pareto-core/implementation/transformer'
-import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
-import type * as p_i from 'pareto-core/interface/refiner'
+import * as p_ from 'pareto-core/refiner'
+import * as p_temp from 'pareto-core/transformer'
+import p_change_context from 'pareto-core/refiner/specials/change_context'
+import type * as p_i from 'pareto-core/refiner'
 
 import type * as s_in from "../../../../chunk.to_be_generated/schemas/chunk/schema.js"
 import type * as s_function from "../../construction_from_chunk/schema.js"

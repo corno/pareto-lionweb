@@ -1,6 +1,6 @@
 
-import * as p_i from 'pareto-core/interface/__internal/Abort'
-import * as p_di from 'pareto-core/interface/data'
+import * as p_i from 'pareto-core/__internal/Abort'
+import * as p_di from 'pareto-core/schema'
 
 import * as i_imports_generic from "../../../generic_types.liana.generated/schemas/unconstrained/schema.js"
 

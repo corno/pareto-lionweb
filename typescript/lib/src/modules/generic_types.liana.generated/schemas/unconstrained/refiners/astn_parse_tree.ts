@@ -1,5 +1,5 @@
 
-import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_i from 'pareto-core/__internal/Abort'
 
 import * as i_generic from "liana-core/modules/value_unmarshalling/schemas/unmarshalling/schema"
 
@@ -104,12 +104,12 @@ namespace declarations {
     ) => Optional_Reference_.O
 }
 
-import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_ from 'pareto-core/refiner'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
-import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
+import p_change_context from 'pareto-core/refiner/specials/change_context'
 
-import p_variables from 'pareto-core/implementation/refiner/specials/variables'
+import p_variables from 'pareto-core/refiner/specials/variables'
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/modules/value_unmarshalling/schemas/unmarshalled_value/refiners/astn_parse_tree"
 

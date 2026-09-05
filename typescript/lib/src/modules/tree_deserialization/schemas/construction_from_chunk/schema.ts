@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/interface/schema'
+import * as p_ from 'pareto-core/schema'
 
 import type * as s_chunk from "../../../chunk.to_be_generated/schemas/chunk/schema.js"
 import type * as s_location from "astn-core/modules/deserialization/schemas/location/schema"

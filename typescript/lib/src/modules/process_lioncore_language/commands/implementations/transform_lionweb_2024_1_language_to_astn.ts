@@ -1,5 +1,5 @@
-import * as p_ from 'pareto-core/implementation/command'
-import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
+import * as p_ from 'pareto-core/command'
+import p_super_query_result from 'pareto-core/query/super_query_result'
 
 //interface dependencies
 import type * as query_interfaces_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/modules/unrestricted/queries/interfaces"
