@@ -24,7 +24,6 @@ namespace declarations {
 }
 
 import * as p_ from 'pareto-core/transformer'
-const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
 
 import p_change_context from 'pareto-core/refiner/specials/change_context'
 
@@ -75,8 +74,7 @@ export const M3: declarations.M3_ = ($) => ({
                         ),
                         'classifier': p_change_context(
                             $['classifier'],
-                            ($) => p_decide_state(
-                                $,
+                            ($) => p_.from.state($).decide(
                                 ($): t_out.M3.containments.entities.D.classifier => {
                                     switch ($[0]) {
                                         case 'Classifier': return p_.option(
@@ -84,8 +82,7 @@ export const M3: declarations.M3_ = ($) => ({
                                                 ($) => ['Classifier', {
                                                     'classifier': p_change_context(
                                                         $['classifier'],
-                                                        ($) => p_decide_state(
-                                                            $,
+                                                        ($) => p_.from.state($).decide(
                                                             ($): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                 switch ($[0]) {
                                                                     case 'Concept': return p_.option(
@@ -162,8 +159,7 @@ export const M3: declarations.M3_ = ($) => ({
                                                                         ),
                                                                         'classifier': p_change_context(
                                                                             $['classifier'],
-                                                                            ($) => p_decide_state(
-                                                                                $,
+                                                                            ($) => p_.from.state($).decide(
                                                                                 ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                     switch ($[0]) {
                                                                                         case 'Property': return p_.option(
@@ -187,8 +183,7 @@ export const M3: declarations.M3_ = ($) => ({
                                                                                                 ($) => ['Link', {
                                                                                                     'classifier': p_change_context(
                                                                                                         $['classifier'],
-                                                                                                        ($) => p_decide_state(
-                                                                                                            $,
+                                                                                                        ($) => p_.from.state($).decide(
                                                                                                             ($): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Containment': return p_.option(
@@ -253,8 +248,7 @@ export const M3: declarations.M3_ = ($) => ({
                                             )
                                         case 'Datatype': return p_.option(
                                                 $,
-                                                ($) => ['Datatype', p_decide_state(
-                                                    $,
+                                                ($) => ['Datatype', p_.from.state($).decide(
                                                     ($): t_out.M3.containments.entities.D.classifier.Datatype => {
                                                         switch ($[0]) {
                                                             case 'Enumeration': return p_.option(

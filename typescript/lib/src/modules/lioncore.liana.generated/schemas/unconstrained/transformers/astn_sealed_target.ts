@@ -24,7 +24,6 @@ namespace declarations {
 }
 
 import * as p_ from 'pareto-core/transformer'
-const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
 
 import p_change_context from 'pareto-core/refiner/specials/change_context'
 
@@ -86,8 +85,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                     ),
                                     "classifier": p_change_context(
                                         $['classifier'],
-                                        ($) => ['state', p_decide_state(
-                                            $,
+                                        ($) => ['state', p_.from.state($).decide(
                                             ($): t_out.Value.state => {
                                                 switch ($[0]) {
                                                     case 'Classifier': return p_.option(
@@ -98,8 +96,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                     {
                                                                         "classifier": p_change_context(
                                                                             $['classifier'],
-                                                                            ($) => ['state', p_decide_state(
-                                                                                $,
+                                                                            ($) => ['state', p_.from.state($).decide(
                                                                                 ($): t_out.Value.state => {
                                                                                     switch ($[0]) {
                                                                                         case 'Concept': return p_.option(
@@ -199,8 +196,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                     ),
                                                                                                     "classifier": p_change_context(
                                                                                                         $['classifier'],
-                                                                                                        ($) => ['state', p_decide_state(
-                                                                                                            $,
+                                                                                                        ($) => ['state', p_.from.state($).decide(
                                                                                                             ($): t_out.Value.state => {
                                                                                                                 switch ($[0]) {
                                                                                                                     case 'Property': return p_.option(
@@ -234,8 +230,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                                                                                                     {
                                                                                                                                         "classifier": p_change_context(
                                                                                                                                             $['classifier'],
-                                                                                                                                            ($) => ['state', p_decide_state(
-                                                                                                                                                $,
+                                                                                                                                            ($) => ['state', p_.from.state($).decide(
                                                                                                                                                 ($): t_out.Value.state => {
                                                                                                                                                     switch ($[0]) {
                                                                                                                                                         case 'Containment': return p_.option(
@@ -326,8 +321,7 @@ export const M3: declarations.M3_ = ($) => ['group', ['verbose', p_.literal.dict
                                                             $,
                                                             ($) => ({
                                                                 'option': 'Datatype',
-                                                                'value': ['state', p_decide_state(
-                                                                    $,
+                                                                'value': ['state', p_.from.state($).decide(
                                                                     ($): t_out.Value.state => {
                                                                         switch ($[0]) {
                                                                             case 'Enumeration': return p_.option(

@@ -89,8 +89,6 @@ namespace declarations {
 
 import * as p_ from 'pareto-core/transformer'
 import p_implement_me from 'pareto-core-dev/implement_me'
-import * as p_di from 'pareto-core/schema'
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>, assign: ($: OV) => B, otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
 
 import p_change_context from 'pareto-core/refiner/specials/change_context'
 
@@ -116,12 +114,8 @@ export const ID: declarations.ID_ = ($) => ['group', ['verbose', p_.literal.dict
         ),
         "source": p_change_context(
             $['source'],
-            ($) => ['optional', p_decide_optional(
-                $,
-                // ($): t_out.Value.optional => ['set', v_external_location.Range(
-                //     $,
-                // )],
-                ($): t_out.Value.optional => p_implement_me("FFDSFSFDKJ"),
+            ($) => ['optional', p_.from.optional($).decide<t_out.Value.optional>(
+                ($) => p_implement_me("FFDSFSFDKJ"),
                 () => ['not set', null],
             )],
         ),
@@ -139,8 +133,7 @@ export const Raw_Reference: declarations.Raw_Reference_ = ($) => ['group', ['ver
         ),
         "reference": p_change_context(
             $['reference'],
-            ($) => ['optional', p_decide_optional(
-                $,
+            ($) => ['optional', p_.from.optional($).decide(
                 ($): t_out.Value.optional => ['set', ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -162,8 +155,7 @@ export const References: declarations.References_ = ($) => ['list', p_.from.list
     ),
 )]
 
-export const Optional_Reference: declarations.Optional_Reference_ = ($) => ['optional', p_decide_optional(
-    $,
+export const Optional_Reference: declarations.Optional_Reference_ = ($) => ['optional', p_.from.optional($).decide(
     ($): t_out.Value.optional => ['set', Raw_Reference(
         $,
     )],
