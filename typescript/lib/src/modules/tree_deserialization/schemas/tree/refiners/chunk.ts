@@ -1,5 +1,6 @@
 import * as p_ from 'pareto-core/refiner'
 import * as p_temp from 'pareto-core/transformer'
+import * as p_s from 'pareto-core/serializer'
 import p_change_context from 'pareto-core/refiner/specials/change_context'
 import type * as p_i from 'pareto-core/refiner'
 
@@ -8,7 +9,13 @@ import type * as s_function from "../../construction_from_chunk/schema.js"
 import type * as s_out from "../schema.js"
 
 export const Meta_Pointer = ($: s_in.Meta_Pointer): string => {
-    return `${$.language}:${$.version}:${$.key}`
+    return p_s.ph.list(p_.literal.list([
+        $.language,
+        ":",
+        $.version,
+        ":",
+        $.key,
+    ]))
 }
 
 
