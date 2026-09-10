@@ -166,7 +166,6 @@ export const M3: declarations.M3 = ($, abort, $p) => p_assert(
                                     switch (text) {
                                         case "LionCore-M3:2024.1:Concept":
                                         case "LionCore-M3:2024.1:Interface":
-                                            {
                                                 return ['Classifier', {
                                                     'classifier': p_.from.text($.classifier).to_state(
                                                         $,
@@ -352,7 +351,6 @@ export const M3: declarations.M3 = ($, abort, $p) => p_assert(
                                                             }),
                                                     },
                                                 }]
-                                            }
                                         case "LionCore-M3:2024.1:Enumeration": return ['Datatype', ['Enumeration', p_temp.from.dictionary(
                                             p_.from.dictionary(r_unmarshalled_tree_node_from_serialization_tree.Multiple_Containments(
                                                 $,
