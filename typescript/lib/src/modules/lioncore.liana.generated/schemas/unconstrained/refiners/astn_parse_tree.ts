@@ -29,7 +29,6 @@ namespace declarations {
 }
 
 import * as p_ from 'pareto-core/refiner'
-const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/refiner/specials/change_context'
 
@@ -310,8 +309,7 @@ export const M3: declarations.M3_ = ($, abort) => p_change_context(
                                                                                 $,
                                                                             ),
                                                                         ),
-                                                                        ($) => p_decide_text(
-                                                                            $['option']['token']['value'],
+                                                                        ($) => p_.from.text($['option']['token']['value']).to_state(
                                                                             ($t): t_out.M3.containments.entities.D.classifier => {
                                                                                 switch ($t) {
                                                                                     case 'Classifier':
@@ -358,8 +356,7 @@ export const M3: declarations.M3_ = ($, abort) => p_change_context(
                                                                                                                             $,
                                                                                                                         ),
                                                                                                                     ),
-                                                                                                                    ($) => p_decide_text(
-                                                                                                                        $['option']['token']['value'],
+                                                                                                                    ($) => p_.from.text($['option']['token']['value']).to_state(
                                                                                                                         ($t): t_out.M3.containments.entities.D.classifier.Classifier.classifier => {
                                                                                                                             switch ($t) {
                                                                                                                                 case 'Concept':
@@ -756,8 +753,7 @@ export const M3: declarations.M3_ = ($, abort) => p_change_context(
                                                                                                                                                                             $,
                                                                                                                                                                         ),
                                                                                                                                                                     ),
-                                                                                                                                                                    ($) => p_decide_text(
-                                                                                                                                                                        $['option']['token']['value'],
+                                                                                                                                                                    ($) => p_.from.text($['option']['token']['value']).to_state(
                                                                                                                                                                         ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier => {
                                                                                                                                                                             switch ($t) {
                                                                                                                                                                                 case 'Property':
@@ -891,8 +887,7 @@ export const M3: declarations.M3_ = ($, abort) => p_change_context(
                                                                                                                                                                                                                         $,
                                                                                                                                                                                                                     ),
                                                                                                                                                                                                                 ),
-                                                                                                                                                                                                                ($) => p_decide_text(
-                                                                                                                                                                                                                    $['option']['token']['value'],
+                                                                                                                                                                                                                ($) => p_.from.text($['option']['token']['value']).to_state(
                                                                                                                                                                                                                     ($t): t_out.M3.containments.entities.D.classifier.Classifier.containments.features.D.classifier.Link.classifier => {
                                                                                                                                                                                                                         switch ($t) {
                                                                                                                                                                                                                             case 'Containment':
@@ -1143,8 +1138,7 @@ export const M3: declarations.M3_ = ($, abort) => p_change_context(
                                                                                                         $,
                                                                                                     ),
                                                                                                 ),
-                                                                                                ($) => p_decide_text(
-                                                                                                    $['option']['token']['value'],
+                                                                                                ($) => p_.from.text($['option']['token']['value']).to_state(
                                                                                                     ($t): t_out.M3.containments.entities.D.classifier.Datatype => {
                                                                                                         switch ($t) {
                                                                                                             case 'Enumeration':
