@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/command'
-import p_super_query_result from 'pareto-core/query/super_query_result'
+import p_super_query_result from 'pareto-core/__internal/query/super_query_result'
 
 //interface dependencies
 import type * as query_interfaces_pareto_filesystem_unrestricted_api from "pareto-filesystem-unrestricted-api/modules/unrestricted/queries/interfaces"
@@ -41,7 +41,6 @@ import * as deser_path from "pareto-filesystem-unrestricted-api/modules/unrestri
 import * as t_paragraph_to_serialized from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/transformers/serialized"
 import * as t_lioncore_to_serialized_graphviz from "../../../graphviz_visualization/schemas/model/transformers/serialized_graphviz.js"
 import * as t_lioncore_to_serialized_astn from "../../../lioncore.liana.generated/schemas/unconstrained/transformers/serialized.js"
-import * as t_path_to_path from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/path/transformers/path"
 import * as ser_read_file from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/read_file/serializers"
 import * as ser_write_file from "pareto-filesystem-unrestricted-api/modules/unrestricted/schemas/write_file/serializers"
 import * as t_document_deserialization_to_paragraph from "../../../tree_node_unmarshalling/schemas/document_deserialization/transformers/paragraph.js"
@@ -70,10 +69,10 @@ export const $$: p_.Command_Implementation<
             [
                 p_.s.query(
                     p_super_query_result($q['read file'](
-                        t_path_to_path.create_node_path(
-                            deser_path.Context_Path(settings['in']['dir']),
-                            { 'node': settings['in']['file'] }
-                        ),
+                        {
+                            'context': deser_path.Context_Path(settings['in']['dir']),
+                            'node': settings['in']['file']
+                        },
                         ($): s_paragraph.Phrase => sh.ph.text(ser_read_file.Error($))
                     )).refine(
                         ($, abort) => {
@@ -96,10 +95,10 @@ export const $$: p_.Command_Implementation<
                     ($v) => [
                         $c['write file'].execute(
                             ({
-                                'path': t_path_to_path.create_node_path(
-                                    deser_path.Context_Path(settings['out']['dir']),
-                                    { 'node': settings['out']['file'] }
-                                ),
+                                'path': {
+                                    'context': deser_path.Context_Path(settings['out']['dir']),
+                                    'node': settings['out']['file']
+                                },
                                 'content': {
                                     'lines': t_lioncore_to_serialized_astn.M3(
                                         $v,
@@ -121,10 +120,10 @@ export const $$: p_.Command_Implementation<
                         ),
                         $c['write file'].execute(
                             ({
-                                'path': t_path_to_path.create_node_path(
-                                    deser_path.Context_Path(settings['out']['dir']),
-                                    { 'node': settings['out']['graphviz file'] }
-                                ),
+                                'path': {
+                                    'context': deser_path.Context_Path(settings['out']['dir']),
+                                    'node': settings['out']['graphviz file']
+                                },
                                 'content': {
                                     'lines': t_lioncore_to_serialized_graphviz.M3(
                                         $v,
