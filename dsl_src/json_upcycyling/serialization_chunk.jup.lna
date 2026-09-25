@@ -1,0 +1,40 @@
+(
+    `types`: {
+        'Root': | `object` | `group` (
+            `properties`: {
+                'serializationFormatVersion': < false | `string` | `text` ~ >
+                'languages': < false | `array` | `cycle up` | `indexed objects` < "key" {
+                    'version': < false | `string` | `text` ~ >
+                } > >
+                'nodes': < false | `array` | `cycle up` | `indexed objects` < "id" {
+                    'classifier': < false | `component` "Meta Pointer" >
+                    'parent': < false | `nullable` | `string` | `text` ~ >
+                    'properties': < false | `array` | `list` | `object` | `group` (
+                        `properties`: {
+                            'property': < false | `component` "Meta Pointer" >
+                            'value': < false | `nullable` | `string` | `text` ~ >
+                        }
+                    ) >
+                    'containments': < false | `array` | `list` | `object` | `group` < {
+                        'containment': < false | `component` "Meta Pointer" >
+                        'children': < false | `array` | `cycle up` | `unique strings` ~ >
+                    } > >
+                    'references': < false | `array` | `list` | `object` | `group` < {
+                        'reference': < false | `component` "Meta Pointer" >
+                        'targets': < false | `array` | `list` | `object` | `group` < {
+                            'resolveInfo': < false | `nullable` | `string` | `text` ~ >
+                            'reference': < false | `nullable` | `string` | `text` ~ >
+                        } > >
+                    } > >
+                    'annotations': < false | `array` | `list` | `string` | `text` ~ >
+                } > >
+            }
+        )
+        'Meta Pointer': | `object` | `group` < {
+            'language': < false | `string` | `text` ~ >
+            'version': < false | `string` | `text` ~ >
+            'key': < false | `string` | `text` ~ >
+        } >
+    }
+    `root type`: "Root"
+)
