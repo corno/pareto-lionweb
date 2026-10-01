@@ -1,9 +1,9 @@
 
 import * as p_i from 'pareto-core/__internal/Abort'
 
-import * as i_generic from "liana-core/modules/unresolved_document_deserialization/schemas/unresolved_document_deserialization/schema"
+import * as i_generic from "liana-runtime/modules/unresolved_document_deserialization/schemas/unresolved_document_deserialization/schema"
 
-import * as i_in from "astn-core/modules/deserialization/schemas/list_of_characters/schema"
+import * as i_in from "astn-runtime/modules/deserialization/schemas/list_of_characters/schema"
 
 import * as i_out from "../schema.js"
 
@@ -33,7 +33,7 @@ export type M3_ = (
 ) => M3_.O
 }
 
-import * as v_deserialize from "astn-core/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
+import * as v_deserialize from "astn-runtime/modules/deserialization/schemas/parse_tree/refiners/list_of_characters"
 
 import * as v_unmarshall from "./astn_parse_tree.js"
 

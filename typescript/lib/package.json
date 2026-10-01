@@ -1,6 +1,6 @@
 {
   "name": "pareto-lionweb",
-  "version": "0.1.50",
+  "version": "0.1.51",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A TypeScript library interacting with LionWeb",
@@ -31,8 +31,8 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "astn-core": "^0.5.0",
-    "liana-core": "^0.1.0",
+    "astn-runtime": "^0.1.0",
+    "liana-runtime": "^0.1.0",
     "pareto-application-api": "^0.1.0",
     "pareto-core": "^0.1.0",
     "pareto-core-dev": "^0.12.0",

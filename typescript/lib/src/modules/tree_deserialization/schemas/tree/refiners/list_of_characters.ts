@@ -2,7 +2,7 @@ import type * as p_i from 'pareto-core/refiner'
 
 //schemas
 import type * as s_function from "../../deserialization/schema.js"
-import type * as s_in from "astn-core/modules/deserialization/schemas/list_of_characters/schema"
+import type * as s_in from "astn-runtime/modules/deserialization/schemas/list_of_characters/schema"
 
 import type * as s_out from "../schema.js"
 

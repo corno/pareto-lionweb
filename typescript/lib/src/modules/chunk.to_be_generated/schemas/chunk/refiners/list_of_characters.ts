@@ -2,7 +2,7 @@ import type * as p_i from 'pareto-core/refiner'
 
 
 //schemas
-import type * as s_in from "astn-core/modules/deserialization/schemas/list_of_characters/schema"
+import type * as s_in from "astn-runtime/modules/deserialization/schemas/list_of_characters/schema"
 import type * as s_error from "pareto-json/modules/unmarshalling/schemas/document_deserialization/schema"
 import type * as s_parameters from  "pareto-json/modules/unmarshalling/schemas/document_deserialization/schema"
 

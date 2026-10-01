@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/transformer'
 
 import * as s_in from "../schema.js"
-import * as s_out from "astn-core/modules/deserialization/schemas/location/schema"
+import * as s_out from "astn-runtime/modules/deserialization/schemas/location/schema"
 
 //dependencies
 import * as t_chunk_deserialization_to_location from "pareto-json/modules/unmarshalling/schemas/document_deserialization/transformers/location"

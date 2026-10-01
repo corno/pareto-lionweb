@@ -2,7 +2,7 @@
 import * as p_i from 'pareto-core/__internal/Abort'
 import * as p_di from 'pareto-core/schema'
 
-import * as i_imports_location from "astn-core/modules/deserialization/schemas/location/schema"
+import * as i_imports_location from "astn-runtime/modules/deserialization/schemas/location/schema"
 
 export namespace Serialization_Chunk_ {
     

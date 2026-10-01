@@ -1,7 +1,7 @@
 
 import * as p_i from 'pareto-core/__internal/Abort'
 
-import * as i_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
+import * as i_out from "astn-runtime/modules/serialization/schemas/sealed_target/schema"
 
 import * as i_in from "../schema.js"
 
@@ -29,7 +29,7 @@ import p_change_context from 'pareto-core/refiner/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/transformer/specials/text_from_list'
 
-import * as t_out from "astn-core/modules/serialization/schemas/sealed_target/schema"
+import * as t_out from "astn-runtime/modules/serialization/schemas/sealed_target/schema"
 
 import * as v_external_generic from "../../../../generic_types.liana.generated/schemas/unconstrained/transformers/astn_sealed_target.js"
 
